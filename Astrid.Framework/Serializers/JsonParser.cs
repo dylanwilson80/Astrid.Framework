@@ -37,7 +37,7 @@ namespace Astrid.Framework.Serializers
             {
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
-                TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
+                //TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
                 Binder = new JsonKnownComponentTypesSerializationBinder(),
             };
             settings.Converters.Add(assetConverter);

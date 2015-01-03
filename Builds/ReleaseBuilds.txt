@@ -1,0 +1,1 @@
+For the moment, release NuGet packages will be built as a post build step and put into the same folder as this file.
