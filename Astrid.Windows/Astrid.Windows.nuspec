@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.craftworkgames.com</licenseUrl>
+    <projectUrl>http://www.craftworkgames.com</projectUrl>
+    <iconUrl>http://www.craftworkgames.com</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Internal release build only</releaseNotes>
+    <copyright>Copyright 2015 - Craftwork Games</copyright>
+    <tags></tags>
+  </metadata>
+</package>
