@@ -318,9 +318,9 @@
           "NormalSprite": {
             "TextureRegion": "PlayCircle.png",
             "Color": {
-              "B": 212,
-              "G": 212,
-              "R": 212,
+              "B": 255,
+              "G": 255,
+              "R": 255,
               "A": 255
             },
             "Origin": {
@@ -342,9 +342,9 @@
           "PressedSprite": {
             "TextureRegion": "PlayCircle.png",
             "Color": {
-              "B": 148,
-              "G": 148,
-              "R": 148,
+              "B": 255,
+              "G": 255,
+              "R": 255,
               "A": 255
             },
             "Origin": {
@@ -390,6 +390,466 @@
           "IsEnabled": true,
           "IsPressed": false,
           "Name": "PlayButton"
+        }
+      ]
+    },
+    {
+      "Name": "Music.png",
+      "Position": {
+        "X": 101.5,
+        "Y": 33.5
+      },
+      "Rotation": 0.0,
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0
+      },
+      "Components": [
+        {
+          "$type": "GuiButton",
+          "NormalSprite": {
+            "TextureRegion": "Music.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "PressedSprite": {
+            "TextureRegion": "Music.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 0.9,
+              "Y": 0.9
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "DisabledSprite": {
+            "TextureRegion": "Music.png",
+            "Color": {
+              "B": 127,
+              "G": 127,
+              "R": 127,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "IsEnabled": true,
+          "IsPressed": false,
+          "Name": ""
+        }
+      ]
+    },
+    {
+      "Name": "GooglePlus.png",
+      "Position": {
+        "X": 631.5,
+        "Y": 445.5
+      },
+      "Rotation": 0.0,
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0
+      },
+      "Components": [
+        {
+          "$type": "GuiButton",
+          "NormalSprite": {
+            "TextureRegion": "GooglePlus.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "PressedSprite": {
+            "TextureRegion": "GooglePlus.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 0.9,
+              "Y": 0.9
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "DisabledSprite": {
+            "TextureRegion": "GooglePlus.png",
+            "Color": {
+              "B": 127,
+              "G": 127,
+              "R": 127,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "IsEnabled": true,
+          "IsPressed": false,
+          "Name": ""
+        }
+      ]
+    },
+    {
+      "Name": "Leaderboard.png",
+      "Position": {
+        "X": 33.5,
+        "Y": 447.5
+      },
+      "Rotation": 0.0,
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0
+      },
+      "Components": [
+        {
+          "$type": "GuiButton",
+          "NormalSprite": {
+            "TextureRegion": "Leaderboard.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "PressedSprite": {
+            "TextureRegion": "Leaderboard.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 0.9,
+              "Y": 0.9
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "DisabledSprite": {
+            "TextureRegion": "Leaderboard.png",
+            "Color": {
+              "B": 127,
+              "G": 127,
+              "R": 127,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "IsEnabled": true,
+          "IsPressed": false,
+          "Name": ""
+        }
+      ]
+    },
+    {
+      "Name": "QuestionMark.png",
+      "Position": {
+        "X": 767.5,
+        "Y": 33.5
+      },
+      "Rotation": 0.0,
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0
+      },
+      "Components": [
+        {
+          "$type": "GuiButton",
+          "NormalSprite": {
+            "TextureRegion": "QuestionMark.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "PressedSprite": {
+            "TextureRegion": "QuestionMark.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 0.9,
+              "Y": 0.9
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "DisabledSprite": {
+            "TextureRegion": "QuestionMark.png",
+            "Color": {
+              "B": 127,
+              "G": 127,
+              "R": 127,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "IsEnabled": true,
+          "IsPressed": false,
+          "Name": ""
+        }
+      ]
+    },
+    {
+      "Name": "GameTitle.png",
+      "Position": {
+        "X": 408.5,
+        "Y": 96.5
+      },
+      "Rotation": 0.0,
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0
+      },
+      "Components": [
+        {
+          "$type": "GuiButton",
+          "NormalSprite": {
+            "TextureRegion": "GameTitle.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "PressedSprite": {
+            "TextureRegion": "GameTitle.png",
+            "Color": {
+              "B": 255,
+              "G": 255,
+              "R": 255,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 0.9,
+              "Y": 0.9
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "DisabledSprite": {
+            "TextureRegion": "GameTitle.png",
+            "Color": {
+              "B": 127,
+              "G": 127,
+              "R": 127,
+              "A": 255
+            },
+            "Origin": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Rotation": 0.0,
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "IsVisible": true,
+            "Name": ""
+          },
+          "IsEnabled": true,
+          "IsPressed": false,
+          "Name": ""
         }
       ]
     }

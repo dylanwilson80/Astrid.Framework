@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Astrid.Windows;
 
 namespace AstridDemo.Windows
 {
+    public class PlatformService : IPlatformService
+    {
+        public void OpenUrl(string url)
+        {
+            Process.Start(url);
+        }
+    }
+
     class Program
     {
         static void Main()
@@ -20,7 +24,7 @@ namespace AstridDemo.Windows
 
             using (var application = new WindowsApplication(config))
             {
-                var game = new DemoGame(application);
+                var game = new DemoGame(application, new PlatformService());
                 application.Run(game);
             }
         }

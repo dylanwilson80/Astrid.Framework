@@ -50,7 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Content\GameTitle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\GuiArtPack_Licence.txt" />
+    <Content Include="Content\hills_800x480.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Scene1.scene">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
