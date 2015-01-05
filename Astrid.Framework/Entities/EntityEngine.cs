@@ -39,16 +39,20 @@ namespace Astrid.Framework.Entities
         public Scene LoadScene(string assetPath)
         {
             var scene = _assetManager.LoadScene("Scene1.scene");
-            var space = CreateSpace("Space1");
 
-            foreach (var sceneNode in scene.Nodes)
+            foreach (var layer in scene.Layers)
             {
-                var entity = space.CreateEntity(sceneNode.Name, sceneNode.Position, sceneNode.Rotation, sceneNode.Scale);
+                var space = CreateSpace(layer.Name);
 
-                foreach (var component in sceneNode.Components)
-                    entity.Attach(component);
+                foreach (var sceneNode in layer.Nodes)
+                {
+                    var entity = space.CreateEntity(sceneNode.Name, sceneNode.Position, sceneNode.Rotation, sceneNode.Scale);
+
+                    foreach (var component in sceneNode.Components)
+                        entity.Attach(component);
+                }
             }
-
+            
             return scene;
         }
     }

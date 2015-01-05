@@ -12,12 +12,14 @@ namespace Astrid.Windows
         {
             _game = game;
             _graphicsDevice = graphicsDevice;
+            _isPaused = false;
 
             Title = config.Title;
         }
 
         private readonly GameBase _game;
         private readonly GLGraphicsDevice _graphicsDevice;
+        private bool _isPaused;
 
         protected override void OnResize(EventArgs e)
         {
@@ -32,9 +34,16 @@ namespace Astrid.Windows
             base.OnFocusedChanged(e);
 
             if (Focused)
+            {
+                _game.InputDevice.Update();
                 _game.Resume();
+                _isPaused = false;
+            }
             else
+            {
+                _isPaused = true;
                 _game.Pause();
+            }
         }
 
         protected override void OnLoad(EventArgs e)
@@ -60,12 +69,15 @@ namespace Astrid.Windows
 
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
+            if(_isPaused) return;
+            
             var deltaTime = (float) e.Time;
 
             _accumulator += deltaTime;
 
             while (_accumulator >= _timeStep)
             {
+                _game.InputDevice.Update();
                 _game.Update(_timeStep);
                 _accumulator -= _timeStep;
             }
@@ -75,6 +87,8 @@ namespace Astrid.Windows
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
+            if(_isPaused) return;
+            
             base.OnRenderFrame(e);
 
             var deltaTime = (float)e.Time;

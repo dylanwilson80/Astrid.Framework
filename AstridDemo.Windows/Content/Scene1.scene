@@ -1,4 +1,45 @@
 {
+    "Layers" : [
+        {
+            "Name": "BackgroundLayer",
+            "Nodes": [
+                {
+                    "Name": "hills",
+                    "Position": { "X": 0.0, "Y": 0.0 },
+                    "Rotation": 0.0,
+                    "Scale": { "X": 1.0, "Y": 1.0 },
+                    "Components": [ 
+                        {
+                            "$type": "Sprite",
+                            "TextureRegion": "hills_800x480.png",
+                            "Color": {
+                              "B": 255,
+                              "G": 255,
+                              "R": 255,
+                              "A": 255
+                            },
+                            "Origin": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Position": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Rotation": 0.0,
+                            "Scale": {
+                              "X": 1.0,
+                              "Y": 1.0
+                            },
+                            "IsVisible": true,
+                            "Name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+    {
+        "Name":  "GuiLayer",
   "Nodes": [
     {
       "Name": "Twitter.png",
@@ -853,5 +894,7 @@
         }
       ]
     }
+  ]
+  }
   ]
 }

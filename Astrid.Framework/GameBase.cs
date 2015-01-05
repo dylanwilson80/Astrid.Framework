@@ -12,7 +12,7 @@ namespace Astrid.Framework
             AssetManager = application.CreateAssetManager();
             GraphicsDevice = application.CreateGraphicsDevice();
             InputDevice = application.CreateInputDevice();
-            AudioDevice = application.CreateAudioDevice();
+            //AudioDevice = application.CreateAudioDevice();
         }
 
         public AssetManager AssetManager { get; private set; }

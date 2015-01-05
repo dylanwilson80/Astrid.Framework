@@ -25,6 +25,7 @@ namespace Astrid.Framework.Entities.Components.Gui
 
         public event EventHandler Pressed;
         public event EventHandler Released;
+        public event EventHandler Click;
 
         public virtual bool Update(float deltaTime, InputDevice inputDevice)
         {
@@ -41,7 +42,12 @@ namespace Astrid.Framework.Entities.Components.Gui
                 Pressed.Raise(this, EventArgs.Empty);
 
             if (previouslyPressed && !IsPressed)
+            {
                 Released.Raise(this, EventArgs.Empty);
+
+                if (shape.Contains(position))
+                    Click.Raise(this, EventArgs.Empty);
+            }
 
             return true;
         }

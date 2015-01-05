@@ -34,20 +34,21 @@ namespace AstridDemo
             
             // TODO: Load background from the scene file
             // create background
-            var backgroundSpace = _engine.CreateSpace("BackgroundSpace");
-            var backgroundEntity = backgroundSpace.CreateEntity();
-            var textureRegion = AssetManager.Load<TextureRegion>("hills_800x480.png");
-            var sprite = new Sprite(textureRegion) {Origin = Vector2.Zero};
-            backgroundEntity.Attach(sprite);
+            //var backgroundSpace = _engine.CreateSpace("BackgroundSpace");
+            //var backgroundEntity = backgroundSpace.CreateEntity();
+            //var textureRegion = AssetManager.Load<TextureRegion>("hills_800x480.png");
+            //var sprite = new Sprite(textureRegion) {Origin = Vector2.Zero};
+            //backgroundEntity.Attach(sprite);
             
             // Load scene file and wire up button event handlers
             var scene = _engine.LoadScene("Scene1.scene");
+            var guiLayer = scene.GetLayer("GuiLayer");
 
-            var button = scene.GetComponent<GuiButton>("PlayButton");
+            var button = guiLayer.GetComponent<GuiButton>("PlayButton");
             button.IsEnabled = true;
-            button.Pressed += PlayButton_Pressed;
+            button.Click += PlayButton_Click;
 
-            var toggle = scene.GetComponent<GuiToggleButton>("SoundToggle");
+            var toggle = guiLayer.GetComponent<GuiToggleButton>("SoundToggle");
             toggle.CheckChanged += ToggleOnCheckChanged;
         }
 
@@ -55,7 +56,7 @@ namespace AstridDemo
         {
         }
 
-        private void PlayButton_Pressed(object sender, EventArgs eventArgs)
+        private void PlayButton_Click(object sender, EventArgs eventArgs)
         {
             _platformService.OpenUrl("www.craftworkgames.com");
         }
@@ -82,7 +83,7 @@ namespace AstridDemo
 
         public override void Update(float deltaTime)
         {
-            InputDevice.Update();
+            //InputDevice.Update();
             _engine.Update(deltaTime);
         }
 
