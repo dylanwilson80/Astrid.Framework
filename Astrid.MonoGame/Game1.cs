@@ -26,23 +26,15 @@ namespace Astrid.MonoGame
 
             var componentSystemFactory = new MonoGameComponentSystemFactory(GraphicsDevice);
             _engine = new EntityEngine(assetManager, componentSystemFactory);
-            
-            // create background
-            // TODO: This could be loaded from the scene file
-            var backgroundSpace = _engine.CreateSpace("BackgroundSpace");
-            var backgroundEntity = backgroundSpace.CreateEntity();
-            var textureRegion = assetManager.Load<TextureRegion>("hills_800x480.png");
-            var sprite = new Sprite(textureRegion) { Origin = new Astrid.Core.Vector2() };
-            backgroundEntity.Attach(sprite);
 
-            // Load scene file and wire up button event handlers
             var scene = _engine.LoadScene("Scene1.scene");
-            
-            var button = scene.GetComponent<GuiButton>("PlayButton");
-            button.IsEnabled = true;
-            button.Pressed += PlayButton_Pressed;
+            var guiLayer = scene.GetLayer("GuiLayer");
 
-            var toggle = scene.GetComponent<GuiToggleButton>("SoundToggle");
+            var button = guiLayer.GetComponent<GuiButton>("PlayButton");
+            button.IsEnabled = true;
+            button.Click += PlayButton_Click;
+
+            var toggle = guiLayer.GetComponent<GuiToggleButton>("SoundToggle");
             toggle.CheckChanged += ToggleOnCheckChanged;
         }
 
@@ -50,7 +42,7 @@ namespace Astrid.MonoGame
         {
         }
 
-        private void PlayButton_Pressed(object sender, EventArgs e)
+        private void PlayButton_Click(object sender, EventArgs e)
         {
         }
 

@@ -32,15 +32,6 @@ namespace AstridDemo
 
             _engine = new EntityEngine(AssetManager, systemFactory);
             
-            // TODO: Load background from the scene file
-            // create background
-            //var backgroundSpace = _engine.CreateSpace("BackgroundSpace");
-            //var backgroundEntity = backgroundSpace.CreateEntity();
-            //var textureRegion = AssetManager.Load<TextureRegion>("hills_800x480.png");
-            //var sprite = new Sprite(textureRegion) {Origin = Vector2.Zero};
-            //backgroundEntity.Attach(sprite);
-            
-            // Load scene file and wire up button event handlers
             var scene = _engine.LoadScene("Scene1.scene");
             var guiLayer = scene.GetLayer("GuiLayer");
 
