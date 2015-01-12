@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Astrid.Core;
-using Astrid.Framework.Assets;
 using Astrid.Framework.Entities.Components;
 using Astrid.Framework.Entities.Systems;
 using Common.Logging;
@@ -21,32 +20,28 @@ namespace Astrid.Framework.Entities
     {
         private static readonly ILog _logger = LogManager.GetCurrentClassLogger();
 
-        internal EntitySpace(string name, AssetManager assetManager, IComponentSystemFactory componentSystemFactory)
+        internal EntitySpace(string name, ComponentSystemFactory componentSystemFactory)
         {
-            _assetManager = assetManager;
             _componentSystemFactory = componentSystemFactory;
             _systems = new Dictionary<Type, ComponentSystem>();
 
             Name = name;
         }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         private readonly Dictionary<Type, ComponentSystem> _systems;
-        private readonly AssetManager _assetManager;
-        private readonly IComponentSystemFactory _componentSystemFactory;
+        private readonly ComponentSystemFactory _componentSystemFactory;
 
         public void RegisterSystem(ComponentSystem system)
         {
             _logger.Info(string.Format("Registering system {0}", system));
-
             _systems.Add(system.ComponentType, system);
         }
 
         public void DeregisterSystem(ComponentSystem system)
         {
             _logger.Info(string.Format("Deregistering system {0}", system));
-
             _systems.Remove(system.ComponentType);
         }
 
@@ -117,11 +112,6 @@ namespace Astrid.Framework.Entities
         public Entity CreateEntity(string name, Vector2 position, float rotation, Vector2 scale)
         {
             return new Entity(this, name, position, rotation, scale);
-        }
-
-        public void RemoveEntity(Entity entity)
-        {
-            // TODO: Logging?
         }
     }
 }

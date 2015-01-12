@@ -137,7 +137,6 @@ namespace Astrid.Framework.Entities
                 Detach(component);
 
             _components.Clear();
-            _space.RemoveEntity(this);
         }
     }
 }

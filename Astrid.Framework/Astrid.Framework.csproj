@@ -67,11 +67,10 @@
     <Compile Include="Entities\Components\Particles\ParticleSystem.cs" />
     <Compile Include="Entities\Components\Particles\Range.cs" />
     <Compile Include="Entities\Components\Particles\RangeRandom.cs" />
-    <Compile Include="Entities\DefaultComponentSystemFactory.cs" />
+    <Compile Include="Entities\ComponentSystemFactory.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\EntityEngine.cs" />
     <Compile Include="Entities\EntitySpace.cs" />
-    <Compile Include="Entities\IComponentSystemFactory.cs" />
     <Compile Include="Entities\Systems\ComponentSystem.cs" />
     <Compile Include="Entities\Systems\GuiSystem.cs" />
     <Compile Include="Entities\Systems\PhysicsSystem.cs" />

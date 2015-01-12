@@ -41,6 +41,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="MonoGameAssetManager.cs" />
     <Compile Include="MonoGameComponentSystemFactory.cs" />
+    <Compile Include="MonoGameDeviceManager.cs" />
     <Compile Include="MonoGameGraphicsDevice.cs" />
     <Compile Include="MonoGameSoundEffect.cs" />
     <Compile Include="MonoGameTexture.cs" />

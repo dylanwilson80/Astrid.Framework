@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Scenes;
 
@@ -6,7 +8,7 @@ namespace Astrid.Framework.Entities
 {
     public class EntityEngine
     {
-        public EntityEngine(AssetManager assetManager, IComponentSystemFactory componentSystemFactory = null)
+        public EntityEngine(AssetManager assetManager, ComponentSystemFactory componentSystemFactory = null)
         {
             _assetManager = assetManager;
             _componentSystemFactory = componentSystemFactory;
@@ -14,14 +16,32 @@ namespace Astrid.Framework.Entities
         }
 
         private readonly AssetManager _assetManager;
-        private readonly IComponentSystemFactory _componentSystemFactory;
+        private readonly ComponentSystemFactory _componentSystemFactory;
         private readonly List<EntitySpace> _spaces;
 
         public EntitySpace CreateSpace(string name)
         {
-            var space = new EntitySpace(name, _assetManager, _componentSystemFactory);
+            var space = new EntitySpace(name, _componentSystemFactory);
             _spaces.Add(space);
             return space;
+        }
+
+        public void DestroySpace(string name)
+        {
+            var space = _spaces.FirstOrDefault(i => i.Name == name);
+
+            if (space == null)
+                throw new InvalidOperationException(string.Format("Space {0} does not exist", name));
+
+            DestroySpace(space);
+        }
+
+        public void DestroySpace(EntitySpace space)
+        {
+            if (space == null)
+                throw new ArgumentNullException("space");
+
+            _spaces.Remove(space);
         }
 
         public void Update(float deltaTime)
@@ -38,7 +58,7 @@ namespace Astrid.Framework.Entities
 
         public Scene LoadScene(string assetPath)
         {
-            var scene = _assetManager.LoadScene("Scene1.scene");
+            var scene = _assetManager.LoadScene(assetPath);
 
             foreach (var layer in scene.Layers)
             {

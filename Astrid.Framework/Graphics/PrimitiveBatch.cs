@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Astrid.Core;
 
@@ -25,11 +26,15 @@ namespace Astrid.Framework.Graphics
 
         public void Begin()
         {
+            if (_hasBegun) throw new InvalidOperationException("A call to Begin must be followed by call to End");
+
             Begin(Matrix.Identity);
         }
 
         public void End()
         {
+            if (!_hasBegun) throw new InvalidOperationException("A call to End must be preceeded by a call to Begin");
+
             Flush();
             _graphicsDevice.EnableDepthMask();
             _hasBegun = false;
@@ -81,6 +86,5 @@ namespace Astrid.Framework.Graphics
             _vertexData.Add(color.A / 255f);
             _vertexCount++;
         }
-
     }
 }

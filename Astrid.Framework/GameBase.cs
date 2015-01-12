@@ -1,18 +1,19 @@
 ﻿using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
+using Astrid.Framework.Entities;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
 namespace Astrid.Framework
 {
-    public abstract class GameBase
+    public abstract class GameBase : IDeviceManager
     {
         protected GameBase(ApplicationBase application)
         {
             AssetManager = application.CreateAssetManager();
             GraphicsDevice = application.CreateGraphicsDevice();
             InputDevice = application.CreateInputDevice();
-            //AudioDevice = application.CreateAudioDevice();
+            AudioDevice = application.CreateAudioDevice();
         }
 
         public AssetManager AssetManager { get; private set; }

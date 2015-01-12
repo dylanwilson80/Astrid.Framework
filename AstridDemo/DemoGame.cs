@@ -1,10 +1,7 @@
 ﻿using System;
 using Astrid.Core;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
 using Astrid.Framework.Entities;
-using Astrid.Framework.Entities.Components;
-using Astrid.Framework.Entities.Components.Gui;
 using Astrid.Framework.Graphics;
 
 namespace AstridDemo
@@ -28,19 +25,19 @@ namespace AstridDemo
         public override void Create()
         {
             var camera = new Camera { Origin = Vector2.Zero, Position = Vector2.Zero, Rotation = 0, Zoom = 1 };
-            var systemFactory = new DefaultComponentSystemFactory(this, camera);
+            var systemFactory = new ComponentSystemFactory(this, camera);
 
             _engine = new EntityEngine(AssetManager, systemFactory);
             
             var scene = _engine.LoadScene("Scene1.scene");
             var guiLayer = scene.GetLayer("GuiLayer");
 
-            var button = guiLayer.GetComponent<GuiButton>("PlayButton");
-            button.IsEnabled = true;
-            button.Click += PlayButton_Click;
+            //var button = guiLayer.GetComponent<GuiButton>("PlayButton");
+            //button.IsEnabled = true;
+            //button.Click += PlayButton_Click;
 
-            var toggle = guiLayer.GetComponent<GuiToggleButton>("SoundToggle");
-            toggle.CheckChanged += ToggleOnCheckChanged;
+            //var toggle = guiLayer.GetComponent<GuiToggleButton>("SoundToggle");
+            //toggle.CheckChanged += ToggleOnCheckChanged;
         }
 
         private void ToggleOnCheckChanged(object sender, EventArgs eventArgs)
