@@ -6,8 +6,8 @@
         {
           "Name": "hills",
           "Position": {
-            "X": 10.0,
-            "Y": 16.0
+            "X": 0.0,
+            "Y": 0.0
           },
           "Rotation": 0.0,
           "Scale": {
@@ -50,8 +50,8 @@
         {
           "Name": "OpenLeaderboard.png",
           "Position": {
-            "X": 517.5,
-            "Y": 237.5
+            "X": 193.5,
+            "Y": 65.5
           },
           "Rotation": 0.0,
           "Scale": {

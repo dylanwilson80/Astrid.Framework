@@ -34,24 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BoundingBox.cs" />
     <Compile Include="BoundingFrustum.cs" />
     <Compile Include="BoundingSphere.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="ContainmentType.cs" />
-    <Compile Include="Curve.cs" />
-    <Compile Include="CurveContinuity.cs" />
-    <Compile Include="CurveKey.cs" />
-    <Compile Include="CurveKeyCollection.cs" />
-    <Compile Include="CurveLoopType.cs" />
-    <Compile Include="CurveTangent.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="PlaneHelper.cs" />
     <Compile Include="PlaneIntersectionType.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

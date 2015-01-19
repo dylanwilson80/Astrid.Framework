@@ -209,13 +209,18 @@ namespace Astrid.Core
             for (int i = 0; i < PlaneCount; ++i)
             {
                 // TODO: we might want to inline this for performance reasons
-                if (PlaneHelper.ClassifyPoint(ref point, ref planes[i]) > 0)
+                if (ClassifyPoint(ref point, ref planes[i]) > 0)
                 {
                     result = ContainmentType.Disjoint;
                     return;
                 }
             }
             result = ContainmentType.Contains;
+        }
+
+        private static float ClassifyPoint(ref Vector3 point, ref Plane plane)
+        {
+            return point.X * plane.Normal.X + point.Y * plane.Normal.Y + point.Z * plane.Normal.Z + plane.D;
         }
 
         public override bool Equals(object obj)
