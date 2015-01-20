@@ -1,16 +1,16 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>Astrid.Framework</id>
+    <version>1.0.0.0</version>
+    <title>Astrid.Framework</title>
+    <authors>Craftwork Games</authors>
+    <owners>Dylan Wilson</owners>
     <licenseUrl>https://github.com/craftworkgames/Astrid.Framework/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/craftworkgames/Astrid.Framework</projectUrl>
     <iconUrl>http://astrid.craftworkgames.com</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Cross-platform open source C# game-development framework</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 - Craftwork Games</copyright>
     <tags></tags>
