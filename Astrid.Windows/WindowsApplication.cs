@@ -27,7 +27,7 @@ namespace Astrid.Windows
         private GLGraphicsDevice _graphicsDevice;
         public override GraphicsDevice CreateGraphicsDevice()
         {
-            _graphicsDevice = new GLGraphicsDevice();
+            _graphicsDevice = new GLGraphicsDevice(_config.Width, _config.Height);
             return _graphicsDevice;
         }
 

@@ -1,11 +1,27 @@
-﻿using System.Collections.Generic;
-using Astrid.Core;
+﻿using Astrid.Core;
 using Astrid.Framework.Assets;
 
 namespace Astrid.Framework.Graphics
 {
     public abstract class GraphicsDevice
     {
+        protected GraphicsDevice(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+
+        public void Resize(int width, int height)
+        {
+            Width = width;
+            Height = height;
+            OnResize(width, height);
+        }
+
+        protected abstract void OnResize(int width, int height);
         public abstract void EnableDepthMask();
         public abstract void DisableDepthMask();
         public abstract void BindTexture(Texture texture);

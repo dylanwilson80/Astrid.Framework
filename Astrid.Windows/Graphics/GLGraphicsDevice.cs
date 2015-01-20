@@ -8,7 +8,8 @@ namespace Astrid.Windows.Graphics
 {
     public class GLGraphicsDevice : GraphicsDevice
     {
-        public GLGraphicsDevice()
+        public GLGraphicsDevice(int width, int height)
+            : base(width, height)
         {
         }
 
@@ -16,7 +17,7 @@ namespace Astrid.Windows.Graphics
         private GLPrimitiveBatchProgram _primitiveBatchProgram;
         private GLBatchProgram _program;
 
-        public void Resize(int width, int height)
+        protected override void OnResize(int width, int height)
         {
             var matrix = Matrix.CreateOrthographicOffCenter(0, width, height, 0, 1, -1);
             GL.Viewport(0, 0, width, height);
