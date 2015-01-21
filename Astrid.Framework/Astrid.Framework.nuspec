@@ -15,4 +15,9 @@
     <copyright>Copyright 2015 - Craftwork Games</copyright>
     <tags></tags>
   </metadata>
+  <files>
+    <file src="bin\Release\Astrid.*.dll" target="lib\net40" />
+    <file src="bin\Release\Astrid.*.dll" target="lib\net45" />
+    <file src="bin\Release\Astrid.*.dll" target="lib\portable-net45+sl50+MonoAndroid10+xamarinios10+MonoTouch10" />
+  </files>
 </package>
