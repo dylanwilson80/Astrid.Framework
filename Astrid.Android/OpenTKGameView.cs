@@ -15,9 +15,16 @@ namespace Astrid.Android
             ContextRenderingApi = GLVersion.ES2;
         }
 
+        protected override void CreateFrameBuffer()
+        {
+
+            base.CreateFrameBuffer();
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            Run();
 
             var vertexShaderId = CompileShader(ShaderType.VertexShader, _vertexShader);
             var fragmentShaderId = CompileShader(ShaderType.FragmentShader, _fragmentShader);
