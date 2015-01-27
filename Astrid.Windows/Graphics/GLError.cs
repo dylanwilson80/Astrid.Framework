@@ -1,16 +1,23 @@
 ﻿using System;
+#if ANDROID
+using OpenTK.Graphics.ES20;
+#else
 using OpenTK.Graphics.OpenGL;
+#endif
 
 namespace Astrid.Windows.Graphics
 {
     public static class GLError
     {
-        public static void ThrowOnError(int programId)
+        public static void ThrowOnError(Func<string> getErrorMessage)
         {
+#if ANDROID
+            if(GL.GetErrorCode() != ErrorCode.NoError)
+#else
             if (GL.GetError() != ErrorCode.NoError)
+#endif
             {
-                var log = GL.GetProgramInfoLog(programId);
-                throw new InvalidOperationException(log);
+                throw new InvalidOperationException(getErrorMessage());
             }
         }
     }

@@ -11,10 +11,10 @@ namespace AstridDemo.Android
 		,HardwareAccelerated=false
 #endif
 )]
-    public class MainActivity : Activity
+    public class MainActivity : Activity, IPlatformService
     {
         private AndroidApplication _application;
-        
+        private DemoGame _game;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,7 +22,9 @@ namespace AstridDemo.Android
 
             var config = new AndroidApplicationConfig(this);
             _application = new AndroidApplication(config);
+            _game = new DemoGame(_application, this);
             SetContentView(_application.View);
+            _application.Run(_game);
         }
 
         protected override void OnPause()
@@ -35,6 +37,11 @@ namespace AstridDemo.Android
         {
             base.OnResume();
             _application.Resume();
+        }
+
+        public void OpenUrl(string url)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

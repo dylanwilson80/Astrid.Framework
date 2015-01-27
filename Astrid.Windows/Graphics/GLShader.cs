@@ -1,5 +1,9 @@
 ﻿using System;
+#if ANDROID
+using OpenTK.Graphics.ES20;
+#else
 using OpenTK.Graphics.OpenGL;
+#endif
 
 namespace Astrid.Windows.Graphics
 {
@@ -21,12 +25,7 @@ namespace Astrid.Windows.Graphics
             var shaderId = GL.CreateShader(ShaderType);
             GL.ShaderSource(shaderId, _code);
             GL.CompileShader(shaderId);
-
-            if (GL.GetError() != ErrorCode.NoError)
-            {
-                var log = GL.GetShaderInfoLog(shaderId);
-                throw new InvalidOperationException(log);
-            }
+            GLError.ThrowOnError(() => GL.GetShaderInfoLog(shaderId));
 
             Id = shaderId;
         }

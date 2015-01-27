@@ -1,8 +1,15 @@
+using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using Astrid.Framework.Assets;
+#if ANDROID
+using Android.Graphics;
+using OpenTK.Graphics.ES20;
+#else
+using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL;
+#endif
+
 
 namespace Astrid.Windows.Graphics
 {
@@ -21,7 +28,10 @@ namespace Astrid.Windows.Graphics
             int id;
             GL.GenTextures(1, out id);
             GL.BindTexture(TextureTarget.Texture2D, id);
-
+            
+#if ANDROID
+            throw new NotImplementedException();
+#else
             using (var bitmap = new Bitmap(filePath))
             {
                 const System.Drawing.Imaging.PixelFormat pixelFormat = System.Drawing.Imaging.PixelFormat.Format32bppArgb;
@@ -35,11 +45,12 @@ namespace Astrid.Windows.Graphics
                 
                 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
                 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToBorder);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToBorder);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
 
                 return new GLTexture(id, name, bitmap.Width, bitmap.Height, filePath);
             }
+#endif
         }
     }
 }

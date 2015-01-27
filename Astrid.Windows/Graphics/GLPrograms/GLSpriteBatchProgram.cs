@@ -1,5 +1,10 @@
 using System;
+#if ANDROID
+using OpenTK.Graphics.ES20;
+#else
 using OpenTK.Graphics.OpenGL;
+#endif
+
 
 namespace Astrid.Windows.Graphics.GLPrograms
 {
@@ -80,7 +85,7 @@ namespace Astrid.Windows.Graphics.GLPrograms
                     GL.VertexAttribPointer(AttribColor, 4, VertexAttribPointerType.Float, false, Stride, pinnedVerticesPtr + 16);
                     GL.EnableVertexAttribArray(AttribColor);
 
-                    GL.DrawArrays(PrimitiveType.Triangles, 0, vertexCount);
+                    GL.DrawArrays(BeginMode.Triangles, 0, vertexCount);
                     GL.Finish();
                 }
             }

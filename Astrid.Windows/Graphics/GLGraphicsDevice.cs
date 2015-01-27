@@ -2,7 +2,12 @@
 using Astrid.Framework.Assets;
 using Astrid.Framework.Graphics;
 using Astrid.Windows.Graphics.GLPrograms;
+#if ANDROID
+using OpenTK.Graphics.ES20;
+#else
 using OpenTK.Graphics.OpenGL;
+#endif
+
 
 namespace Astrid.Windows.Graphics
 {
@@ -37,7 +42,7 @@ namespace Astrid.Windows.Graphics
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
 
-            GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
+            //GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
 
             _spriteBatchProgram = new GLSpriteBatchProgram();
             _spriteBatchProgram.Build();

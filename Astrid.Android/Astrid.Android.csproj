@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -32,7 +32,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -50,6 +50,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Astrid.Windows\Graphics\ColorExtensions.cs">
+      <Link>ColorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLError.cs">
+      <Link>GLError.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLGraphicsDevice.cs">
+      <Link>GLGraphicsDevice.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLProgram.cs">
+      <Link>GLProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLBatchProgram.cs">
+      <Link>GLBatchProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLPrimitiveBatchProgram.cs">
+      <Link>GLPrimitiveBatchProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLSpriteBatchProgram.cs">
+      <Link>GLSpriteBatchProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLShader.cs">
+      <Link>GLShader.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\Graphics\GLTexture.cs">
+      <Link>GLTexture.cs</Link>
+    </Compile>
     <Compile Include="AndroidApplication.cs" />
     <Compile Include="AndroidApplicationConfig.cs" />
     <Compile Include="AndroidAssetManager.cs" />

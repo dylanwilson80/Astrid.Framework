@@ -14,9 +14,11 @@
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>
+    </AndroidUseLatestPlatformSdk>
     <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +69,9 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\hills_800x480.png">
+      <Link>Assets\hills_800x480.png</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +90,10 @@
     <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
       <Project>{2b3b1640-5b1f-425f-aebc-a24260524ad8}</Project>
       <Name>Astrid.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AstridDemo\AstridDemo.csproj">
+      <Project>{BD917293-2600-422D-9882-80C33A13B303}</Project>
+      <Name>AstridDemo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

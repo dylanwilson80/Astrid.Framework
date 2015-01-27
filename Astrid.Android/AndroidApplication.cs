@@ -22,27 +22,26 @@ namespace Astrid.Android
 
         public override AssetManager CreateAssetManager()
         {
-            throw new System.NotImplementedException();
+            return new AndroidAssetManager();
         }
 
         public override GraphicsDevice CreateGraphicsDevice()
         {
-            throw new System.NotImplementedException();
+            return new AndroidGraphicsDevice(_view.Width, _view.Height);
         }
 
         public override InputDevice CreateInputDevice()
         {
-            throw new System.NotImplementedException();
+            return new AndroidInputDevice();
         }
 
         public override AudioDevice CreateAudioDevice()
         {
-            throw new System.NotImplementedException();
+            return new AndroidAudioDevice();
         }
 
         public override void Run(GameBase game)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Pause()

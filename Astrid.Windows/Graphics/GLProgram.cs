@@ -1,4 +1,8 @@
-﻿using OpenTK.Graphics.OpenGL;
+﻿#if ANDROID
+using OpenTK.Graphics.ES20;
+#else
+using OpenTK.Graphics.OpenGL;
+#endif
 
 namespace Astrid.Windows.Graphics
 {
@@ -10,41 +14,46 @@ namespace Astrid.Windows.Graphics
 
         public int Id { get; private set; }
 
+        private void CheckErrors()
+        {
+            GLError.ThrowOnError(() => GL.GetProgramInfoLog(Id));
+        }
+
         public void Create()
         {
             Id = GL.CreateProgram();
-            GLError.ThrowOnError(Id);
+            CheckErrors();
         }
 
         public void Link()
         {
             GL.LinkProgram(Id);
-            GLError.ThrowOnError(Id);
+            CheckErrors();
         }
 
         public void AttachShader(GLShader shader)
         {
             GL.AttachShader(Id, shader.Id);
-            GLError.ThrowOnError(Id);
+            CheckErrors();
         }
 
         public void Use()
         {
             GL.UseProgram(Id);
-            GLError.ThrowOnError(Id);
+            CheckErrors();
         }
 
         public int GetAttribLocation(string name)
         {
             var location = GL.GetAttribLocation(Id, name);
-            GLError.ThrowOnError(Id);
+            CheckErrors();
             return location;
         }
 
         public int GetUniformLocation(string name)
         {
             var location = GL.GetUniformLocation(Id, name);
-            GLError.ThrowOnError(Id);
+            CheckErrors();
             return location;
         }
     }
