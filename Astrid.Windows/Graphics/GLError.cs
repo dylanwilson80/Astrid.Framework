@@ -12,12 +12,14 @@ namespace Astrid.Windows.Graphics
         public static void ThrowOnError(Func<string> getErrorMessage)
         {
 #if ANDROID
-            if(GL.GetErrorCode() != ErrorCode.NoError)
+            var errorCode = GL.GetErrorCode();
 #else
-            if (GL.GetError() != ErrorCode.NoError)
+            var errorCode = GL.GetError();
 #endif
+            if (errorCode != ErrorCode.NoError)
             {
-                throw new InvalidOperationException(getErrorMessage());
+                var message = getErrorMessage();
+                throw new InvalidOperationException(message);
             }
         }
     }

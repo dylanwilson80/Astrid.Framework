@@ -1,8 +1,11 @@
+using System;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
+using Astrid.Windows.Graphics;
+using OpenTK;
 using OpenTK.Platform.Android;
 
 namespace Astrid.Android
@@ -10,24 +13,28 @@ namespace Astrid.Android
     public class AndroidApplication : ApplicationBase
     {
         private readonly AndroidApplicationConfig _config;
-        private readonly OpenTKGameView _view;
 
         public AndroidApplication(AndroidApplicationConfig config)
         {
             _config = config;
-            _view = new OpenTKGameView(config.Activity);
         }
 
-        public AndroidGameView View { get { return _view; } }
+        private OpenTKGameView _view;
+        public AndroidGameView View
+        {
+            get { return _view; }
+        }
 
         public override AssetManager CreateAssetManager()
         {
             return new AndroidAssetManager();
         }
 
+        private GLGraphicsDevice _graphicsDevice;
         public override GraphicsDevice CreateGraphicsDevice()
         {
-            return new AndroidGraphicsDevice(_view.Width, _view.Height);
+            _graphicsDevice = new GLGraphicsDevice(800, 480);
+            return _graphicsDevice;
         }
 
         public override InputDevice CreateInputDevice()
@@ -42,6 +49,9 @@ namespace Astrid.Android
 
         public override void Run(GameBase game)
         {
+            _view = new OpenTKGameView(_config.Activity, game, _graphicsDevice, _config);
+            _view.RequestFocus();
+            _view.FocusableInTouchMode = true;
         }
 
         public void Pause()

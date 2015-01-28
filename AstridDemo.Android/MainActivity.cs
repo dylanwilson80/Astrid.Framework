@@ -23,8 +23,14 @@ namespace AstridDemo.Android
             var config = new AndroidApplicationConfig(this);
             _application = new AndroidApplication(config);
             _game = new DemoGame(_application, this);
-            SetContentView(_application.View);
             _application.Run(_game);
+            SetContentView(_application.View);
+        }
+
+        protected override void OnDestroy()
+        {
+            _application.Dispose();
+            base.OnDestroy();
         }
 
         protected override void OnPause()

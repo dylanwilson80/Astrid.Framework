@@ -7,7 +7,7 @@ namespace Astrid.Windows
 {
     public class WindowsGameWindow : GameWindow
     {
-        public WindowsGameWindow(GameBase game, GLGraphicsDevice graphicsDevice, WindowsApplicationConfig config)
+        internal WindowsGameWindow(GameBase game, GLGraphicsDevice graphicsDevice, WindowsApplicationConfig config)
             : base(config.Width, config.Height)
         {
             _game = game;

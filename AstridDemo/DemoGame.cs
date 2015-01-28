@@ -24,13 +24,13 @@ namespace AstridDemo
 
         public override void Create()
         {
-            var camera = new Camera { Origin = Vector2.Zero, Position = Vector2.Zero, Rotation = 0, Zoom = 1 };
-            var systemFactory = new ComponentSystemFactory(this, camera);
+            //var camera = new Camera { Origin = Vector2.Zero, Position = Vector2.Zero, Rotation = 0, Zoom = 1 };
+            //var systemFactory = new ComponentSystemFactory(this, camera);
 
-            _engine = new EntityEngine(AssetManager, systemFactory);
+            //_engine = new EntityEngine(AssetManager, systemFactory);
             
-            var scene = _engine.LoadScene("Scene1.scene");
-            var guiLayer = scene.GetLayer("GuiLayer");
+            //var scene = _engine.LoadScene("Scene1.scene");
+            //var guiLayer = scene.GetLayer("GuiLayer");
 
             //var button = guiLayer.GetComponent<GuiButton>("PlayButton");
             //button.IsEnabled = true;
@@ -72,13 +72,13 @@ namespace AstridDemo
         public override void Update(float deltaTime)
         {
             //InputDevice.Update();
-            _engine.Update(deltaTime);
+            //_engine.Update(deltaTime);
         }
 
         public override void Render(float deltaTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            _engine.Draw(deltaTime);
+            //_engine.Draw(deltaTime);
         }
     }
 }

@@ -1,5 +1,9 @@
 using System;
 using Android.Content;
+using Android.Graphics;
+using Android.Views;
+using Astrid.Framework;
+using Astrid.Windows.Graphics;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.ES20;
@@ -9,10 +13,33 @@ namespace Astrid.Android
 {
     public class OpenTKGameView : AndroidGameView
     {
-        public OpenTKGameView(Context context)
+        private readonly GameBase _game;
+        private readonly GLGraphicsDevice _graphicsDevice;
+
+        internal OpenTKGameView(Context context, GameBase game, GLGraphicsDevice graphicsDevice, AndroidApplicationConfig config)
             : base(context)
         {
+            _game = game;
+            _graphicsDevice = graphicsDevice;
             ContextRenderingApi = GLVersion.ES2;
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            _graphicsDevice.Resize(Width, Height);
+            _game.Resize(Width, Height);
+        }
+
+        protected override void OnFocusChanged(bool gainFocus, FocusSearchDirection direction, Rect previouslyFocusedRect)
+        {
+            base.OnFocusChanged(gainFocus, direction, previouslyFocusedRect);
+
+            if (gainFocus)
+                _game.Resume();
+            else
+                _game.Pause();
         }
 
         protected override void CreateFrameBuffer()
@@ -24,32 +51,36 @@ namespace Astrid.Android
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+            _graphicsDevice.Initialize();
+            _game.Create();
+
             Run();
 
-            var vertexShaderId = CompileShader(ShaderType.VertexShader, _vertexShader);
-            var fragmentShaderId = CompileShader(ShaderType.FragmentShader, _fragmentShader);
+            //var vertexShaderId = CompileShader(ShaderType.VertexShader, _vertexShader);
+            //var fragmentShaderId = CompileShader(ShaderType.FragmentShader, _fragmentShader);
 
-            _programId = GL.CreateProgram();
-            GL.AttachShader(_programId, vertexShaderId);
-            GL.AttachShader(_programId, fragmentShaderId);
-            GL.LinkProgram(_programId);
+            //_programId = GL.CreateProgram();
+            //GL.AttachShader(_programId, vertexShaderId);
+            //GL.AttachShader(_programId, fragmentShaderId);
+            //GL.LinkProgram(_programId);
 
-            if (GL.GetErrorCode() != ErrorCode.NoError)
-            {
-                var log = GL.GetProgramInfoLog(_programId);
-                throw new InvalidOperationException(log);
-            }
+            //if (GL.GetErrorCode() != ErrorCode.NoError)
+            //{
+            //    var log = GL.GetProgramInfoLog(_programId);
+            //    throw new InvalidOperationException(log);
+            //}
 
-            GL.UseProgram(_programId);
+            //GL.UseProgram(_programId);
 
-            _colorUniformLocation = GL.GetUniformLocation(_programId, "u_Color");
-            _positionAttributeLocation = GL.GetAttribLocation(_programId, "a_Position");
+            //_colorUniformLocation = GL.GetUniformLocation(_programId, "u_Color");
+            //_positionAttributeLocation = GL.GetAttribLocation(_programId, "a_Position");
 
-            if (GL.GetErrorCode() != ErrorCode.NoError)
-            {
-                var log = GL.GetProgramInfoLog(_programId);
-                throw new InvalidOperationException(log);
-            }
+            //if (GL.GetErrorCode() != ErrorCode.NoError)
+            //{
+            //    var log = GL.GetProgramInfoLog(_programId);
+            //    throw new InvalidOperationException(log);
+            //}
         }
 
         private static int CompileShader(ShaderType shaderType, string code)
@@ -71,25 +102,27 @@ namespace Astrid.Android
         {
             base.OnRenderFrame(e);
 
-            GL.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-            GL.Clear(ClearBufferMask.ColorBufferBit);
+            //GL.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+            //GL.Clear(ClearBufferMask.ColorBufferBit);
+
+            _game.Render((float)e.Time);
 
             //GL.Viewport(0, 0, Width, Height);
             //GL.UseProgram(_programId);
 
             // pin the data, so that GC doesn't move them, while used
             // by native code
-            unsafe
-            {
-                fixed (float* pinnedVertices = _vertices)
-                {
-                    GL.VertexAttribPointer(_positionAttributeLocation, 2, VertexAttribPointerType.Float, false, 0, new IntPtr(pinnedVertices));
-                    GL.EnableVertexAttribArray(_positionAttributeLocation);
-                    GL.Uniform4(_colorUniformLocation, 1.0f, 0.0f, 1.0f, 1.0f);
-                    GL.DrawArrays(BeginMode.Triangles, 0, 6);
-                    GL.Finish();
-                }
-            }
+            //unsafe
+            //{
+            //    fixed (float* pinnedVertices = _vertices)
+            //    {
+            //        GL.VertexAttribPointer(_positionAttributeLocation, 2, VertexAttribPointerType.Float, false, 0, new IntPtr(pinnedVertices));
+            //        GL.EnableVertexAttribArray(_positionAttributeLocation);
+            //        GL.Uniform4(_colorUniformLocation, 1.0f, 0.0f, 1.0f, 1.0f);
+            //        GL.DrawArrays(BeginMode.Triangles, 0, 6);
+            //        GL.Finish();
+            //    }
+            //}
 
             SwapBuffers();
         }
