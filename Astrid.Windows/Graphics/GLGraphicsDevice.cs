@@ -2,12 +2,7 @@
 using Astrid.Framework.Assets;
 using Astrid.Framework.Graphics;
 using Astrid.Windows.Graphics.GLPrograms;
-#if ANDROID
 using OpenTK.Graphics.ES20;
-#else
-using OpenTK.Graphics.OpenGL;
-#endif
-
 
 namespace Astrid.Windows.Graphics
 {

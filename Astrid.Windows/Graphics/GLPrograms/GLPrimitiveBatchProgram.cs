@@ -1,9 +1,5 @@
 using System;
-#if ANDROID
 using OpenTK.Graphics.ES20;
-#else
-using OpenTK.Graphics.OpenGL;
-#endif
 
 namespace Astrid.Windows.Graphics.GLPrograms
 {

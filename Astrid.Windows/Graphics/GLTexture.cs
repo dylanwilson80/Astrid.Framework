@@ -1,13 +1,10 @@
-using System.Drawing;
-using System.IO;
 using Astrid.Framework.Assets;
 #if ANDROID
 using Android.Graphics;
-using OpenTK.Graphics.ES20;
 #else
 using System.Drawing.Imaging;
-using OpenTK.Graphics.OpenGL;
 #endif
+using OpenTK.Graphics.ES20;
 
 
 namespace Astrid.Windows.Graphics

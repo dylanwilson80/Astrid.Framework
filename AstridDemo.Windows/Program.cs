@@ -3,14 +3,6 @@ using Astrid.Windows;
 
 namespace AstridDemo.Windows
 {
-    public class PlatformService : IPlatformService
-    {
-        public void OpenUrl(string url)
-        {
-            Process.Start(url);
-        }
-    }
-
     class Program
     {
         static void Main()
@@ -24,7 +16,7 @@ namespace AstridDemo.Windows
 
             using (var application = new WindowsApplication(config))
             {
-                var game = new DemoGame(application, new PlatformService());
+                var game = new DemoGame(application);
                 application.Run(game);
             }
         }
