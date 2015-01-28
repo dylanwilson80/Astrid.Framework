@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Astrid.Framework.Assets;
 using Astrid.Windows.Audio;
 using Astrid.Windows.Graphics;
+using OpenTK.Graphics.OpenGL;
 
 namespace Astrid.Windows.Assets
 {
@@ -33,9 +36,38 @@ namespace Astrid.Windows.Assets
             if (_textureCache.TryGetValue(filePath, out texture))
                 return texture;
 
-            texture = GLTexture.Load(assetPath, filePath);
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException(string.Format("File not found loading GL Texture: {0}", filePath), filePath);
+            
+            texture = LoadGLTexture(assetPath, filePath);
             _textureCache.Add(filePath, texture);
             return texture;
+        }
+
+        private GLTexture LoadGLTexture(string name, string filePath)
+        {
+            int id;
+            GL.GenTextures(1, out id);
+            GL.BindTexture(TextureTarget.Texture2D, id);
+
+            using (var bitmap = new Bitmap(filePath))
+            {
+                const System.Drawing.Imaging.PixelFormat pixelFormat = System.Drawing.Imaging.PixelFormat.Format32bppArgb;
+                var rectangle = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+                var data = bitmap.LockBits(rectangle, ImageLockMode.ReadOnly, pixelFormat);
+
+                GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, data.Width, data.Height, 0,
+                   OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
+
+                bitmap.UnlockBits(data);
+
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+
+                return new GLTexture(id, name, bitmap.Width, bitmap.Height, filePath);
+            }
         }
 
         public override SoundEffect LoadSoundEffect(string assetPath)
