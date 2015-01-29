@@ -34,6 +34,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging.Portable">
+      <HintPath>..\packages\Common.Logging.Portable.2.3.1\lib\net40\Common.Logging.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="NAudio, Version=1.7.2.19, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NAudio.1.7.2\lib\net35\NAudio.dll</HintPath>
@@ -64,7 +67,6 @@
     <Compile Include="Graphics\GLError.cs" />
     <Compile Include="Graphics\GLGraphicsDevice.cs" />
     <Compile Include="Graphics\GLPrograms\GLPrimitiveBatchProgram.cs" />
-    <Compile Include="Graphics\GLProgram.cs" />
     <Compile Include="Graphics\GLShader.cs" />
     <Compile Include="Graphics\GLTexture.cs" />
     <Compile Include="WindowsGameWindow.cs" />

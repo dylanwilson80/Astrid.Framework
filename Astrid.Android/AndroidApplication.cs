@@ -27,13 +27,15 @@ namespace Astrid.Android
 
         public override AssetManager CreateAssetManager()
         {
-            return new AndroidAssetManager();
+            return new AndroidAssetManager(_config.Activity);
         }
 
         private GLGraphicsDevice _graphicsDevice;
         public override GraphicsDevice CreateGraphicsDevice()
         {
-            _graphicsDevice = new GLGraphicsDevice(800, 480);
+            var width = _config.Activity.Resources.DisplayMetrics.WidthPixels;
+            var height = _config.Activity.Resources.DisplayMetrics.HeightPixels;
+            _graphicsDevice = new GLGraphicsDevice(width, height);
             return _graphicsDevice;
         }
 

@@ -1,17 +1,14 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Content.PM;
+using Android.Views;
 using Astrid.Android;
 
 namespace AstridDemo.Android
 {
     [Activity(Label = "AstridDemo.Android", MainLauncher = true, Icon = "@drawable/icon",
-        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.KeyboardHidden 
-#if __ANDROID_11__
-		,HardwareAccelerated=false
-#endif
-)]
-    public class MainActivity : Activity, IPlatformService
+        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize)]
+    public class MainActivity : Activity
     {
         private AndroidApplication _application;
         private DemoGame _game;
@@ -20,9 +17,12 @@ namespace AstridDemo.Android
         {
             base.OnCreate(bundle);
 
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+
             var config = new AndroidApplicationConfig(this);
             _application = new AndroidApplication(config);
-            _game = new DemoGame(_application, this);
+            _game = new DemoGame(_application);
             _application.Run(_game);
             SetContentView(_application.View);
         }
@@ -43,11 +43,6 @@ namespace AstridDemo.Android
         {
             base.OnResume();
             _application.Resume();
-        }
-
-        public void OpenUrl(string url)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

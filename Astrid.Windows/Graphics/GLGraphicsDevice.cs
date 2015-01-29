@@ -22,13 +22,13 @@ namespace Astrid.Windows.Graphics
             var matrix = Matrix.CreateOrthographicOffCenter(0, width, height, 0, 1, -1);
             GL.Viewport(0, 0, width, height);
 
-            _spriteBatchProgram.Use();
+            GL.UseProgram(_spriteBatchProgram.Id);
             GL.UniformMatrix4(_spriteBatchProgram.MatrixLocation, 1, false, Matrix.ToFloatArray(matrix));
 
-            _primitiveBatchProgram.Use();
+            GL.UseProgram(_primitiveBatchProgram.Id);
             GL.UniformMatrix4(_primitiveBatchProgram.MatrixLocation, 1, false, Matrix.ToFloatArray(matrix));
 
-            _program.Use();
+            GL.UseProgram(_program.Id);
         }
         
         public void Initialize()
@@ -83,13 +83,13 @@ namespace Astrid.Windows.Graphics
         public override void UsePrimitiveBatchProgram()
         {
             _program = _primitiveBatchProgram;
-            _program.Use();
+            GL.UseProgram(_program.Id);
         }
 
         public override void UseSpriteBatchProgram()
         {
             _program = _spriteBatchProgram;
-            _program.Use();
+            GL.UseProgram(_program.Id);
         }
     }
 }

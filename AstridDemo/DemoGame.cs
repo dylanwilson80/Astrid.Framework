@@ -9,6 +9,7 @@ namespace AstridDemo
     {
         private SpriteBatch _spriteBatch;
         private Texture _texture;
+        private Vector2 _position;
 
         public DemoGame(ApplicationBase application)
             : base(application)
@@ -19,6 +20,10 @@ namespace AstridDemo
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("AstridLogo.png");
+
+            var x = GraphicsDevice.Width / 2 - _texture.Width / 2;
+            var y = GraphicsDevice.Height / 2 - _texture.Height / 2;
+            _position = new Vector2(x, y);
         }
 
         public override void Destroy()
@@ -46,7 +51,7 @@ namespace AstridDemo
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_texture, Vector2.Zero);
+            _spriteBatch.Draw(_texture, _position);
             _spriteBatch.End();
         }
     }

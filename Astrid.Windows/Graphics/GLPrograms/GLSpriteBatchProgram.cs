@@ -17,7 +17,7 @@ namespace Astrid.Windows.Graphics.GLPrograms
         {
             base.Build();
 
-            AttribTextureCoordinates = GetAttribLocation("a_TextureCoordinates");
+            AttribTextureCoordinates = GL.GetAttribLocation(Id, "a_TextureCoordinates");
         }
 
         protected override sealed GLShader GetVertexShader()
@@ -80,7 +80,7 @@ namespace Astrid.Windows.Graphics.GLPrograms
                     GL.VertexAttribPointer(AttribColor, 4, VertexAttribPointerType.Float, false, Stride, pinnedVerticesPtr + 16);
                     GL.EnableVertexAttribArray(AttribColor);
                     
-                    GL.DrawArrays(PrimitiveType.Triangles, 0, vertexCount);
+                    GL.DrawArrays(BeginMode.Triangles, 0, vertexCount);
                     GL.Finish();
                 }
             }

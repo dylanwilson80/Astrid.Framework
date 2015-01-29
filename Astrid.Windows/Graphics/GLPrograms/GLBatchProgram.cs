@@ -1,10 +1,15 @@
+using System;
+using OpenTK.Graphics.ES20;
+
 namespace Astrid.Windows.Graphics.GLPrograms
 {
-    public abstract class GLBatchProgram : GLProgram
+    public abstract class GLBatchProgram
     {
         protected GLBatchProgram()
         {
         }
+
+        public int Id { get; protected set; }
 
         public virtual void Build()
         {
@@ -14,16 +19,38 @@ namespace Astrid.Windows.Graphics.GLPrograms
             vertexShader.Compile();
             fragmentShader.Compile();
 
-            Create();
-            AttachShader(vertexShader);
-            AttachShader(fragmentShader);
-            Link();
-            Use();
+            Id = GL.CreateProgram();
+            GL.AttachShader(Id, vertexShader.Id);
+            GL.AttachShader(Id, fragmentShader.Id);
+            GL.LinkProgram(Id);
+            
+            int isLinked;
+            GL.GetProgram(Id, ProgramParameter.LinkStatus, out isLinked);
 
-            AttribPosition = GetAttribLocation("a_Position");
-            AttribColor = GetAttribLocation("a_Color");
-            Matrix = GetUniformLocation("u_Matrix");
-            UniformViewMatrix = GetUniformLocation("u_ViewMatrix");
+            if(isLinked == 0)
+            {
+	            int maxLength;
+                string log;
+                GL.GetProgram(Id, ProgramParameter.InfoLogLength, out maxLength);
+
+                GL.GetProgramInfoLog(Id, out log);
+                
+                GL.DeleteProgram(Id);
+                GL.DeleteShader(vertexShader.Id);
+                GL.DeleteShader(fragmentShader.Id);
+                throw new InvalidOperationException(log);
+            }
+ 
+            //Always detach shaders after a successful link.
+            GL.DetachShader(Id, vertexShader.Id);
+            GL.DetachShader(Id, fragmentShader.Id);
+
+            GL.UseProgram(Id);
+
+            AttribPosition = GL.GetAttribLocation(Id, "a_Position");
+            AttribColor = GL.GetAttribLocation(Id, "a_Color");
+            Matrix = GL.GetUniformLocation(Id, "u_Matrix");
+            UniformViewMatrix = GL.GetUniformLocation(Id, "u_ViewMatrix");
 
             Stride = CalculateStride();
         }
@@ -44,6 +71,7 @@ namespace Astrid.Windows.Graphics.GLPrograms
         protected abstract GLShader GetVertexShader();
         protected abstract GLShader GetFragmentShader();
         protected abstract int CalculateStride();
+
         public abstract void Render(float[] vertexData, int vertexCount);
     }
 }

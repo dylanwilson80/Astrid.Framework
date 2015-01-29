@@ -66,8 +66,8 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\hills_800x480.png">
-      <Link>Assets\hills_800x480.png</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\AstridLogo.png">
+      <Link>Assets\AstridLogo.png</Link>
     </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
