@@ -21,8 +21,8 @@ namespace AstridDemo
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("AstridLogo.png");
 
-            var x = GraphicsDevice.Width / 2 - _texture.Width / 2;
-            var y = GraphicsDevice.Height / 2 - _texture.Height / 2;
+            var x = GraphicsDevice.Width / 2;
+            var y = GraphicsDevice.Height / 2;
             _position = new Vector2(x, y);
         }
 
@@ -42,8 +42,13 @@ namespace AstridDemo
         {
         }
 
+        private float _rotation;
         public override void Update(float deltaTime)
         {
+            if (InputDevice.IsTouching)
+                _position = InputDevice.Position;
+
+            _rotation += deltaTime;
         }
 
         public override void Render(float deltaTime)
@@ -51,7 +56,7 @@ namespace AstridDemo
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_texture, _position);
+            _spriteBatch.Draw(_texture, _position, Color.White, new Vector2(0.5f, 0.5f), _rotation, Vector2.One);
             _spriteBatch.End();
         }
     }

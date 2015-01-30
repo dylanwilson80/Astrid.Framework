@@ -32,11 +32,11 @@ namespace Astrid.Framework.Entities.Components.Gui
             if (!IsEnabled)
                 return false;
 
-            var position = inputDevice.GetPosition();
+            var position = inputDevice.Position;
             var shape = GetBoundingRectangle();
             var previouslyPressed = IsPressed;
 
-            IsPressed = inputDevice.IsTouching() && shape.Contains(position);
+            IsPressed = inputDevice.IsTouching && shape.Contains(position);
 
             if (!previouslyPressed && IsPressed)
                 Pressed.Raise(this, EventArgs.Empty);

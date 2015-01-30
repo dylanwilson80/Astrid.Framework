@@ -49,7 +49,7 @@ namespace Astrid.Windows
         {
             using (var gameWindow = new WindowsGameWindow(game, _graphicsDevice, _config))
             {
-                gameWindow.MouseMove += (sender, args) => _inputDevice.SetPosition(args.X, args.Y);
+                gameWindow.MouseMove += _inputDevice.OnMouseMove;
                 gameWindow.Run();
             }
         }

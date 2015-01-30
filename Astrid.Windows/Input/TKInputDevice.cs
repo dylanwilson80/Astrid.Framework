@@ -14,15 +14,21 @@ namespace Astrid.Windows.Input
         private MouseState _mouseState;
         private KeyboardState _keyboardState;
 
+        private Vector2 _position;
+        public override Vector2 Position
+        {
+            get { return _position; }
+        }
+
         public override void Update()
         {
             _mouseState = Mouse.GetState();
             _keyboardState = Keyboard.GetState();
         }
 
-        public override bool IsTouching()
+        public override bool IsTouching
         {
-            return _mouseState.IsButtonDown(MouseButton.Left);
+            get { return _mouseState.IsButtonDown(MouseButton.Left); }
         }
 
         public override bool IsKeyDown(Keys key)
@@ -40,16 +46,9 @@ namespace Astrid.Windows.Input
             return _keyboardState.IsKeyDown(key);
         }
 
-        private Vector2 _position;
-        public override Vector2 GetPosition()
+        internal void OnMouseMove(object sender, MouseMoveEventArgs e)
         {
-            return _position;
-        }
-
-        // TODO: This is a bit icky
-        internal void SetPosition(int x, int y)
-        {
-            _position = new Vector2(x, y);
+            _position = new Vector2(e.X, e.Y);
         }
     }
 }
