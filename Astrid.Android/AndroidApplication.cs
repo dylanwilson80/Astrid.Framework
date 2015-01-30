@@ -39,9 +39,11 @@ namespace Astrid.Android
             return _graphicsDevice;
         }
 
+        private AndroidInputDevice _inputDevice;
         public override InputDevice CreateInputDevice()
         {
-            return new AndroidInputDevice();
+            _inputDevice = new AndroidInputDevice();
+            return _inputDevice;
         }
 
         public override AudioDevice CreateAudioDevice()
@@ -54,6 +56,7 @@ namespace Astrid.Android
             _view = new OpenTKGameView(_config.Activity, game, _graphicsDevice, _config);
             _view.RequestFocus();
             _view.FocusableInTouchMode = true;
+            _view.SetOnTouchListener(_inputDevice.Listener);
         }
 
         public void Pause()

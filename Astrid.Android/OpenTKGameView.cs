@@ -42,7 +42,7 @@ namespace Astrid.Android
                 _game.Pause();
         }
 
-        // TODO: Should this go in OnLoad or OnCreateFrameBuffer
+        // TODO: Should this go in OnLoad or OnCreateFrameBuffer?
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -51,6 +51,12 @@ namespace Astrid.Android
             _game.Create();
 
             Run();
+        }
+
+        protected override void OnUpdateFrame(FrameEventArgs e)
+        {
+            _game.Update((float)e.Time);
+            base.OnUpdateFrame(e);
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
