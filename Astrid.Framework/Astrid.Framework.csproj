@@ -86,6 +86,8 @@
     <Compile Include="Graphics\Texture.cs" />
     <Compile Include="Graphics\TextureAtlas.cs" />
     <Compile Include="Input\InputDevice.cs" />
+    <Compile Include="Input\InputProcessor.cs" />
+    <Compile Include="Input\TouchInputProcessor.cs" />
     <Compile Include="Input\Keys.cs" />
     <Compile Include="Maps\IsometricTileMap.cs" />
     <Compile Include="Maps\OrthogonalTileMap.cs" />

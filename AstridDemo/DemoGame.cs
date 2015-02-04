@@ -2,10 +2,11 @@
 using Astrid.Framework;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Graphics;
+using Astrid.Framework.Input;
 
 namespace AstridDemo
 {
-    public class DemoGame : GameBase
+    public class DemoGame : GameBase, ITouchInputListener
     {
         private SpriteBatch _spriteBatch;
         private Texture _texture;
@@ -18,6 +19,8 @@ namespace AstridDemo
 
         public override void Create()
         {
+            InputDevice.Processors.Add(new TouchInputProcessor(this));
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("AstridLogo.png");
 
@@ -43,12 +46,12 @@ namespace AstridDemo
         }
 
         private float _rotation;
+        private bool _isRotating;
+
         public override void Update(float deltaTime)
         {
-            if (InputDevice.IsTouching)
-                _position = InputDevice.Position;
-
-            _rotation += deltaTime;
+            if(_isRotating)
+                _rotation += deltaTime;
         }
 
         public override void Render(float deltaTime)
@@ -58,6 +61,24 @@ namespace AstridDemo
             _spriteBatch.Begin();
             _spriteBatch.Draw(_texture, _position, Color.White, new Vector2(0.5f, 0.5f), _rotation, Vector2.One);
             _spriteBatch.End();
+        }
+
+        public bool OnTouchDown(Vector2 position, int pointerIndex)
+        {
+            _isRotating = true;
+            return true;
+        }
+
+        public bool OnTouchUp(Vector2 position, int pointerIndex)
+        {
+            _isRotating = false;
+            return true;
+        }
+
+        public bool OnTouchDrag(Vector2 position, Vector2 delta, int pointerIndex)
+        {
+            _position += delta;
+            return true;
         }
     }
 }

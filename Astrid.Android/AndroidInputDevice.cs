@@ -30,7 +30,7 @@ namespace Astrid.Android
             get { return _listener; }
         }
 
-        public override void Update()
+        public override void UpdateState()
         {
         }
 

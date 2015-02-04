@@ -20,7 +20,7 @@ namespace Astrid.Windows.Input
             get { return _position; }
         }
 
-        public override void Update()
+        public override void UpdateState()
         {
             _mouseState = Mouse.GetState();
             _keyboardState = Keyboard.GetState();
