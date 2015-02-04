@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text;
-using Common.Logging;
 using OpenTK.Graphics.ES20;
 
 namespace Astrid.Windows.Graphics
 {
     public class GLShader
     {
-        private static readonly ILog _logger = LogManager.GetCurrentClassLogger();
+        //private static readonly ILog _logger = LogManager.GetCurrentClassLogger();
 
         public GLShader(ShaderType shaderType, string code)
         {
@@ -42,7 +41,7 @@ namespace Astrid.Windows.Graphics
                 {
                     var log = new StringBuilder(length);
                     GL.GetShaderInfoLog(shaderId, length, out length, log);
-                    _logger.Error(log);
+                    //_logger.Error(log);
                 }
 
                 GL.DeleteShader(shaderId);

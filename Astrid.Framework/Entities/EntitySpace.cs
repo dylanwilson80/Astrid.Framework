@@ -4,7 +4,6 @@ using System.Linq;
 using Astrid.Core;
 using Astrid.Framework.Entities.Components;
 using Astrid.Framework.Entities.Systems;
-using Common.Logging;
 
 namespace Astrid.Framework.Entities
 {
@@ -18,7 +17,7 @@ namespace Astrid.Framework.Entities
 
     public class EntitySpace
     {
-        private static readonly ILog _logger = LogManager.GetCurrentClassLogger();
+        //private static readonly ILog _logger = LogManager.GetCurrentClassLogger();
 
         internal EntitySpace(string name, ComponentSystemFactory componentSystemFactory)
         {
@@ -35,13 +34,13 @@ namespace Astrid.Framework.Entities
 
         public void RegisterSystem(ComponentSystem system)
         {
-            _logger.Info(string.Format("Registering system {0}", system));
+            //_logger.Info(string.Format("Registering system {0}", system));
             _systems.Add(system.ComponentType, system);
         }
 
         public void DeregisterSystem(ComponentSystem system)
         {
-            _logger.Info(string.Format("Deregistering system {0}", system));
+            //_logger.Info(string.Format("Deregistering system {0}", system));
             _systems.Remove(system.ComponentType);
         }
 

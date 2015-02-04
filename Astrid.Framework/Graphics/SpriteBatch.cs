@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Astrid.Core;
 using Astrid.Framework.Assets;
-using Common.Logging;
 
 namespace Astrid.Framework.Graphics
 {
