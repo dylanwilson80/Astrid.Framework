@@ -101,6 +101,9 @@
       <Name>Astrid.Framework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Astrid.Android.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

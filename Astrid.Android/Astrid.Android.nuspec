@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Astrid.Framework</id>
+    <id>Astrid.Android</id>
     <version>1.0.0.0</version>
-    <title>Astrid.Framework</title>
+    <title>Astrid.Android</title>
     <authors>Dylan Wilson</authors>
     <owners>Craftwork Games</owners>
     <licenseUrl>https://github.com/craftworkgames/Astrid.Framework/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>http://astrid.craftworkgames.com/</projectUrl>
     <iconUrl>http://astrid.craftworkgames.com/Images/Astrid_32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Cross-platform open source C# game-development framework</description>
+    <description>Cross-platform open source C# game-development framework - Android target</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 - Craftwork Games</copyright>
     <tags></tags>
   </metadata>
-  <files>
-    <file src="bin\Release\Astrid.*.dll" target="lib\net40" />
-    <file src="bin\Release\Astrid.*.dll" target="lib\net45" />
-    <file src="bin\Release\Astrid.*.dll" target="lib\portable-net45+sl50+MonoAndroid10+xamarinios10+MonoTouch10" />
-  </files>
 </package>

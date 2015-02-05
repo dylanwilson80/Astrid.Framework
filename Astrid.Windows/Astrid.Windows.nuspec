@@ -4,13 +4,13 @@
     <id>Astrid.Windows</id>
     <version>1.0.0.0</version>
     <title>Astrid.Windows</title>
-    <authors>Craftwork Games</authors>
-    <owners>Dylan Wilson</owners>
+    <authors>Dylan Wilson</authors>
+    <owners>Craftwork Games</owners>
     <licenseUrl>https://github.com/craftworkgames/Astrid.Framework/blob/master/LICENSE.txt</licenseUrl>
-    <projectUrl>https://github.com/craftworkgames/Astrid.Framework</projectUrl>
-    <iconUrl>http://astrid.craftworkgames.com</iconUrl>
+    <projectUrl>http://astrid.craftworkgames.com/</projectUrl>
+    <iconUrl>http://astrid.craftworkgames.com/Images/Astrid_32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Cross-platform open source C# game-development framework - Windows version</description>
+    <description>Cross-platform open source C# game-development framework - Windows target</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015 - Craftwork Games</copyright>
     <tags></tags>
