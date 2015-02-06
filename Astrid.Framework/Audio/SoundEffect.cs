@@ -1,16 +1,17 @@
 ﻿using System;
+using Astrid.Framework.Assets;
 
-namespace Astrid.Framework.Assets
+namespace Astrid.Framework.Audio
 {
-    public abstract class SoundEffect : IAsset, IEquatable<SoundEffect>
+    public abstract class SoundEffect : IAsset, IEquatable<SoundEffect>, IDisposable
     {
-        protected SoundEffect(int id, string name)
+        protected SoundEffect(string key, string name)
         {
-            Id = id;
+            Key = key;
             Name = name;
         }
 
-        public int Id { get; private set; }
+        public string Key { get; private set; }
         public string Name { get; private set; }
 
         public static bool operator ==(SoundEffect x, SoundEffect y)
@@ -38,12 +39,14 @@ namespace Astrid.Framework.Assets
             if (ReferenceEquals(other, null))
                 return false;
 
-            return Id == other.Id;
+            return Key == other.Key;
         }
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return Key.GetHashCode();
         }
+
+        public abstract void Dispose();
     }
 }

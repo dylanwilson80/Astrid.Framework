@@ -21,7 +21,7 @@ namespace Astrid.Framework.Assets
 
         public override string ToString()
         {
-            return string.Format("Id: {0} Name: {1} Width: {2} Height: {3}", Id, Name, Width, Height);
+            return string.Format("assetPath: {0} Name: {1} Width: {2} Height: {3}", Id, Name, Width, Height);
         }
 
         public static bool operator ==(Texture x, Texture y)

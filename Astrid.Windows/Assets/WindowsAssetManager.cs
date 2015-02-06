@@ -4,8 +4,10 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Audio;
 using Astrid.Windows.Audio;
 using Astrid.Windows.Graphics;
+using CSCore.Codecs;
 using OpenTK.Graphics.OpenGL;
 
 namespace Astrid.Windows.Assets
@@ -73,7 +75,7 @@ namespace Astrid.Windows.Assets
         public override SoundEffect LoadSoundEffect(string assetPath)
         {
             var filePath = Path.Combine(_contentPath, assetPath);
-            return NAudioSoundEffect.Load(filePath);
+            return new CSCoreSoundEffect(filePath, Path.GetFileNameWithoutExtension(filePath));
         }
 
         public string[] GetFiles(string searchPattern)

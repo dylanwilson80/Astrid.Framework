@@ -1,6 +1,7 @@
 ﻿using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
@@ -11,6 +12,7 @@ namespace AstridDemo
         private SpriteBatch _spriteBatch;
         private Texture _texture;
         private Vector2 _position;
+        private SoundEffect _soundEffect;
 
         public DemoGame(ApplicationBase application)
             : base(application)
@@ -20,6 +22,8 @@ namespace AstridDemo
         public override void Create()
         {
             InputDevice.Processors.Add(new TouchInputProcessor(this));
+
+            _soundEffect = AssetManager.Load<SoundEffect>(@"song.mp3");
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("AstridLogo.png");
@@ -51,7 +55,7 @@ namespace AstridDemo
         public override void Update(float deltaTime)
         {
             if(_isRotating)
-                _rotation += deltaTime;
+                _rotation += deltaTime * 8;
         }
 
         public override void Render(float deltaTime)
@@ -71,6 +75,7 @@ namespace AstridDemo
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)
         {
+            AudioDevice.Play(_soundEffect);
             _isRotating = false;
             return true;
         }

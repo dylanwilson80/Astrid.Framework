@@ -38,10 +38,10 @@ namespace Astrid.Windows
             return _inputDevice;
         }
 
-        private NAudioDevice _audioDevice;
+        private CSCoreAudioDevice _audioDevice;
         public override AudioDevice CreateAudioDevice()
         {
-            _audioDevice = new NAudioDevice();
+            _audioDevice = new CSCoreAudioDevice();
             return _audioDevice;
         }
 
