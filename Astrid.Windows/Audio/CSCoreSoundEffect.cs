@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Linq;
+﻿using System.Linq;
 using Astrid.Framework.Audio;
 using CSCore;
 using CSCore.Codecs;
