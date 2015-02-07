@@ -7,7 +7,6 @@ using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Windows.Audio;
 using Astrid.Windows.Graphics;
-using CSCore.Codecs;
 using OpenTK.Graphics.OpenGL;
 
 namespace Astrid.Windows.Assets

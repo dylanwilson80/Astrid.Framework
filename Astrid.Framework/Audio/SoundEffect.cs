@@ -14,6 +14,19 @@ namespace Astrid.Framework.Audio
         public string Key { get; private set; }
         public string Name { get; private set; }
 
+        public int Play()
+        {
+            return Play(1.0f);
+        }
+
+        public abstract int Play(float volume);
+        public abstract void Stop();
+        public abstract void Stop(int id);
+        public abstract void Pause();
+        public abstract void Pause(int id);
+        public abstract void Resume();
+        public abstract void Resume(int id);
+
         public static bool operator ==(SoundEffect x, SoundEffect y)
         {
             return Equals(x, y);
