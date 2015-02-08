@@ -47,6 +47,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\Easing.cs" />
+    <Compile Include="Animations\EasingFunctions.cs" />
     <Compile Include="ApplicationBase.cs" />
     <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Audio\SoundEffect.cs" />

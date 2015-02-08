@@ -35,6 +35,7 @@ namespace AstridDemo
 
         public override void Destroy()
         {
+            _soundEffect.Dispose();
         }
 
         public override void Pause()
@@ -75,7 +76,7 @@ namespace AstridDemo
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)
         {
-            AudioDevice.Play(_soundEffect);
+            _soundEffect.Play();
             _isRotating = false;
             return true;
         }

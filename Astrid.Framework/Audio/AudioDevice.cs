@@ -1,9 +1,7 @@
-﻿using Astrid.Framework.Assets;
-
-namespace Astrid.Framework.Audio
+﻿namespace Astrid.Framework.Audio
 {
+    // It's not exactly clear if we actually need this.
     public abstract class AudioDevice
     {
-        public abstract void Play(SoundEffect soundEffect);
     }
 }

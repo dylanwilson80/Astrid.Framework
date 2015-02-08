@@ -1,21 +1,10 @@
-﻿using System;
-using Astrid.Framework.Audio;
-using CSCore.SoundOut;
+﻿using Astrid.Framework.Audio;
 
 namespace Astrid.Windows.Audio
 {
-    public class CSCoreAudioDevice : AudioDevice, IDisposable
+    public class CSCoreAudioDevice : AudioDevice
     {
         public CSCoreAudioDevice()
-        {
-        }
-
-        public override void Play(SoundEffect soundEffect)
-        {
-            ((CSCoreSoundEffect) soundEffect).Play();
-        }
-        
-        public void Dispose()
         {
         }
     }
