@@ -33,6 +33,12 @@ namespace Astrid.Framework.Assets
         public abstract Texture LoadTexture(string assetPath);
         public abstract SoundEffect LoadSoundEffect(string assetPath);
 
+        public T Load<T>(string assetPath, AssetLoader<T> loader)
+            where T : IAsset
+        {
+            return loader.Load(this, assetPath);
+        }
+
         public T Load<T>(string assetPath) where T : IAsset
         {
             var type = typeof (T);

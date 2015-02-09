@@ -58,7 +58,9 @@
     <Compile Include="Animations\Vector3Animation.cs" />
     <Compile Include="Animations\Vector4Animation.cs" />
     <Compile Include="ApplicationBase.cs" />
+    <Compile Include="Assets\AssetLoader.cs" />
     <Compile Include="Assets\AssetManager.cs" />
+    <Compile Include="Assets\BitmapFontLoader.cs" />
     <Compile Include="Audio\SoundEffect.cs" />
     <Compile Include="Audio\AudioDevice.cs" />
     <Compile Include="Entities\Components\PhysicsComponent.cs" />

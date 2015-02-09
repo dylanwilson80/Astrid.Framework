@@ -33,6 +33,8 @@ namespace AstridDemo
             var y = GraphicsDevice.Height / 2;
             _position = new Vector2(x, y);
             _color = Color.White;
+
+            var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
         }
 
         public override void Destroy()
