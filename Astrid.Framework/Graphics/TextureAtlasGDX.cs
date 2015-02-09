@@ -39,8 +39,8 @@ namespace Astrid.Framework.Graphics
             for (i = 0; i < 3; i++)
             {
                 int comma = line.IndexOf(',', lastMatch);
-                if (comma == -1) break;
-                _tuple[i] = line.Substring(lastMatch, comma).Trim();
+                if (comma < 0) break;
+                _tuple[i] = line.Substring(lastMatch, comma - lastMatch).Trim();
                 lastMatch = comma + 1;
             }
             _tuple[i] = line.Substring(lastMatch).Trim();
@@ -238,7 +238,7 @@ namespace Astrid.Framework.Graphics
     /// <remarks>
     /// These atlases can be created by libGDX itself, by commercial texture packers, or by https://github.com/tommyettinger/GDXTexturePacker .
     /// </remarks>
-    class TextureAtlasGDX : IAsset
+    public class TextureAtlasGDX : IAsset
     {
         public string Name { get; private set; }
         internal AssetManager assetManager;
@@ -280,6 +280,13 @@ namespace Astrid.Framework.Graphics
             if (data != null) load(data);
         }
 
+        public static TextureAtlasGDX Load(AssetManager assetManager, string assetName)
+        {
+            using (var stream = assetManager.OpenStream(assetName))
+            {
+                return new TextureAtlasGDX(assetManager, stream);
+            }
+        }
 
         private void load(TextureAtlasData data)
         {
@@ -389,13 +396,13 @@ namespace Astrid.Framework.Graphics
             }
             return null;
         }
-        public AtlasRegion this[string s]
+        public AtlasRegion this[string name]
         {
-            get { return findRegion(s); }
+            get { return findRegion(name); }
         }
-        public AtlasRegion this[string s, int i]
+        public AtlasRegion this[string name, int idx]
         {
-            get { return findRegion(s, i); }
+            get { return findRegion(name, idx); }
         }
 
         /// <summary>
