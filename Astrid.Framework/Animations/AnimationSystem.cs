@@ -16,7 +16,7 @@ namespace Astrid.Framework.Animations
             foreach (var animation in _animations)
                 animation.Update(deltaTime);
 
-            _animations.RemoveAll(i => !i.IsPlaying);
+            _animations.RemoveAll(i => i.IsComplete);
         }
 
         public void Attach(Animation animation)

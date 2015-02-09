@@ -91,21 +91,24 @@ namespace Astrid.Framework.Animations
         {
             public static float EaseIn(double s, int power)
             {
-                return (float)Math.Pow(s, power);
+                return (float) Math.Pow(s, power);
             }
 
             public static float EaseOut(double s, int power)
             {
                 var sign = power % 2 == 0 ? -1 : 1;
-                return (float)(sign * (Math.Pow(s - 1, power) + sign));
+                return (float) (sign * (Math.Pow(s - 1, power) + sign));
             }
 
             public static float EaseInOut(double s, int power)
             {
                 s *= 2;
-                if (s < 1) return EaseIn(s, power) / 2;
+
+                if (s < 1) 
+                    return EaseIn(s, power) / 2;
+
                 var sign = power % 2 == 0 ? -1 : 1;
-                return (float)(sign / 2.0 * (Math.Pow(s - 2, power) + sign * 2));
+                return (float) (sign / 2.0 * (Math.Pow(s - 2, power) + sign * 2));
             }
         }
     }

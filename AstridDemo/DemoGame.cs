@@ -2,7 +2,6 @@
 using Astrid.Framework;
 using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
-using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
@@ -13,6 +12,7 @@ namespace AstridDemo
         private SpriteBatch _spriteBatch;
         private Texture _texture;
         private Vector2 _position;
+        private Color _color;
         private AnimationSystem _animationSystem;
 
         public DemoGame(ApplicationBase application)
@@ -32,6 +32,7 @@ namespace AstridDemo
             var x = GraphicsDevice.Width / 2;
             var y = GraphicsDevice.Height / 2;
             _position = new Vector2(x, y);
+            _color = Color.White;
         }
 
         public override void Destroy()
@@ -60,25 +61,20 @@ namespace AstridDemo
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_texture, _position, Color.White, new Vector2(0.5f, 0.5f), 0, Vector2.One);
+            _spriteBatch.Draw(_texture, _position, _color, new Vector2(0.5f, 0.5f), 0, Vector2.One);
             _spriteBatch.End();
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
+            _animationSystem.Attach(new ColorAnimation(_color, new Color(Color.Black, 0.0f), v => _color = v, 0.5f));
             return true;
         }
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)
         {
-            _animationSystem.Attach(new FloatAnimation(_position.X, position.X, v => _position.X = v, 1.2f)
-            {
-                EasingFunction = EasingFunctions.QuadraticEaseInOut
-            });
-            _animationSystem.Attach(new FloatAnimation(_position.Y, position.Y, v => _position.Y = v, 1.5f)
-            {
-                EasingFunction = EasingFunctions.QuadraticEaseInOut
-            });
+            _animationSystem.Attach(new Vector2Animation(_position, position, v => _position = v, 1.2f) { EasingFunction = EasingFunctions.QuadraticEaseInOut });
+            _animationSystem.Attach(new ColorAnimation(_color, Color.White, v => _color = v, 2.0f) { EasingFunction = EasingFunctions.QuadraticEaseInOut });
             return true;
         }
 
