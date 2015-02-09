@@ -1,114 +1,112 @@
 ﻿using System;
+using Astrid.Core;
 
 namespace Astrid.Framework.Animations
 {
-    public delegate float EasingFunction(float time, float intialValue, float changeInValue, float duration);
+    public delegate float EasingFunction(float value);
 
-    // http://gizma.com/easing/
     public static class EasingFunctions
     {
-        public static float Linear(float t,  float b, float c, float d)
+        public static float Linear(float value)
         {
-	        return c * t / d + b;
+	        return value;
         }
 
-        public static float QuadraticEaseIn(float t, float b, float c, float d)
+        public static float CubicEaseIn(float value)
         {
-            t /= d;
-            return c * t * t + b;
+            return Power.EaseIn(value, 2);
         }
 
-        public static float QuadraticEaseOut(float t, float b, float c, float d)
+        public static float CubicEaseOut(float value)
         {
-            t /= d;
-            return -c * t * (t - 2) + b;
+            return Power.EaseOut(value, 2);
         }
 
-        public static float QuadraticEaseInOut(float t, float b, float c, float d)
+        public static float CubicEaseInOut(float value)
         {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
+            return Power.EaseInOut(value, 2);
         }
 
-        public static float CubicEaseIn(float t, float b, float c, float d)
+        public static float QuadraticEaseIn(float value)
         {
-            t /= d;
-            return c * t * t * t + b;
+            return Power.EaseIn(value, 3);
         }
 
-        public static float CubicEaseOut(float t, float b, float c, float d)
+        public static float QuadraticEaseOut(float value)
         {
-            t /= d;
-            t--;
-            return c * (t * t * t + 1) + b;
+            return Power.EaseOut(value, 3);
         }
 
-        public static float CubicEaseInOut(float t, float b, float c, float d)
+        public static float QuadraticEaseInOut(float value)
         {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t * t + b;
-            t -= 2;
-            return c / 2 * (t * t * t + 2) + b;
+            return Power.EaseInOut(value, 3);
         }
 
-        public static float QuarticEaseIn(float t, float b, float c, float d)
+        public static float QuarticEaseIn(float value)
         {
-            t /= d;
-            return c * t * t * t * t + b;
+            return Power.EaseIn(value, 4);
         }
 
-        public static float QuarticEaseOut(float t, float b, float c, float d)
+        public static float QuarticEaseOut(float value)
         {
-            t /= d;
-            t--;
-            return -c * (t * t * t * t - 1) + b;
+            return Power.EaseOut(value, 4);
         }
 
-        public static float QuarticEaseInOut(float t, float b, float c, float d)
+        public static float QuarticEaseInOut(float value)
         {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t * t * t + b;
-            t -= 2;
-            return -c / 2 * (t * t * t * t - 2) + b;
+            return Power.EaseInOut(value, 4);
         }
 
-        public static float QuinticEaseIn(float t, float b, float c, float d)
+        public static float QuinticEaseIn(float value)
         {
-            t /= d;
-            return c * t * t * t * t * t + b;
+            return Power.EaseIn(value, 5);
         }
 
-        public static float QuinticEaseOut(float t, float b, float c, float d)
+        public static float QuinticEaseOut(float value)
         {
-            t /= d;
-            t--;
-            return c * (t * t * t * t * t + 1) + b;
+            return Power.EaseOut(value, 5);
         }
 
-        public static float QuinticEaseInOut(float t, float b, float c, float d)
+        public static float QuinticEaseInOut(float value)
         {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t * t * t * t + b;
-            t -= 2;
-            return c / 2 * (t * t * t * t * t + 2) + b;
+            return Power.EaseInOut(value, 5);
         }
 
-        public static float SineEaseIn(float t, float b, float c, float d)
+        public static float SineEaseIn(float value)
         {
-            return (float) (-c * Math.Cos(t / d * (Math.PI / 2)) + c + b);
+            return (float)Math.Sin(value * MathHelper.PiOver2 - MathHelper.PiOver2) + 1;
         }
 
-        public static float SineEaseOut(float t, float b, float c, float d)
+        public static float SineEaseOut(float value)
         {
-            return (float) (c * Math.Sin(t / d * (Math.PI / 2)) + b);
+            return (float)Math.Sin(value * MathHelper.PiOver2);
         }
 
-        public static float SineEaseInOut(float t, float b, float c, float d)
+        public static float SineEaseInOut(float value)
         {
-            return (float) (-c / 2 * (Math.Cos(Math.PI * t / d) - 1) + b);
+            return (float)(Math.Sin(value * MathHelper.Pi - MathHelper.PiOver2) + 1) / 2;
         }
 
+        private static class Power
+        {
+            public static float EaseIn(double s, int power)
+            {
+                return (float)Math.Pow(s, power);
+            }
+
+            public static float EaseOut(double s, int power)
+            {
+                var sign = power % 2 == 0 ? -1 : 1;
+                return (float)(sign * (Math.Pow(s - 1, power) + sign));
+            }
+
+            public static float EaseInOut(double s, int power)
+            {
+                s *= 2;
+                if (s < 1) return EaseIn(s, power) / 2;
+                var sign = power % 2 == 0 ? -1 : 1;
+                return (float)(sign / 2.0 * (Math.Pow(s - 2, power) + sign * 2));
+            }
+        }
     }
 }

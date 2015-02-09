@@ -1,5 +1,6 @@
 ﻿using Astrid.Core;
 using Astrid.Framework;
+using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
@@ -12,7 +13,7 @@ namespace AstridDemo
         private SpriteBatch _spriteBatch;
         private Texture _texture;
         private Vector2 _position;
-        private SoundEffect _soundEffect;
+        private AnimationSystem _animationSystem;
 
         public DemoGame(ApplicationBase application)
             : base(application)
@@ -21,9 +22,9 @@ namespace AstridDemo
 
         public override void Create()
         {
-            InputDevice.Processors.Add(new TouchInputProcessor(this));
+            _animationSystem = new AnimationSystem();
 
-            _soundEffect = AssetManager.Load<SoundEffect>(@"song.mp3");
+            InputDevice.Processors.Add(new TouchInputProcessor(this));
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("AstridLogo.png");
@@ -35,7 +36,6 @@ namespace AstridDemo
 
         public override void Destroy()
         {
-            _soundEffect.Dispose();
         }
 
         public override void Pause()
@@ -50,40 +50,40 @@ namespace AstridDemo
         {
         }
 
-        private float _rotation;
-        private bool _isRotating;
-
         public override void Update(float deltaTime)
         {
-            if(_isRotating)
-                _rotation += deltaTime * 8;
+            _animationSystem.Update(deltaTime);
         }
 
         public override void Render(float deltaTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_texture, _position, Color.White, new Vector2(0.5f, 0.5f), _rotation, Vector2.One);
+            _spriteBatch.Draw(_texture, _position, Color.White, new Vector2(0.5f, 0.5f), 0, Vector2.One);
             _spriteBatch.End();
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            _isRotating = true;
             return true;
         }
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)
         {
-            _soundEffect.Play();
-            _isRotating = false;
+            _animationSystem.Attach(new FloatAnimation(_position.X, position.X, v => _position.X = v, 1.2f)
+            {
+                EasingFunction = EasingFunctions.QuadraticEaseInOut
+            });
+            _animationSystem.Attach(new FloatAnimation(_position.Y, position.Y, v => _position.Y = v, 1.5f)
+            {
+                EasingFunction = EasingFunctions.QuadraticEaseInOut
+            });
             return true;
         }
 
         public bool OnTouchDrag(Vector2 position, Vector2 delta, int pointerIndex)
         {
-            _position += delta;
             return true;
         }
     }
