@@ -61,6 +61,15 @@
     <Compile Include="Assets\AssetLoader.cs" />
     <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Assets\BitmapFontLoader.cs" />
+    <Compile Include="Assets\BMFonts\Font.cs" />
+    <Compile Include="Assets\BMFonts\TextStyle.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontChar.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontCommon.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontFile.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontInfo.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontKerning.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontLoader.cs" />
+    <Compile Include="Assets\BMFonts\TODO\FontPage.cs" />
     <Compile Include="Audio\SoundEffect.cs" />
     <Compile Include="Audio\AudioDevice.cs" />
     <Compile Include="Entities\Components\PhysicsComponent.cs" />

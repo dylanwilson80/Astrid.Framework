@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using CraftworkGames.Framework.Components.Gui.Fonts.BmFontXmlSerializer;
 
 namespace Astrid.Framework.Assets
 {
@@ -19,11 +20,13 @@ namespace Astrid.Framework.Assets
             using (var stream = assetManager.OpenStream(assetPath))
             using (var reader = new StreamReader(stream))
             {
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
+                //while (!reader.EndOfStream)
+                //{
+                //    var line = reader.ReadLine();
 
-                }
+                //}
+
+                var fontFile = FontLoader.Load(stream);
             }
 
             return new BitmapFont(assetPath);
