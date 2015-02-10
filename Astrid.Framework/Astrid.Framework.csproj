@@ -70,6 +70,8 @@
     <Compile Include="Assets\BMFonts\TODO\FontKerning.cs" />
     <Compile Include="Assets\BMFonts\TODO\FontLoader.cs" />
     <Compile Include="Assets\BMFonts\TODO\FontPage.cs" />
+    <Compile Include="Assets\TextureAtlasGdxLoader.cs" />
+    <Compile Include="Assets\TextureAtlasLoader.cs" />
     <Compile Include="Audio\SoundEffect.cs" />
     <Compile Include="Audio\AudioDevice.cs" />
     <Compile Include="Entities\Components\PhysicsComponent.cs" />
@@ -96,8 +98,10 @@
     <Compile Include="Entities\Systems\GuiSystem.cs" />
     <Compile Include="Entities\Systems\PhysicsSystem.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
+    <Compile Include="Graphics\AtlasRegion.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Graphics\PrimitiveBatch.cs" />
+    <Compile Include="Graphics\TextureAtlasData.cs" />
     <Compile Include="Graphics\TextureAtlasGDX.cs" />
     <Compile Include="Graphics\TextureRegion.cs" />
     <Compile Include="Entities\Components\Component.cs" />
