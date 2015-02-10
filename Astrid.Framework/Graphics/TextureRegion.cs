@@ -4,6 +4,10 @@ namespace Astrid.Framework.Assets
 {
     public class TextureRegion : IAsset
     {
+        public TextureRegion()
+        {
+
+        }
         public TextureRegion(Texture texture)
             : this(texture.Name, texture, 0, 0, texture.Width, texture.Height)
         {
@@ -20,28 +24,54 @@ namespace Astrid.Framework.Assets
             Centre = new Vector2(Width*0.5f, Height*0.5f);
         }
 
-        public string Name { get; private set; }
-        public Texture Texture { get; private set; }
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
-        public Vector2 Centre { get; private set; }
+        public string Name { get; protected set; }
+        public Texture Texture { get; protected set; }
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
+        public Vector2 Centre { get; protected set; }
 
-        private float[] _uv;
+        protected float[] _uv;
+        public float[] UV
+        {
+            get
+            {
+                return GetUV();
+            }
+            protected set { _uv = value; }
+        }
         public float[] GetUV()
         {
             if (_uv == null)
             {
-                var u0 = (float) X/Texture.Width;
-                var v0 = (float) Y/Texture.Height;
-                var u1 = (float) (X + Width)/Texture.Width;
-                var v1 = (float) (Y + Height)/Texture.Height;
+                float u0 = (float) X/Texture.Width;
+                float v0 = (float) Y/Texture.Height;
+                float u1 = (float) (X + Width)/Texture.Width;
+                float v1 = (float) (Y + Height)/Texture.Height;
 
-                _uv = new[] {u0, v0, u1, v1};
+                // For a 1x1 region, adjust UVs toward pixel center to avoid filtering artifacts on AMD GPUs when drawing very stretched.
+                if (Width == 1 && Height == 1)
+                {
+                    float adjustX = 0.25f / Texture.Width;
+                    u0 += adjustX;
+                    u1 -= adjustX;
+                    float adjustY = 0.25f / Texture.Height;
+                    v0 += adjustY;
+                    v1 -= adjustY;
+                }
+                _uv = new float[] {u0, v0, u1, v1};
             }
 
             return _uv;
+        }
+        public void Flip(bool x, bool y)
+        {
+            float[] uvs = GetUV();
+            if (x && y) _uv = new float[] { uvs[2], uvs[3], uvs[0], uvs[1] };
+            else if (x) _uv = new float[] { uvs[2], uvs[1], uvs[0], uvs[3] };
+            else if (y) _uv = new float[] { uvs[0], uvs[3], uvs[2], uvs[1] };
+            else _uv = uvs;
         }
 
         public override string ToString()
