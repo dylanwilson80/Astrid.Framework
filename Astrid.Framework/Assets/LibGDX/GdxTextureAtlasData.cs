@@ -2,24 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Astrid.Framework.Assets;
 
-namespace Astrid.Framework.Graphics
+namespace Astrid.Framework.Assets.LibGDX
 {
     /// <summary>
     /// Provides TextureAtlasGDX with the ability to read texture atlas files in
     /// libGDX's format. This is not meant for everyday use.
     /// </summary>
     /// <see cref="TextureAtlas" />
-    internal class TextureAtlasData
+    internal class GdxTextureAtlasData
     {
-        private TextureAtlasData()
+        private GdxTextureAtlasData()
         {
         }
 
-        public static TextureAtlasData Load(Stream stream, string imageFolder, bool flip)
+        public static GdxTextureAtlasData Load(Stream stream, string imageFolder, bool flip)
         {
-            var data = new TextureAtlasData();
+            var data = new GdxTextureAtlasData();
 
             using (var reader = new StreamReader(stream))
             {

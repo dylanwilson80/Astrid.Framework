@@ -4,6 +4,7 @@ using System.Linq;
 using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Assets.LibGDX;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
@@ -13,10 +14,10 @@ namespace AstridDemo
     {
         public struct AtlasSprite
         {
-            public TextureAtlasRegion Visual;
+            public GdxTextureAtlasRegion Visual;
             public Vector2 Position;
             public Vector2 GridPosition;
-            public AtlasSprite(TextureAtlasRegion visual, Vector2 position, Vector2 grid)
+            public AtlasSprite(GdxTextureAtlasRegion visual, Vector2 position, Vector2 grid)
             {
                 Visual = visual;
                 Position = new Vector2(position.X + visual.OffsetX, position.Y + visual.OffsetY);
@@ -26,8 +27,8 @@ namespace AstridDemo
         private Vector2 _position;
         private TextureRegion _texture;
         private SpriteBatch _spriteBatch;
-        private TextureAtlas _atlas;
-        private Dictionary<string, TextureAtlasRegion> _textures;
+        private GdxTextureAtlas _atlas;
+        private Dictionary<string, GdxTextureAtlasRegion> _textures;
         private AtlasSprite[,] _terrain;
         private List<AtlasSprite> _orderedTerrain;
         private readonly string[] _terrainNames = { "grass", "forest", "sand", "mud", "stone", "asphalt" };
@@ -44,8 +45,8 @@ namespace AstridDemo
             InputDevice.Processors.Add(new TouchInputProcessor(this));
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _atlas = AssetManager.Load<TextureAtlas>("pack.atlas");
-            _textures = new Dictionary<string, TextureAtlasRegion>
+            _atlas = AssetManager.Load("pack.atlas", new GdxTextureAtlasLoader());
+            _textures = new Dictionary<string, GdxTextureAtlasRegion>
             {
                 {"grass", _atlas["palette50_Terrain_Huge_face0"]},
                 {"forest", _atlas["palette51_Terrain_Huge_face0"]},

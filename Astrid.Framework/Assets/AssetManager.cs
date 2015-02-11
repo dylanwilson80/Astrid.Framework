@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Astrid.Framework.Assets.LibGDX;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Scenes;
@@ -21,9 +22,7 @@ namespace Astrid.Framework.Assets
             {
                 {typeof(Texture), LoadTexture},
                 {typeof(TextureRegion), LoadTextureRegion},
-                //{typeof(TextureAtlas), LoadTextureAtlas},
-                {typeof(TextureAtlas), LoadTextureAtlasGdx},
-                //{typeof(OrthogonalTileMap), LoadOrthogonalTileMap},
+                {typeof(TextureAtlas), LoadTextureAtlas},
                 {typeof(SoundEffect), LoadSoundEffect}
             };
         }
@@ -54,12 +53,6 @@ namespace Astrid.Framework.Assets
         public TextureAtlas LoadTextureAtlas(string assetPath)
         {
             var loader = new TextureAtlasLoader();
-            return loader.Load(this, assetPath);
-        }
-
-        public TextureAtlas LoadTextureAtlasGdx(string assetPath)
-        {
-            var loader = new TextureAtlasGdxLoader();
             return loader.Load(this, assetPath);
         }
 

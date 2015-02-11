@@ -1,7 +1,7 @@
 using System.IO;
 using System.Xml.Serialization;
 
-namespace CraftworkGames.Framework.Components.Gui.Fonts.BmFontXmlSerializer
+namespace Astrid.Framework.Assets.BMFonts.TODO
 {
 	// ---- AngelCode BmFont XML serializer ----------------------
 	// ---- By DeadlyDan @ deadlydan@gmail.com -------------------

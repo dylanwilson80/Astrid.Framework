@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using Astrid.Framework.Graphics;
 
-namespace Astrid.Framework.Assets
+namespace Astrid.Framework.Assets.LibGDX
 {
-    public class TextureAtlasGdxLoader : AssetLoader<TextureAtlas>
+    public class GdxTextureAtlasLoader : AssetLoader<GdxTextureAtlas>
     {
-        private TextureAtlas Load(AssetManager assetManager, TextureAtlasData data)
+        private GdxTextureAtlas Load(AssetManager assetManager, GdxTextureAtlasData data)
         {
-            var atlas = new TextureAtlas("TODO");
+            var atlas = new GdxTextureAtlas("TODO");
             var textures = new List<Texture>();
-            var pageToTexture = new Dictionary<TextureAtlasData.Page, Texture>();
+            var pageToTexture = new Dictionary<GdxTextureAtlasData.Page, Texture>();
 
             foreach (var page in data.Pages)
             {
@@ -18,14 +18,10 @@ namespace Astrid.Framework.Assets
                 if (page.Texture == null)
                 {
                     texture = assetManager.Load<Texture>(page.TextureHandle);
-                    /*texture.setFilter(page.minFilter, page.magFilter);
-                    texture.setWrap(page.uWrap, page.vWrap);*/
                 }
                 else
                 {
                     texture = page.Texture;
-                    /*texture.setFilter(page.minFilter, page.magFilter);
-                    texture.setWrap(page.uWrap, page.vWrap);*/
                 }
                 
                 textures.Add(texture);
@@ -39,7 +35,7 @@ namespace Astrid.Framework.Assets
                 var height = region.Rotate ? region.Width : region.Height;
                 var left = region.Left;
                 var top = region.Top;
-                var atlasRegion = new TextureAtlasRegion(region.Name, texture, left, top, width, height)
+                var atlasRegion = new GdxTextureAtlasRegion(region.Name, texture, left, top, width, height)
                 {
                     Index = region.Index,
                     OffsetX = region.OffsetX,
@@ -61,11 +57,11 @@ namespace Astrid.Framework.Assets
         }
 
 
-        public override TextureAtlas Load(AssetManager assetManager, string assetPath)
+        public override GdxTextureAtlas Load(AssetManager assetManager, string assetPath)
         {
             using (var stream = assetManager.OpenStream(assetPath))
             {
-                var data = TextureAtlasData.Load(stream, "", false);
+                var data = GdxTextureAtlasData.Load(stream, "", false);
                 return Load(assetManager, data);
             }
         }

@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Astrid.Framework.Graphics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Astrid.Framework.Assets
 {
+    /// <summary>
+    /// Loads JSON Array texture atlases from CodeAndWeb Texture Packer
+    /// https://www.codeandweb.com/texturepacker
+    /// </summary>
     public class TextureAtlasLoader : AssetLoader<TextureAtlas>
     {
         public override TextureAtlas Load(AssetManager assetManager, string assetPath)
@@ -40,7 +43,7 @@ namespace Astrid.Framework.Assets
                         h = temp;
                     }
 
-                    var textureRegion = textureAtlas.AddRegion(regionName, 0, x, y, w, h);
+                    var textureRegion = textureAtlas.AddRegion(regionName, x, y, w, h);
                     regionMap.Add(regionName, textureRegion);
                 }
 

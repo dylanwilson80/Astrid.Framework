@@ -1,9 +1,47 @@
-using Astrid.Framework.Assets;
-
-namespace Astrid.Framework.Graphics
+namespace Astrid.Framework.Assets.LibGDX
 {
-    public class TextureAtlasRegion : TextureRegion
+    public class GdxTextureAtlasRegion : TextureRegion
     {
+        /// <summary>
+        /// A preferred constructor for AtlasRegions. Will assign -1 as an index (meaning it's not part
+        /// of an animation), so it shouldn't share a name with another region.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="texture"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public GdxTextureAtlasRegion(string name, Texture texture, int x, int y, int width, int height)
+            : base(name, texture, x, y, width, height)
+        {
+            Index = -1;
+            OriginalWidth = width;
+            OriginalHeight = height;
+            PackedWidth = width;
+            PackedHeight = height;
+        }
+
+        /// <summary>
+        /// A preferred constructor for AtlasRegions if you already have an AtlasRegion.
+        /// </summary>
+        /// <param name="region">An AtlasRegion to copy. This cannot be a TextureRegion, it must be an AtlasRegion.</param>
+        public GdxTextureAtlasRegion(GdxTextureAtlasRegion region)
+            : base(region.Texture)
+        {
+            Index = region.Index;
+            Name = region.Name;
+            OffsetX = region.OffsetX;
+            OffsetY = region.OffsetY;
+            PackedWidth = region.PackedWidth;
+            PackedHeight = region.PackedHeight;
+            OriginalWidth = region.OriginalWidth;
+            OriginalHeight = region.OriginalHeight;
+            Rotate = region.Rotate;
+            Splits = region.Splits;
+        }
+
+
         /*
          * When sprites are packed, if the original file name ends with a number, it is stored as the index and is not considered as
          * part of the sprite's name. This is useful for keeping animation frames in order.
@@ -64,45 +102,6 @@ namespace Astrid.Framework.Graphics
         public int[] Pads { get; set; }
 
         /// <summary>
-        /// A preferred constructor for AtlasRegions. Will assign -1 as an index (meaning it's not part
-        /// of an animation), so it shouldn't share a name with another region.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="texture"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        public TextureAtlasRegion(string name, Texture texture, int x, int y, int width, int height)
-            : base(name, texture, x, y, width, height)
-        {
-            Index = -1;
-            OriginalWidth = width;
-            OriginalHeight = height;
-            PackedWidth = width;
-            PackedHeight = height;
-        }
-
-        /// <summary>
-        /// A preferred constructor for AtlasRegions if you already have an AtlasRegion.
-        /// </summary>
-        /// <param name="region">An AtlasRegion to copy. This cannot be a TextureRegion, it must be an AtlasRegion.</param>
-        public TextureAtlasRegion(TextureAtlasRegion region)
-            : base(region.Texture)
-        {
-            Index = region.Index;
-            Name = region.Name;
-            OffsetX = region.OffsetX;
-            OffsetY = region.OffsetY;
-            PackedWidth = region.PackedWidth;
-            PackedHeight = region.PackedHeight;
-            OriginalWidth = region.OriginalWidth;
-            OriginalHeight = region.OriginalHeight;
-            Rotate = region.Rotate;
-            Splits = region.Splits;
-        }
-
-        /// <summary>
         /// Flips the region, adjusting the offset so the image appears to be flipped as if no whitespace has been removed for packing.
         /// </summary>
         /// <param name="x"></param>
@@ -133,6 +132,5 @@ namespace Astrid.Framework.Graphics
         {
             get { return Rotate ? PackedWidth : PackedHeight; }
         }
-
     }
 }

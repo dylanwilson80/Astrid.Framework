@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Astrid.Framework.Assets;
 using System.Linq;
 
-namespace Astrid.Framework.Graphics
+namespace Astrid.Framework.Assets.LibGDX
 {
     /// <summary>
     /// A substitute for the TextureAtlas class that can read in atlases created for use by libGDX.
@@ -10,9 +9,9 @@ namespace Astrid.Framework.Graphics
     /// <remarks>
     /// These atlases can be created by libGDX itself, by commercial texture packers, or by https://github.com/tommyettinger/GDXTexturePacker .
     /// </remarks>
-    public class TextureAtlas : IAsset
+    public class GdxTextureAtlas : IAsset
     {
-        public TextureAtlas(string name, params Texture[] textures)
+        public GdxTextureAtlas(string name, params Texture[] textures)
         {
             Name = name;
             _textures = new List<Texture>(textures);
@@ -21,7 +20,7 @@ namespace Astrid.Framework.Graphics
         public string Name { get; private set; }
 
         private readonly List<Texture> _textures = new List<Texture>();
-        private readonly List<TextureAtlasRegion> _regions = new List<TextureAtlasRegion>();
+        private readonly List<GdxTextureAtlasRegion> _regions = new List<GdxTextureAtlasRegion>();
 
         /// <summary>
         /// Adds a texture to the atlas.
@@ -33,10 +32,10 @@ namespace Astrid.Framework.Graphics
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <returns>The AtlasRegion that was added.</returns>
-        public TextureAtlasRegion AddRegion(string name, int textureIndex, int x, int y, int width, int height)
+        public GdxTextureAtlasRegion AddRegion(string name, int textureIndex, int x, int y, int width, int height)
         {
             var texture = _textures[textureIndex];
-            var region = new TextureAtlasRegion(name, texture, x, y, width, height)
+            var region = new GdxTextureAtlasRegion(name, texture, x, y, width, height)
             {
                 OriginalWidth = width,
                 OriginalHeight = height,
@@ -46,7 +45,7 @@ namespace Astrid.Framework.Graphics
             return region;
         }
 
-        public TextureAtlasRegion AddRegion(TextureAtlasRegion atlasRegion)
+        public GdxTextureAtlasRegion AddRegion(GdxTextureAtlasRegion atlasRegion)
         {
             _regions.Add(atlasRegion);
             return atlasRegion;
@@ -58,7 +57,7 @@ namespace Astrid.Framework.Graphics
         /// </summary>
         /// <param name="name"></param>
         /// <returns>The AtlasRegion if found, or null.</returns>
-        public TextureAtlasRegion FindRegion(string name)
+        public GdxTextureAtlasRegion FindRegion(string name)
         {
             return _regions.FirstOrDefault(i => i.Name == name);
         }
@@ -70,17 +69,17 @@ namespace Astrid.Framework.Graphics
         /// <param name="name"></param>
         /// <param name="index"></param>
         /// <returns>The AtlasRegion if found, or null.</returns>
-        public TextureAtlasRegion FindRegion(string name, int index)
+        public GdxTextureAtlasRegion FindRegion(string name, int index)
         {
             return _regions.FirstOrDefault(i => i.Name == name && i.Index == index);
         }
 
-        public TextureAtlasRegion this[string name]
+        public GdxTextureAtlasRegion this[string name]
         {
             get { return FindRegion(name); }
         }
 
-        public TextureAtlasRegion this[string name, int index]
+        public GdxTextureAtlasRegion this[string name, int index]
         {
             get { return FindRegion(name, index); }
         }
@@ -90,7 +89,7 @@ namespace Astrid.Framework.Graphics
         /// </summary>
         /// <param name="name"></param>
         /// <returns>A possibly empty List of AtlasRegions with a matching name.</returns>
-        public List<TextureAtlasRegion> FindRegions(string name)
+        public List<GdxTextureAtlasRegion> FindRegions(string name)
         {
             return _regions
                 .Where(i => i.Name == name)
