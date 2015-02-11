@@ -16,7 +16,7 @@ namespace AstridDemo.Windows
 
             using (var application = new WindowsApplication(config))
             {
-                var game = new DemoGame(application);
+                var game = new LibGdxTextureAtlasDemo(application);
                 application.Run(game);
             }
         }

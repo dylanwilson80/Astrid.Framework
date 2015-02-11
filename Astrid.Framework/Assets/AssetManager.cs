@@ -21,8 +21,8 @@ namespace Astrid.Framework.Assets
             {
                 {typeof(Texture), LoadTexture},
                 {typeof(TextureRegion), LoadTextureRegion},
-                {typeof(TextureAtlas), LoadTextureAtlas},
-                {typeof(TextureAtlasGdx), LoadTextureAtlasGdx},
+                //{typeof(TextureAtlas), LoadTextureAtlas},
+                {typeof(TextureAtlas), LoadTextureAtlasGdx},
                 //{typeof(OrthogonalTileMap), LoadOrthogonalTileMap},
                 {typeof(SoundEffect), LoadSoundEffect}
             };
@@ -57,7 +57,7 @@ namespace Astrid.Framework.Assets
             return loader.Load(this, assetPath);
         }
 
-        public TextureAtlasGdx LoadTextureAtlasGdx(string assetPath)
+        public TextureAtlas LoadTextureAtlasGdx(string assetPath)
         {
             var loader = new TextureAtlasGdxLoader();
             return loader.Load(this, assetPath);

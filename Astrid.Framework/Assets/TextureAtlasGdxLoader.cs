@@ -3,11 +3,11 @@ using Astrid.Framework.Graphics;
 
 namespace Astrid.Framework.Assets
 {
-    public class TextureAtlasGdxLoader : AssetLoader<TextureAtlasGdx>
+    public class TextureAtlasGdxLoader : AssetLoader<TextureAtlas>
     {
-        private TextureAtlasGdx Load(AssetManager assetManager, TextureAtlasData data)
+        private TextureAtlas Load(AssetManager assetManager, TextureAtlasData data)
         {
-            var atlas = new TextureAtlasGdx("TODO");
+            var atlas = new TextureAtlas("TODO");
             var textures = new List<Texture>();
             var pageToTexture = new Dictionary<TextureAtlasData.Page, Texture>();
 
@@ -34,10 +34,12 @@ namespace Astrid.Framework.Assets
 
             foreach (var region in data.Regions)
             {
-                var width = region.Width;
-                var height = region.Height;
-                var atlasRegion = new AtlasRegion(region.Name, pageToTexture[region.Page], region.Left, region.Top,
-                    region.Rotate ? height : width, region.Rotate ? width : height)
+                var texture = pageToTexture[region.Page];
+                var width = region.Rotate ? region.Height : region.Width;
+                var height = region.Rotate ? region.Width : region.Height;
+                var left = region.Left;
+                var top = region.Top;
+                var atlasRegion = new TextureAtlasRegion(region.Name, texture, left, top, width, height)
                 {
                     Index = region.Index,
                     OffsetX = region.OffsetX,
@@ -59,9 +61,13 @@ namespace Astrid.Framework.Assets
         }
 
 
-        public override TextureAtlasGdx Load(AssetManager assetManager, string assetPath)
+        public override TextureAtlas Load(AssetManager assetManager, string assetPath)
         {
-            throw new System.NotImplementedException();
+            using (var stream = assetManager.OpenStream(assetPath))
+            {
+                var data = TextureAtlasData.Load(stream, "", false);
+                return Load(assetManager, data);
+            }
         }
     }
 }

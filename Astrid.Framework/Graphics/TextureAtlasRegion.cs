@@ -2,12 +2,13 @@ using Astrid.Framework.Assets;
 
 namespace Astrid.Framework.Graphics
 {
-    public class AtlasRegion : TextureRegion
+    public class TextureAtlasRegion : TextureRegion
     {
         /*
          * When sprites are packed, if the original file name ends with a number, it is stored as the index and is not considered as
          * part of the sprite's name. This is useful for keeping animation frames in order.
-         * @see TextureAtlas#findRegions(String) */
+         * @see TextureAtlas#findRegions(String) 
+         */
         /// <summary>
         /// The number at the end of the original image file name, or -1 if none.
         /// </summary>
@@ -20,55 +21,47 @@ namespace Astrid.Framework.Graphics
         /// <summary>
         /// The offset from the left of the original image to the left of the packed image, after whitespace was removed for packing.
         /// </summary>
-        public float OffsetX;
+        public float OffsetX { get; set; }
 
         /// <summary>
         /// The offset from the bottom of the original image to the bottom of the packed image, after whitespace was removed for packing.
         /// </summary>
-        public float OffsetY;
+        public float OffsetY { get; set; }
 
         /// <summary>
         /// The width of the image, after whitespace was removed for packing.
         /// </summary>
-        public int PackedWidth;
+        public int PackedWidth { get; set; }
 
         /// <summary>
         /// The height of the image, after whitespace was removed for packing.
         /// </summary>
-        public int PackedHeight;
+        public int PackedHeight { get; set; }
 
         /// <summary>
         /// The width of the image, before whitespace was removed and rotation was applied for packing.
         /// </summary>
-        public int OriginalWidth;
+        public int OriginalWidth { get; set; }
 
         /// <summary>
         /// The height of the image, before whitespace was removed and rotation was applied for packing.
         /// </summary>
-        public int OriginalHeight;
+        public int OriginalHeight { get; set; }
 
         /// <summary>
         /// If true, the region has been rotated 90 degrees counter clockwise.
         /// </summary>
-        public bool Rotate;
+        public bool Rotate { get; set; }
 
         /// <summary>
         /// The ninepatch splits, or null if not a ninepatch. Has 4 elements: left, right, top, bottom. Currently unused.
         /// </summary>
-        public int[] Splits;
+        public int[] Splits { get; set; }
 
         /// <summary>
         /// The ninepatch pads, or null if not a ninepatch or the has no padding. Has 4 elements: left, right, top, bottom. Currently unused.
         /// </summary>
-        public int[] Pads;
-
-        /// <summary>
-        /// Empty constructor; you will need to set the fields by hand.
-        /// </summary>
-        public AtlasRegion()
-        {
-
-        }
+        public int[] Pads { get; set; }
 
         /// <summary>
         /// A preferred constructor for AtlasRegions. Will assign -1 as an index (meaning it's not part
@@ -80,7 +73,7 @@ namespace Astrid.Framework.Graphics
         /// <param name="y"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public AtlasRegion(string name, Texture texture, int x, int y, int width, int height)
+        public TextureAtlasRegion(string name, Texture texture, int x, int y, int width, int height)
             : base(name, texture, x, y, width, height)
         {
             Index = -1;
@@ -89,11 +82,12 @@ namespace Astrid.Framework.Graphics
             PackedWidth = width;
             PackedHeight = height;
         }
+
         /// <summary>
         /// A preferred constructor for AtlasRegions if you already have an AtlasRegion.
         /// </summary>
         /// <param name="region">An AtlasRegion to copy. This cannot be a TextureRegion, it must be an AtlasRegion.</param>
-        public AtlasRegion(AtlasRegion region)
+        public TextureAtlasRegion(TextureAtlasRegion region)
             : base(region.Texture)
         {
             Index = region.Index;
@@ -116,8 +110,8 @@ namespace Astrid.Framework.Graphics
         public new void Flip(bool x, bool y)
         {
             base.Flip(x, y);
-            if (x) OffsetX = OriginalWidth - OffsetX - getRotatedPackedWidth();
-            if (y) OffsetY = OriginalHeight - OffsetY - getRotatedPackedHeight();
+            if (x) OffsetX = OriginalWidth - OffsetX - RotatedPackedWidth;
+            if (y) OffsetY = OriginalHeight - OffsetY - RotatedPackedHeight;
         }
 
         /// <summary>
@@ -125,9 +119,9 @@ namespace Astrid.Framework.Graphics
         /// returns the packedWidth.
         /// </summary>
         /// <returns></returns>
-        public float getRotatedPackedWidth()
+        public float RotatedPackedWidth
         {
-            return Rotate ? PackedHeight : PackedWidth;
+            get { return Rotate ? PackedHeight : PackedWidth; }
         }
 
         /// <summary>
@@ -135,9 +129,9 @@ namespace Astrid.Framework.Graphics
         /// returns the packedHeight.
         /// </summary>
         /// <returns></returns>
-        public float getRotatedPackedHeight()
+        public float RotatedPackedHeight
         {
-            return Rotate ? PackedWidth : PackedHeight;
+            get { return Rotate ? PackedWidth : PackedHeight; }
         }
 
     }

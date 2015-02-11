@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Astrid.Framework.Assets;
 
@@ -9,9 +10,138 @@ namespace Astrid.Framework.Graphics
     /// Provides TextureAtlasGDX with the ability to read texture atlas files in
     /// libGDX's format. This is not meant for everyday use.
     /// </summary>
-    /// <see cref="TextureAtlasGdx" />
-    public class TextureAtlasData
+    /// <see cref="TextureAtlas" />
+    internal class TextureAtlasData
     {
+        private TextureAtlasData()
+        {
+        }
+
+        public static TextureAtlasData Load(Stream stream, string imageFolder, bool flip)
+        {
+            var data = new TextureAtlasData();
+
+            using (var reader = new StreamReader(stream))
+            {
+                try
+                {
+                    Page pageImage = null;
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        if (line == null) break;
+                        if (line.Trim().Length == 0)
+                            pageImage = null;
+                        else if (pageImage == null)
+                        {
+                            // TODO: This code might not work on all platforms
+                            if (!string.IsNullOrEmpty(imageFolder) && !imageFolder.EndsWith("/"))
+                                imageFolder += "/";
+
+                            var textureHandle = imageFolder + line;
+
+                            var width = 0f;
+                            var height = 0f;
+
+                            if (ReadTuple(reader) == 2)
+                            { 
+                                // size is only optional for an atlas packed with an old TexturePacker.
+                                width = int.Parse(_tuple[0]);
+                                height = int.Parse(_tuple[1]);
+                                ReadTuple(reader);
+                            }
+
+
+                            ReadTuple(reader);
+                            //TextureFilter min = TextureFilter.valueOf(tuple[0]);
+                            //TextureFilter max = TextureFilter.valueOf(tuple[1]);
+
+                            String direction = ReadValue(reader);
+                            //TextureWrap repeatX = ClampToEdge;
+                            //TextureWrap repeatY = ClampToEdge;
+                            /*
+                            switch(direction)
+                            {
+                                case "xy": repeatX = Repeat; repeatY = Repeat;
+                                    break;
+                                case "x": repeatX = Repeat;
+                                    break;
+                                case "y": repeatY = Repeat;
+                                    break;
+                            }*/
+                            pageImage = new Page(textureHandle, width, height, false);
+                            data._pages.Add(pageImage);
+                        }
+                        else
+                        {
+                            var rotate = bool.Parse(ReadValue(reader));
+
+                            ReadTuple(reader);
+                            var left = int.Parse(_tuple[0]);
+                            var top = int.Parse(_tuple[1]);
+
+                            ReadTuple(reader);
+                            var width = int.Parse(_tuple[0]);
+                            var height = int.Parse(_tuple[1]);
+
+                            var region = new Region
+                            {
+                                Page = pageImage,
+                                Left = left,
+                                Top = top,
+                                Width = width,
+                                Height = height,
+                                Name = line,
+                                Rotate = rotate
+                            };
+
+                            if (ReadTuple(reader) == 4)
+                            { 
+                                // split is optional
+                                region.Splits = new[] 
+                                {
+                                    int.Parse(_tuple[0]), int.Parse(_tuple[1]),
+                                    int.Parse(_tuple[2]), int.Parse(_tuple[3])
+                                };
+
+                                if (ReadTuple(reader) == 4)
+                                { 
+                                    // pad is optional, but only present with splits
+                                    region.Pads = new[] 
+                                    {
+                                        int.Parse(_tuple[0]), int.Parse(_tuple[1]),
+                                        int.Parse(_tuple[2]), int.Parse(_tuple[3])
+                                    };
+
+                                    ReadTuple(reader);
+                                }
+                            }
+
+                            region.OriginalWidth = int.Parse(_tuple[0]);
+                            region.OriginalHeight = int.Parse(_tuple[1]);
+
+                            ReadTuple(reader);
+                            region.OffsetX = int.Parse(_tuple[0]);
+                            region.OffsetY = int.Parse(_tuple[1]);
+
+                            region.Index = int.Parse(ReadValue(reader));
+
+                            if (flip) 
+                                region.Flip = true;
+
+                            data._regions.Add(region);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new FormatException("Error reading pack file: " + stream, ex);
+                }
+            }
+            data._regions.Sort();
+            return data;
+        }
+
         private static readonly string[] _tuple = new string[4];
 
         private static string ReadValue(StreamReader reader)
@@ -31,10 +161,12 @@ namespace Astrid.Framework.Graphics
         /// <returns>The number of tuple values read (1, 2 or 4).</returns>
         private static int ReadTuple(StreamReader reader)
         {
-            String line = reader.ReadLine();
-            int colon = line.IndexOf(':');
+            var line = reader.ReadLine();
+            Debug.Assert(line != null, "line != null");
+            var colon = line.IndexOf(':');
             if (colon == -1) throw new FormatException("Invalid line: " + line);
-            int i = 0, lastMatch = colon + 1;
+            int i, lastMatch = colon + 1;
+
             for (i = 0; i < 3; i++)
             {
                 int comma = line.IndexOf(',', lastMatch);
@@ -48,41 +180,27 @@ namespace Astrid.Framework.Graphics
         /// <summary>
         /// A texture page that may contain multiple Regions. This is not meant for everyday use.
         /// </summary>
-        /// <see cref="TextureAtlasGdx" />
+        /// <see cref="TextureAtlas" />
         public class Page
         {
             public readonly string TextureHandle;
             public Texture Texture;
             public readonly float Width, Height;
             public readonly bool UseMipMaps;
-            
-            //public readonly Format format;
-            //public readonly TextureFilter minFilter;
-            //public readonly TextureFilter magFilter;
-            //public readonly TextureWrap uWrap;
-            //public readonly TextureWrap vWrap;
 
-            public Page(string textureHandle, float width, float height, bool useMipMaps
-                /*, Format format, TextureFilter minFilter, TextureFilter magFilter, TextureWrap uWrap, TextureWrap vWrap */)
+            public Page(string textureHandle, float width, float height, bool useMipMaps)
             {
-                this.Width = width;
-                this.Height = height;
-                this.TextureHandle = textureHandle;
-                this.UseMipMaps = useMipMaps;
-                /*
-                this.format = format;
-                this.minFilter = minFilter;
-                this.magFilter = magFilter;
-                this.uWrap = uWrap;
-                this.vWrap = vWrap;
-                 */
+                Width = width;
+                Height = height;
+                TextureHandle = textureHandle;
+                UseMipMaps = useMipMaps;
             }
         }
         /// <summary>
         /// An internally-used class that keeps information about a portion of a Page.
         /// This is not meant for everyday use.
         /// </summary>
-        /// <see cref="TextureAtlasGdx" />
+        /// <see cref="TextureAtlas" />
         public class Region : IComparable<Region>
         {
             public Page Page;
@@ -112,7 +230,7 @@ namespace Astrid.Framework.Graphics
 
             public override string ToString()
             {
-                return "Region " + this.Name + " with index " + this.Index;
+                return string.Format("Region: {0} Index: {1}", Name, Index);
             }
         }
 
@@ -127,113 +245,5 @@ namespace Astrid.Framework.Graphics
         {
             get { return _regions; }
         }
-
-        public TextureAtlasData(Stream stream, string imageFolder, bool flip)
-        {
-            using (var reader = new StreamReader(stream))
-            {
-                try
-                {
-                    Page pageImage = null;
-                    while (true)
-                    {
-                        String line = reader.ReadLine();
-                        if (line == null) break;
-                        if (line.Trim().Length == 0)
-                            pageImage = null;
-                        else if (pageImage == null)
-                        {
-                            if (imageFolder != null && imageFolder != "" && imageFolder.EndsWith("/") == false)
-                                imageFolder += "/";
-                            string textureHandle = imageFolder + line;
-
-                            float width = 0, height = 0;
-                            if (ReadTuple(reader) == 2)
-                            { // size is only optional for an atlas packed with an old TexturePacker.
-                                width = int.Parse(_tuple[0]);
-                                height = int.Parse(_tuple[1]);
-                                ReadTuple(reader);
-                            }
-                            //Format format = Format.valueOf(tuple[0]);
-
-                            ReadTuple(reader);
-                            //TextureFilter min = TextureFilter.valueOf(tuple[0]);
-                            //TextureFilter max = TextureFilter.valueOf(tuple[1]);
-
-                            String direction = ReadValue(reader);
-                            //TextureWrap repeatX = ClampToEdge;
-                            //TextureWrap repeatY = ClampToEdge;
-                            /*
-                            switch(direction)
-                            {
-                                case "xy": repeatX = Repeat; repeatY = Repeat;
-                                    break;
-                                case "x": repeatX = Repeat;
-                                    break;
-                                case "y": repeatY = Repeat;
-                                    break;
-                            }*/
-                            pageImage = new Page(textureHandle, width, height, false/* min.isMipMap(), format, min, max, repeatX, repeatY*/);
-                            _pages.Add(pageImage);
-                        }
-                        else
-                        {
-                            bool rotate = bool.Parse(ReadValue(reader));
-
-                            ReadTuple(reader);
-                            int left = int.Parse(_tuple[0]);
-                            int top = int.Parse(_tuple[1]);
-
-                            ReadTuple(reader);
-                            int width = int.Parse(_tuple[0]);
-                            int height = int.Parse(_tuple[1]);
-
-                            Region region = new Region();
-                            region.Page = pageImage;
-                            region.Left = left;
-                            region.Top = top;
-                            region.Width = width;
-                            region.Height = height;
-                            region.Name = line;
-                            region.Rotate = rotate;
-
-                            if (ReadTuple(reader) == 4)
-                            { // split is optional
-                                region.Splits = new int[] {int.Parse(_tuple[0]), int.Parse(_tuple[1]),
-                                    int.Parse(_tuple[2]), int.Parse(_tuple[3])};
-
-                                if (ReadTuple(reader) == 4)
-                                { // pad is optional, but only present with splits
-                                    region.Pads = new int[] {int.Parse(_tuple[0]), int.Parse(_tuple[1]),
-                                        int.Parse(_tuple[2]), int.Parse(_tuple[3])};
-
-                                    ReadTuple(reader);
-                                }
-                            }
-
-                            region.OriginalWidth = int.Parse(_tuple[0]);
-                            region.OriginalHeight = int.Parse(_tuple[1]);
-
-                            ReadTuple(reader);
-                            region.OffsetX = int.Parse(_tuple[0]);
-                            region.OffsetY = int.Parse(_tuple[1]);
-
-                            region.Index = int.Parse(ReadValue(reader));
-
-                            if (flip) region.Flip = true;
-
-                            _regions.Add(region);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new FormatException("Error reading pack file: " + stream, ex);
-                }
-            }
-            _regions.Sort();
-
-        }
-
     }
 }

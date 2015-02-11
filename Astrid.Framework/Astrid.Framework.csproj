@@ -98,11 +98,11 @@
     <Compile Include="Entities\Systems\GuiSystem.cs" />
     <Compile Include="Entities\Systems\PhysicsSystem.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
-    <Compile Include="Graphics\AtlasRegion.cs" />
+    <Compile Include="Graphics\TextureAtlasRegion.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Graphics\PrimitiveBatch.cs" />
     <Compile Include="Graphics\TextureAtlasData.cs" />
-    <Compile Include="Graphics\TextureAtlasGDX.cs" />
+    <Compile Include="Graphics\TextureAtlas.cs" />
     <Compile Include="Graphics\TextureRegion.cs" />
     <Compile Include="Entities\Components\Component.cs" />
     <Compile Include="Entities\Components\Sprite.cs" />
@@ -110,7 +110,6 @@
     <Compile Include="Graphics\GraphicsDevice.cs" />
     <Compile Include="Graphics\SpriteBatch.cs" />
     <Compile Include="Graphics\Texture.cs" />
-    <Compile Include="Graphics\TextureAtlas.cs" />
     <Compile Include="Input\InputDevice.cs" />
     <Compile Include="Input\InputProcessor.cs" />
     <Compile Include="Input\TouchInputProcessor.cs" />

@@ -40,7 +40,7 @@ namespace Astrid.Framework.Assets
                         h = temp;
                     }
 
-                    var textureRegion = textureAtlas.AddRegion(regionName, x, y, w, h);
+                    var textureRegion = textureAtlas.AddRegion(regionName, 0, x, y, w, h);
                     regionMap.Add(regionName, textureRegion);
                 }
 
