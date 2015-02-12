@@ -12,13 +12,16 @@ namespace Astrid.Framework.Assets.LibGDX
     /// <see cref="TextureAtlas" />
     internal class GdxTextureAtlasData
     {
-        private GdxTextureAtlasData()
+        private GdxTextureAtlasData(string name)
         {
+            Name = name;;
         }
 
-        public static GdxTextureAtlasData Load(Stream stream, string imageFolder, bool flip)
+        public string Name { get; private set; }
+
+        public static GdxTextureAtlasData Load(string name, Stream stream, string imageFolder, bool flip)
         {
-            var data = new GdxTextureAtlasData();
+            var data = new GdxTextureAtlasData(name);
 
             using (var reader = new StreamReader(stream))
             {
@@ -176,6 +179,7 @@ namespace Astrid.Framework.Assets.LibGDX
             _tuple[i] = line.Substring(lastMatch).Trim();
             return i + 1;
         }
+
         /// <summary>
         /// A texture page that may contain multiple Regions. This is not meant for everyday use.
         /// </summary>
@@ -195,6 +199,7 @@ namespace Astrid.Framework.Assets.LibGDX
                 UseMipMaps = useMipMaps;
             }
         }
+
         /// <summary>
         /// An internally-used class that keeps information about a portion of a Page.
         /// This is not meant for everyday use.
