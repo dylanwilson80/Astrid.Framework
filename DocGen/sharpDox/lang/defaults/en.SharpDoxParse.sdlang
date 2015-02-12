@@ -1,0 +1,5 @@
+ParsingNamespace = Parsing namespace
+ParsingClass = Parsing class
+ParsingMethod = Parsing method
+ParsingUseings = Parsing usings
+ReadingProject = Reading project: {0}
