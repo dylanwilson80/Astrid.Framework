@@ -62,8 +62,6 @@
     <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Assets\Fonts\BitmapFont.cs" />
     <Compile Include="Assets\Fonts\BitmapFontLoader.cs" />
-    <Compile Include="Assets\Fonts\_Font.cs" />
-    <Compile Include="Assets\Fonts\_TextStyle.cs" />
     <Compile Include="Assets\Fonts\FontChar.cs" />
     <Compile Include="Assets\Fonts\FontCommon.cs" />
     <Compile Include="Assets\Fonts\FontFile.cs" />

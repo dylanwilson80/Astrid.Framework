@@ -37,6 +37,11 @@ namespace Astrid.Framework.Assets.Fonts
         }
 
         public string Name { get; private set; }
+        
+        public void Draw(SpriteBatch spriteBatch, string text, int x, int y)
+        {
+            Draw(spriteBatch, text, x, y, Color.White);
+        }
 
         public void Draw(SpriteBatch spriteBatch, string text, int x, int y, Color color)
         {
