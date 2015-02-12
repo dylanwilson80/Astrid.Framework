@@ -71,8 +71,10 @@
     <Compile Include="Assets\BMFonts\TODO\FontLoader.cs" />
     <Compile Include="Assets\BMFonts\TODO\FontPage.cs" />
     <Compile Include="Assets\LibGDX\GdxTextureAtlasLoader.cs" />
+    <Compile Include="Assets\SoundEffectLoader.cs" />
     <Compile Include="Assets\TextureAtlas.cs" />
     <Compile Include="Assets\TextureAtlasLoader.cs" />
+    <Compile Include="Assets\TextureLoader.cs" />
     <Compile Include="Audio\SoundEffect.cs" />
     <Compile Include="Audio\AudioDevice.cs" />
     <Compile Include="Entities\Components\PhysicsComponent.cs" />

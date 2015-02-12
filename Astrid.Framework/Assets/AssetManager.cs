@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Astrid.Framework.Assets.LibGDX;
 using Astrid.Framework.Audio;
-using Astrid.Framework.Graphics;
 using Astrid.Framework.Scenes;
 using Astrid.Framework.Serializers;
 
@@ -18,20 +16,30 @@ namespace Astrid.Framework.Assets
     {
         protected AssetManager()
         {
-            _loadFunctions = new Dictionary<Type, Func<string, IAsset>>
+            _loaders = new Dictionary<Type, IAssetLoader>
             {
-                {typeof(Texture), LoadTexture},
-                {typeof(TextureRegion), LoadTextureRegion},
-                {typeof(TextureAtlas), LoadTextureAtlas},
-                {typeof(SoundEffect), LoadSoundEffect}
+                {typeof(Texture), new TextureLoader()},
+                {typeof(TextureAtlas), new TextureAtlasLoader()},
+                {typeof(SoundEffect), new SoundEffectLoader()}
             };
         }
 
-        private readonly Dictionary<Type, Func<string, IAsset>> _loadFunctions;
+        private readonly Dictionary<Type, IAssetLoader> _loaders;
   
         public abstract Stream OpenStream(string path);
         public abstract Texture LoadTexture(string assetPath);
         public abstract SoundEffect LoadSoundEffect(string assetPath);
+
+        public void RegisterLoader<T>(AssetLoader<T> loader)
+            where T : IAsset
+        {
+            var type = typeof (T);
+
+            if (_loaders.ContainsKey(type))
+                throw new InvalidOperationException(string.Format("Asset loader already registered for type {0}", type.Name));
+
+            _loaders.Add(type, loader);
+        }
 
         public T Load<T>(string assetPath, AssetLoader<T> loader)
             where T : IAsset
@@ -42,18 +50,15 @@ namespace Astrid.Framework.Assets
         public T Load<T>(string assetPath) where T : IAsset
         {
             var type = typeof (T);
-            Func<string, IAsset> loadFunction;
+            IAssetLoader loader;
 
-            if (_loadFunctions.TryGetValue(type, out loadFunction))
-                return (T) loadFunction(assetPath);
+            if (_loaders.TryGetValue(type, out loader))
+            {
+                var loaderT = (AssetLoader<T>) loader;
+                return loaderT.Load(this, assetPath);
+            }
 
-            throw new InvalidOperationException(string.Format("No load function found for type {0}", type.Name));
-        }
-
-        public TextureAtlas LoadTextureAtlas(string assetPath)
-        {
-            var loader = new TextureAtlasLoader();
-            return loader.Load(this, assetPath);
+            throw new InvalidOperationException(string.Format("No asset loader found for type {0}", type.Name));
         }
 
         private readonly Dictionary<string, TextureRegion> _textureRegions = new Dictionary<string, TextureRegion>();
@@ -70,11 +75,6 @@ namespace Astrid.Framework.Assets
             _textureRegions.Add(name, textureRegion);
             return textureRegion;
         }
-
-        //public OrthogonalTileMap LoadOrthogonalTileMap(string assetPath)
-        //{
-        //    return OrthogonalTileMap.Load(this, assetPath);
-        //}
 
         public Scene LoadScene(string assetPath)
         {
