@@ -1,13 +1,13 @@
 using System;
 using System.Xml.Serialization;
 
-namespace Astrid.Framework.Assets.BMFonts.TODO
+namespace Astrid.Framework.Assets.Fonts
 {
 	// ---- AngelCode BmFont XML serializer ----------------------
 	// ---- By DeadlyDan @ deadlydan@gmail.com -------------------
 	// ---- There's no license restrictions, use as you will. ----
 	// ---- Credits to http://www.angelcode.com/ -----------------	
-	public class FontPage
+    public class FontPage
 	{
 		[XmlAttribute ( "id" )]
         public Int32 ID { get; set; }

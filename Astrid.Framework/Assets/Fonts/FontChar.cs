@@ -1,7 +1,7 @@
 using System;
 using System.Xml.Serialization;
 
-namespace Astrid.Framework.Assets.BMFonts.TODO
+namespace Astrid.Framework.Assets.Fonts
 {
 	// ---- AngelCode BmFont XML serializer ----------------------
 	// ---- By DeadlyDan @ deadlydan@gmail.com -------------------

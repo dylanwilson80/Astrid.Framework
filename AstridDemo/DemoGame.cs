@@ -2,6 +2,7 @@
 using Astrid.Framework;
 using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Assets.Fonts;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
@@ -14,6 +15,7 @@ namespace AstridDemo
         private Vector2 _position;
         private Color _color;
         private AnimationSystem _animationSystem;
+        private BitmapFont _bitmapFont;
 
         public DemoGame(ApplicationBase application)
             : base(application)
@@ -34,7 +36,7 @@ namespace AstridDemo
             _position = new Vector2(x, y);
             _color = Color.White;
 
-            var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
+            _bitmapFont = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
         }
 
         public override void Destroy()
@@ -64,6 +66,7 @@ namespace AstridDemo
             
             _spriteBatch.Begin();
             _spriteBatch.Draw(_texture, _position, _color, new Vector2(0.5f, 0.5f), 0, Vector2.One);
+            _bitmapFont.Draw(_spriteBatch, string.Format("Position: {0:0.0}, {1:0.0}", _position.X, _position.Y), 2, 2, Color.White);
             _spriteBatch.End();
         }
 
