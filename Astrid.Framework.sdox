@@ -1,0 +1,28 @@
+?<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SDConfig>
+  <section guid="9e8e8bc4-bfdd-11e3-a297-170828518c08">
+    <item key="HeaderBackground" value="#87CEEB" />
+    <item key="SubHeaderBackground" value="#191970" />
+    <item key="Color" value="#FF8C00" />
+    <item key="DisableSequenceDiagrams" value="False" />
+    <item key="FooterLine" value="Copyright (c) 2015 Craftwork Games, Licensed under the [MIT License](http://mit-license.org/ &quot;MIT License&quot;)" />
+  </section>
+  <section guid="feacbce2-8290-4d90-bb05-373b9d7dbbfc">
+    <item key="ConfigFileName" value="Astrid.Framework" />
+    <item key="PathToConfig" value="Astrid.Framework.sdox" />
+    <item key="LastBuild" value="12.2.2015 - 05:41" />
+    <item key="ProjectName" value="Astrid.Framework" />
+    <item key="ProjectUrl" value="https://astrid.craftworkgames.com/" />
+    <item key="Author" value="Craftwork Games" />
+    <item key="AuthorUrl" value="http://www.craftworkgames.com/" />
+    <item key="LogoPath" value="AstridLogo.png" />
+    <item key="InputFile" value="Astrid.Framework.sln" />
+    <item key="OutputPath" value="Documentation" />
+    <item key="DocLanguage" value="en" />
+    <item key="ExcludePrivate" value="False" />
+    <item key="ExcludeProtected" value="False" />
+    <item key="ExcludeInternal" value="False" />
+    <item key="ExcludedIdentifiers" value="" />
+    <item key="ActivatedExporters" value="Html" />
+  </section>
+</SDConfig>
