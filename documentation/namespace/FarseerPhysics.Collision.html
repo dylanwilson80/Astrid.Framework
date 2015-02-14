@@ -1,0 +1,572 @@
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Astrid.Framework - FarseerPhysics.Collision</title>
+        <meta name="viewport" content="width=device-width">
+
+					<link rel="stylesheet" type="text/css" href="../assets/css/font.css?version=0.9.6.8" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css?version=0.9.6.8" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/style.css?version=0.9.6.8" />
+			
+			<!--[if IE 8]>
+				<script src="../assets/js/vendor.ie8.js?version=0.9.6.8"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="../assets/js/vendor.js?version=0.9.6.8"></script>
+			<![endif]>
+
+			<script src="../assets/js/jquery.layout.min.js"></script>	
+			<script src="../assets/js/frame.js?version=0.9.6.8"></script>
+			<script src="../assets/js/iframe.js"></script>
+		
+		<script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>        
+       
+	    <div id="dropdown-1" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+									<li><a href="../type/AABB.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> AABB</a></li>
+
+									<li><a href="../type/ClipVertex.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ClipVertex</a></li>
+
+									<li><a href="../type/Collision.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> Collision</a></li>
+
+									<li><a href="../type/ContactFeature.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ContactFeature</a></li>
+
+									<li><a href="../type/ContactID.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ContactID</a></li>
+
+									<li><a href="../type/Distance.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> Distance</a></li>
+
+									<li><a href="../type/DistanceInput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> DistanceInput</a></li>
+
+									<li><a href="../type/DistanceOutput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> DistanceOutput</a></li>
+
+									<li><a href="../type/DistanceProxy.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> DistanceProxy</a></li>
+
+									<li><a href="../type/DynamicTree.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> DynamicTree</a></li>
+
+									<li><a href="../type/DynamicTreeBroadPhase.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> DynamicTreeBroadPhase</a></li>
+
+									<li><a href="../type/EPAxis.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> EPAxis</a></li>
+
+									<li><a href="../type/EPAxisType.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> EPAxisType</a></li>
+
+									<li><a href="../type/IBroadPhase.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> IBroadPhase</a></li>
+
+									<li><a href="../type/Manifold.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> Manifold</a></li>
+
+									<li><a href="../type/ManifoldPoint.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ManifoldPoint</a></li>
+
+									<li><a href="../type/ManifoldType.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ManifoldType</a></li>
+
+									<li><a href="../type/PointState.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> PointState</a></li>
+
+									<li><a href="../type/RayCastInput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> RayCastInput</a></li>
+
+									<li><a href="../type/RayCastOutput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> RayCastOutput</a></li>
+
+									<li><a href="../type/ReferenceFace.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> ReferenceFace</a></li>
+
+									<li><a href="../type/SeparationFunction.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> SeparationFunction</a></li>
+
+									<li><a href="../type/SeparationFunctionType.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> SeparationFunctionType</a></li>
+
+									<li><a href="../type/SimplexCache.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> SimplexCache</a></li>
+
+									<li><a href="../type/TempPolygon.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> TempPolygon</a></li>
+
+									<li><a href="../type/TimeOfImpact.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> TimeOfImpact</a></li>
+
+									<li><a href="../type/TOIInput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> TOIInput</a></li>
+
+									<li><a href="../type/TOIOutput.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> TOIOutput</a></li>
+
+									<li><a href="../type/TOIOutputState.html"><img alt="Class-Icon" src="../assets/images/icons/class_public.png"> TOIOutputState</a></li>
+
+							</ul>
+		</div>
+	   
+	    <div class="ui-layout-north">
+			<div class="toolbar">
+				<a href="#" data-dropdown="#dropdown-1" class="button"><img src="../assets/images/icons/class_public.png"/> Types <span class="info">(29)</span> <i class="icon-caret-down"></i></a>
+				<div class="right">
+					<span class="toolbar-info"> Assembly: Astrid.FarseerPhysics</span>
+					<a href="#" id="print-button" class="button" title="print"><i class="icon-print"></i></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+        
+		<div class="ui-layout-center">
+			<div>
+				
+					<h3 class="box-title first-heading">Types</h3>
+
+				
+				<div class="table-box">
+					<table>
+						<thead>
+							<tr>
+								<td></td>
+								<td>Name</td>
+								<td>Description</td>
+							</tr>
+						</thead>
+						<tbody>			
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="AABB" href="../type/AABB.html">AABB</a>
+									</td>	
+									<td class="markdown">
+																						<p>An axis aligned bounding box.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ClipVertex" href="../type/ClipVertex.html">ClipVertex</a>
+									</td>	
+									<td class="markdown">
+																						<p>Used for computing contact manifolds.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="Collision" href="../type/Collision.html">Collision</a>
+									</td>	
+									<td class="markdown">
+																						<p>Collision methods</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ContactFeature" href="../type/ContactFeature.html">ContactFeature</a>
+									</td>	
+									<td class="markdown">
+																						<p>The features that intersect to form the contact point
+This must be 4 bytes or less.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ContactID" href="../type/ContactID.html">ContactID</a>
+									</td>	
+									<td class="markdown">
+																						<p>Contact ids to facilitate warm starting.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="Distance" href="../type/Distance.html">Distance</a>
+									</td>	
+									<td class="markdown">
+																						<p>The Gilbert–Johnson–Keerthi distance algorithm that provides the distance between shapes.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="DistanceInput" href="../type/DistanceInput.html">DistanceInput</a>
+									</td>	
+									<td class="markdown">
+																						<p>Input for Distance.ComputeDistance().
+You have to option to use the shape radii in the computation.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="DistanceOutput" href="../type/DistanceOutput.html">DistanceOutput</a>
+									</td>	
+									<td class="markdown">
+																						<p>Output for Distance.ComputeDistance().</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="DistanceProxy" href="../type/DistanceProxy.html">DistanceProxy</a>
+									</td>	
+									<td class="markdown">
+																						<p>A distance proxy is used by the GJK algorithm.
+It encapsulates any shape.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="DynamicTree" href="../type/DynamicTree.html">DynamicTree</a>
+									</td>	
+									<td class="markdown">
+																						<p>A dynamic tree arranges data in a binary tree to accelerate
+queries such as volume queries and ray casts. Leafs are proxies
+with an AABB. In the tree we expand the proxy AABB by Settings.b2_fatAABBFactor
+so that the proxy AABB is bigger than the client object. This allows the client
+object to move by small amounts without triggering a tree update.</p>
+
+<p>Nodes are pooled and relocatable, so we use node indices rather than pointers.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="DynamicTreeBroadPhase" href="../type/DynamicTreeBroadPhase.html">DynamicTreeBroadPhase</a>
+									</td>	
+									<td class="markdown">
+																						<p>The broad-phase is used for computing pairs and performing volume queries and ray casts.
+This broad-phase does not persist pairs. Instead, this reports potentially new pairs.
+It is up to the client to consume the new pairs and to track subsequent overlap.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="EPAxis" href="../type/EPAxis.html">EPAxis</a>
+									</td>	
+									<td class="markdown">
+																						<p>This structure is used to keep track of the best separating axis.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="EPAxisType" href="../type/EPAxisType.html">EPAxisType</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="IBroadPhase" href="../type/IBroadPhase.html">IBroadPhase</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="Manifold" href="../type/Manifold.html">Manifold</a>
+									</td>	
+									<td class="markdown">
+																						<p>A manifold for two touching convex Shapes.
+Box2D supports multiple types of contact:
+- Clip point versus plane with radius
+- Point versus point with radius (circles)
+The local point usage depends on the manifold type:
+- ShapeType.Circles: the local center of circleA
+- SeparationFunction.FaceA: the center of faceA
+- SeparationFunction.FaceB: the center of faceB
+Similarly the local normal usage:
+- ShapeType.Circles: not used
+- SeparationFunction.FaceA: the normal on polygonA
+- SeparationFunction.FaceB: the normal on polygonB
+We store contacts in this way so that position correction can
+account for movement, which is critical for continuous physics.
+All contact scenarios must be expressed in one of these types.
+This structure is stored across time steps, so we keep it small.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ManifoldPoint" href="../type/ManifoldPoint.html">ManifoldPoint</a>
+									</td>	
+									<td class="markdown">
+																						<p>A manifold point is a contact point belonging to a contact
+manifold. It holds details related to the geometry and dynamics
+of the contact points.
+The local point usage depends on the manifold type:
+-ShapeType.Circles: the local center of circleB
+-SeparationFunction.FaceA: the local center of cirlceB or the clip point of polygonB
+-SeparationFunction.FaceB: the clip point of polygonA
+This structure is stored across time steps, so we keep it small.
+Note: the impulses are used for internal caching and may not
+provide reliable contact forces, especially for high speed collisions.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ManifoldType" href="../type/ManifoldType.html">ManifoldType</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="PointState" href="../type/PointState.html">PointState</a>
+									</td>	
+									<td class="markdown">
+																						<p>This is used for determining the state of contact points.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="RayCastInput" href="../type/RayCastInput.html">RayCastInput</a>
+									</td>	
+									<td class="markdown">
+																						<p>Ray-cast input data.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="RayCastOutput" href="../type/RayCastOutput.html">RayCastOutput</a>
+									</td>	
+									<td class="markdown">
+																						<p>Ray-cast output data.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="ReferenceFace" href="../type/ReferenceFace.html">ReferenceFace</a>
+									</td>	
+									<td class="markdown">
+																						<p>Reference face used for clipping</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="SeparationFunction" href="../type/SeparationFunction.html">SeparationFunction</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="SeparationFunctionType" href="../type/SeparationFunctionType.html">SeparationFunctionType</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="SimplexCache" href="../type/SimplexCache.html">SimplexCache</a>
+									</td>	
+									<td class="markdown">
+																						<p>Used to warm start ComputeDistance.
+Set count to zero on first call.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="TempPolygon" href="../type/TempPolygon.html">TempPolygon</a>
+									</td>	
+									<td class="markdown">
+																						<p>This holds polygon B expressed in frame A.</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="TimeOfImpact" href="../type/TimeOfImpact.html">TimeOfImpact</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="TOIInput" href="../type/TOIInput.html">TOIInput</a>
+									</td>	
+									<td class="markdown">
+																						<p>Input parameters for CalculateTimeOfImpact</p>
+
+																			</td>
+								</tr>
+
+							
+								<tr  class="even" >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="TOIOutput" href="../type/TOIOutput.html">TOIOutput</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+								<tr >
+									<td class="iconColumn">
+										<img alt="Class-Icon" src="../assets/images/icons/class_public.png">
+									</td>
+									<td>
+										<a title="TOIOutputState" href="../type/TOIOutputState.html">TOIOutputState</a>
+									</td>	
+									<td class="markdown">
+																			</td>
+								</tr>
+
+							
+						</tbody>
+					</table>
+				</div>
+
+									<h3 class="box-title">Uses</h3>
+					<div class="list-box">
+						<ul>
+													<li><a href="../namespace/FarseerPhysics.Common.html">FarseerPhysics.Common</a></li>
+													<li><a href="../namespace/FarseerPhysics.Dynamics.html">FarseerPhysics.Dynamics</a></li>
+												</ul>
+					</div>
+				
+									<h3 class="box-title">Used by</h3>
+					<div class="list-box">
+						<ul>
+													<li><a href="../namespace/FarseerPhysics.Dynamics.html">FarseerPhysics.Dynamics</a></li>
+												</ul>
+					</div>
+							</div>
+		</div>
+	   
+    </body>
+</html>
+
