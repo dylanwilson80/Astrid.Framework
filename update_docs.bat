@@ -10,4 +10,4 @@ xcopy .\Documentation\Html\default .\gh-pages\documentation /E
 cd gh-pages
 git add --all .\documentation
 git commit -m "updated documentation"
-git push
+
