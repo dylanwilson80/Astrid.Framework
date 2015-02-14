@@ -28,7 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Astrid.Framework.sdox = Astrid.Framework.sdox
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
-		update_docs.bat = update_docs.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astrid.Framework.Tests", "Astrid.Framework.Tests\Astrid.Framework.Tests.csproj", "{A49C30F0-69D4-4518-9CA7-41B1D1AE4F23}"
