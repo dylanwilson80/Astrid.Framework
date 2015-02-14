@@ -25,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BD34035-371C-4109-939E-B7F908F13E11}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Astrid.Framework.sdox = Astrid.Framework.sdox
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
