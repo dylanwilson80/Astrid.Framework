@@ -127,6 +127,8 @@
     <Compile Include="Scenes\Scene.cs" />
     <Compile Include="Scenes\SceneLayer.cs" />
     <Compile Include="Scenes\SceneNode.cs" />
+    <Compile Include="Screens\Screen.cs" />
+    <Compile Include="Screens\ScreenManager.cs" />
     <Compile Include="Serializers\JsonAssetConverter.cs" />
     <Compile Include="Serializers\JsonKnownComponentTypesSerializationBinder.cs" />
     <Compile Include="Serializers\JsonParser.cs" />
