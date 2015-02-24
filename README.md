@@ -1,5 +1,6 @@
-Astrid.Framework
-================
+![Astid Game Framework](AstridLogo.png)
+
+# Astrid Game Framework
 
 [![Build Status](http://build.craftworkgames.com/app/rest/builds/buildType:(id:AstridFramework_CiBuild)/statusIcon)](http://build.craftworkgames.com/viewType.html?buildTypeId=AstridFramework_CiBuild&guest=1)
 
@@ -14,6 +15,8 @@ Astrid uses portable class libraries to share code between platforms. This great
 Although the framework has all the basics needed to build a game, there's still a lot of work to do. If you're a game developer and you're looking to contribute to an open source project, nows your chance! It'll look great on your resume (or linkedin profile) and it'll give you something to blog about.
 
 We need to get the framework onto different platforms.  I'm esspecially interested if you're already doing Xamarin iOS development.
+
+Head on over to the [Trello](https://trello.com/b/egogxXto/astrid-game-framework) board to see what we are currently working on.
 
 ## Getting started
 
