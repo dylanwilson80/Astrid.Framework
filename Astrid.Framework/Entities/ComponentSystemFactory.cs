@@ -35,8 +35,8 @@ namespace Astrid.Framework.Entities
             if (type == typeof (GuiControl))
                 return new GuiSystem(_deviceManager.InputDevice);
 
-            if (type == typeof (PhysicsComponent))
-                return new PhysicsSystem(new Vector2(0, 10));
+            //if (type == typeof (PhysicsComponent))
+            //    return new PhysicsSystem(new Vector2(0, 10));
 
             return null;
             //throw new InvalidOperationException(string.Format("ComponentSystemFactory does not support component type {0}", type));
