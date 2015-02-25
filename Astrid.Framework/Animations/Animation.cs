@@ -1,4 +1,5 @@
 ﻿using System;
+using Astrid.Framework.Extensions;
 
 namespace Astrid.Framework.Animations
 {
@@ -43,8 +44,24 @@ namespace Astrid.Framework.Animations
         public float CurrentValue { get; private set; }
         public float Duration { get; private set; }
         public EasingFunction EasingFunction { get; set; }
-        public bool IsComplete { get; private set; }
+
+        private bool _isComplete;
+        public bool IsComplete
+        {
+            get { return _isComplete; }
+            private set
+            {
+                if (_isComplete != value)
+                {
+                    _isComplete = value;
+                    AnimationComplete.Raise(this, EventArgs.Empty);
+                }
+            }
+        }
+
         public bool IsPaused { get; private set; }
+
+        public event EventHandler AnimationComplete;
 
         public void Pause()
         {

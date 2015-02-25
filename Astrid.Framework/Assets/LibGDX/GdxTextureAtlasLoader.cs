@@ -15,7 +15,7 @@ namespace Astrid.Framework.Assets.LibGDX
 
                 foreach (var page in data.Pages)
                 {
-                    var texture = page.Texture ?? assetManager.Load<Texture>(page.TextureHandle);
+                    var texture = assetManager.Load<Texture>(page.TextureHandle);
                     textures.Add(texture);
                     pageToTexture.Add(page, texture);
                 }

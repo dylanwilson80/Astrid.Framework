@@ -13,8 +13,13 @@ namespace Astrid.Framework.Animations
 
         public void Update(float deltaTime)
         {
-            foreach (var animation in _animations)
+            // This is a for loop to allow for animations to be added during update
+            // ReSharper disable once ForCanBeConvertedToForeach
+            for (int i = 0; i < _animations.Count; i++)
+            {
+                var animation = _animations[i];
                 animation.Update(deltaTime);
+            }
 
             _animations.RemoveAll(i => i.IsComplete);
         }

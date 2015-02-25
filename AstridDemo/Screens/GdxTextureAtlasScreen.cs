@@ -7,10 +7,12 @@ using Astrid.Framework.Assets;
 using Astrid.Framework.Assets.LibGDX;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
+using Astrid.Framework.Screens;
 
-namespace AstridDemo
+namespace AstridDemo.Screens
 {
-    public class LibGdxTextureAtlasDemo : GameBase, ITouchInputListener
+
+    public class GdxTextureAtlasScreen : Screen, ITouchInputListener
     {
         public struct AtlasSprite
         {
@@ -34,12 +36,12 @@ namespace AstridDemo
         private readonly string[] _terrainNames = { "grass", "forest", "sand", "mud", "stone", "asphalt" };
         private Random _random;
         
-        public LibGdxTextureAtlasDemo(ApplicationBase application)
-            : base(application)
+        public GdxTextureAtlasScreen(GameBase game)
+            : base(game)
         {
         }
 
-        public override void Create()
+        public override void Show()
         {
             _random = new Random();
             InputDevice.Processors.Add(new TouchInputProcessor(this));
@@ -93,12 +95,14 @@ namespace AstridDemo
             }
             _orderedTerrain = _orderedTerrain.OrderByDescending(sprite => sprite.GridPosition.X * 1001 + sprite.GridPosition.Y * 1000).ToList();
         }
+
         private AtlasSprite RandomTerrainTexture(int x, int y)
         {
             return new AtlasSprite(_textures[_terrainNames[_random.Next(_terrainNames.Length)]],
                 new Vector2(GraphicsDevice.Width / 2 + (x - y) * 48, GraphicsDevice.Height - (x + y) * 24), new Vector2(x, y));
         }
-        public override void Destroy()
+
+        public override void Hide()
         {
         }
 
@@ -116,7 +120,6 @@ namespace AstridDemo
 
         public override void Update(float deltaTime)
         {
-
         }
 
         public override void Render(float deltaTime)
@@ -130,6 +133,10 @@ namespace AstridDemo
             }
             _spriteBatch.Draw(_texture, _position);
             _spriteBatch.End();
+        }
+
+        public override void Dispose()
+        {
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)

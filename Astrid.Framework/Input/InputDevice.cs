@@ -23,8 +23,13 @@ namespace Astrid.Framework.Input
         {
             UpdateState();
 
-            foreach (var inputProcessor in Processors)
+            // This is a for loop so that the collection can be modified during an update
+            // ReSharper disable once ForCanBeConvertedToForeach
+            for (var i = 0; i < Processors.Count; i++)
+            {
+                var inputProcessor = Processors[i];
                 inputProcessor.Update(this);
+            }
         }
     }
 }

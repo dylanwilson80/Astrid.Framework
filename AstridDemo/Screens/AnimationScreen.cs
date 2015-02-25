@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Astrid.Core;
+﻿using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
@@ -41,6 +37,18 @@ namespace AstridDemo.Screens
             var y = GraphicsDevice.Height / 2;
             _position = new Vector2(x, y);
             _color = Color.White;
+            
+            CreateMoveToAnimation(new Vector2(x - 100, y), new Vector2(x + 100, y));
+        }
+
+        private void CreateMoveToAnimation(Vector2 position0, Vector2 position1)
+        {
+            var animation = new Vector2Animation(position0, position1, v => _position = v, 1.2f)
+            {
+                EasingFunction = EasingFunctions.QuarticEaseInOut
+            };
+            animation.AnimationComplete += (sender, args) => CreateMoveToAnimation(position1, position0);
+            _animationSystem.Attach(animation);
         }
 
         public override void Hide()
@@ -75,14 +83,11 @@ namespace AstridDemo.Screens
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            _animationSystem.Attach(new ColorAnimation(_color, new Color(Color.Black, 0.0f), v => _color = v, 0.5f));
             return true;
         }
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)
         {
-            _animationSystem.Attach(new Vector2Animation(_position, position, v => _position = v, 1.2f) { EasingFunction = EasingFunctions.QuadraticEaseInOut });
-            _animationSystem.Attach(new ColorAnimation(_color, Color.White, v => _color = v, 2.0f) { EasingFunction = EasingFunctions.QuadraticEaseInOut });
             return true;
         }
 

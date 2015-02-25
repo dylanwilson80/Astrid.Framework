@@ -187,7 +187,6 @@ namespace Astrid.Framework.Assets.LibGDX
         public class Page
         {
             public readonly string TextureHandle;
-            public Texture Texture;
             public readonly float Width, Height;
             public readonly bool UseMipMaps;
 
