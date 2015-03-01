@@ -36,13 +36,15 @@ namespace Astrid.Framework.Screens
             get { return _game.AudioDevice; }
         }
 
-        public abstract void Resize(int width, int height);
-        public abstract void Show();
-        public abstract void Hide();
-        public abstract void Pause();
-        public abstract void Resume();
+        public virtual void Load() { }
+        public virtual void Unload() { }
+        public virtual void Show() { }
+        public virtual void Hide() { }
+        public virtual void Resize(int width, int height) { }
+        public virtual void Pause() { }
+        public virtual void Resume() { }
         public abstract void Update(float deltaTime);
         public abstract void Render(float deltaTime);
-        public abstract void Dispose();
+        public virtual void Dispose() { }
     }
 }
