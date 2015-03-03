@@ -11,12 +11,18 @@
         public void SetScreen(Screen newScreen)
         {
             if (_currentScreen != null)
+            {
                 _currentScreen.Hide();
+                _currentScreen.Unload();
+            }
 
             _currentScreen = newScreen;
 
             if (_currentScreen != null)
+            {
+                _currentScreen.Load();
                 _currentScreen.Show();
+            }
         }
 
         public void Resize(int width, int height)
