@@ -70,7 +70,7 @@ namespace AstridDemo.Screens
 
         public override void Render(float deltaTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(_texture, _position, _color, new Vector2(0.5f, 0.5f), 0, Vector2.One);

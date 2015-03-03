@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Astrid.Core;
 using Astrid.Framework;
+using Astrid.Framework.Assets;
+using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 using Astrid.Framework.Screens;
 using AstridDemo.Screens;
@@ -12,6 +14,9 @@ namespace AstridDemo
         private ScreenManager _screenManager;
         private List<Screen> _screens;
         private int _currentScreenIndex;
+
+        private SpriteBatch _spriteBatch;
+        private Texture _backgroundTexture;
 
         public DemoGame(ApplicationBase application)
             : base(application)
@@ -31,6 +36,9 @@ namespace AstridDemo
             _screenManager.SetScreen(_screens[_currentScreenIndex]);
 
             InputDevice.Processors.Add(new TouchInputProcessor(this));
+
+            _backgroundTexture = AssetManager.Load<Texture>("hills_800x480.png");
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         public override void Destroy()
@@ -59,6 +67,10 @@ namespace AstridDemo
 
         public override void Render(float deltaTime)
         {
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(_backgroundTexture, Vector2.Zero);
+            _spriteBatch.End();
+
             _screenManager.Render(deltaTime);
         }
 

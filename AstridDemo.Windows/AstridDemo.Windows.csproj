@@ -58,6 +58,9 @@
     <Content Include="Content\CourierNew_32.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\hills_800x480.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\pack.atlas">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

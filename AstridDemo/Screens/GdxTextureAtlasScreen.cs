@@ -124,10 +124,10 @@ namespace AstridDemo.Screens
 
         public override void Render(float deltaTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            foreach (AtlasSprite sprite in _orderedTerrain)
+            foreach (var sprite in _orderedTerrain)
             {
                 _spriteBatch.Draw(sprite.Visual, sprite.Position);
             }

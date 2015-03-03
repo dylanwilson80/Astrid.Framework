@@ -47,7 +47,7 @@ namespace AstridDemo.Screens
 
         public override void Render(float deltaTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
             _bitmapFont.Draw(_spriteBatch, string.Format("Position: {0:0.0}, {1:0.0}", _position.X, _position.Y), 2, 2, Color.White);
