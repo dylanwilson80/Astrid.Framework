@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Astrid.Core;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Entities.Components;
 
 namespace Astrid.Framework.Graphics
 {
@@ -176,6 +177,19 @@ namespace Astrid.Framework.Graphics
             var points = CreatePoints(position, textureRegion.Width, textureRegion.Height, origin, rotation, scale);
             var uv = textureRegion.GetUV();
             AddQuad(points, color, uv[0], uv[1], uv[2], uv[3]);
+        }
+
+        public void Draw(Sprite sprite, Vector2 position, float rotation, Vector2 scale)
+        {
+            if (sprite.TextureRegion == null || !sprite.IsVisible)
+                return;
+
+            Draw(sprite.TextureRegion, position, sprite.Color, sprite.Origin, rotation, scale);
+        }
+
+        public void Draw(Sprite sprite, Vector2 position)
+        {
+            Draw(sprite, position, 0, Vector2.One);
         }
     }
 }

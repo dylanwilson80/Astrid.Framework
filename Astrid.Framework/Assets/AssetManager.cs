@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Astrid.Framework.Audio;
-using Astrid.Framework.Scenes;
 using Astrid.Framework.Serializers;
 
 namespace Astrid.Framework.Assets
@@ -76,15 +75,15 @@ namespace Astrid.Framework.Assets
             return textureRegion;
         }
 
-        public Scene LoadScene(string assetPath)
-        {
-            var parser = new JsonParser(this);
+        //public Scene LoadScene(string assetPath)
+        //{
+        //    var parser = new JsonParser(this);
 
-            using (var stream = OpenStream(assetPath))
-            using (var reader = new StreamReader(stream))
-            {
-                return parser.LoadScene(reader);
-            }
-        }
+        //    using (var stream = OpenStream(assetPath))
+        //    using (var reader = new StreamReader(stream))
+        //    {
+        //        return parser.LoadScene(reader);
+        //    }
+        //}
     }
 }

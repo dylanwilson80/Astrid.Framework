@@ -102,11 +102,13 @@
     <Compile Include="Assets\LibGDX\GdxTextureAtlas.cs" />
     <Compile Include="Assets\TextureRegion.cs" />
     <Compile Include="Entities\Components\Component.cs" />
-    <Compile Include="Entities\Components\Sprite.cs" />
+    <Compile Include="Graphics\Sprite.cs" />
     <Compile Include="GameBase.cs" />
     <Compile Include="Graphics\GraphicsDevice.cs" />
     <Compile Include="Graphics\SpriteBatch.cs" />
     <Compile Include="Assets\Texture.cs" />
+    <Compile Include="Graphics\SpriteNode.cs" />
+    <Compile Include="IApplicationListener.cs" />
     <Compile Include="Input\InputDevice.cs" />
     <Compile Include="Input\InputProcessor.cs" />
     <Compile Include="Input\TouchInputProcessor.cs" />
@@ -120,12 +122,10 @@
     <Compile Include="Resources\Shapes\CircleShape.cs" />
     <Compile Include="Resources\Shapes\RectangleShape.cs" />
     <Compile Include="Resources\Shapes\Shape.cs" />
-    <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Scenes\SceneLayer.cs" />
-    <Compile Include="Scenes\SceneNode.cs" />
-    <Compile Include="Scenes\Stage.cs" />
+    <Compile Include="Graphics\SceneNode.cs" />
     <Compile Include="Screens\Screen.cs" />
-    <Compile Include="Screens\ScreenManager.cs" />
+    <Compile Include="Screens\ScreenLayer.cs" />
+    <Compile Include="Screens\SpriteLayer.cs" />
     <Compile Include="Serializers\JsonAssetConverter.cs" />
     <Compile Include="Serializers\JsonKnownComponentTypesSerializationBinder.cs" />
     <Compile Include="Serializers\JsonParser.cs" />
@@ -142,6 +142,7 @@
   <ItemGroup>
     <None Include="Astrid.Framework.nuspec" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

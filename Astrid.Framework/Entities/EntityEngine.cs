@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Astrid.Framework.Assets;
-using Astrid.Framework.Scenes;
 
 namespace Astrid.Framework.Entities
 {
@@ -56,24 +55,24 @@ namespace Astrid.Framework.Entities
                 space.Draw(deltaTime);
         }
 
-        public Scene LoadScene(string assetPath)
-        {
-            var scene = _assetManager.LoadScene(assetPath);
+        //public Scene LoadScene(string assetPath)
+        //{
+        //    var scene = _assetManager.LoadScene(assetPath);
 
-            foreach (var layer in scene.Layers)
-            {
-                var space = CreateSpace(layer.Name);
+        //    foreach (var layer in scene.Layers)
+        //    {
+        //        var space = CreateSpace(layer.Name);
 
-                foreach (var sceneNode in layer.Nodes)
-                {
-                    var entity = space.CreateEntity(sceneNode.Name, sceneNode.Position, sceneNode.Rotation, sceneNode.Scale);
+        //        foreach (var sceneNode in layer.Nodes)
+        //        {
+        //            var entity = space.CreateEntity(sceneNode.Name, sceneNode.Position, sceneNode.Rotation, sceneNode.Scale);
 
-                    foreach (var component in sceneNode.Components)
-                        entity.Attach(component);
-                }
-            }
+        //            foreach (var component in sceneNode.Components)
+        //                entity.Attach(component);
+        //        }
+        //    }
             
-            return scene;
-        }
+        //    return scene;
+        //}
     }
 }

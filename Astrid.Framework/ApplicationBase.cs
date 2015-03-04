@@ -16,7 +16,7 @@ namespace Astrid.Framework
         public abstract GraphicsDevice CreateGraphicsDevice();
         public abstract InputDevice CreateInputDevice();
         public abstract AudioDevice CreateAudioDevice();
-        public abstract void Run(GameBase game);
+        public abstract void Run(IApplicationListener game);
 
         private bool _isDisposed;
 

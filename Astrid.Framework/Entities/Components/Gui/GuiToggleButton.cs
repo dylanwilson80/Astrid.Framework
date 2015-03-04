@@ -1,6 +1,7 @@
 ﻿using System;
 using Astrid.Core;
 using Astrid.Framework.Extensions;
+using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
 namespace Astrid.Framework.Entities.Components.Gui

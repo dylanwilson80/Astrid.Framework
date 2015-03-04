@@ -7,7 +7,7 @@ namespace Astrid.Windows
 {
     public class WindowsGameWindow : GameWindow
     {
-        internal WindowsGameWindow(GameBase game, GLGraphicsDevice graphicsDevice, WindowsApplicationConfig config)
+        internal WindowsGameWindow(IApplicationListener game, GLGraphicsDevice graphicsDevice, WindowsApplicationConfig config)
             : base(config.Width, config.Height)
         {
             _game = game;
@@ -17,7 +17,7 @@ namespace Astrid.Windows
             Title = config.Title;
         }
 
-        private readonly GameBase _game;
+        private readonly IApplicationListener _game;
         private readonly GLGraphicsDevice _graphicsDevice;
         private bool _isPaused;
 

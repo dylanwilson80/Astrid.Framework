@@ -52,7 +52,7 @@ namespace Astrid.Windows
             return _audioDevice;
         }
 
-        public override void Run(GameBase game)
+        public override void Run(IApplicationListener game)
         {
             using (var gameWindow = new WindowsGameWindow(game, _graphicsDevice, _config))
             {

@@ -1,12 +1,12 @@
 ﻿using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
-using Astrid.Framework.Entities;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
+using Astrid.Framework.Screens;
 
 namespace Astrid.Framework
 {
-    public abstract class GameBase : IDeviceManager
+    public abstract class GameBase : IApplicationListener
     {
         protected GameBase(ApplicationBase application)
         {
@@ -21,12 +21,56 @@ namespace Astrid.Framework
         public InputDevice InputDevice { get; private set; }
         public AudioDevice AudioDevice { get; private set; }
 
+        private Screen _currentScreen;
+
+        public void SetScreen(Screen newScreen)
+        {
+            if (_currentScreen != null)
+            {
+                _currentScreen.Hide();
+                _currentScreen.Unload();
+            }
+
+            _currentScreen = newScreen;
+
+            if (_currentScreen != null)
+            {
+                _currentScreen.Load();
+                _currentScreen.Show();
+            }
+        }
+
         public abstract void Create();
         public abstract void Destroy();
-        public abstract void Pause();
-        public abstract void Resume();
-        public abstract void Resize(int width, int height);
-        public abstract void Update(float deltaTime);
-        public abstract void Render(float deltaTime);
+
+        public virtual void Pause()
+        {
+            if (_currentScreen != null)
+                _currentScreen.Pause();
+        }
+
+        public virtual void Resume()
+        {
+            if (_currentScreen != null)
+                _currentScreen.Resume();
+        }
+
+        public virtual void Resize(int width, int height)
+        {
+            if (_currentScreen != null)
+                _currentScreen.Resize(width, height);
+        }
+
+        public virtual void Update(float deltaTime)
+        {
+            if (_currentScreen != null)
+                _currentScreen.Update(deltaTime);
+        }
+
+        public virtual void Render(float deltaTime)
+        {
+            if (_currentScreen != null)
+                _currentScreen.Render(deltaTime);
+        }
     }
 }

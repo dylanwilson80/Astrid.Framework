@@ -12,7 +12,7 @@ namespace Astrid.Framework.Entities.Components.Gui
         {
             IsEnabled = true;
             NormalSprite = new Sprite();
-            PressedSprite = new Sprite() { Scale = new Vector2(0.9f) };
+            PressedSprite = new Sprite();
             DisabledSprite = new Sprite() { Color = Color.Gray };
         }
 
@@ -68,10 +68,7 @@ namespace Astrid.Framework.Entities.Components.Gui
             var sprite = GetCurrentSprite();
 
             if (sprite != null)
-            {
-                sprite.Entity = Entity;
-                return sprite.GetBoundingRectangle();
-            }
+                return sprite.GetBoundingRectangle(Entity.Position, Entity.Scale);
 
             return Rectangle.Empty;
         }
@@ -82,8 +79,8 @@ namespace Astrid.Framework.Entities.Components.Gui
 
             if (sprite != null)
             {
-                sprite.Entity = Entity;
-                sprite.Draw(spriteBatch);
+                //sprite.Entity = Entity;
+                //sprite.Draw(spriteBatch);
             }
         }
     }

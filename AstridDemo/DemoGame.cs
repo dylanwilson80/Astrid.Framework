@@ -11,7 +11,6 @@ namespace AstridDemo
 {
     public class DemoGame : GameBase, ITouchInputListener
     {
-        private ScreenManager _screenManager;
         private List<Screen> _screens;
         private int _currentScreenIndex;
 
@@ -33,8 +32,7 @@ namespace AstridDemo
                 new GdxTextureAtlasScreen(this)
             };
 
-            _screenManager = new ScreenManager();
-            _screenManager.SetScreen(_screens[_currentScreenIndex]);
+            SetScreen(_screens[_currentScreenIndex]);
 
             InputDevice.Processors.Add(new TouchInputProcessor(this));
 
@@ -46,33 +44,13 @@ namespace AstridDemo
         {
         }
 
-        public override void Pause()
-        {
-            _screenManager.Pause();
-        }
-
-        public override void Resume()
-        {
-            _screenManager.Resume();
-        }
-
-        public override void Resize(int width, int height)
-        {
-            _screenManager.Resize(width, height);
-        }
-
-        public override void Update(float deltaTime)
-        {
-            _screenManager.Update(deltaTime);
-        }
-
         public override void Render(float deltaTime)
         {
             _spriteBatch.Begin();
             _spriteBatch.Draw(_backgroundTexture, Vector2.Zero);
             _spriteBatch.End();
 
-            _screenManager.Render(deltaTime);
+            base.Render(deltaTime);
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
@@ -87,7 +65,7 @@ namespace AstridDemo
             if (_currentScreenIndex == _screens.Count)
                 _currentScreenIndex = 0;
 
-            _screenManager.SetScreen(_screens[_currentScreenIndex]);
+            SetScreen(_screens[_currentScreenIndex]);
             return true;
         }
 

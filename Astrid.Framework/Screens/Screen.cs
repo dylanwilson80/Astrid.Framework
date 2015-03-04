@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Entities;
@@ -12,9 +13,16 @@ namespace Astrid.Framework.Screens
         protected Screen(GameBase game)
         {
             _game = game;
+            _layers = new List<ScreenLayer>();
         }
 
         private readonly GameBase _game;
+        private readonly List<ScreenLayer> _layers;
+
+        public IList<ScreenLayer> Layers
+        {
+            get { return _layers; }
+        }
 
         public AssetManager AssetManager
         {
@@ -44,7 +52,13 @@ namespace Astrid.Framework.Screens
         public virtual void Pause() { }
         public virtual void Resume() { }
         public abstract void Update(float deltaTime);
-        public abstract void Render(float deltaTime);
+
+        public virtual void Render(float deltaTime)
+        {
+            foreach (var layer in _layers)
+                layer.Render(deltaTime);
+        }
+
         public virtual void Dispose() { }
     }
 }
