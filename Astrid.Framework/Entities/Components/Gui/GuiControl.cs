@@ -78,10 +78,7 @@ namespace Astrid.Framework.Entities.Components.Gui
             var sprite = GetCurrentSprite();
 
             if (sprite != null)
-            {
-                //sprite.Entity = Entity;
-                //sprite.Draw(spriteBatch);
-            }
+                spriteBatch.Draw(sprite);
         }
     }
 }

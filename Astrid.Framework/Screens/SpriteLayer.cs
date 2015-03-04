@@ -7,24 +7,24 @@ namespace Astrid.Framework.Screens
     {
         public SpriteLayer(GraphicsDevice graphicsDevice)
         {
-            _nodes = new List<SpriteNode>();
+            _sprites = new List<Sprite>();
             _spriteBatch = new SpriteBatch(graphicsDevice);
         }
 
         private readonly SpriteBatch _spriteBatch;
-        private readonly List<SpriteNode> _nodes;
+        private readonly List<Sprite> _sprites;
 
-        public IList<SpriteNode> Nodes
+        public IList<Sprite> Sprites
         {
-            get { return _nodes; }
+            get { return _sprites; }
         }
 
         public override void Render(float deltaTime)
         {
             _spriteBatch.Begin();
 
-            foreach (var node in _nodes)
-                _spriteBatch.Draw(node.Node, node.Position, node.Rotation, node.Scale);
+            foreach (var sprite in _sprites)
+                _spriteBatch.Draw(sprite);
 
             _spriteBatch.End();
         }

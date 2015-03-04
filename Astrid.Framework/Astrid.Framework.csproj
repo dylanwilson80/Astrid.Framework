@@ -107,7 +107,6 @@
     <Compile Include="Graphics\GraphicsDevice.cs" />
     <Compile Include="Graphics\SpriteBatch.cs" />
     <Compile Include="Assets\Texture.cs" />
-    <Compile Include="Graphics\SpriteNode.cs" />
     <Compile Include="IApplicationListener.cs" />
     <Compile Include="Input\InputDevice.cs" />
     <Compile Include="Input\InputProcessor.cs" />

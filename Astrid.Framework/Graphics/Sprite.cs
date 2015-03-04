@@ -3,15 +3,26 @@ using Astrid.Framework.Assets;
 
 namespace Astrid.Framework.Graphics
 {
-    public class Sprite 
+    public class Sprite : SceneNode
     {
-        public Sprite(TextureRegion textureRegion)
-            : this()
+        public Sprite(TextureRegion textureRegion, Vector2 position)
+            : this(position)
         {
             TextureRegion = textureRegion;
         }
 
+        public Sprite(TextureRegion textureRegion)
+            : this(textureRegion, Vector2.Zero)
+        {
+        }
+
         public Sprite()
+            : this(Vector2.Zero)
+        {
+        }
+
+        public Sprite(Vector2 position)
+            : base(position)
         {
             Origin = new Vector2(0.5f, 0.5f);
             Color = Color.White;

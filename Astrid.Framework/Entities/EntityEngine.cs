@@ -63,7 +63,7 @@ namespace Astrid.Framework.Entities
         //    {
         //        var space = CreateSpace(layer.Name);
 
-        //        foreach (var sceneNode in layer.Nodes)
+        //        foreach (var sceneNode in layer.Sprites)
         //        {
         //            var entity = space.CreateEntity(sceneNode.Name, sceneNode.Position, sceneNode.Rotation, sceneNode.Scale);
 
