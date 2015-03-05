@@ -11,11 +11,13 @@ namespace Astrid.Framework.Graphics
             Rotation = 0;
             Zoom = 1;
             Origin = Vector2.Zero;
+            Scale = Vector2.One;
         }
 
         public Vector2 Position { get; set; }
         public float Rotation { get; set; }
         public float Zoom { get; set; }
+        public Vector2 Scale { get; set; }
         public Vector2 Origin { get; set; }
 
         public Vector2 ToWorldSpace(Vector2 position)
@@ -52,8 +54,9 @@ namespace Astrid.Framework.Graphics
             var cx = (int)(Position.X * parallaxFactor);
             var cy = (int)(Position.Y * parallaxFactor) ;
             return
-                Matrix.CreateTranslation(new Vector3(-cx + 0.5f, -cy + 0.5f, 0)) *
+                Matrix.CreateTranslation(new Vector3(-cx, -cy, 0)) *
                 Matrix.CreateRotationZ(Rotation) *
+                Matrix.CreateScale(Scale.X, Scale.Y, 1.0f) *
                 Matrix.CreateScale(Zoom) *
                 Matrix.CreateTranslation(Origin.X, Origin.Y, 0);
         }

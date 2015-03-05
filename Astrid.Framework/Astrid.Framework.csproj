@@ -68,6 +68,7 @@
     <Compile Include="Assets\SoundEffectLoader.cs" />
     <Compile Include="Assets\TextureAtlas.cs" />
     <Compile Include="Assets\TextureAtlasLoader.cs" />
+    <Compile Include="Assets\TextureExtensions.cs" />
     <Compile Include="Assets\TextureLoader.cs" />
     <Compile Include="Audio\SoundEffect.cs" />
     <Compile Include="Audio\AudioDevice.cs" />
@@ -124,7 +125,10 @@
     <Compile Include="Graphics\SceneNode.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenLayer.cs" />
+    <Compile Include="Screens\ScreenViewport.cs" />
     <Compile Include="Screens\SpriteLayer.cs" />
+    <Compile Include="Screens\StretchViewport.cs" />
+    <Compile Include="Screens\Viewport.cs" />
     <Compile Include="Serializers\JsonAssetConverter.cs" />
     <Compile Include="Serializers\JsonKnownComponentTypesSerializationBinder.cs" />
     <Compile Include="Serializers\JsonParser.cs" />

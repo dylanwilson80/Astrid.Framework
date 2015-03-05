@@ -12,13 +12,14 @@ using Astrid.Framework.Screens;
 namespace AstridDemo.Screens
 {
 
-    public class GdxTextureAtlasScreen : Screen, ITouchInputListener
+    public class GdxTextureAtlasScreen : Screen
     {
         public struct AtlasSprite
         {
             public GdxTextureAtlasRegion Visual;
             public Vector2 Position;
             public Vector2 GridPosition;
+
             public AtlasSprite(GdxTextureAtlasRegion visual, Vector2 position, Vector2 grid)
             {
                 Visual = visual;
@@ -44,7 +45,6 @@ namespace AstridDemo.Screens
         public override void Show()
         {
             _random = new Random();
-            InputDevice.Processors.Add(new TouchInputProcessor(this));
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _atlas = AssetManager.Load("pack.atlas", new GdxTextureAtlasLoader());
@@ -102,56 +102,17 @@ namespace AstridDemo.Screens
                 new Vector2(GraphicsDevice.Width / 2 + (x - y) * 48, GraphicsDevice.Height - (x + y) * 24), new Vector2(x, y));
         }
 
-        public override void Hide()
-        {
-        }
-
-        public override void Pause()
-        {
-        }
-
-        public override void Resume()
-        {
-        }
-
-        public override void Resize(int width, int height)
-        {
-        }
-
-        public override void Update(float deltaTime)
-        {
-        }
-
         public override void Render(float deltaTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            base.Render(deltaTime);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(Viewport.Camera.GetViewMatrix());
             foreach (var sprite in _orderedTerrain)
             {
                 _spriteBatch.Draw(sprite.Visual, sprite.Position);
             }
             _spriteBatch.Draw(_texture, _position);
             _spriteBatch.End();
-        }
-
-        public override void Dispose()
-        {
-        }
-
-        public bool OnTouchDown(Vector2 position, int pointerIndex)
-        {
-            return true;
-        }
-
-        public bool OnTouchUp(Vector2 position, int pointerIndex)
-        {
-            return true;
-        }
-
-        public bool OnTouchDrag(Vector2 position, Vector2 delta, int pointerIndex)
-        {
-            return true;
         }
     }
 

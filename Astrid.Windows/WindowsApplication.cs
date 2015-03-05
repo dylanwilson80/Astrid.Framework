@@ -17,13 +17,6 @@ namespace Astrid.Windows
             _config = config;
         }
 
-        protected override void Dispose(bool isDisposing)
-        {
-
-
-            base.Dispose(isDisposing);
-        }
-
         private readonly WindowsApplicationConfig _config;
         
         public override AssetManager CreateAssetManager()

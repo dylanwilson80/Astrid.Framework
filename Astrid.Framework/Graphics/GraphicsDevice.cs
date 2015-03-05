@@ -1,5 +1,7 @@
-﻿using Astrid.Core;
+﻿using System;
+using Astrid.Core;
 using Astrid.Framework.Assets;
+using Astrid.Framework.Extensions;
 
 namespace Astrid.Framework.Graphics
 {
@@ -19,7 +21,10 @@ namespace Astrid.Framework.Graphics
             Width = width;
             Height = height;
             OnResize(width, height);
+            Resized.Raise(this, EventArgs.Empty);
         }
+
+        public event EventHandler Resized;
 
         protected abstract void OnResize(int width, int height);
         public abstract void EnableDepthMask();
