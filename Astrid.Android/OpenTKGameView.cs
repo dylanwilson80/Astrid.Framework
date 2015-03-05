@@ -13,10 +13,10 @@ namespace Astrid.Android
 {
     public class OpenTKGameView : AndroidGameView
     {
-        private readonly GameBase _game;
+        private readonly IApplicationListener _game;
         private readonly GLGraphicsDevice _graphicsDevice;
 
-        internal OpenTKGameView(Context context, GameBase game, GLGraphicsDevice graphicsDevice, AndroidApplicationConfig config)
+        internal OpenTKGameView(Context context, IApplicationListener game, GLGraphicsDevice graphicsDevice, AndroidApplicationConfig config)
             : base(context)
         {
             _game = game;

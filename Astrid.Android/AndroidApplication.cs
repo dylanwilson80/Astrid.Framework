@@ -50,8 +50,8 @@ namespace Astrid.Android
         {
             return new AndroidAudioDevice();
         }
-
-        public override void Run(GameBase game)
+        
+        public override void Run(IApplicationListener game)
         {
             _view = new OpenTKGameView(_config.Activity, game, _graphicsDevice, _config);
             _view.RequestFocus();
