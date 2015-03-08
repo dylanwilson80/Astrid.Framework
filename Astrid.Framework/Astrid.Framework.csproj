@@ -123,6 +123,7 @@
     <Compile Include="Resources\Shapes\RectangleShape.cs" />
     <Compile Include="Resources\Shapes\Shape.cs" />
     <Compile Include="Graphics\SceneNode.cs" />
+    <Compile Include="Screens\GuiLayer.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenLayer.cs" />
     <Compile Include="Screens\ScreenViewport.cs" />

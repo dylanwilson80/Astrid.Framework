@@ -26,8 +26,8 @@ namespace Astrid.Framework.Screens
             var viewMatrix = _viewport.Camera.GetViewMatrix();
             _spriteBatch.Begin(viewMatrix);
 
-            foreach (var sprite in _sprites)
-                _spriteBatch.Draw(sprite);
+            //foreach (var sprite in _sprites)
+            //    _spriteBatch.Draw(sprite);
 
             _spriteBatch.End();
         }

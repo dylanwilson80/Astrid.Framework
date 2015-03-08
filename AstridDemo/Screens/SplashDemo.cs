@@ -5,9 +5,9 @@ using Astrid.Framework.Screens;
 
 namespace AstridDemo.Screens
 {
-    public class SplashScreen : Screen
+    public class SplashDemo : Screen
     {
-        public SplashScreen(GameBase game) 
+        public SplashDemo(GameBase game) 
             : base(game)
         {
         }
@@ -18,7 +18,7 @@ namespace AstridDemo.Screens
             var sprite = AssetManager
                 .Load<Texture>("AstridLogo.png")
                 .ToSprite();
-            sprite.Position = new Vector2(400, 240);
+            //sprite.Position = new Vector2(400, 240);
             spriteLayer.Sprites.Add(sprite);
             Layers.Add(spriteLayer);
 

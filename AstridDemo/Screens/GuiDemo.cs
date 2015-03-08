@@ -6,9 +6,9 @@ using Astrid.Framework.Screens;
 
 namespace AstridDemo.Screens
 {
-    public class GuiScreen : Screen
+    public class GuiDemo : Screen
     {
-        public GuiScreen(GameBase game) 
+        public GuiDemo(GameBase game) 
             : base(game)
         {
         }
@@ -23,8 +23,8 @@ namespace AstridDemo.Screens
             var playTexture = AssetManager.Load<Texture>("PlayButton.png");
             var textureRegion = new TextureRegion(playTexture);
             var spriteLayer = new SpriteLayer(Viewport);
-            var sprite0 = new Sprite(textureRegion, new Vector2(400, 240));
-            var sprite1 = new Sprite(textureRegion, new Vector2(500, 140));
+            var sprite0 = new Sprite(textureRegion);//, new Vector2(400, 240));
+            var sprite1 = new Sprite(textureRegion);//, new Vector2(500, 140));
             spriteLayer.Sprites.Add(sprite0);
             spriteLayer.Sprites.Add(sprite1);
             Layers.Add(spriteLayer);

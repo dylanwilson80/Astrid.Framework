@@ -13,14 +13,14 @@ namespace Astrid.Framework.Screens
     {
         protected Screen(GameBase game)
         {
-            _game = game;
             _layers = new List<ScreenLayer>();
 
+            Game = game;
             ClearColor = Color.CornflowerBlue;
             Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
         }
 
-        private readonly GameBase _game;
+        protected GameBase Game { get; private set; }
 
         public Color ClearColor { get; set; }
         public Viewport Viewport { get; set; }
@@ -33,22 +33,27 @@ namespace Astrid.Framework.Screens
 
         public AssetManager AssetManager
         {
-            get { return _game.AssetManager; }
+            get { return Game.AssetManager; }
         }
 
         public GraphicsDevice GraphicsDevice
         {
-            get { return _game.GraphicsDevice; }
+            get { return Game.GraphicsDevice; }
         }
 
         public InputDevice InputDevice
         {
-            get { return _game.InputDevice; }
+            get { return Game.InputDevice; }
         }
 
         public AudioDevice AudioDevice
         {
-            get { return _game.AudioDevice; }
+            get { return Game.AudioDevice; }
+        }
+
+        public void SetScreen(Screen screen)
+        {
+            Game.SetScreen(screen);
         }
 
         public virtual void Load() { }
@@ -58,7 +63,12 @@ namespace Astrid.Framework.Screens
         public virtual void Resize(int width, int height) { }
         public virtual void Pause() { }
         public virtual void Resume() { }
-        public virtual void Update(float deltaTime) { }
+
+        public virtual void Update(float deltaTime)
+        {
+            foreach (var layer in Layers)
+                layer.Update(deltaTime, InputDevice);
+        }
 
         public virtual void Render(float deltaTime)
         {

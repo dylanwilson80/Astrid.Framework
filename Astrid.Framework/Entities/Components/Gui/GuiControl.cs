@@ -6,27 +6,32 @@ using Astrid.Framework.Input;
 
 namespace Astrid.Framework.Entities.Components.Gui
 {
-    public abstract class GuiControl : Drawable
+    public abstract class GuiControl : SceneNode // : Drawable
     {
-        protected GuiControl()
+        protected GuiControl(Sprite sprite)
+            : this(sprite, null)
+        {
+        }
+
+        protected GuiControl(Sprite normalSprite, Sprite disabledSprite)
         {
             IsEnabled = true;
-            NormalSprite = new Sprite();
-            PressedSprite = new Sprite();
-            DisabledSprite = new Sprite() { Color = Color.Gray };
+            NormalSprite = normalSprite;
+            DisabledSprite = disabledSprite;
         }
 
         public Sprite NormalSprite { get; set; }
-        public Sprite PressedSprite { get; set; }
         public Sprite DisabledSprite { get; set; }
 
         public bool IsEnabled { get; set; }
-        public bool IsPressed { get; set; }
+        public bool IsTouching { get; private set; }
 
-        public event EventHandler Pressed;
-        public event EventHandler Released;
-        public event EventHandler Click;
+        public EventHandler Touched;
+        public EventHandler Released;
 
+        protected abstract void OnTouch(Rectangle shape, Vector2 touchPosition);
+        protected abstract void OnRelease(Rectangle shape, Vector2 touchPosition);
+        
         public virtual bool Update(float deltaTime, InputDevice inputDevice)
         {
             if (!IsEnabled)
@@ -34,51 +39,51 @@ namespace Astrid.Framework.Entities.Components.Gui
 
             var position = inputDevice.Position;
             var shape = GetBoundingRectangle();
-            var previouslyPressed = IsPressed;
+            var isPreviouslyTouching = IsTouching;
 
-            IsPressed = inputDevice.IsTouching && shape.Contains(position);
+            IsTouching = inputDevice.IsTouching && shape.Contains(position);
 
-            if (!previouslyPressed && IsPressed)
-                Pressed.Raise(this, EventArgs.Empty);
-
-            if (previouslyPressed && !IsPressed)
+            if (!isPreviouslyTouching && IsTouching)
             {
-                Released.Raise(this, EventArgs.Empty);
+                OnTouch(shape, position);
+                Touched.Raise(this, EventArgs.Empty);
+            }
 
-                if (shape.Contains(position))
-                    Click.Raise(this, EventArgs.Empty);
+            if (isPreviouslyTouching && !IsTouching)
+            {
+                OnRelease(shape, position);
+                Released.Raise(this, EventArgs.Empty);
             }
 
             return true;
         }
 
-        protected virtual Sprite GetCurrentSprite()
+        protected abstract Sprite GetSpriteForState();
+
+        protected Sprite GetCurrentSprite()
         {
             if (!IsEnabled && DisabledSprite != null)
                 return DisabledSprite;
 
-            if (IsPressed && PressedSprite != null)
-                return PressedSprite;
-
-            return NormalSprite;
+            return GetSpriteForState() ?? NormalSprite;
         }
 
-        public override Rectangle GetBoundingRectangle()
+        public Rectangle GetBoundingRectangle()
         {
             var sprite = GetCurrentSprite();
 
             if (sprite != null)
-                return sprite.GetBoundingRectangle(Entity.Position, Entity.Scale);
+                return sprite.GetBoundingRectangle(Position, Scale);
 
             return Rectangle.Empty;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             var sprite = GetCurrentSprite();
 
             if (sprite != null)
-                spriteBatch.Draw(sprite);
+                spriteBatch.Draw(sprite, Position, Rotation, Scale);
         }
     }
 }

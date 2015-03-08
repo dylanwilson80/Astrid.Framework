@@ -21,11 +21,12 @@ namespace AstridDemo
         {
             _screens = new List<Screen>
             {
-                new SplashScreen(this),
-                new GuiScreen(this),
+                new TitleScreen(this),
+                new SplashDemo(this),
+                new GuiDemo(this),
                 new AnimationDemo(this),
                 new BitmapFontDemo(this),
-                new GdxTextureAtlasScreen(this)
+                new GdxTextureAtlasDemo(this)
             };
 
             SetScreen(_screens[_currentScreenIndex]);
@@ -48,7 +49,7 @@ namespace AstridDemo
             if (_currentScreenIndex == _screens.Count)
                 _currentScreenIndex = 0;
 
-            SetScreen(_screens[_currentScreenIndex]);
+            //SetScreen(_screens[_currentScreenIndex]);
             return true;
         }
 

@@ -32,8 +32,8 @@ namespace Astrid.Framework.Entities
             if (type == typeof(Drawable))
                 return new DrawableSystem(_deviceManager.GraphicsDevice, _camera);
 
-            if (type == typeof (GuiControl))
-                return new GuiSystem(_deviceManager.InputDevice);
+            //if (type == typeof (GuiControl))
+            //    return new GuiSystem(_deviceManager.InputDevice);
 
             //if (type == typeof (PhysicsComponent))
             //    return new PhysicsSystem(new Vector2(0, 10));

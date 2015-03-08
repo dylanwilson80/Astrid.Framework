@@ -8,9 +8,10 @@ namespace Astrid.Framework.Entities.Components.Gui
 {
     public class GuiToggleButton : GuiControl
     {
-        public GuiToggleButton()
+        public GuiToggleButton(Sprite normalSprite, Sprite checkedSprite)
+            : base(normalSprite)
         {
-            CheckedSprite = new Sprite();
+            CheckedSprite = checkedSprite;
         }
 
         public Sprite CheckedSprite { get; set; }
@@ -19,13 +20,23 @@ namespace Astrid.Framework.Entities.Components.Gui
 
         public event EventHandler CheckChanged;
 
+        protected override void OnTouch(Rectangle shape, Vector2 touchPosition)
+        {
+            
+        }
+
+        protected override void OnRelease(Rectangle shape, Vector2 touchPosition)
+        {
+            
+        }
+
         public override bool Update(float deltaTime, InputDevice inputDevice)
         {
-            var previouslyPressed = IsPressed;
+            var previouslyPressed = IsTouching;
 
             if (base.Update(deltaTime, inputDevice))
             {
-                if (!previouslyPressed && IsPressed)
+                if (!previouslyPressed && IsTouching)
                 {
                     IsChecked = !IsChecked;
                     CheckChanged.Raise(this, EventArgs.Empty);
@@ -35,15 +46,9 @@ namespace Astrid.Framework.Entities.Components.Gui
             return true;
         }
 
-        protected override Sprite GetCurrentSprite()
+        protected override Sprite GetSpriteForState()
         {
-            if (!IsEnabled)
-                return base.GetCurrentSprite();
-
-            if (IsPressed) 
-                return PressedSprite;
-
-            return IsChecked ? CheckedSprite : base.GetCurrentSprite();
+            return IsChecked ? CheckedSprite : NormalSprite;
         }
     }
 }

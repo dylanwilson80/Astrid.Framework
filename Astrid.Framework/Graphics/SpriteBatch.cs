@@ -179,12 +179,12 @@ namespace Astrid.Framework.Graphics
             AddQuad(points, color, uv[0], uv[1], uv[2], uv[3]);
         }
 
-        public void Draw(Sprite sprite)
+        public void Draw(Sprite sprite, Vector2 position, float rotation, Vector2 scale)
         {
             if (sprite.TextureRegion == null || !sprite.IsVisible)
                 return;
 
-            Draw(sprite.TextureRegion, sprite.Position, sprite.Color, sprite.Origin, sprite.Rotation, sprite.Scale);
+            Draw(sprite.TextureRegion, position, sprite.Color, sprite.Origin, rotation, scale);
         }
     }
 }

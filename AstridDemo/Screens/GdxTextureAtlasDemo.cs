@@ -12,7 +12,7 @@ using Astrid.Framework.Screens;
 namespace AstridDemo.Screens
 {
 
-    public class GdxTextureAtlasScreen : Screen
+    public class GdxTextureAtlasDemo : Screen
     {
         public struct AtlasSprite
         {
@@ -37,7 +37,7 @@ namespace AstridDemo.Screens
         private readonly string[] _terrainNames = { "grass", "forest", "sand", "mud", "stone", "asphalt" };
         private Random _random;
         
-        public GdxTextureAtlasScreen(GameBase game)
+        public GdxTextureAtlasDemo(GameBase game)
             : base(game)
         {
         }
