@@ -52,7 +52,7 @@
     <Compile Include="Screens\BitmapFontDemo.cs" />
     <Compile Include="Screens\GuiDemo.cs" />
     <Compile Include="Screens\SplashDemo.cs" />
-    <Compile Include="Screens\TitleScreen.cs" />
+    <Compile Include="Screens\TitleScreenDemo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

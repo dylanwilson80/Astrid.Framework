@@ -4,9 +4,9 @@ using Astrid.Framework.Extensions;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
-namespace Astrid.Framework.Entities.Components.Gui
+namespace Astrid.Framework.Gui
 {
-    public abstract class GuiControl : SceneNode // : Drawable
+    public abstract class GuiControl : SceneNode
     {
         protected GuiControl(Sprite sprite)
             : this(sprite, null)
@@ -78,7 +78,7 @@ namespace Astrid.Framework.Entities.Components.Gui
             return Rectangle.Empty;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             var sprite = GetCurrentSprite();
 

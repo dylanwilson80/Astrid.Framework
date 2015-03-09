@@ -2,7 +2,6 @@ using System;
 using Astrid.Core;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Entities.Components;
-using Astrid.Framework.Entities.Components.Gui;
 using Astrid.Framework.Entities.Systems;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;

@@ -4,11 +4,11 @@ using Astrid.Framework.Extensions;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
-namespace Astrid.Framework.Entities.Components.Gui
+namespace Astrid.Framework.Gui
 {
-    public class GuiToggleButton : GuiControl
+    public class GuiCheckbox : GuiControl
     {
-        public GuiToggleButton(Sprite normalSprite, Sprite checkedSprite)
+        public GuiCheckbox(Sprite normalSprite, Sprite checkedSprite)
             : base(normalSprite)
         {
             CheckedSprite = checkedSprite;
@@ -22,12 +22,10 @@ namespace Astrid.Framework.Entities.Components.Gui
 
         protected override void OnTouch(Rectangle shape, Vector2 touchPosition)
         {
-            
         }
 
         protected override void OnRelease(Rectangle shape, Vector2 touchPosition)
         {
-            
         }
 
         public override bool Update(float deltaTime, InputDevice inputDevice)

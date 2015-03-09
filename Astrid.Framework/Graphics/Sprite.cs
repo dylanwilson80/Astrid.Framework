@@ -13,6 +13,11 @@ namespace Astrid.Framework.Graphics
             IsVisible = true;
         }
 
+        public Sprite(Texture texture)
+            : this(texture.ToTextureRegion())
+        {
+        }
+
         public TextureRegion TextureRegion { get; set; }
         public Color Color { get; set; }
         public Vector2 Origin { get; set; }

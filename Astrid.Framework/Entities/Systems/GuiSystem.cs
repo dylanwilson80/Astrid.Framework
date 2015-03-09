@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Astrid.Framework.Entities.Components.Gui;
 using Astrid.Framework.Input;
 
 namespace Astrid.Framework.Entities.Systems

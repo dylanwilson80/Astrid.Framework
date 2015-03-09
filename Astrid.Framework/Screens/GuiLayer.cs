@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Astrid.Framework.Entities.Components.Gui;
 using Astrid.Framework.Graphics;
+using Astrid.Framework.Gui;
 using Astrid.Framework.Input;
 
 namespace Astrid.Framework.Screens

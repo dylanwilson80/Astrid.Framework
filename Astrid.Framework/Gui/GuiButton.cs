@@ -3,7 +3,7 @@ using Astrid.Core;
 using Astrid.Framework.Extensions;
 using Astrid.Framework.Graphics;
 
-namespace Astrid.Framework.Entities.Components.Gui
+namespace Astrid.Framework.Gui
 {
     public class GuiButton : GuiControl
     {
