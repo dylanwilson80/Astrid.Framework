@@ -109,6 +109,7 @@
     <Compile Include="Graphics\SpriteBatch.cs" />
     <Compile Include="Assets\Texture.cs" />
     <Compile Include="Gui\GuiImage.cs" />
+    <Compile Include="Gui\GuiLabel.cs" />
     <Compile Include="IApplicationListener.cs" />
     <Compile Include="Input\InputDevice.cs" />
     <Compile Include="Input\InputProcessor.cs" />

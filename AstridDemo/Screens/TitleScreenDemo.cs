@@ -24,7 +24,8 @@ namespace AstridDemo.Screens
             var label = new GuiLabel(font, null)
             {
                 Text = "Welcome to", 
-                TextColor = Color.Black
+                TextColor = new Color(81, 32, 0),
+                Position = new Vector2(400, 45)
             };
             guiLayer.Controls.Add(label);
 
