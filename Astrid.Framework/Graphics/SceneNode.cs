@@ -1,8 +1,9 @@
 ﻿using Astrid.Core;
+using Astrid.Framework.Entities.Components;
 
 namespace Astrid.Framework.Graphics
 {
-    public abstract class SceneNode
+    public abstract class SceneNode : ITransformable
     {
         protected SceneNode()
             : this(string.Empty, Vector2.Zero)
