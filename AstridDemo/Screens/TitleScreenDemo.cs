@@ -4,45 +4,12 @@ using Astrid.Framework;
 using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Assets.Fonts;
-using Astrid.Framework.Entities.Components;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Gui;
 using Astrid.Framework.Screens;
 
 namespace AstridDemo.Screens
 {
-    public class ActionManager
-    {
-        private readonly AnimationSystem _animationSystem;
-        private readonly ITransformable _target;
-
-        public ActionManager(AnimationSystem animationSystem, ITransformable target)
-        {
-            _animationSystem = animationSystem;
-            _target = target;
-        }
-
-        public ActionManager MoveTo(Vector2 position, float duration, EasingFunction easingFunction)
-        {
-            var animation = new Vector2Animation(_target.Position, position, v => _target.Position = v, duration)
-            {
-                EasingFunction = easingFunction
-            };
-            _animationSystem.Attach(animation);
-            return this;
-        }
-
-        public ActionManager RotateTo(float rotation, float duration, EasingFunction easingFunction)
-        {
-            var animation = new FloatAnimation(_target.Rotation, rotation, r => _target.Rotation = r, duration)
-            {
-                EasingFunction = easingFunction
-            };
-            _animationSystem.Attach(animation);
-            return this;
-        }
-    }
-
     public class TitleScreenDemo : Screen
     {
         public TitleScreenDemo(GameBase game) 
@@ -63,7 +30,7 @@ namespace AstridDemo.Screens
             {
                 Text = "Welcome to", 
                 TextColor = new Color(81, 32, 0),
-                Position = new Vector2(400, -45)
+                Position = new Vector2(400, -100)
             };
             guiLayer.Controls.Add(label);
 
@@ -71,7 +38,6 @@ namespace AstridDemo.Screens
             var image = new GuiImage(logoTexture)
             {
                 Position = new Vector2(400, -100),
-                
             };
             guiLayer.Controls.Add(image);
 
@@ -80,27 +46,24 @@ namespace AstridDemo.Screens
             var pressedSprite = new Sprite(buttonTexture) {Color = Color.Gray};
             var playButton = new GuiButton(normalSprite, pressedSprite)
             {
-                Position = new Vector2(400, -260),
-                Rotation = MathHelper.TwoPi
+                Position = new Vector2(400, -100),
+                Rotation = MathHelper.TwoPi,
+                Scale = Vector2.Zero
             };
             playButton.Click += PlayButtonOnClick;
             guiLayer.Controls.Add(playButton);
             Layers.Add(guiLayer);
 
-            var actionManager = new ActionManager(_animationSystem, playButton);
-            actionManager
+            _animationSystem.CreateActor(playButton)
                 .MoveTo(new Vector2(400, 240), 1.0f, EasingFunctions.CubicEaseInOut)
-                .RotateTo(0, 1.0f, EasingFunctions.CubicEaseInOut);
+                .RotateTo(0, 1.0f, EasingFunctions.CubicEaseInOut)
+                .ScaleTo(new Vector2(1.0f), 1.0f, EasingFunctions.QuadraticEaseOut);
 
-            var actionManager2 = new ActionManager(_animationSystem, label);
-            actionManager2
-                .MoveTo(new Vector2(400, 45), 1.0f, EasingFunctions.CubicEaseInOut)
-                .RotateTo(0, 1.0f, EasingFunctions.CubicEaseInOut);
+            _animationSystem.CreateActor(label)
+                .MoveTo(new Vector2(400, 45), 1.0f, EasingFunctions.CubicEaseInOut);
 
-            var actionManager3 = new ActionManager(_animationSystem, image);
-            actionManager3
-                .MoveTo(new Vector2(400, 100), 1.0f, EasingFunctions.CubicEaseInOut)
-                .RotateTo(0, 1.0f, EasingFunctions.CubicEaseInOut);
+            _animationSystem.CreateActor(image)
+                .MoveTo(new Vector2(400, 100), 1.0f, EasingFunctions.CubicEaseInOut);
 
             base.Show();
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Astrid.Framework.Entities.Components;
 
 namespace Astrid.Framework.Animations
 {
@@ -10,6 +11,11 @@ namespace Astrid.Framework.Animations
         }
 
         private readonly List<Animation> _animations;
+
+        public Actor CreateActor(ITransformable target)
+        {
+            return new Actor(this, target);
+        }
 
         public void Update(float deltaTime)
         {
