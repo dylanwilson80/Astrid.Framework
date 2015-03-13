@@ -43,6 +43,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\Actor.cs" />
     <Compile Include="Animations\ColorAnimation.cs" />
     <Compile Include="Animations\Animation.cs" />
     <Compile Include="Animations\AnimationSystem.cs" />
