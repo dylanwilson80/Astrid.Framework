@@ -43,18 +43,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animations\Actor.cs" />
-    <Compile Include="Animations\ColorAnimation.cs" />
     <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\SequenceAnimation.cs" />
+    <Compile Include="Animations\ColorTransition.cs" />
+    <Compile Include="Animations\Transition.cs" />
     <Compile Include="Animations\AnimationSystem.cs" />
-    <Compile Include="Animations\DoubleAnimation.cs" />
+    <Compile Include="Animations\DoubleTransition.cs" />
     <Compile Include="Animations\EasingFunctions.cs" />
-    <Compile Include="Animations\FloatAnimation.cs" />
-    <Compile Include="Animations\FluentAnimationExtensions.cs" />
-    <Compile Include="Animations\IntAnimation.cs" />
-    <Compile Include="Animations\Vector2Animation.cs" />
-    <Compile Include="Animations\Vector3Animation.cs" />
-    <Compile Include="Animations\Vector4Animation.cs" />
+    <Compile Include="Animations\FloatTransition.cs" />
+    <Compile Include="Animations\AnimationExtensions.cs" />
+    <Compile Include="Animations\IntTransition.cs" />
+    <Compile Include="Animations\Vector2Transition.cs" />
+    <Compile Include="Animations\Vector3Transition.cs" />
+    <Compile Include="Animations\Vector4Transition.cs" />
     <Compile Include="ApplicationBase.cs" />
     <Compile Include="Assets\AssetLoader.cs" />
     <Compile Include="Assets\AssetManager.cs" />

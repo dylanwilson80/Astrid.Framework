@@ -2,9 +2,9 @@
 
 namespace Astrid.Framework.Animations
 {
-    public class DoubleAnimation : Animation<double>
+    public class DoubleTransition : Transition<double>
     {
-        public DoubleAnimation(double initialValue, double targetValue, Action<double> setValueAction, float duration) 
+        public DoubleTransition(double initialValue, double targetValue, Action<double> setValueAction, float duration) 
             : base(initialValue, targetValue, setValueAction, duration)
         {
             _changeInValue = targetValue - initialValue;

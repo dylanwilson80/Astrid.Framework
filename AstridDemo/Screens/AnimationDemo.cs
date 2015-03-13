@@ -36,11 +36,11 @@ namespace AstridDemo.Screens
 
         private void CreateMoveToAnimation(Vector2 position0, Vector2 position1)
         {
-            var animation = new Vector2Animation(position0, position1, v => _position = v, 1.2f)
+            var animation = new Vector2Transition(position0, position1, v => _position = v, 1.2f)
             {
                 EasingFunction = EasingFunctions.QuarticEaseInOut
             };
-            animation.AnimationComplete += (sender, args) => CreateMoveToAnimation(position1, position0);
+            animation.TransitionComplete += (sender, args) => CreateMoveToAnimation(position1, position0);
             _animationSystem.Attach(animation);
         }
 

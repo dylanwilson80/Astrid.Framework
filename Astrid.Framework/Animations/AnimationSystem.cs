@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Astrid.Framework.Entities.Components;
 
 namespace Astrid.Framework.Animations
 {
@@ -7,50 +6,42 @@ namespace Astrid.Framework.Animations
     {
         public AnimationSystem()
         {
-            _animations = new List<Animation>(); 
+            _transitions = new List<Transition>(); 
         }
 
-        private readonly List<Animation> _animations;
-
-        public Actor CreateActor(ITransformable target)
-        {
-            return new Actor(this, target);
-        }
+        private readonly List<Transition> _transitions;
 
         public void Update(float deltaTime)
         {
             // This is a for loop to allow for animations to be added during update
             // ReSharper disable once ForCanBeConvertedToForeach
-            for (int i = 0; i < _animations.Count; i++)
+            for (int i = 0; i < _transitions.Count; i++)
             {
-                var animation = _animations[i];
-                animation.Update(deltaTime);
+                var transition = _transitions[i];
+                transition.Update(deltaTime);
             }
 
-            _animations.RemoveAll(i => i.IsComplete);
+            _transitions.RemoveAll(i => i.IsComplete);
         }
 
-        public void Attach(Animation animation)
+        public void Attach(Transition animation)
         {
-            _animations.Add(animation);
+            _transitions.Add(animation);
         }
 
-        public void Detach(Animation animation)
+        public void Detach(Transition animation)
         {
-            _animations.Remove(animation);
+            _transitions.Remove(animation);
         }
 
-        public T CreateAnimation<T>(float duration)
-            where T : Animation, new()
-        {
-            var animation = new T();
-            _animations.Add(animation);
-            return animation;
-        }
+        //public Animation<T> CreateActor<T>(T target)
+        //{
+        //    return new Animation<T>(this, target);
+        //}
 
-        public Actor<T> CreateActor<T>(T target)
+        public SequenceAnimation<T> CreateSequence<T>(T target)
         {
-            return new Actor<T>(this, target);
+            return new SequenceAnimation<T>(this, target);
         }
     }
 }

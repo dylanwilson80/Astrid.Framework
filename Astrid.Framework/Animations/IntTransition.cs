@@ -2,9 +2,9 @@
 
 namespace Astrid.Framework.Animations
 {
-    public class IntAnimation : Animation<int>
+    public class IntTransition : Transition<int>
     {
-        public IntAnimation(int initialValue, int targetValue, Action<int> setValueAction, float duration) 
+        public IntTransition(int initialValue, int targetValue, Action<int> setValueAction, float duration) 
             : base(initialValue, targetValue, setValueAction, duration)
         {
             _changeInValue = targetValue - initialValue;

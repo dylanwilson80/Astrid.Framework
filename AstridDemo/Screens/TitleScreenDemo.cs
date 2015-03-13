@@ -17,12 +17,8 @@ namespace AstridDemo.Screens
         {
         }
 
-        private AnimationSystem _animationSystem;
-
         public override void Show()
         {
-            _animationSystem = new AnimationSystem();
-
             var guiLayer = new GuiLayer(GraphicsDevice);
 
             var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
@@ -54,21 +50,20 @@ namespace AstridDemo.Screens
             guiLayer.Controls.Add(playButton);
             Layers.Add(guiLayer);
 
-            const float duration = 2.0f;
-            _animationSystem
-                .CreateActor(playButton)
+            const float duration = 1.5f;
+
+            Animations
+                .CreateSequence(playButton)
+                .MoveTo(new Vector2(0, 0), duration)
+                .MoveTo(new Vector2(800, 480), duration)
+                .MoveTo(new Vector2(800, 260), duration)
                 .MoveTo(new Vector2(400, 260), duration)
                 .RotateTo(0, duration)
-                .FadeTo(0.5f, duration);
+                .FadeOut(duration)
+                .Play();
+                
 
             base.Show();
-        }
-
-        public override void Update(float deltaTime)
-        {
-            base.Update(deltaTime);
-
-            _animationSystem.Update(deltaTime);
         }
 
         private void PlayButtonOnClick(object sender, EventArgs eventArgs)

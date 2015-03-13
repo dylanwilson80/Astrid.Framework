@@ -3,9 +3,9 @@ using Astrid.Core;
 
 namespace Astrid.Framework.Animations
 {
-    public class ColorAnimation : Animation<Color>
+    public class ColorTransition : Transition<Color>
     {
-        public ColorAnimation(Color initialValue, Color targetValue, Action<Color> setValueAction, float duration)
+        public ColorTransition(Color initialValue, Color targetValue, Action<Color> setValueAction, float duration)
             : base(initialValue, targetValue, setValueAction, duration)
         {
             _changeInR = targetValue.R - initialValue.R;

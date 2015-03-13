@@ -1,4 +1,5 @@
-﻿using Astrid.Framework.Assets;
+﻿using Astrid.Framework.Animations;
+using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;

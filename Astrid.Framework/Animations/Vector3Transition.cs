@@ -3,9 +3,9 @@ using Astrid.Core;
 
 namespace Astrid.Framework.Animations
 {
-    public class Vector3Animation : Animation<Vector3>
+    public class Vector3Transition : Transition<Vector3>
     {
-        public Vector3Animation(Vector3 initialValue, Vector3 targetValue, Action<Vector3> setValueAction, float duration)
+        public Vector3Transition(Vector3 initialValue, Vector3 targetValue, Action<Vector3> setValueAction, float duration)
             : base(initialValue, targetValue, setValueAction, duration)
         {
             _changeInX = targetValue.X - initialValue.X;

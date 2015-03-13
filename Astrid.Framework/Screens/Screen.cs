@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Astrid.Core;
+using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Entities;
@@ -18,13 +19,15 @@ namespace Astrid.Framework.Screens
             Game = game;
             ClearColor = Color.CornflowerBlue;
             Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
+            Animations = new AnimationSystem();
         }
 
         protected GameBase Game { get; private set; }
-
+        
         public Color ClearColor { get; set; }
         public Viewport Viewport { get; set; }
-        
+        public AnimationSystem Animations { get; private set; }
+
         private readonly List<ScreenLayer> _layers;
         public IList<ScreenLayer> Layers
         {
@@ -66,6 +69,8 @@ namespace Astrid.Framework.Screens
 
         public virtual void Update(float deltaTime)
         {
+            Animations.Update(deltaTime);
+
             foreach (var layer in Layers)
                 layer.Update(deltaTime, InputDevice);
         }
