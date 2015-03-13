@@ -1,12 +1,13 @@
 ﻿using System;
 using Astrid.Core;
+using Astrid.Framework.Entities.Components;
 using Astrid.Framework.Extensions;
 using Astrid.Framework.Graphics;
 using Astrid.Framework.Input;
 
 namespace Astrid.Framework.Gui
 {
-    public abstract class GuiControl : SceneNode
+    public abstract class GuiControl : SceneNode, IColorable
     {
         protected GuiControl(Sprite sprite)
             : this(sprite, null)
@@ -18,8 +19,10 @@ namespace Astrid.Framework.Gui
             IsEnabled = true;
             NormalSprite = normalSprite;
             DisabledSprite = disabledSprite;
+            Color = normalSprite != null ? normalSprite.Color : Color.White;
         }
 
+        public Color Color { get; set; }
         public Sprite NormalSprite { get; set; }
         public Sprite DisabledSprite { get; set; }
 
@@ -83,7 +86,10 @@ namespace Astrid.Framework.Gui
             var sprite = GetCurrentSprite();
 
             if (sprite != null)
+            {
+                sprite.Color = Color;
                 spriteBatch.Draw(sprite, Position, Rotation, Scale);
+            }
         }
     }
 }

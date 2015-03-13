@@ -41,5 +41,10 @@ namespace Astrid.Framework.Animations
             _animations.Add(animation);
             return animation;
         }
+
+        public Actor<T> CreateActor<T>(T target)
+        {
+            return new Actor<T>(this, target);
+        }
     }
 }

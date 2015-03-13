@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
+      <Project>{95203660-E823-41AA-84BC-92C93C5BF213}</Project>
+      <Name>Astrid.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
       <Project>{2B3B1640-5B1F-425F-AEBC-A24260524AD8}</Project>
       <Name>Astrid.Framework</Name>

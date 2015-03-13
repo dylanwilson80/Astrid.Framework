@@ -17,6 +17,11 @@ namespace Astrid.Framework.Entities.Components
         Vector2 Scale { get; set; }
     }
 
+    public interface IColorable
+    {
+        Color Color { get; set; }
+    }
+
     public interface ITransformable : IMovable, IRotatable, IScalable
     {
     }

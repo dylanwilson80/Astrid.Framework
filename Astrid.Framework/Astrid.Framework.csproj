@@ -49,6 +49,7 @@
     <Compile Include="Animations\DoubleAnimation.cs" />
     <Compile Include="Animations\EasingFunctions.cs" />
     <Compile Include="Animations\FloatAnimation.cs" />
+    <Compile Include="Animations\FluentAnimationExtensions.cs" />
     <Compile Include="Animations\IntAnimation.cs" />
     <Compile Include="Animations\Vector2Animation.cs" />
     <Compile Include="Animations\Vector3Animation.cs" />

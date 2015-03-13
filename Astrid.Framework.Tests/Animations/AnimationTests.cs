@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting.Messaging;
-using Astrid.Framework.Animations;
+﻿using Astrid.Framework.Animations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Astrid.Framework.Tests.Animations
