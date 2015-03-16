@@ -5,21 +5,19 @@ namespace Astrid.Framework.Animations
 {
     public class Vector2Transition : Transition<Vector2>
     {
-        public Vector2Transition(Vector2 initialValue, Vector2 targetValue, Action<Vector2> setValueAction, float duration) 
-            : base(initialValue, targetValue, setValueAction, duration)
+        public Vector2Transition(Func<Vector2> getValue, Action<Vector2> setValue, Vector2 targetValue, TransitionParameters parameters)
+            : base(getValue, setValue, targetValue, parameters)
         {
-            _changeInX = targetValue.X - initialValue.X;
-            _changeInY = targetValue.Y - initialValue.Y;
         }
-
-        private readonly float _changeInX;
-        private readonly float _changeInY;
 
         protected override Vector2 CalculateNewValue(float multiplier)
         {
-            var x = InitialValue.X + _changeInX * multiplier;
-            var y = InitialValue.Y + _changeInY * multiplier;
-            return new Vector2(x, y);
+            return InitialValue + ChangeInValue * multiplier;
+        }
+
+        protected override Vector2 CalculateChangeInValue(Vector2 initialValue, Vector2 targetValue)
+        {
+            return TargetValue - InitialValue;
         }
     }
 }

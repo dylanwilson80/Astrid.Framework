@@ -4,17 +4,19 @@ namespace Astrid.Framework.Animations
 {
     public class IntTransition : Transition<int>
     {
-        public IntTransition(int initialValue, int targetValue, Action<int> setValueAction, float duration) 
-            : base(initialValue, targetValue, setValueAction, duration)
+        public IntTransition(Func<int> getValue, Action<int> setValue, int targetValue, TransitionParameters transitionParameters)
+            : base(getValue, setValue, targetValue, transitionParameters)
         {
-            _changeInValue = targetValue - initialValue;
         }
-
-        private readonly int _changeInValue;
 
         protected override int CalculateNewValue(float multiplier)
         {
-            return (int)(InitialValue + _changeInValue * multiplier);
+            return (int)(InitialValue + ChangeInValue * multiplier);
+        }
+
+        protected override int CalculateChangeInValue(int initialValue, int targetValue)
+        {
+            return targetValue - initialValue;
         }
     }
 }

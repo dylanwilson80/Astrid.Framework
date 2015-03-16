@@ -28,6 +28,7 @@ namespace Astrid.Framework.Animations
             if (_queue.Any())
             {
                 var transition = _queue.Dequeue();
+                transition.Reset();
                 transition.TransitionComplete += (sender, args) => PlayNext();
                 AnimationSystem.Attach(transition);
             }

@@ -5,17 +5,19 @@ namespace Astrid.Framework.Animations
 {
     public class FloatTransition : Transition<float>
     {
-        public FloatTransition(float initialValue, float targetValue, Action<float> setValue, float duration)
-            : base(initialValue, targetValue, setValue, duration)
+        public FloatTransition(Func<float> getValue, Action<float> setValue, float targetValue, TransitionParameters transitionParameters)
+            : base(getValue, setValue, targetValue, transitionParameters)
         {
-            _changeInValue = targetValue - initialValue;
         }
-
-        private readonly float _changeInValue;
 
         protected override float CalculateNewValue(float multiplier)
         {
-            return InitialValue + _changeInValue * multiplier;
+            return InitialValue + ChangeInValue * multiplier;
+        }
+
+        protected override float CalculateChangeInValue(float initialValue, float targetValue)
+        {
+            return targetValue - initialValue;
         }
     }
 }

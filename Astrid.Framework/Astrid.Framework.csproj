@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\DelayTransition.cs" />
+    <Compile Include="Animations\ParallelAnimation.cs" />
     <Compile Include="Animations\SequenceAnimation.cs" />
     <Compile Include="Animations\ColorTransition.cs" />
     <Compile Include="Animations\Transition.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="Animations\FloatTransition.cs" />
     <Compile Include="Animations\AnimationExtensions.cs" />
     <Compile Include="Animations\IntTransition.cs" />
+    <Compile Include="Animations\TransitionParameters.cs" />
     <Compile Include="Animations\Vector2Transition.cs" />
     <Compile Include="Animations\Vector3Transition.cs" />
     <Compile Include="Animations\Vector4Transition.cs" />

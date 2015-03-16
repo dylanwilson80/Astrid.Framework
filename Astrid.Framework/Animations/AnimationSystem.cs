@@ -24,20 +24,20 @@ namespace Astrid.Framework.Animations
             _transitions.RemoveAll(i => i.IsComplete);
         }
 
-        public void Attach(Transition animation)
+        public void Attach(Transition transition)
         {
-            _transitions.Add(animation);
+            _transitions.Add(transition);
         }
 
-        public void Detach(Transition animation)
+        public void Detach(Transition transition)
         {
-            _transitions.Remove(animation);
+            _transitions.Remove(transition);
         }
 
-        //public Animation<T> CreateActor<T>(T target)
-        //{
-        //    return new Animation<T>(this, target);
-        //}
+        public ParallelAnimation<T> CreateParallel<T>(T target)
+        {
+            return new ParallelAnimation<T>(this, target);
+        }
 
         public SequenceAnimation<T> CreateSequence<T>(T target)
         {

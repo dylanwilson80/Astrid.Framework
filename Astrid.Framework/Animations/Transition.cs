@@ -5,39 +5,53 @@ namespace Astrid.Framework.Animations
 {
     public abstract class Transition<T> : Transition
     {
-        protected Transition(T initialValue, T targetValue, Action<T> setValueAction, float duration)
-            : base(duration)
+        protected Transition(Func<T> getValue, Action<T> setValue, T targetValue, TransitionParameters transitionParameters)
+            : base(transitionParameters)
         {
-            InitialValue = initialValue;
+            _getValue = getValue;
+            _setValue = setValue;
             TargetValue = targetValue;
-            _setValueAction = setValueAction;
+            Reset();
         }
+
+        private readonly Action<T> _setValue;
+        private readonly Func<T> _getValue; 
 
         public T InitialValue { get; private set; }
         public T TargetValue { get; private set; }
-
-        private readonly Action<T> _setValueAction;
+        public T ChangeInValue { get; private set; }
 
         protected abstract T CalculateNewValue(float multiplier);
+        protected abstract T CalculateChangeInValue(T initialValue, T targetValue);
+
+        public void Reset(T newTarget)
+        {
+            InitialValue = _getValue();
+            TargetValue = newTarget;
+            ChangeInValue = CalculateChangeInValue(InitialValue, TargetValue);
+        }
+
+        public override sealed void Reset()
+        {
+            Reset(TargetValue);
+        }
 
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
 
             var newValue = CalculateNewValue(CurrentValue);
-            _setValueAction(newValue);
+            _setValue(newValue);
         }
     }
 
     public abstract class Transition
     {
-        protected Transition(float duration)
+        protected Transition(TransitionParameters transitionParameters)
         {
-            CurrentValue = 0.0f;
-            Duration = duration;
-            EasingFunction = EasingFunctions.Linear;
-            IsComplete = false;
-            IsPaused = false;
+            Duration = transitionParameters.Duration;
+            EasingFunction = transitionParameters.EasingFunction;
+            Play();
         }
 
         public float CurrentTime { get; private set; }
@@ -63,6 +77,8 @@ namespace Astrid.Framework.Animations
 
         public event EventHandler TransitionComplete;
 
+        public abstract void Reset();
+
         public void Pause()
         {
             IsPaused = true;
@@ -70,6 +86,13 @@ namespace Astrid.Framework.Animations
 
         public void Resume()
         {
+            IsPaused = false;
+        }
+
+        public void Play()
+        {
+            CurrentValue = 0.0f;
+            IsComplete = false;
             IsPaused = false;
         }
 

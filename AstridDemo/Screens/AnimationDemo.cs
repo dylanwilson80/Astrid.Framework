@@ -36,12 +36,10 @@ namespace AstridDemo.Screens
 
         private void CreateMoveToAnimation(Vector2 position0, Vector2 position1)
         {
-            var animation = new Vector2Transition(position0, position1, v => _position = v, 1.2f)
-            {
-                EasingFunction = EasingFunctions.QuarticEaseInOut
-            };
-            animation.TransitionComplete += (sender, args) => CreateMoveToAnimation(position1, position0);
-            _animationSystem.Attach(animation);
+            var transitionParameters = new TransitionParameters(1.2f, EasingFunctions.QuarticEaseInOut);
+            var transition = new Vector2Transition(() => position0, v => _position = v, position1, transitionParameters);
+            transition.TransitionComplete += (sender, args) => CreateMoveToAnimation(position1, position0);
+            _animationSystem.Attach(transition);
         }
 
         public override void Update(float deltaTime)

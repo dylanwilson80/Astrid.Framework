@@ -50,19 +50,21 @@ namespace AstridDemo.Screens
             guiLayer.Controls.Add(playButton);
             Layers.Add(guiLayer);
 
-            const float duration = 1.5f;
-
+            var transitionParameters = new TransitionParameters(1.0f, EasingFunctions.CubicEaseInOut);
             Animations
                 .CreateSequence(playButton)
-                .MoveTo(new Vector2(0, 0), duration)
-                .MoveTo(new Vector2(800, 480), duration)
-                .MoveTo(new Vector2(800, 260), duration)
-                .MoveTo(new Vector2(400, 260), duration)
-                .RotateTo(0, duration)
-                .FadeOut(duration)
+                .MoveTo(new Vector2(50, 50), transitionParameters)
+                .MoveTo(new Vector2(700, 400), transitionParameters)
+                .MoveTo(new Vector2(700, 230), transitionParameters)
+                .MoveTo(new Vector2(400, 250), transitionParameters)
+                .Delay(1.0f)
+                .RotateTo(0, transitionParameters)
+                .Delay(1.0f)
+                .RotateTo(MathHelper.TwoPi, transitionParameters)
+                .FadeOut(transitionParameters)
+                .FadeIn(transitionParameters)
                 .Play();
-                
-
+            
             base.Show();
         }
 
