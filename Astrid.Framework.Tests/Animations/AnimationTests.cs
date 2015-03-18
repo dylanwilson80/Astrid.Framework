@@ -10,7 +10,7 @@ namespace Astrid.Framework.Tests.Animations
         public void Animation_Update_Test()
         {
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f);
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f));
 
             animation.Update(0.0f);
             Assert.AreEqual(2.0f, targetValue);
@@ -26,7 +26,7 @@ namespace Astrid.Framework.Tests.Animations
         public void Animation_Update_IsCompleteAfterDuration_Test()
         {
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f);
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f));
 
             animation.Update(2.0f);
             Assert.IsTrue(animation.IsComplete);
@@ -40,7 +40,7 @@ namespace Astrid.Framework.Tests.Animations
         {
             // ReSharper disable once NotAccessedVariable
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f);
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f));
 
             animation.Stop();
             Assert.IsTrue(animation.IsComplete);
@@ -51,7 +51,7 @@ namespace Astrid.Framework.Tests.Animations
         {
             // ReSharper disable once NotAccessedVariable
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f);
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f));
 
             animation.Pause();
             Assert.IsTrue(animation.IsPaused);
@@ -62,7 +62,7 @@ namespace Astrid.Framework.Tests.Animations
         {
             // ReSharper disable once NotAccessedVariable
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f);
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f));
 
             animation.Update(1.0f);
             Assert.AreEqual(1.0f, animation.CurrentTime);
@@ -79,7 +79,7 @@ namespace Astrid.Framework.Tests.Animations
         {
             // ReSharper disable once NotAccessedVariable
             var targetValue = 1.0f;
-            var animation = new FloatTransition(2.0f, 3.0f, a => targetValue = a, duration: 2.0f)
+            var animation = new FloatTransition(() => 2.0f, a => targetValue = a, 3.0f, new TransitionParameters(2.0f))
             {
                 EasingFunction = a => 1.2f
             };

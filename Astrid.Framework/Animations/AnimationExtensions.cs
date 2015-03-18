@@ -12,6 +12,13 @@ namespace Astrid.Framework.Animations
             return animation;
         }
 
+        public static Animation<T> ScaleTo<T>(this Animation<T> animation, Vector2 scale, TransitionParameters transitionParameters)
+            where T : IScalable
+        {
+            animation.Attach(new Vector2Transition(() => animation.Target.Scale, s => animation.Target.Scale = s, scale, transitionParameters));
+            return animation;
+        }
+
         public static Animation<T> RotateTo<T>(this Animation<T> animation, float rotation, TransitionParameters transitionParameters)
             where T : IRotatable
         {
