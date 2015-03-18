@@ -1610,66 +1610,86 @@
 		
 			{ "Name" : "Resume", "Url" : "#type/GameBase?Resume4", "Type" : "Method" },
 		
-			{ "Name" : "Update", "Url" : "#type/GameBase?Update12", "Type" : "Method" },
+			{ "Name" : "SetScreen", "Url" : "#type/GameBase?SetScreen", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/GameBase?Update11", "Type" : "Method" },
+		
+		{ "Name" : "IApplicationListener", "Url" : "#type/IApplicationListener", "Type" : "Type" },
+
+		
+			{ "Name" : "Create", "Url" : "#type/IApplicationListener?Create2", "Type" : "Method" },
+		
+			{ "Name" : "Destroy", "Url" : "#type/IApplicationListener?Destroy2", "Type" : "Method" },
+		
+			{ "Name" : "Pause", "Url" : "#type/IApplicationListener?Pause5", "Type" : "Method" },
+		
+			{ "Name" : "Render", "Url" : "#type/IApplicationListener?Render2", "Type" : "Method" },
+		
+			{ "Name" : "Resize", "Url" : "#type/IApplicationListener?Resize3", "Type" : "Method" },
+		
+			{ "Name" : "Resume", "Url" : "#type/IApplicationListener?Resume5", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/IApplicationListener?Update12", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Animations", "Url" : "#namespace/Astrid.Framework.Animations", "Type" : "Namespace" },
 	
-		{ "Name" : "Animation", "Url" : "#type/Animation2", "Type" : "Type" },
+		{ "Name" : "Animation", "Url" : "#type/Animation", "Type" : "Type" },
 
 		
-			{ "Name" : "CurrentTime", "Url" : "#type/Animation2?CurrentTime", "Type" : "Property" },
+			{ "Name" : "AnimationSystem", "Url" : "#type/Animation?AnimationSystem", "Type" : "Property" },
 		
-			{ "Name" : "CurrentValue", "Url" : "#type/Animation2?CurrentValue", "Type" : "Property" },
+			{ "Name" : "Attach", "Url" : "#type/Animation?Attach", "Type" : "Method" },
 		
-			{ "Name" : "Duration", "Url" : "#type/Animation2?Duration", "Type" : "Property" },
+			{ "Name" : "Play", "Url" : "#type/Animation?Play", "Type" : "Method" },
 		
-			{ "Name" : "EasingFunction", "Url" : "#type/Animation2?EasingFunction", "Type" : "Property" },
-		
-			{ "Name" : "IsComplete", "Url" : "#type/Animation2?IsComplete", "Type" : "Property" },
-		
-			{ "Name" : "IsPaused", "Url" : "#type/Animation2?IsPaused", "Type" : "Property" },
-		
-			{ "Name" : "AnimationComplete", "Url" : "#type/Animation2?AnimationComplete", "Type" : "Event" },
-		
-			{ "Name" : "Pause", "Url" : "#type/Animation2?Pause", "Type" : "Method" },
-		
-			{ "Name" : "Resume", "Url" : "#type/Animation2?Resume", "Type" : "Method" },
-		
-			{ "Name" : "Stop", "Url" : "#type/Animation2?Stop", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/Animation2?Update2", "Type" : "Method" },
-		
-		{ "Name" : "Animation", "Url" : "#type/Animation3", "Type" : "Type" },
+		{ "Name" : "AnimationExtensions", "Url" : "#type/AnimationExtensions", "Type" : "Type" },
 
 		
-			{ "Name" : "InitialValue", "Url" : "#type/Animation3?InitialValue", "Type" : "Property" },
+			{ "Name" : "Delay", "Url" : "#type/AnimationExtensions?Delay", "Type" : "Method" },
 		
-			{ "Name" : "TargetValue", "Url" : "#type/Animation3?TargetValue", "Type" : "Property" },
+			{ "Name" : "FadeIn", "Url" : "#type/AnimationExtensions?FadeIn", "Type" : "Method" },
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/Animation3?CalculateNewValue2", "Type" : "Method" },
+			{ "Name" : "FadeOut", "Url" : "#type/AnimationExtensions?FadeOut", "Type" : "Method" },
 		
-			{ "Name" : "Update", "Url" : "#type/Animation3?Update", "Type" : "Method" },
+			{ "Name" : "FadeTo", "Url" : "#type/AnimationExtensions?FadeTo", "Type" : "Method" },
+		
+			{ "Name" : "MoveTo", "Url" : "#type/AnimationExtensions?MoveTo", "Type" : "Method" },
+		
+			{ "Name" : "RotateTo", "Url" : "#type/AnimationExtensions?RotateTo", "Type" : "Method" },
+		
+			{ "Name" : "ScaleTo", "Url" : "#type/AnimationExtensions?ScaleTo", "Type" : "Method" },
 		
 		{ "Name" : "AnimationSystem", "Url" : "#type/AnimationSystem", "Type" : "Type" },
 
 		
-			{ "Name" : "Attach", "Url" : "#type/AnimationSystem?Attach", "Type" : "Method" },
+			{ "Name" : "Attach", "Url" : "#type/AnimationSystem?Attach4", "Type" : "Method" },
 		
-			{ "Name" : "CreateAnimation", "Url" : "#type/AnimationSystem?CreateAnimation", "Type" : "Method" },
+			{ "Name" : "CreateParallel", "Url" : "#type/AnimationSystem?CreateParallel", "Type" : "Method" },
+		
+			{ "Name" : "CreateSequence", "Url" : "#type/AnimationSystem?CreateSequence", "Type" : "Method" },
 		
 			{ "Name" : "Detach", "Url" : "#type/AnimationSystem?Detach", "Type" : "Method" },
 		
 			{ "Name" : "Update", "Url" : "#type/AnimationSystem?Update3", "Type" : "Method" },
 		
-		{ "Name" : "ColorAnimation", "Url" : "#type/ColorAnimation", "Type" : "Type" },
+		{ "Name" : "ColorTransition", "Url" : "#type/ColorTransition", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/ColorAnimation?CalculateNewValue", "Type" : "Method" },
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/ColorTransition?CalculateChangeInValue", "Type" : "Method" },
 		
-		{ "Name" : "DoubleAnimation", "Url" : "#type/DoubleAnimation", "Type" : "Type" },
+			{ "Name" : "CalculateNewValue", "Url" : "#type/ColorTransition?CalculateNewValue", "Type" : "Method" },
+		
+		{ "Name" : "DelayTransition", "Url" : "#type/DelayTransition", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/DoubleAnimation?CalculateNewValue3", "Type" : "Method" },
+			{ "Name" : "Reset", "Url" : "#type/DelayTransition?Reset", "Type" : "Method" },
+		
+		{ "Name" : "DoubleTransition", "Url" : "#type/DoubleTransition", "Type" : "Type" },
+
+		
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/DoubleTransition?CalculateChangeInValue3", "Type" : "Method" },
+		
+			{ "Name" : "CalculateNewValue", "Url" : "#type/DoubleTransition?CalculateNewValue3", "Type" : "Method" },
 		
 		{ "Name" : "EasingFunctions", "Url" : "#type/EasingFunctions", "Type" : "Type" },
 
@@ -1706,30 +1726,109 @@
 		
 			{ "Name" : "SineEaseOut", "Url" : "#type/EasingFunctions?SineEaseOut", "Type" : "Method" },
 		
-		{ "Name" : "FloatAnimation", "Url" : "#type/FloatAnimation", "Type" : "Type" },
+		{ "Name" : "FloatTransition", "Url" : "#type/FloatTransition", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/FloatAnimation?CalculateNewValue4", "Type" : "Method" },
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/FloatTransition?CalculateChangeInValue4", "Type" : "Method" },
 		
-		{ "Name" : "IntAnimation", "Url" : "#type/IntAnimation", "Type" : "Type" },
+			{ "Name" : "CalculateNewValue", "Url" : "#type/FloatTransition?CalculateNewValue4", "Type" : "Method" },
+		
+		{ "Name" : "IntTransition", "Url" : "#type/IntTransition", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/IntAnimation?CalculateNewValue5", "Type" : "Method" },
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/IntTransition?CalculateChangeInValue5", "Type" : "Method" },
 		
-		{ "Name" : "Vector2Animation", "Url" : "#type/Vector2Animation", "Type" : "Type" },
+			{ "Name" : "CalculateNewValue", "Url" : "#type/IntTransition?CalculateNewValue5", "Type" : "Method" },
+		
+		{ "Name" : "ParallelAnimation", "Url" : "#type/ParallelAnimation", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector2Animation?CalculateNewValue6", "Type" : "Method" },
+			{ "Name" : "Attach", "Url" : "#type/ParallelAnimation?Attach2", "Type" : "Method" },
 		
-		{ "Name" : "Vector3Animation", "Url" : "#type/Vector3Animation", "Type" : "Type" },
+			{ "Name" : "Play", "Url" : "#type/ParallelAnimation?Play2", "Type" : "Method" },
+		
+		{ "Name" : "SequenceAnimation", "Url" : "#type/SequenceAnimation", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector3Animation?CalculateNewValue7", "Type" : "Method" },
+			{ "Name" : "Attach", "Url" : "#type/SequenceAnimation?Attach3", "Type" : "Method" },
 		
-		{ "Name" : "Vector4Animation", "Url" : "#type/Vector4Animation", "Type" : "Type" },
+			{ "Name" : "Play", "Url" : "#type/SequenceAnimation?Play3", "Type" : "Method" },
+		
+		{ "Name" : "Transition", "Url" : "#type/Transition", "Type" : "Type" },
 
 		
-			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector4Animation?CalculateNewValue8", "Type" : "Method" },
+			{ "Name" : "CurrentTime", "Url" : "#type/Transition?CurrentTime", "Type" : "Property" },
+		
+			{ "Name" : "CurrentValue", "Url" : "#type/Transition?CurrentValue", "Type" : "Property" },
+		
+			{ "Name" : "Duration", "Url" : "#type/Transition?Duration", "Type" : "Property" },
+		
+			{ "Name" : "EasingFunction", "Url" : "#type/Transition?EasingFunction", "Type" : "Property" },
+		
+			{ "Name" : "IsComplete", "Url" : "#type/Transition?IsComplete", "Type" : "Property" },
+		
+			{ "Name" : "IsPaused", "Url" : "#type/Transition?IsPaused", "Type" : "Property" },
+		
+			{ "Name" : "TransitionComplete", "Url" : "#type/Transition?TransitionComplete", "Type" : "Event" },
+		
+			{ "Name" : "Pause", "Url" : "#type/Transition?Pause", "Type" : "Method" },
+		
+			{ "Name" : "Play", "Url" : "#type/Transition?Play4", "Type" : "Method" },
+		
+			{ "Name" : "Reset", "Url" : "#type/Transition?Reset4", "Type" : "Method" },
+		
+			{ "Name" : "Resume", "Url" : "#type/Transition?Resume", "Type" : "Method" },
+		
+			{ "Name" : "Stop", "Url" : "#type/Transition?Stop", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/Transition?Update2", "Type" : "Method" },
+		
+		{ "Name" : "Transition", "Url" : "#type/Transition3", "Type" : "Type" },
+
+		
+			{ "Name" : "ChangeInValue", "Url" : "#type/Transition3?ChangeInValue", "Type" : "Property" },
+		
+			{ "Name" : "InitialValue", "Url" : "#type/Transition3?InitialValue", "Type" : "Property" },
+		
+			{ "Name" : "TargetValue", "Url" : "#type/Transition3?TargetValue", "Type" : "Property" },
+		
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/Transition3?CalculateChangeInValue2", "Type" : "Method" },
+		
+			{ "Name" : "CalculateNewValue", "Url" : "#type/Transition3?CalculateNewValue2", "Type" : "Method" },
+		
+			{ "Name" : "Reset", "Url" : "#type/Transition3?Reset3", "Type" : "Method" },
+		
+			{ "Name" : "Reset", "Url" : "#type/Transition3?Reset2", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/Transition3?Update", "Type" : "Method" },
+		
+		{ "Name" : "TransitionParameters", "Url" : "#type/TransitionParameters", "Type" : "Type" },
+
+		
+			{ "Name" : "Duration", "Url" : "#type/TransitionParameters?Duration", "Type" : "Property" },
+		
+			{ "Name" : "EasingFunction", "Url" : "#type/TransitionParameters?EasingFunction", "Type" : "Property" },
+		
+		{ "Name" : "Vector2Transition", "Url" : "#type/Vector2Transition", "Type" : "Type" },
+
+		
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/Vector2Transition?CalculateChangeInValue6", "Type" : "Method" },
+		
+			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector2Transition?CalculateNewValue6", "Type" : "Method" },
+		
+		{ "Name" : "Vector3Transition", "Url" : "#type/Vector3Transition", "Type" : "Type" },
+
+		
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/Vector3Transition?CalculateChangeInValue7", "Type" : "Method" },
+		
+			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector3Transition?CalculateNewValue7", "Type" : "Method" },
+		
+		{ "Name" : "Vector4Transition", "Url" : "#type/Vector4Transition", "Type" : "Type" },
+
+		
+			{ "Name" : "CalculateChangeInValue", "Url" : "#type/Vector4Transition?CalculateChangeInValue8", "Type" : "Method" },
+		
+			{ "Name" : "CalculateNewValue", "Url" : "#type/Vector4Transition?CalculateNewValue8", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Assets", "Url" : "#namespace/Astrid.Framework.Assets", "Type" : "Namespace" },
 	
@@ -1744,8 +1843,6 @@
 			{ "Name" : "Load", "Url" : "#type/AssetManager?Load3", "Type" : "Method" },
 		
 			{ "Name" : "Load", "Url" : "#type/AssetManager?Load2", "Type" : "Method" },
-		
-			{ "Name" : "LoadScene", "Url" : "#type/AssetManager?LoadScene", "Type" : "Method" },
 		
 			{ "Name" : "LoadSoundEffect", "Url" : "#type/AssetManager?LoadSoundEffect", "Type" : "Method" },
 		
@@ -1820,6 +1917,15 @@
 
 		
 			{ "Name" : "Load", "Url" : "#type/TextureAtlasLoader?Load7", "Type" : "Method" },
+		
+		{ "Name" : "TextureExtensions", "Url" : "#type/TextureExtensions", "Type" : "Type" },
+
+		
+			{ "Name" : "ToSprite", "Url" : "#type/TextureExtensions?ToSprite2", "Type" : "Method" },
+		
+			{ "Name" : "ToSprite", "Url" : "#type/TextureExtensions?ToSprite", "Type" : "Method" },
+		
+			{ "Name" : "ToTextureRegion", "Url" : "#type/TextureExtensions?ToTextureRegion", "Type" : "Method" },
 		
 		{ "Name" : "TextureLoader", "Url" : "#type/TextureLoader", "Type" : "Type" },
 
@@ -2054,9 +2160,9 @@
 		
 			{ "Name" : "Pause", "Url" : "#type/SoundEffect?Pause3", "Type" : "Method" },
 		
-			{ "Name" : "Play", "Url" : "#type/SoundEffect?Play", "Type" : "Method" },
+			{ "Name" : "Play", "Url" : "#type/SoundEffect?Play5", "Type" : "Method" },
 		
-			{ "Name" : "Play", "Url" : "#type/SoundEffect?Play2", "Type" : "Method" },
+			{ "Name" : "Play", "Url" : "#type/SoundEffect?Play6", "Type" : "Method" },
 		
 			{ "Name" : "Resume", "Url" : "#type/SoundEffect?Resume2", "Type" : "Method" },
 		
@@ -2095,9 +2201,9 @@
 		
 			{ "Name" : "Scale", "Url" : "#type/Entity?Scale", "Type" : "Property" },
 		
-			{ "Name" : "Attach", "Url" : "#type/Entity?Attach2", "Type" : "Method" },
+			{ "Name" : "Attach", "Url" : "#type/Entity?Attach5", "Type" : "Method" },
 		
-			{ "Name" : "Attach", "Url" : "#type/Entity?Attach3", "Type" : "Method" },
+			{ "Name" : "Attach", "Url" : "#type/Entity?Attach6", "Type" : "Method" },
 		
 			{ "Name" : "Destory", "Url" : "#type/Entity?Destory", "Type" : "Method" },
 		
@@ -2119,8 +2225,6 @@
 			{ "Name" : "DestroySpace", "Url" : "#type/EntityEngine?DestroySpace", "Type" : "Method" },
 		
 			{ "Name" : "Draw", "Url" : "#type/EntityEngine?Draw8", "Type" : "Method" },
-		
-			{ "Name" : "LoadScene", "Url" : "#type/EntityEngine?LoadScene2", "Type" : "Method" },
 		
 			{ "Name" : "Update", "Url" : "#type/EntityEngine?Update8", "Type" : "Method" },
 		
@@ -2170,6 +2274,11 @@
 		
 			{ "Name" : "GetBoundingRectangle", "Url" : "#type/Drawable?GetBoundingRectangle", "Type" : "Method" },
 		
+		{ "Name" : "IColorable", "Url" : "#type/IColorable", "Type" : "Type" },
+
+		
+			{ "Name" : "Color", "Url" : "#type/IColorable?Color", "Type" : "Property" },
+		
 		{ "Name" : "IMovable", "Url" : "#type/IMovable", "Type" : "Type" },
 
 		
@@ -2187,76 +2296,6 @@
 		
 		{ "Name" : "ITransformable", "Url" : "#type/ITransformable", "Type" : "Type" },
 
-		
-		{ "Name" : "Sprite", "Url" : "#type/Sprite", "Type" : "Type" },
-
-		
-			{ "Name" : "Color", "Url" : "#type/Sprite?Color", "Type" : "Property" },
-		
-			{ "Name" : "IsVisible", "Url" : "#type/Sprite?IsVisible", "Type" : "Property" },
-		
-			{ "Name" : "Origin", "Url" : "#type/Sprite?Origin", "Type" : "Property" },
-		
-			{ "Name" : "Position", "Url" : "#type/Sprite?Position", "Type" : "Property" },
-		
-			{ "Name" : "Rotation", "Url" : "#type/Sprite?Rotation", "Type" : "Property" },
-		
-			{ "Name" : "Scale", "Url" : "#type/Sprite?Scale", "Type" : "Property" },
-		
-			{ "Name" : "TextureRegion", "Url" : "#type/Sprite?TextureRegion", "Type" : "Property" },
-		
-			{ "Name" : "Draw", "Url" : "#type/Sprite?Draw10", "Type" : "Method" },
-		
-			{ "Name" : "GetBoundingRectangle", "Url" : "#type/Sprite?GetBoundingRectangle4", "Type" : "Method" },
-		
-			{ "Name" : "ToString", "Url" : "#type/Sprite?ToString5", "Type" : "Method" },
-		
-	{ "Name" : "Astrid.Framework.Entities.Components.Gui", "Url" : "#namespace/Astrid.Framework.Entities.Components.Gui", "Type" : "Namespace" },
-	
-		{ "Name" : "GuiButton", "Url" : "#type/GuiButton", "Type" : "Type" },
-
-		
-			{ "Name" : "ToString", "Url" : "#type/GuiButton?ToString", "Type" : "Method" },
-		
-		{ "Name" : "GuiControl", "Url" : "#type/GuiControl", "Type" : "Type" },
-
-		
-			{ "Name" : "DisabledSprite", "Url" : "#type/GuiControl?DisabledSprite", "Type" : "Property" },
-		
-			{ "Name" : "IsEnabled", "Url" : "#type/GuiControl?IsEnabled", "Type" : "Property" },
-		
-			{ "Name" : "IsPressed", "Url" : "#type/GuiControl?IsPressed", "Type" : "Property" },
-		
-			{ "Name" : "NormalSprite", "Url" : "#type/GuiControl?NormalSprite", "Type" : "Property" },
-		
-			{ "Name" : "PressedSprite", "Url" : "#type/GuiControl?PressedSprite", "Type" : "Property" },
-		
-			{ "Name" : "Click", "Url" : "#type/GuiControl?Click", "Type" : "Event" },
-		
-			{ "Name" : "Pressed", "Url" : "#type/GuiControl?Pressed", "Type" : "Event" },
-		
-			{ "Name" : "Released", "Url" : "#type/GuiControl?Released", "Type" : "Event" },
-		
-			{ "Name" : "Draw", "Url" : "#type/GuiControl?Draw6", "Type" : "Method" },
-		
-			{ "Name" : "GetBoundingRectangle", "Url" : "#type/GuiControl?GetBoundingRectangle2", "Type" : "Method" },
-		
-			{ "Name" : "GetCurrentSprite", "Url" : "#type/GuiControl?GetCurrentSprite", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/GuiControl?Update4", "Type" : "Method" },
-		
-		{ "Name" : "GuiToggleButton", "Url" : "#type/GuiToggleButton", "Type" : "Type" },
-
-		
-			{ "Name" : "CheckedSprite", "Url" : "#type/GuiToggleButton?CheckedSprite", "Type" : "Property" },
-		
-			{ "Name" : "IsChecked", "Url" : "#type/GuiToggleButton?IsChecked", "Type" : "Property" },
-		
-			{ "Name" : "CheckChanged", "Url" : "#type/GuiToggleButton?CheckChanged", "Type" : "Event" },
-		
-			{ "Name" : "GetCurrentSprite", "Url" : "#type/GuiToggleButton?GetCurrentSprite2", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/GuiToggleButton?Update5", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Entities.Components.Particles", "Url" : "#namespace/Astrid.Framework.Entities.Components.Particles", "Type" : "Namespace" },
 	
@@ -2421,22 +2460,13 @@
 		
 			{ "Name" : "ParallaxFactor", "Url" : "#type/DrawableSystem?ParallaxFactor", "Type" : "Property" },
 		
-			{ "Name" : "Draw", "Url" : "#type/DrawableSystem?Draw16", "Type" : "Method" },
+			{ "Name" : "Draw", "Url" : "#type/DrawableSystem?Draw17", "Type" : "Method" },
 		
-			{ "Name" : "OnAttached", "Url" : "#type/DrawableSystem?OnAttached4", "Type" : "Method" },
+			{ "Name" : "OnAttached", "Url" : "#type/DrawableSystem?OnAttached3", "Type" : "Method" },
 		
-			{ "Name" : "OnDetached", "Url" : "#type/DrawableSystem?OnDetached4", "Type" : "Method" },
+			{ "Name" : "OnDetached", "Url" : "#type/DrawableSystem?OnDetached3", "Type" : "Method" },
 		
 			{ "Name" : "Update", "Url" : "#type/DrawableSystem?Update16", "Type" : "Method" },
-		
-		{ "Name" : "GuiSystem", "Url" : "#type/GuiSystem", "Type" : "Type" },
-
-		
-			{ "Name" : "OnAttached", "Url" : "#type/GuiSystem?OnAttached3", "Type" : "Method" },
-		
-			{ "Name" : "OnDetached", "Url" : "#type/GuiSystem?OnDetached3", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/GuiSystem?Update11", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Extensions", "Url" : "#namespace/Astrid.Framework.Extensions", "Type" : "Namespace" },
 	
@@ -2463,6 +2493,8 @@
 		
 			{ "Name" : "Rotation", "Url" : "#type/Camera?Rotation", "Type" : "Property" },
 		
+			{ "Name" : "Scale", "Url" : "#type/Camera?Scale", "Type" : "Property" },
+		
 			{ "Name" : "Zoom", "Url" : "#type/Camera?Zoom", "Type" : "Property" },
 		
 			{ "Name" : "GetViewMatrix", "Url" : "#type/Camera?GetViewMatrix2", "Type" : "Method" },
@@ -2481,6 +2513,8 @@
 			{ "Name" : "Height", "Url" : "#type/GraphicsDevice?Height", "Type" : "Property" },
 		
 			{ "Name" : "Width", "Url" : "#type/GraphicsDevice?Width", "Type" : "Property" },
+		
+			{ "Name" : "Resized", "Url" : "#type/GraphicsDevice?Resized", "Type" : "Event" },
 		
 			{ "Name" : "BindTexture", "Url" : "#type/GraphicsDevice?BindTexture", "Type" : "Method" },
 		
@@ -2515,6 +2549,34 @@
 		
 			{ "Name" : "End", "Url" : "#type/PrimitiveBatch?End", "Type" : "Method" },
 		
+		{ "Name" : "SceneNode", "Url" : "#type/SceneNode", "Type" : "Type" },
+
+		
+			{ "Name" : "Name", "Url" : "#type/SceneNode?Name", "Type" : "Property" },
+		
+			{ "Name" : "Position", "Url" : "#type/SceneNode?Position", "Type" : "Property" },
+		
+			{ "Name" : "Rotation", "Url" : "#type/SceneNode?Rotation", "Type" : "Property" },
+		
+			{ "Name" : "Scale", "Url" : "#type/SceneNode?Scale", "Type" : "Property" },
+		
+			{ "Name" : "ToString", "Url" : "#type/SceneNode?ToString7", "Type" : "Method" },
+		
+		{ "Name" : "Sprite", "Url" : "#type/Sprite", "Type" : "Type" },
+
+		
+			{ "Name" : "Color", "Url" : "#type/Sprite?Color", "Type" : "Property" },
+		
+			{ "Name" : "IsVisible", "Url" : "#type/Sprite?IsVisible", "Type" : "Property" },
+		
+			{ "Name" : "Origin", "Url" : "#type/Sprite?Origin", "Type" : "Property" },
+		
+			{ "Name" : "TextureRegion", "Url" : "#type/Sprite?TextureRegion", "Type" : "Property" },
+		
+			{ "Name" : "GetBoundingRectangle", "Url" : "#type/Sprite?GetBoundingRectangle4", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/Sprite?ToString5", "Type" : "Method" },
+		
 		{ "Name" : "SpriteBatch", "Url" : "#type/SpriteBatch", "Type" : "Type" },
 
 		
@@ -2522,17 +2584,132 @@
 		
 			{ "Name" : "Begin", "Url" : "#type/SpriteBatch?Begin3", "Type" : "Method" },
 		
-			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw13", "Type" : "Method" },
-		
 			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw12", "Type" : "Method" },
 		
 			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw11", "Type" : "Method" },
+		
+			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw10", "Type" : "Method" },
+		
+			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw13", "Type" : "Method" },
 		
 			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw14", "Type" : "Method" },
 		
 			{ "Name" : "Draw", "Url" : "#type/SpriteBatch?Draw15", "Type" : "Method" },
 		
 			{ "Name" : "End", "Url" : "#type/SpriteBatch?End2", "Type" : "Method" },
+		
+	{ "Name" : "Astrid.Framework.Gui", "Url" : "#namespace/Astrid.Framework.Gui", "Type" : "Namespace" },
+	
+		{ "Name" : "GuiButton", "Url" : "#type/GuiButton", "Type" : "Type" },
+
+		
+			{ "Name" : "IsPressed", "Url" : "#type/GuiButton?IsPressed", "Type" : "Property" },
+		
+			{ "Name" : "PressedSprite", "Url" : "#type/GuiButton?PressedSprite", "Type" : "Property" },
+		
+			{ "Name" : "Click", "Url" : "#type/GuiButton?Click", "Type" : "Event" },
+		
+			{ "Name" : "GetSpriteForState", "Url" : "#type/GuiButton?GetSpriteForState", "Type" : "Method" },
+		
+			{ "Name" : "OnRelease", "Url" : "#type/GuiButton?OnRelease", "Type" : "Method" },
+		
+			{ "Name" : "OnTouch", "Url" : "#type/GuiButton?OnTouch", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/GuiButton?ToString", "Type" : "Method" },
+		
+		{ "Name" : "GuiCheckbox", "Url" : "#type/GuiCheckbox", "Type" : "Type" },
+
+		
+			{ "Name" : "CheckedSprite", "Url" : "#type/GuiCheckbox?CheckedSprite", "Type" : "Property" },
+		
+			{ "Name" : "IsChecked", "Url" : "#type/GuiCheckbox?IsChecked", "Type" : "Property" },
+		
+			{ "Name" : "CheckChanged", "Url" : "#type/GuiCheckbox?CheckChanged", "Type" : "Event" },
+		
+			{ "Name" : "GetSpriteForState", "Url" : "#type/GuiCheckbox?GetSpriteForState3", "Type" : "Method" },
+		
+			{ "Name" : "OnRelease", "Url" : "#type/GuiCheckbox?OnRelease3", "Type" : "Method" },
+		
+			{ "Name" : "OnTouch", "Url" : "#type/GuiCheckbox?OnTouch3", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/GuiCheckbox?Update5", "Type" : "Method" },
+		
+		{ "Name" : "GuiControl", "Url" : "#type/GuiControl", "Type" : "Type" },
+
+		
+			{ "Name" : "Released", "Url" : "#type/GuiControl?Released", "Type" : "Field" },
+		
+			{ "Name" : "Touched", "Url" : "#type/GuiControl?Touched", "Type" : "Field" },
+		
+			{ "Name" : "Color", "Url" : "#type/GuiControl?Color", "Type" : "Property" },
+		
+			{ "Name" : "DisabledSprite", "Url" : "#type/GuiControl?DisabledSprite", "Type" : "Property" },
+		
+			{ "Name" : "IsEnabled", "Url" : "#type/GuiControl?IsEnabled", "Type" : "Property" },
+		
+			{ "Name" : "IsTouching", "Url" : "#type/GuiControl?IsTouching", "Type" : "Property" },
+		
+			{ "Name" : "NormalSprite", "Url" : "#type/GuiControl?NormalSprite", "Type" : "Property" },
+		
+			{ "Name" : "Draw", "Url" : "#type/GuiControl?Draw6", "Type" : "Method" },
+		
+			{ "Name" : "GetBoundingRectangle", "Url" : "#type/GuiControl?GetBoundingRectangle2", "Type" : "Method" },
+		
+			{ "Name" : "GetCurrentSprite", "Url" : "#type/GuiControl?GetCurrentSprite", "Type" : "Method" },
+		
+			{ "Name" : "GetSpriteForState", "Url" : "#type/GuiControl?GetSpriteForState2", "Type" : "Method" },
+		
+			{ "Name" : "OnRelease", "Url" : "#type/GuiControl?OnRelease2", "Type" : "Method" },
+		
+			{ "Name" : "OnTouch", "Url" : "#type/GuiControl?OnTouch2", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/GuiControl?Update4", "Type" : "Method" },
+		
+		{ "Name" : "GuiImage", "Url" : "#type/GuiImage", "Type" : "Type" },
+
+		
+			{ "Name" : "GetSpriteForState", "Url" : "#type/GuiImage?GetSpriteForState4", "Type" : "Method" },
+		
+			{ "Name" : "OnRelease", "Url" : "#type/GuiImage?OnRelease4", "Type" : "Method" },
+		
+			{ "Name" : "OnTouch", "Url" : "#type/GuiImage?OnTouch4", "Type" : "Method" },
+		
+		{ "Name" : "GuiLabel", "Url" : "#type/GuiLabel", "Type" : "Type" },
+
+		
+			{ "Name" : "HorizontalAlignment", "Url" : "#type/GuiLabel?HorizontalAlignment", "Type" : "Property" },
+		
+			{ "Name" : "Text", "Url" : "#type/GuiLabel?Text", "Type" : "Property" },
+		
+			{ "Name" : "TextColor", "Url" : "#type/GuiLabel?TextColor", "Type" : "Property" },
+		
+			{ "Name" : "VerticalAlignment", "Url" : "#type/GuiLabel?VerticalAlignment", "Type" : "Property" },
+		
+			{ "Name" : "Draw", "Url" : "#type/GuiLabel?Draw16", "Type" : "Method" },
+		
+			{ "Name" : "GetSpriteForState", "Url" : "#type/GuiLabel?GetSpriteForState5", "Type" : "Method" },
+		
+			{ "Name" : "OnRelease", "Url" : "#type/GuiLabel?OnRelease5", "Type" : "Method" },
+		
+			{ "Name" : "OnTouch", "Url" : "#type/GuiLabel?OnTouch5", "Type" : "Method" },
+		
+		{ "Name" : "HorizontalAlignment", "Url" : "#type/HorizontalAlignment", "Type" : "Type" },
+
+		
+			{ "Name" : "Centre", "Url" : "#type/HorizontalAlignment?Centre", "Type" : "Field" },
+		
+			{ "Name" : "Left", "Url" : "#type/HorizontalAlignment?Left", "Type" : "Field" },
+		
+			{ "Name" : "Right", "Url" : "#type/HorizontalAlignment?Right", "Type" : "Field" },
+		
+		{ "Name" : "VerticalAlignment", "Url" : "#type/VerticalAlignment", "Type" : "Type" },
+
+		
+			{ "Name" : "Bottom", "Url" : "#type/VerticalAlignment?Bottom", "Type" : "Field" },
+		
+			{ "Name" : "Centre", "Url" : "#type/VerticalAlignment?Centre", "Type" : "Field" },
+		
+			{ "Name" : "Top", "Url" : "#type/VerticalAlignment?Top", "Type" : "Field" },
 		
 	{ "Name" : "Astrid.Framework.Input", "Url" : "#namespace/Astrid.Framework.Input", "Type" : "Namespace" },
 	
@@ -2893,82 +3070,104 @@
 		
 			{ "Name" : "GetTextureRegion", "Url" : "#type/OrthogonalTileMapTileSet?GetTextureRegion", "Type" : "Method" },
 		
-	{ "Name" : "Astrid.Framework.Scenes", "Url" : "#namespace/Astrid.Framework.Scenes", "Type" : "Namespace" },
-	
-		{ "Name" : "Scene", "Url" : "#type/Scene", "Type" : "Type" },
-
-		
-			{ "Name" : "Layers", "Url" : "#type/Scene?Layers", "Type" : "Property" },
-		
-			{ "Name" : "GetLayer", "Url" : "#type/Scene?GetLayer", "Type" : "Method" },
-		
-		{ "Name" : "SceneLayer", "Url" : "#type/SceneLayer", "Type" : "Type" },
-
-		
-			{ "Name" : "Name", "Url" : "#type/SceneLayer?Name", "Type" : "Property" },
-		
-			{ "Name" : "Nodes", "Url" : "#type/SceneLayer?Nodes", "Type" : "Property" },
-		
-			{ "Name" : "GetComponent", "Url" : "#type/SceneLayer?GetComponent3", "Type" : "Method" },
-		
-		{ "Name" : "SceneNode", "Url" : "#type/SceneNode", "Type" : "Type" },
-
-		
-			{ "Name" : "Components", "Url" : "#type/SceneNode?Components", "Type" : "Property" },
-		
-			{ "Name" : "Name", "Url" : "#type/SceneNode?Name", "Type" : "Property" },
-		
-			{ "Name" : "Position", "Url" : "#type/SceneNode?Position", "Type" : "Property" },
-		
-			{ "Name" : "Rotation", "Url" : "#type/SceneNode?Rotation", "Type" : "Property" },
-		
-			{ "Name" : "Scale", "Url" : "#type/SceneNode?Scale", "Type" : "Property" },
-		
-			{ "Name" : "ToString", "Url" : "#type/SceneNode?ToString7", "Type" : "Method" },
-		
 	{ "Name" : "Astrid.Framework.Screens", "Url" : "#namespace/Astrid.Framework.Screens", "Type" : "Namespace" },
 	
+		{ "Name" : "GuiLayer", "Url" : "#type/GuiLayer", "Type" : "Type" },
+
+		
+			{ "Name" : "Controls", "Url" : "#type/GuiLayer?Controls", "Type" : "Property" },
+		
+			{ "Name" : "Render", "Url" : "#type/GuiLayer?Render3", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/GuiLayer?Update17", "Type" : "Method" },
+		
 		{ "Name" : "Screen", "Url" : "#type/Screen", "Type" : "Type" },
 
+		
+			{ "Name" : "Animations", "Url" : "#type/Screen?Animations", "Type" : "Property" },
 		
 			{ "Name" : "AssetManager", "Url" : "#type/Screen?AssetManager", "Type" : "Property" },
 		
 			{ "Name" : "AudioDevice", "Url" : "#type/Screen?AudioDevice", "Type" : "Property" },
 		
+			{ "Name" : "ClearColor", "Url" : "#type/Screen?ClearColor", "Type" : "Property" },
+		
+			{ "Name" : "Game", "Url" : "#type/Screen?Game", "Type" : "Property" },
+		
 			{ "Name" : "GraphicsDevice", "Url" : "#type/Screen?GraphicsDevice", "Type" : "Property" },
 		
 			{ "Name" : "InputDevice", "Url" : "#type/Screen?InputDevice", "Type" : "Property" },
+		
+			{ "Name" : "Layers", "Url" : "#type/Screen?Layers", "Type" : "Property" },
+		
+			{ "Name" : "Viewport", "Url" : "#type/Screen?Viewport", "Type" : "Property" },
 		
 			{ "Name" : "Dispose", "Url" : "#type/Screen?Dispose4", "Type" : "Method" },
 		
 			{ "Name" : "Hide", "Url" : "#type/Screen?Hide", "Type" : "Method" },
 		
-			{ "Name" : "Pause", "Url" : "#type/Screen?Pause5", "Type" : "Method" },
+			{ "Name" : "Load", "Url" : "#type/Screen?Load9", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/Screen?Render2", "Type" : "Method" },
+			{ "Name" : "Pause", "Url" : "#type/Screen?Pause6", "Type" : "Method" },
 		
-			{ "Name" : "Resize", "Url" : "#type/Screen?Resize3", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/Screen?Render4", "Type" : "Method" },
 		
-			{ "Name" : "Resume", "Url" : "#type/Screen?Resume5", "Type" : "Method" },
+			{ "Name" : "Resize", "Url" : "#type/Screen?Resize4", "Type" : "Method" },
+		
+			{ "Name" : "Resume", "Url" : "#type/Screen?Resume6", "Type" : "Method" },
+		
+			{ "Name" : "SetScreen", "Url" : "#type/Screen?SetScreen2", "Type" : "Method" },
 		
 			{ "Name" : "Show", "Url" : "#type/Screen?Show", "Type" : "Method" },
 		
-			{ "Name" : "Update", "Url" : "#type/Screen?Update17", "Type" : "Method" },
+			{ "Name" : "Unload", "Url" : "#type/Screen?Unload", "Type" : "Method" },
 		
-		{ "Name" : "ScreenManager", "Url" : "#type/ScreenManager", "Type" : "Type" },
+			{ "Name" : "Update", "Url" : "#type/Screen?Update18", "Type" : "Method" },
+		
+		{ "Name" : "ScreenLayer", "Url" : "#type/ScreenLayer", "Type" : "Type" },
 
 		
-			{ "Name" : "Pause", "Url" : "#type/ScreenManager?Pause6", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/ScreenLayer?Render5", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/ScreenManager?Render3", "Type" : "Method" },
+			{ "Name" : "Update", "Url" : "#type/ScreenLayer?Update19", "Type" : "Method" },
 		
-			{ "Name" : "Resize", "Url" : "#type/ScreenManager?Resize4", "Type" : "Method" },
+		{ "Name" : "ScreenViewport", "Url" : "#type/ScreenViewport", "Type" : "Type" },
+
 		
-			{ "Name" : "Resume", "Url" : "#type/ScreenManager?Resume6", "Type" : "Method" },
+			{ "Name" : "Height", "Url" : "#type/ScreenViewport?Height", "Type" : "Property" },
 		
-			{ "Name" : "SetScreen", "Url" : "#type/ScreenManager?SetScreen", "Type" : "Method" },
+			{ "Name" : "Width", "Url" : "#type/ScreenViewport?Width", "Type" : "Property" },
 		
-			{ "Name" : "Update", "Url" : "#type/ScreenManager?Update18", "Type" : "Method" },
+			{ "Name" : "GetCameraScale", "Url" : "#type/ScreenViewport?GetCameraScale", "Type" : "Method" },
+		
+		{ "Name" : "SpriteLayer", "Url" : "#type/SpriteLayer", "Type" : "Type" },
+
+		
+			{ "Name" : "Sprites", "Url" : "#type/SpriteLayer?Sprites", "Type" : "Property" },
+		
+			{ "Name" : "Render", "Url" : "#type/SpriteLayer?Render6", "Type" : "Method" },
+		
+		{ "Name" : "StretchViewport", "Url" : "#type/StretchViewport", "Type" : "Type" },
+
+		
+			{ "Name" : "Height", "Url" : "#type/StretchViewport?Height", "Type" : "Property" },
+		
+			{ "Name" : "Width", "Url" : "#type/StretchViewport?Width", "Type" : "Property" },
+		
+			{ "Name" : "GetCameraScale", "Url" : "#type/StretchViewport?GetCameraScale2", "Type" : "Method" },
+		
+		{ "Name" : "Viewport", "Url" : "#type/Viewport", "Type" : "Type" },
+
+		
+			{ "Name" : "Camera", "Url" : "#type/Viewport?Camera", "Type" : "Property" },
+		
+			{ "Name" : "GraphicsDevice", "Url" : "#type/Viewport?GraphicsDevice", "Type" : "Property" },
+		
+			{ "Name" : "Height", "Url" : "#type/Viewport?Height", "Type" : "Property" },
+		
+			{ "Name" : "Width", "Url" : "#type/Viewport?Width", "Type" : "Property" },
+		
+			{ "Name" : "GetCameraScale", "Url" : "#type/Viewport?GetCameraScale3", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Serializers", "Url" : "#namespace/Astrid.Framework.Serializers", "Type" : "Namespace" },
 	
@@ -2987,13 +3186,6 @@
 			{ "Name" : "BindToName", "Url" : "#type/JsonKnownComponentTypesSerializationBinder?BindToName", "Type" : "Method" },
 		
 			{ "Name" : "BindToType", "Url" : "#type/JsonKnownComponentTypesSerializationBinder?BindToType", "Type" : "Method" },
-		
-		{ "Name" : "JsonParser", "Url" : "#type/JsonParser", "Type" : "Type" },
-
-		
-			{ "Name" : "LoadScene", "Url" : "#type/JsonParser?LoadScene3", "Type" : "Method" },
-		
-			{ "Name" : "SaveScene", "Url" : "#type/JsonParser?SaveScene", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Framework.Tests.Animations", "Url" : "#namespace/Astrid.Framework.Tests.Animations", "Type" : "Namespace" },
 	
@@ -3024,8 +3216,6 @@
 			{ "Name" : "CreateGraphicsDevice", "Url" : "#type/WindowsApplication?CreateGraphicsDevice2", "Type" : "Method" },
 		
 			{ "Name" : "CreateInputDevice", "Url" : "#type/WindowsApplication?CreateInputDevice2", "Type" : "Method" },
-		
-			{ "Name" : "Dispose", "Url" : "#type/WindowsApplication?Dispose7", "Type" : "Method" },
 		
 			{ "Name" : "Run", "Url" : "#type/WindowsApplication?Run2", "Type" : "Method" },
 		
@@ -3082,7 +3272,7 @@
 		
 			{ "Name" : "Pause", "Url" : "#type/CSCoreSoundEffect?Pause8", "Type" : "Method" },
 		
-			{ "Name" : "Play", "Url" : "#type/CSCoreSoundEffect?Play3", "Type" : "Method" },
+			{ "Name" : "Play", "Url" : "#type/CSCoreSoundEffect?Play7", "Type" : "Method" },
 		
 			{ "Name" : "Resume", "Url" : "#type/CSCoreSoundEffect?Resume7", "Type" : "Method" },
 		
@@ -3174,7 +3364,7 @@
 		
 			{ "Name" : "GetVertexShader", "Url" : "#type/GLBatchProgram?GetVertexShader2", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/GLBatchProgram?Render5", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/GLBatchProgram?Render8", "Type" : "Method" },
 		
 		{ "Name" : "GLPrimitiveBatchProgram", "Url" : "#type/GLPrimitiveBatchProgram", "Type" : "Type" },
 
@@ -3185,7 +3375,7 @@
 		
 			{ "Name" : "GetVertexShader", "Url" : "#type/GLPrimitiveBatchProgram?GetVertexShader3", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/GLPrimitiveBatchProgram?Render6", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/GLPrimitiveBatchProgram?Render9", "Type" : "Method" },
 		
 		{ "Name" : "GLSpriteBatchProgram", "Url" : "#type/GLSpriteBatchProgram", "Type" : "Type" },
 
@@ -3202,7 +3392,7 @@
 		
 			{ "Name" : "GetVertexShader", "Url" : "#type/GLSpriteBatchProgram?GetVertexShader", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/GLSpriteBatchProgram?Render4", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/GLSpriteBatchProgram?Render7", "Type" : "Method" },
 		
 	{ "Name" : "Astrid.Windows.Input", "Url" : "#namespace/Astrid.Windows.Input", "Type" : "Namespace" },
 	
@@ -3226,9 +3416,9 @@
 		{ "Name" : "DemoGame", "Url" : "#type/DemoGame", "Type" : "Type" },
 
 		
-			{ "Name" : "Create", "Url" : "#type/DemoGame?Create2", "Type" : "Method" },
+			{ "Name" : "Create", "Url" : "#type/DemoGame?Create3", "Type" : "Method" },
 		
-			{ "Name" : "Destroy", "Url" : "#type/DemoGame?Destroy2", "Type" : "Method" },
+			{ "Name" : "Destroy", "Url" : "#type/DemoGame?Destroy3", "Type" : "Method" },
 		
 			{ "Name" : "OnTouchDown", "Url" : "#type/DemoGame?OnTouchDown2", "Type" : "Method" },
 		
@@ -3236,86 +3426,47 @@
 		
 			{ "Name" : "OnTouchUp", "Url" : "#type/DemoGame?OnTouchUp2", "Type" : "Method" },
 		
-			{ "Name" : "Pause", "Url" : "#type/DemoGame?Pause9", "Type" : "Method" },
-		
-			{ "Name" : "Render", "Url" : "#type/DemoGame?Render7", "Type" : "Method" },
-		
-			{ "Name" : "Resize", "Url" : "#type/DemoGame?Resize5", "Type" : "Method" },
-		
-			{ "Name" : "Resume", "Url" : "#type/DemoGame?Resume9", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/DemoGame?Update19", "Type" : "Method" },
-		
 	{ "Name" : "AstridDemo.Screens", "Url" : "#namespace/AstridDemo.Screens", "Type" : "Namespace" },
 	
-		{ "Name" : "AnimationScreen", "Url" : "#type/AnimationScreen", "Type" : "Type" },
+		{ "Name" : "AnimationDemo", "Url" : "#type/AnimationDemo", "Type" : "Type" },
 
 		
-			{ "Name" : "Dispose", "Url" : "#type/AnimationScreen?Dispose9", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/AnimationDemo?Render11", "Type" : "Method" },
 		
-			{ "Name" : "Hide", "Url" : "#type/AnimationScreen?Hide3", "Type" : "Method" },
+			{ "Name" : "Show", "Url" : "#type/AnimationDemo?Show3", "Type" : "Method" },
 		
-			{ "Name" : "OnTouchDown", "Url" : "#type/AnimationScreen?OnTouchDown4", "Type" : "Method" },
+			{ "Name" : "Update", "Url" : "#type/AnimationDemo?Update20", "Type" : "Method" },
 		
-			{ "Name" : "OnTouchDrag", "Url" : "#type/AnimationScreen?OnTouchDrag4", "Type" : "Method" },
-		
-			{ "Name" : "OnTouchUp", "Url" : "#type/AnimationScreen?OnTouchUp4", "Type" : "Method" },
-		
-			{ "Name" : "Pause", "Url" : "#type/AnimationScreen?Pause11", "Type" : "Method" },
-		
-			{ "Name" : "Render", "Url" : "#type/AnimationScreen?Render9", "Type" : "Method" },
-		
-			{ "Name" : "Resize", "Url" : "#type/AnimationScreen?Resize7", "Type" : "Method" },
-		
-			{ "Name" : "Resume", "Url" : "#type/AnimationScreen?Resume11", "Type" : "Method" },
-		
-			{ "Name" : "Show", "Url" : "#type/AnimationScreen?Show3", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/AnimationScreen?Update21", "Type" : "Method" },
-		
-		{ "Name" : "BitmapFontsScreen", "Url" : "#type/BitmapFontsScreen", "Type" : "Type" },
+		{ "Name" : "BitmapFontDemo", "Url" : "#type/BitmapFontDemo", "Type" : "Type" },
 
 		
-			{ "Name" : "Dispose", "Url" : "#type/BitmapFontsScreen?Dispose10", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/BitmapFontDemo?Render12", "Type" : "Method" },
 		
-			{ "Name" : "Hide", "Url" : "#type/BitmapFontsScreen?Hide4", "Type" : "Method" },
+			{ "Name" : "Show", "Url" : "#type/BitmapFontDemo?Show4", "Type" : "Method" },
 		
-			{ "Name" : "Pause", "Url" : "#type/BitmapFontsScreen?Pause12", "Type" : "Method" },
+			{ "Name" : "Update", "Url" : "#type/BitmapFontDemo?Update21", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/BitmapFontsScreen?Render10", "Type" : "Method" },
-		
-			{ "Name" : "Resize", "Url" : "#type/BitmapFontsScreen?Resize8", "Type" : "Method" },
-		
-			{ "Name" : "Resume", "Url" : "#type/BitmapFontsScreen?Resume12", "Type" : "Method" },
-		
-			{ "Name" : "Show", "Url" : "#type/BitmapFontsScreen?Show4", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/BitmapFontsScreen?Update22", "Type" : "Method" },
-		
-		{ "Name" : "GdxTextureAtlasScreen", "Url" : "#type/GdxTextureAtlasScreen", "Type" : "Type" },
+		{ "Name" : "GdxTextureAtlasDemo", "Url" : "#type/GdxTextureAtlasDemo", "Type" : "Type" },
 
 		
-			{ "Name" : "Dispose", "Url" : "#type/GdxTextureAtlasScreen?Dispose8", "Type" : "Method" },
+			{ "Name" : "Render", "Url" : "#type/GdxTextureAtlasDemo?Render10", "Type" : "Method" },
 		
-			{ "Name" : "Hide", "Url" : "#type/GdxTextureAtlasScreen?Hide2", "Type" : "Method" },
+			{ "Name" : "Show", "Url" : "#type/GdxTextureAtlasDemo?Show2", "Type" : "Method" },
 		
-			{ "Name" : "OnTouchDown", "Url" : "#type/GdxTextureAtlasScreen?OnTouchDown3", "Type" : "Method" },
+		{ "Name" : "GuiDemo", "Url" : "#type/GuiDemo", "Type" : "Type" },
+
 		
-			{ "Name" : "OnTouchDrag", "Url" : "#type/GdxTextureAtlasScreen?OnTouchDrag3", "Type" : "Method" },
+			{ "Name" : "Load", "Url" : "#type/GuiDemo?Load10", "Type" : "Method" },
 		
-			{ "Name" : "OnTouchUp", "Url" : "#type/GdxTextureAtlasScreen?OnTouchUp3", "Type" : "Method" },
+		{ "Name" : "SplashDemo", "Url" : "#type/SplashDemo", "Type" : "Type" },
+
 		
-			{ "Name" : "Pause", "Url" : "#type/GdxTextureAtlasScreen?Pause10", "Type" : "Method" },
+			{ "Name" : "Show", "Url" : "#type/SplashDemo?Show5", "Type" : "Method" },
 		
-			{ "Name" : "Render", "Url" : "#type/GdxTextureAtlasScreen?Render8", "Type" : "Method" },
+		{ "Name" : "TitleScreenDemo", "Url" : "#type/TitleScreenDemo", "Type" : "Type" },
+
 		
-			{ "Name" : "Resize", "Url" : "#type/GdxTextureAtlasScreen?Resize6", "Type" : "Method" },
-		
-			{ "Name" : "Resume", "Url" : "#type/GdxTextureAtlasScreen?Resume10", "Type" : "Method" },
-		
-			{ "Name" : "Show", "Url" : "#type/GdxTextureAtlasScreen?Show2", "Type" : "Method" },
-		
-			{ "Name" : "Update", "Url" : "#type/GdxTextureAtlasScreen?Update20", "Type" : "Method" },
+			{ "Name" : "Show", "Url" : "#type/TitleScreenDemo?Show6", "Type" : "Method" },
 		
 
 		];
@@ -3401,6 +3552,8 @@
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ApplicationBase"><a href="#type/ApplicationBase">ApplicationBase</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GameBase"><a href="#type/GameBase">GameBase</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/IApplicationListener"><a href="#type/IApplicationListener">IApplicationListener</a></li>
 
 </ul>
 
@@ -3412,27 +3565,39 @@
 <ul>
 
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Animation2"><a href="#type/Animation2">Animation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Animation"><a href="#type/Animation">Animation</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Animation3"><a href="#type/Animation3">Animation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/AnimationExtensions"><a href="#type/AnimationExtensions">AnimationExtensions</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/AnimationSystem"><a href="#type/AnimationSystem">AnimationSystem</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ColorAnimation"><a href="#type/ColorAnimation">ColorAnimation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ColorTransition"><a href="#type/ColorTransition">ColorTransition</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/DoubleAnimation"><a href="#type/DoubleAnimation">DoubleAnimation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/DelayTransition"><a href="#type/DelayTransition">DelayTransition</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/DoubleTransition"><a href="#type/DoubleTransition">DoubleTransition</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/EasingFunctions"><a href="#type/EasingFunctions">EasingFunctions</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/FloatAnimation"><a href="#type/FloatAnimation">FloatAnimation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/FloatTransition"><a href="#type/FloatTransition">FloatTransition</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/IntAnimation"><a href="#type/IntAnimation">IntAnimation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/IntTransition"><a href="#type/IntTransition">IntTransition</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector2Animation"><a href="#type/Vector2Animation">Vector2Animation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ParallelAnimation"><a href="#type/ParallelAnimation">ParallelAnimation</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector3Animation"><a href="#type/Vector3Animation">Vector3Animation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SequenceAnimation"><a href="#type/SequenceAnimation">SequenceAnimation</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector4Animation"><a href="#type/Vector4Animation">Vector4Animation</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Transition"><a href="#type/Transition">Transition</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Transition3"><a href="#type/Transition3">Transition</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TransitionParameters"><a href="#type/TransitionParameters">TransitionParameters</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector2Transition"><a href="#type/Vector2Transition">Vector2Transition</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector3Transition"><a href="#type/Vector3Transition">Vector3Transition</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Vector4Transition"><a href="#type/Vector4Transition">Vector4Transition</a></li>
 
 </ul>
 
@@ -3459,6 +3624,8 @@
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TextureAtlas"><a href="#type/TextureAtlas">TextureAtlas</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TextureAtlasLoader"><a href="#type/TextureAtlasLoader">TextureAtlasLoader</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TextureExtensions"><a href="#type/TextureExtensions">TextureExtensions</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TextureLoader"><a href="#type/TextureLoader">TextureLoader</a></li>
 	
@@ -3556,6 +3723,8 @@
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Drawable"><a href="#type/Drawable">Drawable</a></li>
 	
+		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/IColorable"><a href="#type/IColorable">IColorable</a></li>
+	
 		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/IMovable"><a href="#type/IMovable">IMovable</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/IRotatable"><a href="#type/IRotatable">IRotatable</a></li>
@@ -3563,24 +3732,6 @@
 		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/IScalable"><a href="#type/IScalable">IScalable</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/ITransformable"><a href="#type/ITransformable">ITransformable</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Sprite"><a href="#type/Sprite">Sprite</a></li>
-
-</ul>
-
-</li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/Astrid.Framework.Entities.Components.Gui"><a href="#namespace/Astrid.Framework.Entities.Components.Gui">Astrid.Framework.Entities.Components.Gui</a> 
- 
-
-<ul>
-
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiButton"><a href="#type/GuiButton">GuiButton</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiControl"><a href="#type/GuiControl">GuiControl</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiToggleButton"><a href="#type/GuiToggleButton">GuiToggleButton</a></li>
 
 </ul>
 
@@ -3641,8 +3792,6 @@
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ComponentSystem3"><a href="#type/ComponentSystem3">ComponentSystem</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/DrawableSystem"><a href="#type/DrawableSystem">DrawableSystem</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiSystem"><a href="#type/GuiSystem">GuiSystem</a></li>
 
 </ul>
 
@@ -3674,7 +3823,35 @@
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/PrimitiveBatch"><a href="#type/PrimitiveBatch">PrimitiveBatch</a></li>
 	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SceneNode"><a href="#type/SceneNode">SceneNode</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Sprite"><a href="#type/Sprite">Sprite</a></li>
+	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SpriteBatch"><a href="#type/SpriteBatch">SpriteBatch</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/Astrid.Framework.Gui"><a href="#namespace/Astrid.Framework.Gui">Astrid.Framework.Gui</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiButton"><a href="#type/GuiButton">GuiButton</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiCheckbox"><a href="#type/GuiCheckbox">GuiCheckbox</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiControl"><a href="#type/GuiControl">GuiControl</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiImage"><a href="#type/GuiImage">GuiImage</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiLabel"><a href="#type/GuiLabel">GuiLabel</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/enum_public.png"}' id="node-type/HorizontalAlignment"><a href="#type/HorizontalAlignment">HorizontalAlignment</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/enum_public.png"}' id="node-type/VerticalAlignment"><a href="#type/VerticalAlignment">VerticalAlignment</a></li>
 
 </ul>
 
@@ -3714,31 +3891,25 @@
 
 </li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/Astrid.Framework.Scenes"><a href="#namespace/Astrid.Framework.Scenes">Astrid.Framework.Scenes</a> 
- 
-
-<ul>
-
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Scene"><a href="#type/Scene">Scene</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SceneLayer"><a href="#type/SceneLayer">SceneLayer</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SceneNode"><a href="#type/SceneNode">SceneNode</a></li>
-
-</ul>
-
-</li>
-	
 		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/Astrid.Framework.Screens"><a href="#namespace/Astrid.Framework.Screens">Astrid.Framework.Screens</a> 
  
 
 <ul>
 
 	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiLayer"><a href="#type/GuiLayer">GuiLayer</a></li>
+	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Screen"><a href="#type/Screen">Screen</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ScreenManager"><a href="#type/ScreenManager">ScreenManager</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ScreenLayer"><a href="#type/ScreenLayer">ScreenLayer</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ScreenViewport"><a href="#type/ScreenViewport">ScreenViewport</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SpriteLayer"><a href="#type/SpriteLayer">SpriteLayer</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/StretchViewport"><a href="#type/StretchViewport">StretchViewport</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Viewport"><a href="#type/Viewport">Viewport</a></li>
 
 </ul>
 
@@ -3753,8 +3924,6 @@
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/JsonAssetConverter"><a href="#type/JsonAssetConverter">JsonAssetConverter</a></li>
 	
 		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/JsonKnownComponentTypesSerializationBinder"><a href="#type/JsonKnownComponentTypesSerializationBinder">JsonKnownComponentTypesSerializationBinder</a></li>
-	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/JsonParser"><a href="#type/JsonParser">JsonParser</a></li>
 
 </ul>
 
@@ -3880,11 +4049,17 @@
 <ul>
 
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/AnimationScreen"><a href="#type/AnimationScreen">AnimationScreen</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/AnimationDemo"><a href="#type/AnimationDemo">AnimationDemo</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/BitmapFontsScreen"><a href="#type/BitmapFontsScreen">BitmapFontsScreen</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/BitmapFontDemo"><a href="#type/BitmapFontDemo">BitmapFontDemo</a></li>
 	
-		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GdxTextureAtlasScreen"><a href="#type/GdxTextureAtlasScreen">GdxTextureAtlasScreen</a></li>
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GdxTextureAtlasDemo"><a href="#type/GdxTextureAtlasDemo">GdxTextureAtlasDemo</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GuiDemo"><a href="#type/GuiDemo">GuiDemo</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SplashDemo"><a href="#type/SplashDemo">SplashDemo</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TitleScreenDemo"><a href="#type/TitleScreenDemo">TitleScreenDemo</a></li>
 
 </ul>
 
