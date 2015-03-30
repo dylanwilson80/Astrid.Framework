@@ -1,12 +1,12 @@
 using System;
+using Astrid.Animations;
 using Astrid.Core;
 using Astrid.Framework;
-using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Assets.Fonts;
 using Astrid.Framework.Graphics;
-using Astrid.Framework.Gui;
 using Astrid.Framework.Screens;
+using Astrid.Gui;
 
 namespace AstridDemo.Screens
 {

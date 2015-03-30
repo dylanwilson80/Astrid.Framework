@@ -37,28 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\Astrid.Animations\Astrid.Animations.csproj">
+      <Project>{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}</Project>
+      <Name>Astrid.Animations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
       <Project>{95203660-e823-41aa-84bc-92c93c5bf213}</Project>
       <Name>Astrid.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animations\Animation.cs" />
-    <Compile Include="Animations\DelayTransition.cs" />
-    <Compile Include="Animations\ParallelAnimation.cs" />
-    <Compile Include="Animations\SequenceAnimation.cs" />
-    <Compile Include="Animations\ColorTransition.cs" />
-    <Compile Include="Animations\Transition.cs" />
-    <Compile Include="Animations\AnimationSystem.cs" />
-    <Compile Include="Animations\DoubleTransition.cs" />
-    <Compile Include="Animations\EasingFunctions.cs" />
-    <Compile Include="Animations\FloatTransition.cs" />
-    <Compile Include="Animations\AnimationExtensions.cs" />
-    <Compile Include="Animations\IntTransition.cs" />
-    <Compile Include="Animations\TransitionParameters.cs" />
-    <Compile Include="Animations\Vector2Transition.cs" />
-    <Compile Include="Animations\Vector3Transition.cs" />
-    <Compile Include="Animations\Vector4Transition.cs" />
     <Compile Include="ApplicationBase.cs" />
     <Compile Include="Assets\AssetLoader.cs" />
     <Compile Include="Assets\AssetManager.cs" />
@@ -80,10 +68,6 @@
     <Compile Include="Audio\AudioDevice.cs" />
     <Compile Include="Entities\Components\PhysicsComponent.cs" />
     <Compile Include="Entities\Components\Drawable.cs" />
-    <Compile Include="Gui\GuiButton.cs" />
-    <Compile Include="Gui\GuiControl.cs" />
-    <Compile Include="Gui\GuiCheckbox.cs" />
-    <Compile Include="Entities\Components\ITransformable.cs" />
     <Compile Include="Entities\Components\Particles\Modifiers\DragParticleModifier.cs" />
     <Compile Include="Entities\Components\Particles\Modifiers\GravityParticleModifer.cs" />
     <Compile Include="Entities\Components\Particles\Particle.cs" />
@@ -101,7 +85,6 @@
     <Compile Include="Entities\Systems\ComponentSystem.cs" />
     <Compile Include="Entities\Systems\GuiSystem.cs" />
     <Compile Include="Entities\Systems\PhysicsSystem.cs" />
-    <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Assets\LibGDX\GdxTextureAtlasRegion.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Graphics\PrimitiveBatch.cs" />
@@ -114,8 +97,6 @@
     <Compile Include="Graphics\GraphicsDevice.cs" />
     <Compile Include="Graphics\SpriteBatch.cs" />
     <Compile Include="Assets\Texture.cs" />
-    <Compile Include="Gui\GuiImage.cs" />
-    <Compile Include="Gui\GuiLabel.cs" />
     <Compile Include="IApplicationListener.cs" />
     <Compile Include="Input\InputDevice.cs" />
     <Compile Include="Input\InputProcessor.cs" />
@@ -131,7 +112,6 @@
     <Compile Include="Resources\Shapes\RectangleShape.cs" />
     <Compile Include="Resources\Shapes\Shape.cs" />
     <Compile Include="Graphics\SceneNode.cs" />
-    <Compile Include="Screens\GuiLayer.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenLayer.cs" />
     <Compile Include="Screens\ScreenViewport.cs" />
@@ -141,7 +121,6 @@
     <Compile Include="Serializers\JsonAssetConverter.cs" />
     <Compile Include="Serializers\JsonKnownComponentTypesSerializationBinder.cs" />
     <Compile Include="Serializers\JsonParser.cs" />
-    <Compile Include="Extensions\Vector2Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

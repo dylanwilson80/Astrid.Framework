@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Astrid.Core;
 using Astrid.Framework.Entities.Components;
-using Astrid.Framework.Extensions;
 using Newtonsoft.Json;
 
 namespace Astrid.Framework.Entities

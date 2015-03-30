@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstridDemo.Android", "Astri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astrid.Framework.Tests", "Astrid.Framework.Tests\Astrid.Framework.Tests.csproj", "{A49C30F0-69D4-4518-9CA7-41B1D1AE4F23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astrid.Gui", "Astrid.Gui\Astrid.Gui.csproj", "{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astrid.Animations", "Astrid.Animations\Astrid.Animations.csproj", "{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +143,26 @@ Global
 		{A49C30F0-69D4-4518-9CA7-41B1D1AE4F23}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A49C30F0-69D4-4518-9CA7-41B1D1AE4F23}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A49C30F0-69D4-4518-9CA7-41B1D1AE4F23}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

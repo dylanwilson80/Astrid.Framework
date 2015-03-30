@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Astrid.Animations;
 using Astrid.Core;
-using Astrid.Framework.Animations;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Audio;
 using Astrid.Framework.Entities;

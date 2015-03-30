@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95203660-E823-41AA-84BC-92C93C5BF213}</ProjectGuid>
+    <ProjectGuid>{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Astrid.Core</RootNamespace>
-    <AssemblyName>Astrid.Core</AssemblyName>
+    <RootNamespace>Astrid.Gui</RootNamespace>
+    <AssemblyName>Astrid.Gui</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,30 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BoundingBox.cs" />
-    <Compile Include="BoundingFrustum.cs" />
-    <Compile Include="BoundingSphere.cs" />
-    <Compile Include="Color.cs" />
-    <Compile Include="ContainmentType.cs" />
-    <Compile Include="EventHandlerExtensions.cs" />
-    <Compile Include="IColorable.cs" />
-    <Compile Include="IMovable.cs" />
-    <Compile Include="IRotatable.cs" />
-    <Compile Include="IScalable.cs" />
-    <Compile Include="ITransformable.cs" />
-    <Compile Include="MathHelper.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="Plane.cs" />
-    <Compile Include="PlaneIntersectionType.cs" />
-    <Compile Include="Point.cs" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
+      <Project>{95203660-e823-41aa-84bc-92c93c5bf213}</Project>
+      <Name>Astrid.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
+      <Project>{2b3b1640-5b1f-425f-aebc-a24260524ad8}</Project>
+      <Name>Astrid.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GuiButton.cs" />
+    <Compile Include="GuiCheckbox.cs" />
+    <Compile Include="GuiControl.cs" />
+    <Compile Include="GuiImage.cs" />
+    <Compile Include="GuiLabel.cs" />
+    <Compile Include="GuiLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quaternion.cs" />
-    <Compile Include="Ray.cs" />
-    <Compile Include="Rectangle.cs" />
-    <Compile Include="Vector2.cs" />
-    <Compile Include="Vector2Extensions.cs" />
-    <Compile Include="Vector3.cs" />
-    <Compile Include="Vector4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
