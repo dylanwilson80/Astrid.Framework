@@ -1,4 +1,5 @@
-﻿using Astrid.Framework.Animations;
+﻿
+using Astrid.Animations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Astrid.Framework.Tests.Animations

@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Astrid.Animations\Astrid.Animations.csproj">
+      <Project>{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}</Project>
+      <Name>Astrid.Animations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
       <Project>{95203660-E823-41AA-84BC-92C93C5BF213}</Project>
       <Name>Astrid.Core</Name>
