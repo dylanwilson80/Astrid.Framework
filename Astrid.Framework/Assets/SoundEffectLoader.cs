@@ -1,6 +1,4 @@
-﻿using Astrid.Framework.Audio;
-
-namespace Astrid.Framework.Assets
+﻿namespace Astrid.Framework.Assets
 {
     public class SoundEffectLoader : AssetLoader<SoundEffect>
     {

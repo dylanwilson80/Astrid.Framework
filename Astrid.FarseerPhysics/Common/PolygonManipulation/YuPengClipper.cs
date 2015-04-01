@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.PolygonManipulation
+namespace Astrid.FarseerPhysics.Common.PolygonManipulation
 {
   internal enum PolyClipType
   {

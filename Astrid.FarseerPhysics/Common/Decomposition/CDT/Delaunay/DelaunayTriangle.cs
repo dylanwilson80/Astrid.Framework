@@ -41,10 +41,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep;
-using FarseerPhysics.Common.Decomposition.CDT.Util;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Util;
 
-namespace FarseerPhysics.Common.Decomposition.CDT.Delaunay
+namespace Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay
 {
     internal class DelaunayTriangle
     {

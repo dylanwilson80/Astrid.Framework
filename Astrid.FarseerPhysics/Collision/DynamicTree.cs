@@ -23,10 +23,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision
+namespace Astrid.FarseerPhysics.Collision
 {
     /// <summary>
     /// A node in the dynamic tree. The client does not interact with this directly.

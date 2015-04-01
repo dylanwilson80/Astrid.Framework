@@ -1,5 +1,5 @@
 ﻿using Astrid.Core;
-using Astrid.Framework.Input;
+using Astrid.Framework;
 using OpenTK.Input;
 
 

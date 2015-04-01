@@ -20,10 +20,10 @@
 * 3. This notice may not be removed or altered from any source distribution. 
 */
 
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Dynamics.Joints
+namespace Astrid.FarseerPhysics.Dynamics.Joints
 {
     // Point-to-point constraint
     // Cdot = v2 - v1

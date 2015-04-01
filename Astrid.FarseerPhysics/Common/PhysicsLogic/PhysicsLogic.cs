@@ -1,7 +1,7 @@
 using System;
-using FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Common.PhysicsLogic
+namespace Astrid.FarseerPhysics.Common.PhysicsLogic
 {
     [Flags]
     public enum PhysicsLogicType

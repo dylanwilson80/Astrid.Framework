@@ -22,7 +22,7 @@
 
 using System;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     public struct FixedArray2<T>
     {

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.Decomposition
+namespace Astrid.FarseerPhysics.Common.Decomposition
 {
     //From phed rev 36: http://code.google.com/p/phed/source/browse/trunk/Polygon.cpp
 

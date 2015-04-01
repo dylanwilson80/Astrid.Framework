@@ -1,6 +1,4 @@
-﻿using Astrid.Framework.Graphics;
-
-namespace Astrid.Framework.Assets
+﻿namespace Astrid.Framework.Assets
 {
     public static class TextureExtensions
     {

@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.PolygonManipulation
+namespace Astrid.FarseerPhysics.Common.PolygonManipulation
 {
     /// <summary>
     /// Combines a list of triangles into a list of convex polygons.

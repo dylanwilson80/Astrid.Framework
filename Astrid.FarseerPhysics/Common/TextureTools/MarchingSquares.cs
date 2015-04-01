@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using FarseerPhysics.Collision;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
 
-namespace FarseerPhysics.Common.TextureTools
+namespace Astrid.FarseerPhysics.Common.TextureTools
 {
     // Ported by Matthew Bettcher - Feb 2011
 

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using FarseerPhysics.Collision;
-using FarseerPhysics.Common.Decomposition;
-using FarseerPhysics.Common.PolygonManipulation;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics.Factories;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
+using Astrid.FarseerPhysics.Common.Decomposition;
+using Astrid.FarseerPhysics.Common.PolygonManipulation;
+using Astrid.FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Factories;
 
-namespace FarseerPhysics.Common.TextureTools
+namespace Astrid.FarseerPhysics.Common.TextureTools
 {
     /// <summary>
     /// Simple class to maintain a terrain. It can keep track

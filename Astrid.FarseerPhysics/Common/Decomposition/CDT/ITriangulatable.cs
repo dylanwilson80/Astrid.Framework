@@ -30,9 +30,9 @@
  */
 
 using System.Collections.Generic;
-using FarseerPhysics.Common.Decomposition.CDT.Delaunay;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay;
 
-namespace FarseerPhysics.Common.Decomposition.CDT
+namespace Astrid.FarseerPhysics.Common.Decomposition.CDT
 {
     internal interface Triangulatable
     {

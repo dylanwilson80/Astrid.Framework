@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Controllers
+namespace Astrid.FarseerPhysics.Controllers
 {
     public enum GravityType
     {

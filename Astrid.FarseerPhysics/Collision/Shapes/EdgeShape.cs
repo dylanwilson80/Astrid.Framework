@@ -20,10 +20,10 @@
 * 3. This notice may not be removed or altered from any source distribution. 
 */
 
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision.Shapes
+namespace Astrid.FarseerPhysics.Collision.Shapes
 {
     /// <summary>
     /// A line segment (edge) shape. These can be connected in chains or loops

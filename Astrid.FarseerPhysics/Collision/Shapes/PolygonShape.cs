@@ -21,11 +21,11 @@
 */
 
 using System.Diagnostics;
-using FarseerPhysics.Common;
-using FarseerPhysics.Common.ConvexHull;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Common.ConvexHull;
 
-namespace FarseerPhysics.Collision.Shapes
+namespace Astrid.FarseerPhysics.Collision.Shapes
 {
     /// <summary>
     /// Represents a simple non-selfintersecting convex polygon.

@@ -7,10 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using FarseerPhysics.Collision;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     public enum PolygonError
     {

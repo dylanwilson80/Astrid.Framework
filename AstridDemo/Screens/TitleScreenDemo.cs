@@ -4,8 +4,6 @@ using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Assets.Fonts;
-using Astrid.Framework.Graphics;
-using Astrid.Framework.Screens;
 using Astrid.Gui;
 
 namespace AstridDemo.Screens

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.TextureTools
+namespace Astrid.FarseerPhysics.Common.TextureTools
 {
     // User contribution from Sickbattery aka David Reschke.
 

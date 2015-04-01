@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace FarseerPhysics.Common.ConvexHull
+namespace Astrid.FarseerPhysics.Common.ConvexHull
 {
     /// <summary>
     /// Giftwrap convex hull algorithm.

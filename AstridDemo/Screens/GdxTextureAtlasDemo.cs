@@ -5,9 +5,6 @@ using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
 using Astrid.Framework.Assets.LibGDX;
-using Astrid.Framework.Graphics;
-using Astrid.Framework.Input;
-using Astrid.Framework.Screens;
 
 namespace AstridDemo.Screens
 {

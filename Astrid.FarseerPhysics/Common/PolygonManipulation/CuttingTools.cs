@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics.Factories;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Factories;
 
-namespace FarseerPhysics.Common.PolygonManipulation
+namespace Astrid.FarseerPhysics.Common.PolygonManipulation
 {
     public static class CuttingTools
     {

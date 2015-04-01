@@ -21,10 +21,10 @@
 */
 
 using System;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Dynamics.Joints
+namespace Astrid.FarseerPhysics.Dynamics.Joints
 {
     // Point-to-point constraint
     // C = p2 - p1

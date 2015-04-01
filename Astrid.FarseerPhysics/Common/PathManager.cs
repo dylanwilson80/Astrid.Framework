@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common.Decomposition;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics.Dynamics.Joints;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common.Decomposition;
+using Astrid.FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Dynamics.Joints;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     /// <summary>
     /// An easy to use manager for creating paths.

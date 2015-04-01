@@ -1,8 +1,6 @@
 ﻿using System;
 using Astrid.Core;
-using Astrid.Framework.Entities.Components;
-using Astrid.Framework.Graphics;
-using Astrid.Framework.Input;
+using Astrid.Framework;
 
 namespace Astrid.Gui
 {

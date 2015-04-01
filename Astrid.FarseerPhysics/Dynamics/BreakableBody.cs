@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
-using FarseerPhysics.Dynamics.Contacts;
-using FarseerPhysics.Factories;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Dynamics.Contacts;
+using Astrid.FarseerPhysics.Factories;
 
-namespace FarseerPhysics.Dynamics
+namespace Astrid.FarseerPhysics.Dynamics
 {
     /// <summary>
     /// A type of body that supports multiple fixtures that can break apart.

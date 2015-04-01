@@ -30,9 +30,9 @@
  */
 
 using System;
-using FarseerPhysics.Common.Decomposition.CDT.Polygon;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Polygon;
 
-namespace FarseerPhysics.Common.Decomposition.CDT.Util
+namespace Astrid.FarseerPhysics.Common.Decomposition.CDT.Util
 {
     internal class PolygonGenerator
     {

@@ -4,11 +4,11 @@
 */
 
 using System;
-using FarseerPhysics.Common;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics
+namespace Astrid.FarseerPhysics
 {
     [Flags]
     public enum DebugViewFlags

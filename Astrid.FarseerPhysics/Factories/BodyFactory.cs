@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
-using FarseerPhysics.Common.Decomposition;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Common.Decomposition;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Factories
+namespace Astrid.FarseerPhysics.Factories
 {
     public static class BodyFactory
     {

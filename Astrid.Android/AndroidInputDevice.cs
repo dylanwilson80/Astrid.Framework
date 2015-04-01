@@ -1,11 +1,11 @@
 using Android.Views;
 using Astrid.Core;
-using Astrid.Framework.Input;
-using InputDevice = Astrid.Framework.Input.InputDevice;
+using Astrid.Framework;
+using InputDevice = Astrid.Framework.InputDevice;
 
 namespace Astrid.Android
 {
-    public class AndroidInputDevice : InputDevice
+    public class AndroidInputDevice : Framework.InputDevice
     {
         public AndroidInputDevice()
         {

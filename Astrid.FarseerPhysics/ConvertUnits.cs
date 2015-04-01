@@ -5,7 +5,7 @@
 
 using Astrid.Core;
 
-namespace FarseerPhysics
+namespace Astrid.FarseerPhysics
 {
     /// <summary>
     /// Convert units between display and simulation units.

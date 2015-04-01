@@ -22,12 +22,12 @@
 
 using System;
 using System.Diagnostics;
-using FarseerPhysics.Collision;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Dynamics.Contacts
+namespace Astrid.FarseerPhysics.Dynamics.Contacts
 {
     public sealed class ContactPositionConstraint
     {

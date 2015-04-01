@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Common.TextureTools;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common.TextureTools;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     public static class PolygonTools
     {

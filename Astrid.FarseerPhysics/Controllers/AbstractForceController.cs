@@ -1,10 +1,9 @@
 ﻿using System;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
-using Curve = FarseerPhysics.Common.Curve;
-using CurveKey = FarseerPhysics.Common.CurveKey;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Controllers
+namespace Astrid.FarseerPhysics.Controllers
 {
     public abstract class AbstractForceController : Controller
     {

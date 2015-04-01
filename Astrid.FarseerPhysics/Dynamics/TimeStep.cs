@@ -19,7 +19,7 @@
 
 using Astrid.Core;
 
-namespace FarseerPhysics.Dynamics
+namespace Astrid.FarseerPhysics.Dynamics
 {
     /// <summary>
     /// This is an internal structure.

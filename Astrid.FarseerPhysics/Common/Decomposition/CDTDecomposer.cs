@@ -5,13 +5,13 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Common.Decomposition.CDT;
-using FarseerPhysics.Common.Decomposition.CDT.Delaunay;
-using FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep;
-using FarseerPhysics.Common.Decomposition.CDT.Polygon;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep;
+using Astrid.FarseerPhysics.Common.Decomposition.CDT.Polygon;
 
-namespace FarseerPhysics.Common.Decomposition
+namespace Astrid.FarseerPhysics.Common.Decomposition
 {
     /// <summary>
     /// 2D constrained Delaunay triangulation algorithm.

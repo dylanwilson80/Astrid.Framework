@@ -36,7 +36,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     public class CurveKeyCollection : ICollection<CurveKey>, IEnumerable<CurveKey>, IEnumerable
     {

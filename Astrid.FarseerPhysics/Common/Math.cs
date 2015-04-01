@@ -25,7 +25,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     public static class MathUtils
     {

@@ -1,7 +1,7 @@
-﻿using FarseerPhysics.Dynamics;
-using Astrid.Core;
+﻿using Astrid.Core;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Controllers
+namespace Astrid.FarseerPhysics.Controllers
 {
     /// <summary>
     /// Reference implementation for forces based on AbstractForceController

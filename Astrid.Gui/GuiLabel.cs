@@ -1,7 +1,7 @@
 ﻿using System;
 using Astrid.Core;
+using Astrid.Framework;
 using Astrid.Framework.Assets.Fonts;
-using Astrid.Framework.Graphics;
 
 namespace Astrid.Gui
 {

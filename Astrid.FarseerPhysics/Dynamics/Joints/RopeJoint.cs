@@ -21,10 +21,10 @@
 */
 
 using System;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Dynamics.Joints
+namespace Astrid.FarseerPhysics.Dynamics.Joints
 {
     // Limit:
     // C = norm(pB - pA) - L

@@ -1,7 +1,6 @@
 using Astrid.Core;
 using Astrid.Framework;
 using Astrid.Framework.Assets;
-using Astrid.Framework.Screens;
 
 namespace AstridDemo.Screens
 {

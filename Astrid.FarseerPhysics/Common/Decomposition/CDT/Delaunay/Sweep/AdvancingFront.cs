@@ -38,7 +38,7 @@
 using System;
 using System.Text;
 
-namespace FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep
+namespace Astrid.FarseerPhysics.Common.Decomposition.CDT.Delaunay.Sweep
 {
     /**
      * @author Thomas Åhlen (thahlen@gmail.com)

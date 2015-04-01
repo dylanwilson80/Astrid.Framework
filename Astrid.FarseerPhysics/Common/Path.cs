@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     //Contributed by Matthew Bettcher
 

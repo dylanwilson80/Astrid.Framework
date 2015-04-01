@@ -21,10 +21,10 @@
 */
 
 using System.Diagnostics;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision.Shapes
+namespace Astrid.FarseerPhysics.Collision.Shapes
 {
     /// <summary>
     /// A chain shape is a free form sequence of line segments.

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Astrid.Core;
-using Astrid.Framework.Graphics;
 
 namespace Astrid.Framework.Assets.Fonts
 {

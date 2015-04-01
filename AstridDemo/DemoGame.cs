@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using Astrid.Core;
 using Astrid.Framework;
-using Astrid.Framework.Input;
-using Astrid.Framework.Screens;
 using AstridDemo.Screens;
 
 namespace AstridDemo

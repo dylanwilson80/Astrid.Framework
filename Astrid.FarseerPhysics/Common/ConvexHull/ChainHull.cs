@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.ConvexHull
+namespace Astrid.FarseerPhysics.Common.ConvexHull
 {
     /// <summary>
     /// Andrew's Monotone Chain Convex Hull algorithm.

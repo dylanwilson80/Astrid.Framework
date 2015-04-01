@@ -24,16 +24,16 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Collision;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
-using FarseerPhysics.Common.PhysicsLogic;
-using FarseerPhysics.Controllers;
-using FarseerPhysics.Dynamics.Contacts;
-using FarseerPhysics.Dynamics.Joints;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Common.PhysicsLogic;
+using Astrid.FarseerPhysics.Controllers;
+using Astrid.FarseerPhysics.Dynamics.Contacts;
+using Astrid.FarseerPhysics.Dynamics.Joints;
 
-namespace FarseerPhysics.Dynamics
+namespace Astrid.FarseerPhysics.Dynamics
 {
     /// <summary>
     /// The body type.

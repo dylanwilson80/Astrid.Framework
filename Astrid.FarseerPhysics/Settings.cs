@@ -21,9 +21,9 @@
 */
 
 using System;
-using FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics
+namespace Astrid.FarseerPhysics
 {
     public static class Settings
     {

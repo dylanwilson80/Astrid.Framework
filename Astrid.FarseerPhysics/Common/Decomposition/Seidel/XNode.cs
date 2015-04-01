@@ -1,4 +1,4 @@
-﻿namespace FarseerPhysics.Common.Decomposition.Seidel
+﻿namespace Astrid.FarseerPhysics.Common.Decomposition.Seidel
 {
     internal class XNode : Node
     {

@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FarseerPhysics.Collision;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Common.PhysicsLogic
+namespace Astrid.FarseerPhysics.Common.PhysicsLogic
 {
     // Original Code by Steven Lu - see http://www.box2d.org/forum/viewtopic.php?f=3&t=1688
     // Ported to Farseer 3.0 by Nicolás Hormazábal

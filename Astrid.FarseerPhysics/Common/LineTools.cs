@@ -1,8 +1,8 @@
 ﻿using System;
-using FarseerPhysics.Collision;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
 
-namespace FarseerPhysics.Common
+namespace Astrid.FarseerPhysics.Common
 {
     /// <summary>
     /// Collection of helper methods for misc collisions.

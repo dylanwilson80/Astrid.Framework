@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Astrid.Framework.Audio;
+using Astrid.Framework;
 using CSCore;
 using CSCore.Codecs;
 using CSCore.SoundOut;

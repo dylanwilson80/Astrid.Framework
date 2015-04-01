@@ -22,10 +22,10 @@
 
 using System;
 using System.Diagnostics;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Dynamics.Joints
+namespace Astrid.FarseerPhysics.Dynamics.Joints
 {
     // Pulley:
     // length1 = norm(p1 - s1)

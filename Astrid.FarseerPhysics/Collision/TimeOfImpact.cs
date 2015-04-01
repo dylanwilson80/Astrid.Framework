@@ -22,10 +22,10 @@
 
 using System;
 using System.Diagnostics;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision
+namespace Astrid.FarseerPhysics.Collision
 {
     /// <summary>
     /// Input parameters for CalculateTimeOfImpact

@@ -24,11 +24,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision
+namespace Astrid.FarseerPhysics.Collision
 {
     internal enum ContactFeatureType : byte
     {

@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Common.Decomposition
+namespace Astrid.FarseerPhysics.Common.Decomposition
 {
     /// <summary>
     /// Convex decomposition algorithm using ear clipping

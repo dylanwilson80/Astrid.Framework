@@ -1,8 +1,8 @@
-﻿using FarseerPhysics.Dynamics;
-using FarseerPhysics.Dynamics.Joints;
-using Astrid.Core;
+﻿using Astrid.Core;
+using Astrid.FarseerPhysics.Dynamics;
+using Astrid.FarseerPhysics.Dynamics.Joints;
 
-namespace FarseerPhysics.Factories
+namespace Astrid.FarseerPhysics.Factories
 {
     /// <summary>
     /// An easy to use factory for using joints.

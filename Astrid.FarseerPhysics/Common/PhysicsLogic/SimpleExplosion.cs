@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using FarseerPhysics.Collision;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Common.PhysicsLogic
+namespace Astrid.FarseerPhysics.Common.PhysicsLogic
 {
     /// <summary>
     /// Creates a simple explosion that ignores other bodies hiding behind static bodies.

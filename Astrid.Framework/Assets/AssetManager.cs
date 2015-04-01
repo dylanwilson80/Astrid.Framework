@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Astrid.Framework.Audio;
-using Astrid.Framework.Serializers;
 
 namespace Astrid.Framework.Assets
 {

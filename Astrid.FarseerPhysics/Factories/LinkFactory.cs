@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Factories
+namespace Astrid.FarseerPhysics.Factories
 {
     public static class LinkFactory
     {

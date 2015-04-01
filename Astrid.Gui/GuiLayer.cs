@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using Astrid.Framework.Graphics;
-using Astrid.Framework.Input;
-using Astrid.Framework.Screens;
+using Astrid.Framework;
 
 namespace Astrid.Gui
 {

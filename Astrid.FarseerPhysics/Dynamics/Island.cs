@@ -22,12 +22,12 @@
 
 using System;
 using System.Diagnostics;
-using FarseerPhysics.Common;
-using FarseerPhysics.Dynamics.Contacts;
-using FarseerPhysics.Dynamics.Joints;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Common;
+using Astrid.FarseerPhysics.Dynamics.Contacts;
+using Astrid.FarseerPhysics.Dynamics.Joints;
 
-namespace FarseerPhysics.Dynamics
+namespace Astrid.FarseerPhysics.Dynamics
 {
     /// <summary>
     /// This is an internal class.

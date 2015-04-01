@@ -7,7 +7,7 @@ using System;
 using System.Diagnostics;
 using Astrid.Core;
 
-namespace FarseerPhysics.Dynamics.Joints
+namespace Astrid.FarseerPhysics.Dynamics.Joints
 {
     /// <summary>
     /// Maintains a fixed angle between two bodies

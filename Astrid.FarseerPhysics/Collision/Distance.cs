@@ -22,11 +22,11 @@
 
 using System;
 using System.Diagnostics;
-using FarseerPhysics.Collision.Shapes;
-using FarseerPhysics.Common;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Collision.Shapes;
+using Astrid.FarseerPhysics.Common;
 
-namespace FarseerPhysics.Collision
+namespace Astrid.FarseerPhysics.Collision
 {
     /// <summary>
     /// A distance proxy is used by the GJK algorithm.

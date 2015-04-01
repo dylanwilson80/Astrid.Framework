@@ -1,8 +1,4 @@
 ﻿using Astrid.Framework.Assets;
-using Astrid.Framework.Audio;
-using Astrid.Framework.Graphics;
-using Astrid.Framework.Input;
-using Astrid.Framework.Screens;
 
 namespace Astrid.Framework
 {

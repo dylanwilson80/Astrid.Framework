@@ -1,6 +1,6 @@
-﻿using FarseerPhysics.Dynamics;
+﻿using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Common.PhysicsLogic
+namespace Astrid.FarseerPhysics.Common.PhysicsLogic
 {
     /// <summary>
     /// Contains filter data that can determine whether an object should be processed or not.

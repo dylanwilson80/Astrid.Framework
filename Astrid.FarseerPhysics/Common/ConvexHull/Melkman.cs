@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace FarseerPhysics.Common.ConvexHull
+namespace Astrid.FarseerPhysics.Common.ConvexHull
 {
     /// <summary>
     /// Creates a convex hull.

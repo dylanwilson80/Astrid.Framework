@@ -21,10 +21,10 @@
 */
 
 using System;
-using FarseerPhysics.Dynamics;
 using Astrid.Core;
+using Astrid.FarseerPhysics.Dynamics;
 
-namespace FarseerPhysics.Collision
+namespace Astrid.FarseerPhysics.Collision
 {
     internal struct Pair : IComparable<Pair>
     {
