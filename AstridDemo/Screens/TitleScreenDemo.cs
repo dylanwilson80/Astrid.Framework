@@ -1,17 +1,17 @@
 using System;
 using Astrid.Animations;
 using Astrid.Core;
+using Astrid.Engine;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
-using Astrid.Framework.Assets.Fonts;
 using Astrid.Gui;
+using Astrid.Gui.Fonts;
 
 namespace AstridDemo.Screens
 {
     public class TitleScreenDemo : Screen
     {
-        public TitleScreenDemo(GameBase game) 
-            : base(game)
+        public TitleScreenDemo(GameBase screenManager) 
+            : base(screenManager)
         {
         }
 
@@ -75,7 +75,7 @@ namespace AstridDemo.Screens
 
         private void PlayButtonOnClick(object sender, EventArgs eventArgs)
         {
-            SetScreen(new AnimationDemo(Game));
+            SetScreen(new AnimationDemo(ScreenManager));
         }
     }
 }

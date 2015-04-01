@@ -1,6 +1,5 @@
 using System;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
 using Astrid.Windows.Graphics;
 using OpenTK;
 using OpenTK.Platform.Android;

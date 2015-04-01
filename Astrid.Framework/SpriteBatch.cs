@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Astrid.Core;
-using Astrid.Framework.Assets;
 
 namespace Astrid.Framework
 {

@@ -3,7 +3,6 @@ using System.Linq;
 using Astrid.Components.Components;
 using Astrid.Core;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
 using Astrid.Particles.Modifiers;
 
 namespace Astrid.Particles

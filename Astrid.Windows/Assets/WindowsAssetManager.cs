@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
 using Astrid.Windows.Audio;
 using Astrid.Windows.Graphics;
 using OpenTK.Graphics.OpenGL;

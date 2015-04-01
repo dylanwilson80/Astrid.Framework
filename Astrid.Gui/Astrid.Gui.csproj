@@ -35,6 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\Astrid.Animations\Astrid.Animations.csproj">
+      <Project>{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}</Project>
+      <Name>Astrid.Animations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
       <Project>{95203660-e823-41aa-84bc-92c93c5bf213}</Project>
       <Name>Astrid.Core</Name>
@@ -45,6 +49,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fonts\BitmapFont.cs" />
+    <Compile Include="Fonts\BitmapFontLoader.cs" />
+    <Compile Include="Fonts\FontChar.cs" />
+    <Compile Include="Fonts\FontCommon.cs" />
+    <Compile Include="Fonts\FontFile.cs" />
+    <Compile Include="Fonts\FontInfo.cs" />
+    <Compile Include="Fonts\FontKerning.cs" />
+    <Compile Include="Fonts\FontPage.cs" />
     <Compile Include="GuiButton.cs" />
     <Compile Include="GuiCheckbox.cs" />
     <Compile Include="GuiControl.cs" />
@@ -52,6 +64,13 @@
     <Compile Include="GuiLabel.cs" />
     <Compile Include="GuiLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneNode.cs" />
+    <Compile Include="Screen.cs" />
+    <Compile Include="ScreenLayer.cs" />
+    <Compile Include="ScreenViewport.cs" />
+    <Compile Include="SpriteLayer.cs" />
+    <Compile Include="StretchViewport.cs" />
+    <Compile Include="Viewport.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

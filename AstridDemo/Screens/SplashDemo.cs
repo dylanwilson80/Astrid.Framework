@@ -1,13 +1,14 @@
 using Astrid.Core;
+using Astrid.Engine;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
+using Astrid.Gui;
 
 namespace AstridDemo.Screens
 {
     public class SplashDemo : Screen
     {
-        public SplashDemo(GameBase game) 
-            : base(game)
+        public SplashDemo(GameBase screenManager) 
+            : base(screenManager)
         {
         }
 

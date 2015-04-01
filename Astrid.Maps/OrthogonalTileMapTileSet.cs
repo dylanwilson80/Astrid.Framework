@@ -1,4 +1,4 @@
-using Astrid.Framework.Assets;
+using Astrid.Framework;
 
 namespace Astrid.Maps
 {

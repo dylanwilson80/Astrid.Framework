@@ -1,13 +1,15 @@
 ﻿using Astrid.Core;
+using Astrid.Engine;
 using Astrid.Framework;
-using Astrid.Framework.Assets.Fonts;
+using Astrid.Gui;
+using Astrid.Gui.Fonts;
 
 namespace AstridDemo.Screens
 {
     public class BitmapFontDemo : Screen
     {
-        public BitmapFontDemo(GameBase game)
-            : base(game)
+        public BitmapFontDemo(GameBase screenManager)
+            : base(screenManager)
         {
         }
 

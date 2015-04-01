@@ -1,7 +1,7 @@
 ﻿using Astrid.Animations;
 using Astrid.Core;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
+using Astrid.Gui;
 
 namespace AstridDemo.Screens
 {
@@ -13,7 +13,8 @@ namespace AstridDemo.Screens
         private Vector2 _position;
         private Color _color;
 
-        public AnimationDemo(GameBase game) : base(game)
+        public AnimationDemo(IScreenManager screenManager) 
+            : base(screenManager)
         {
         }
 

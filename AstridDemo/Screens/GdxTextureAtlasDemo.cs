@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Astrid.Core;
+using Astrid.Engine;
 using Astrid.Framework;
-using Astrid.Framework.Assets;
-using Astrid.Framework.Assets.LibGDX;
+using Astrid.Gui;
+using Astrid.LibGdx;
 
 namespace AstridDemo.Screens
 {
@@ -34,8 +35,8 @@ namespace AstridDemo.Screens
         private readonly string[] _terrainNames = { "grass", "forest", "sand", "mud", "stone", "asphalt" };
         private Random _random;
         
-        public GdxTextureAtlasDemo(GameBase game)
-            : base(game)
+        public GdxTextureAtlasDemo(GameBase screenManager)
+            : base(screenManager)
         {
         }
 

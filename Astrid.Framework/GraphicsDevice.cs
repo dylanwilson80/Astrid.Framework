@@ -1,6 +1,5 @@
 ﻿using System;
 using Astrid.Core;
-using Astrid.Framework.Assets;
 
 namespace Astrid.Framework
 {

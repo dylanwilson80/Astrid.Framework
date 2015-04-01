@@ -67,9 +67,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Astrid.Engine\Astrid.Engine.csproj">
+      <Project>{C0750B4E-87C4-48D0-B314-B6D7E48CD79A}</Project>
+      <Name>Astrid.Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
       <Project>{2B3B1640-5B1F-425F-AEBC-A24260524AD8}</Project>
       <Name>Astrid.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Astrid.Gui\Astrid.Gui.csproj">
+      <Project>{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}</Project>
+      <Name>Astrid.Gui</Name>
     </ProjectReference>
     <ProjectReference Include="..\Astrid.Windows\Astrid.Windows.csproj">
       <Project>{ECF7C5F2-6A15-4CA7-A20C-0B22ADF99DE0}</Project>
