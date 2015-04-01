@@ -72,16 +72,5 @@ namespace Astrid.Framework
             _textureRegions.Add(name, textureRegion);
             return textureRegion;
         }
-
-        //public Scene LoadScene(string assetPath)
-        //{
-        //    var parser = new JsonParser(this);
-
-        //    using (var stream = OpenStream(assetPath))
-        //    using (var reader = new StreamReader(stream))
-        //    {
-        //        return parser.LoadScene(reader);
-        //    }
-        //}
     }
 }
