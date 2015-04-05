@@ -6,6 +6,7 @@ namespace Astrid.Gui
     public class SpriteLayer : ScreenLayer
     {
         public SpriteLayer(Viewport viewport)
+            : base(viewport)
         {
             _viewport = viewport;
             _sprites = new List<Sprite>();

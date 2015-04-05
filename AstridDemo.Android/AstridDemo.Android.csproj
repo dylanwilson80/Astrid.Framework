@@ -80,10 +80,6 @@
       <Project>{95203660-e823-41aa-84bc-92c93c5bf213}</Project>
       <Name>Astrid.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Astrid.Engine\Astrid.Engine.csproj">
-      <Project>{C0750B4E-87C4-48D0-B314-B6D7E48CD79A}</Project>
-      <Name>Astrid.Engine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Astrid.FarseerPhysics\Astrid.FarseerPhysics.csproj">
       <Project>{5e6f7c90-2740-42c8-9d27-2269e301223c}</Project>
       <Name>Astrid.FarseerPhysics</Name>

@@ -17,7 +17,7 @@ namespace AstridDemo.Screens
 
         public override void Show()
         {
-            var guiLayer = new GuiLayer(GraphicsDevice);
+            var guiLayer = new GuiLayer(Viewport);
 
             var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
             var label = new GuiLabel(font, null)

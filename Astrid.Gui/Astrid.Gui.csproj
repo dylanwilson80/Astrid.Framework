@@ -44,7 +44,7 @@
       <Name>Astrid.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
-      <Project>{2b3b1640-5b1f-425f-aebc-a24260524ad8}</Project>
+      <Project>{2B3B1640-5B1F-425F-AEBC-A24260524AD8}</Project>
       <Name>Astrid.Framework</Name>
     </ProjectReference>
   </ItemGroup>
