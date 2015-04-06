@@ -8,14 +8,16 @@ namespace Astrid.Windows.Audio
 {
     public class CSCoreSoundEffect : SoundEffect
     {
-        public CSCoreSoundEffect(string filePath, string name)
+        public CSCoreSoundEffect(AudioDevice audioDevice, string filePath, string name)
             : base(filePath, name)
         {
+            _audioDevice = audioDevice;
             _waveSource = CodecFactory.Instance.GetCodec(filePath);
             _instances = new ISoundOut[_maxInstances];
             _instanceIndex = 0;
         }
 
+        private readonly AudioDevice _audioDevice;
         private const int _maxInstances = 8;
         private int _instanceIndex;
         private readonly IWaveSource _waveSource;
@@ -43,13 +45,14 @@ namespace Astrid.Windows.Audio
 
             if (currentInstance != null)
                 currentInstance.Dispose();
-
+            
             var instance = CreateInstance();
             instance.Initialize(_waveSource);
             instance.Volume = volume;
-            instance.Play();
-            
 
+            if(_audioDevice.IsSoundEnabled)
+                instance.Play();
+            
             _instances[_instanceIndex] = instance;
             _instanceIndex++;
 

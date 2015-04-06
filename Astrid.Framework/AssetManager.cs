@@ -11,8 +11,9 @@ namespace Astrid.Framework
 
     public abstract class AssetManager
     {
-        protected AssetManager()
+        protected AssetManager(IDeviceManager deviceManager)
         {
+            DeviceManager = deviceManager;
             _loaders = new Dictionary<Type, IAssetLoader>
             {
                 {typeof(Texture), new TextureLoader()},
@@ -22,7 +23,9 @@ namespace Astrid.Framework
         }
 
         private readonly Dictionary<Type, IAssetLoader> _loaders;
-  
+
+        protected IDeviceManager DeviceManager { get; private set; }
+
         public abstract Stream OpenStream(string path);
         public abstract Texture LoadTexture(string assetPath);
         public abstract SoundEffect LoadSoundEffect(string assetPath);

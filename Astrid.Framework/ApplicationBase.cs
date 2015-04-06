@@ -8,7 +8,7 @@ namespace Astrid.Framework
         {
         }
 
-        public abstract AssetManager CreateAssetManager();
+        public abstract AssetManager CreateAssetManager(IDeviceManager deviceManager);
         public abstract GraphicsDevice CreateGraphicsDevice();
         public abstract InputDevice CreateInputDevice();
         public abstract AudioDevice CreateAudioDevice();

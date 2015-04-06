@@ -15,9 +15,9 @@ namespace Astrid.Windows
 
         private readonly WindowsApplicationConfig _config;
         
-        public override AssetManager CreateAssetManager()
+        public override AssetManager CreateAssetManager(IDeviceManager deviceManager)
         {
-            return new WindowsAssetManager(_config.ContentPath);
+            return new WindowsAssetManager(deviceManager, _config.ContentPath);
         }
 
         private GLGraphicsDevice _graphicsDevice;

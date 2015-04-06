@@ -7,10 +7,10 @@ namespace Astrid.Engine
     {
         protected GameBase(ApplicationBase application)
         {
-            AssetManager = application.CreateAssetManager();
             GraphicsDevice = application.CreateGraphicsDevice();
             InputDevice = application.CreateInputDevice();
             AudioDevice = application.CreateAudioDevice();
+            AssetManager = application.CreateAssetManager(this);
         }
 
         public AssetManager AssetManager { get; private set; }

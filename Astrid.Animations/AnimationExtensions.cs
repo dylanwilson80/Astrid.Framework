@@ -1,4 +1,5 @@
-﻿using Astrid.Core;
+﻿using System;
+using Astrid.Core;
 
 namespace Astrid.Animations
 {
@@ -47,6 +48,12 @@ namespace Astrid.Animations
         public static Animation<T> Delay<T>(this Animation<T> animation, float duration)
         {
             animation.Attach(new DelayTransition(duration));
+            return animation;
+        }
+
+        public static Animation<T> Execute<T>(this Animation<T> animation, Action action)
+        {
+            animation.Attach(new ExecuteTransition(action));
             return animation;
         }
     }

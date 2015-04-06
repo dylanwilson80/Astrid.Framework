@@ -48,6 +48,7 @@
     <Compile Include="DelayTransition.cs" />
     <Compile Include="DoubleTransition.cs" />
     <Compile Include="EasingFunctions.cs" />
+    <Compile Include="ExecuteTransition.cs" />
     <Compile Include="FloatTransition.cs" />
     <Compile Include="IntTransition.cs" />
     <Compile Include="ParallelAnimation.cs" />

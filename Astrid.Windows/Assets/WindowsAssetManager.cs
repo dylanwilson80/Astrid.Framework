@@ -12,7 +12,8 @@ namespace Astrid.Windows.Assets
 {
     public class WindowsAssetManager : AssetManager
     {
-        public WindowsAssetManager(string contentPath)
+        public WindowsAssetManager(IDeviceManager deviceManager, string contentPath)
+            : base(deviceManager)
         {
             _contentPath = contentPath;
         }
@@ -73,7 +74,7 @@ namespace Astrid.Windows.Assets
         public override SoundEffect LoadSoundEffect(string assetPath)
         {
             var filePath = Path.Combine(_contentPath, assetPath);
-            return new CSCoreSoundEffect(filePath, Path.GetFileNameWithoutExtension(filePath));
+            return new CSCoreSoundEffect(DeviceManager.AudioDevice, filePath, Path.GetFileNameWithoutExtension(filePath));
         }
 
         public string[] GetFiles(string searchPattern)
