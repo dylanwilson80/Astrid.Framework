@@ -35,25 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Astrid.Animations\Astrid.Animations.csproj">
-      <Project>{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}</Project>
-      <Name>Astrid.Animations</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
       <Project>{95203660-E823-41AA-84BC-92C93C5BF213}</Project>
       <Name>Astrid.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Astrid.Engine\Astrid.Engine.csproj">
-      <Project>{C0750B4E-87C4-48D0-B314-B6D7E48CD79A}</Project>
-      <Name>Astrid.Engine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Astrid.Framework\Astrid.Framework.csproj">
       <Project>{2B3B1640-5B1F-425F-AEBC-A24260524AD8}</Project>
       <Name>Astrid.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Astrid.Gui\Astrid.Gui.csproj">
-      <Project>{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}</Project>
-      <Name>Astrid.Gui</Name>
     </ProjectReference>
     <ProjectReference Include="..\Astrid.LibGdx\Astrid.LibGdx.csproj">
       <Project>{F6B59BE4-E4C8-4306-9815-7EE816F1F598}</Project>

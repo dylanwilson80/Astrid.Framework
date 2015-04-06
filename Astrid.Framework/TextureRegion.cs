@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     public class TextureRegion : IAsset
     {

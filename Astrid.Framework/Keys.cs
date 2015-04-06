@@ -1,4 +1,4 @@
-﻿namespace Astrid.Framework
+﻿namespace Astrid
 {
     public enum Keys
     {

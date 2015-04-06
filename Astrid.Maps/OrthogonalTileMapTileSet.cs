@@ -1,5 +1,3 @@
-using Astrid.Framework;
-
 namespace Astrid.Maps
 {
     public class OrthogonalTileMapTileSet

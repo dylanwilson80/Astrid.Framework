@@ -1,6 +1,4 @@
-using Astrid.Core;
-using Astrid.Engine;
-using Astrid.Framework;
+using Astrid;
 using Astrid.Gui;
 
 namespace AstridDemo.Screens

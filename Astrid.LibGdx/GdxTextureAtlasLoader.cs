@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Astrid.Framework;
 
 namespace Astrid.LibGdx
 {

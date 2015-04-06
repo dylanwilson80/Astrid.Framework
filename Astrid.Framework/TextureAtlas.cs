@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     public class TextureAtlas : IAsset
     {

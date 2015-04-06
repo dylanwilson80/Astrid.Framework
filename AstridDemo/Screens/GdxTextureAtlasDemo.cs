@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Astrid;
 using Astrid.Core;
-using Astrid.Engine;
-using Astrid.Framework;
 using Astrid.Gui;
 using Astrid.LibGdx;
 
 namespace AstridDemo.Screens
 {
-
     public class GdxTextureAtlasDemo : Screen
     {
         public struct AtlasSprite

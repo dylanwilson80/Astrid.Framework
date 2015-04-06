@@ -8,7 +8,7 @@
     <ProjectGuid>{2B3B1640-5B1F-425F-AEBC-A24260524AD8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Astrid.Framework</RootNamespace>
+    <RootNamespace>Astrid</RootNamespace>
     <AssemblyName>Astrid.Framework</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
@@ -37,19 +37,76 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Astrid.Animations\Astrid.Animations.csproj">
-      <Project>{8D8D0F49-F71D-4B37-B280-41F0050DA0CE}</Project>
-      <Name>Astrid.Animations</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Astrid.Core\Astrid.Core.csproj">
       <Project>{95203660-e823-41aa-84bc-92c93c5bf213}</Project>
       <Name>Astrid.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\AnimationExtensions.cs" />
+    <Compile Include="Animations\AnimationSystem.cs" />
+    <Compile Include="Animations\ColorTransition.cs" />
+    <Compile Include="Animations\DelayTransition.cs" />
+    <Compile Include="Animations\DoubleTransition.cs" />
+    <Compile Include="Animations\EasingFunctions.cs" />
+    <Compile Include="Animations\ExecuteTransition.cs" />
+    <Compile Include="Animations\FloatTransition.cs" />
+    <Compile Include="Animations\IntTransition.cs" />
+    <Compile Include="Animations\ParallelAnimation.cs" />
+    <Compile Include="Animations\SequenceAnimation.cs" />
+    <Compile Include="Animations\Transition.cs" />
+    <Compile Include="Animations\TransitionParameters.cs" />
+    <Compile Include="Animations\Vector2Transition.cs" />
+    <Compile Include="Animations\Vector3Transition.cs" />
+    <Compile Include="Animations\Vector4Transition.cs" />
     <Compile Include="ApplicationBase.cs" />
     <Compile Include="AssetLoader.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="Components\ComponentSystemFactory.cs" />
+    <Compile Include="Components\Components\Component.cs" />
+    <Compile Include="Components\Components\Drawable.cs" />
+    <Compile Include="Components\Components\PhysicsComponent.cs" />
+    <Compile Include="Components\Entity.cs" />
+    <Compile Include="Components\EntityEngine.cs" />
+    <Compile Include="Components\EntitySpace.cs" />
+    <Compile Include="Components\JsonKnownComponentTypesSerializationBinder.cs" />
+    <Compile Include="Components\Systems\ComponentSystem.cs" />
+    <Compile Include="Components\Systems\DrawableSystem.cs" />
+    <Compile Include="Components\Systems\GuiSystem.cs" />
+    <Compile Include="Components\Systems\PhysicsSystem.cs" />
+    <Compile Include="GameBase.cs" />
+    <Compile Include="Gui\Fonts\BitmapFont.cs" />
+    <Compile Include="Gui\Fonts\BitmapFontLoader.cs" />
+    <Compile Include="Gui\Fonts\FontChar.cs" />
+    <Compile Include="Gui\Fonts\FontCommon.cs" />
+    <Compile Include="Gui\Fonts\FontFile.cs" />
+    <Compile Include="Gui\Fonts\FontInfo.cs" />
+    <Compile Include="Gui\Fonts\FontKerning.cs" />
+    <Compile Include="Gui\Fonts\FontPage.cs" />
+    <Compile Include="Gui\GuiButton.cs" />
+    <Compile Include="Gui\GuiCheckbox.cs" />
+    <Compile Include="Gui\GuiControl.cs" />
+    <Compile Include="Gui\GuiImage.cs" />
+    <Compile Include="Gui\GuiLabel.cs" />
+    <Compile Include="Gui\GuiLayer.cs" />
+    <Compile Include="Gui\SceneNode.cs" />
+    <Compile Include="Gui\Screen.cs" />
+    <Compile Include="Gui\ScreenLayer.cs" />
+    <Compile Include="Gui\ScreenViewport.cs" />
+    <Compile Include="Gui\SpriteLayer.cs" />
+    <Compile Include="Gui\StretchViewport.cs" />
+    <Compile Include="Gui\Viewport.cs" />
+    <Compile Include="Particles\Modifiers\DragParticleModifier.cs" />
+    <Compile Include="Particles\Modifiers\GravityParticleModifer.cs" />
+    <Compile Include="Particles\Modifiers\ParticleModifier.cs" />
+    <Compile Include="Particles\Particle.cs" />
+    <Compile Include="Particles\ParticleEmitter.cs" />
+    <Compile Include="Particles\ParticleEmitterParameters.cs" />
+    <Compile Include="Particles\ParticleEmitterProfile.cs" />
+    <Compile Include="Particles\ParticleSystem.cs" />
+    <Compile Include="Particles\Range.cs" />
+    <Compile Include="Particles\RangeRandom.cs" />
     <Compile Include="SoundEffectLoader.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="TextureAtlas.cs" />

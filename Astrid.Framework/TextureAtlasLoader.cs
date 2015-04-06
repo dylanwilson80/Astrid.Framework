@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     /// <summary>
     /// Loads JSON Array texture atlases from CodeAndWeb Texture Packer

@@ -1,5 +1,4 @@
-﻿using Astrid.Framework;
-using Astrid.Windows.Assets;
+﻿using Astrid.Windows.Assets;
 using Astrid.Windows.Audio;
 using Astrid.Windows.Graphics;
 using Astrid.Windows.Input;

@@ -1,5 +1,3 @@
-using Astrid.Framework;
-
 namespace Astrid.LibGdx
 {
     public class GdxTextureAtlasRegion : TextureRegion

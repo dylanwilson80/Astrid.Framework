@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     public class JsonAssetConverter : JsonConverter
     {

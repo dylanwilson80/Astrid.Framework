@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     public abstract class Texture : IAsset, IEquatable<Texture>
     {

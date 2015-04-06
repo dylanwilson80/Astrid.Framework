@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Astrid.Framework;
 
 namespace Astrid.LibGdx
 {

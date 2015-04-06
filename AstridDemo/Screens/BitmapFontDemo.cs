@@ -1,6 +1,5 @@
-﻿using Astrid.Core;
-using Astrid.Engine;
-using Astrid.Framework;
+﻿using Astrid;
+using Astrid.Core;
 using Astrid.Gui;
 using Astrid.Gui.Fonts;
 

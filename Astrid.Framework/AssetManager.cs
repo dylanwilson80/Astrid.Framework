@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Astrid.Framework
+namespace Astrid
 {
     public interface IAsset
     {

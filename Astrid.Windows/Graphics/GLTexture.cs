@@ -1,4 +1,3 @@
-using Astrid.Framework;
 #if ANDROID
 using Android.Graphics;
 #else

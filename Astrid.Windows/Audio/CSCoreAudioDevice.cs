@@ -1,6 +1,4 @@
-﻿using Astrid.Framework;
-
-namespace Astrid.Windows.Audio
+﻿namespace Astrid.Windows.Audio
 {
     public class CSCoreAudioDevice : AudioDevice
     {
