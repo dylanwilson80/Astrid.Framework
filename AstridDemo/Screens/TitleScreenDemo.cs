@@ -9,9 +9,10 @@ namespace AstridDemo.Screens
 {
     public class TitleScreenDemo : Screen
     {
-        public TitleScreenDemo(GameBase screenManager) 
-            : base(screenManager)
+        public TitleScreenDemo(GameBase game) 
+            : base(game)
         {
+            Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }
 
         public override void Show()

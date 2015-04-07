@@ -1,7 +1,4 @@
-using System;
-using Astrid.Framework;
 using Astrid.Windows.Graphics;
-using OpenTK;
 using OpenTK.Platform.Android;
 
 namespace Astrid.Android
@@ -21,12 +18,13 @@ namespace Astrid.Android
             get { return _view; }
         }
 
-        public override AssetManager CreateAssetManager()
+        public override AssetManager CreateAssetManager(IDeviceManager deviceManager)
         {
-            return new AndroidAssetManager(_config.Activity);
+            return new AndroidAssetManager(deviceManager, _config.Activity);
         }
 
         private GLGraphicsDevice _graphicsDevice;
+
         public override GraphicsDevice CreateGraphicsDevice()
         {
             var width = _config.Activity.Resources.DisplayMetrics.WidthPixels;

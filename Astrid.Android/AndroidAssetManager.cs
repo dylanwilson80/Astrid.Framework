@@ -1,7 +1,6 @@
 using System.IO;
 using Android.Content;
 using Android.Graphics;
-using Astrid.Framework;
 using Astrid.Windows.Graphics;
 using OpenTK.Graphics.ES20;
 
@@ -11,7 +10,8 @@ namespace Astrid.Android
     {
         private readonly Context _context;
 
-        public AndroidAssetManager(Context context)
+        public AndroidAssetManager(IDeviceManager deviceManager, Context context)
+            : base(deviceManager)
         {
             _context = context;
         }

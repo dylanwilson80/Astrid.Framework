@@ -6,7 +6,7 @@ using Astrid.Android;
 
 namespace AstridDemo.Android
 {
-    [Activity(Label = "AstridDemo.Android", MainLauncher = true, Icon = "@drawable/icon",
+    [Activity(Label = "AstridDemo.Android", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Landscape,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize)]
     public class MainActivity : Activity
     {

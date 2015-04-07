@@ -16,6 +16,7 @@ namespace AstridDemo.Screens
         public AnimationDemo(IScreenManager screenManager) 
             : base(screenManager)
         {
+            Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }
 
         public override void Show()

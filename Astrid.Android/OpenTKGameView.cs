@@ -2,11 +2,9 @@ using System;
 using Android.Content;
 using Android.Graphics;
 using Android.Views;
-using Astrid.Framework;
 using Astrid.Windows.Graphics;
 using OpenTK;
 using OpenTK.Graphics;
-using OpenTK.Graphics.ES20;
 using OpenTK.Platform.Android;
 
 namespace Astrid.Android

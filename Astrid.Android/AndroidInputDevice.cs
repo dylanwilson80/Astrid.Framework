@@ -1,11 +1,9 @@
 using Android.Views;
 using Astrid.Core;
-using Astrid.Framework;
-using InputDevice = Astrid.Framework.InputDevice;
 
 namespace Astrid.Android
 {
-    public class AndroidInputDevice : Framework.InputDevice
+    public class AndroidInputDevice : InputDevice
     {
         public AndroidInputDevice()
         {
@@ -71,7 +69,9 @@ namespace Astrid.Android
                     default:
                         return false;
                 }
-                
+
+                // TODO: Not sure if this should be called here or somewhere else
+                _parent.Update();
                 return true;
             }
         }
