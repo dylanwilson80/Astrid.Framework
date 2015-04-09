@@ -12,20 +12,22 @@ namespace Astrid
 
         public string Key { get; private set; }
         public string Name { get; private set; }
-
-        public int Play()
+        
+        public SoundEffectInstance Play()
         {
             return Play(1.0f);
         }
 
-        public abstract int Play(float volume);
-        public abstract void Stop();
-        public abstract void Stop(int id);
-        public abstract void Pause();
-        public abstract void Pause(int id);
-        public abstract void Resume();
-        public abstract void Resume(int id);
+        public SoundEffectInstance Play(float volume)
+        {
+            var instance = CreateInstance();
+            instance.Volume = volume;
+            instance.Play();
+            return instance;
+        }
 
+        public abstract SoundEffectInstance CreateInstance();
+        
         public static bool operator ==(SoundEffect x, SoundEffect y)
         {
             return Equals(x, y);

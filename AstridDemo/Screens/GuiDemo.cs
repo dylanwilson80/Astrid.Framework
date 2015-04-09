@@ -10,9 +10,9 @@ namespace AstridDemo.Screens
         {
         }
 
-        public override void Load()
+        public override void Show()
         {
-            base.Load();
+            base.Show();
             
             //var camera = new Camera();
             //_engine = new EntityEngine(AssetManager, new ComponentSystemFactory(this, camera));

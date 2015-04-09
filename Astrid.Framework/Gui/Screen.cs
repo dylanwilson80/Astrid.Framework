@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Astrid.Animations;
 using Astrid.Core;
 
@@ -11,7 +10,7 @@ namespace Astrid.Gui
         void SetScreen(Screen screen);
     }
 
-    public abstract class Screen : IDisposable, IDeviceManager
+    public abstract class Screen : IDeviceManager
     {
         protected Screen(IScreenManager screenManager)
         {
@@ -60,8 +59,6 @@ namespace Astrid.Gui
             ScreenManager.SetScreen(screen);
         }
 
-        public virtual void Load() { }
-        public virtual void Unload() { }
         public virtual void Show() { }
         public virtual void Hide() { }
         public virtual void Resize(int width, int height) { }
@@ -83,7 +80,5 @@ namespace Astrid.Gui
             foreach (var layer in _layers)
                 layer.Render(deltaTime);
         }
-
-        public virtual void Dispose() { }
     }
 }

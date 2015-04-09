@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Assets\WindowsAssetManager.cs" />
     <Compile Include="Audio\CSCoreSoundEffect.cs" />
+    <Compile Include="Audio\CSCoreSoundEffectInstance.cs" />
     <Compile Include="Graphics\ColorExtensions.cs" />
     <Compile Include="Graphics\GLPrograms\GLSpriteBatchProgram.cs" />
     <Compile Include="Graphics\GLPrograms\GLBatchProgram.cs" />

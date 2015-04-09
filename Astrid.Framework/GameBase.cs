@@ -1,8 +1,9 @@
-﻿using Astrid.Gui;
+﻿using System;
+using Astrid.Gui;
 
 namespace Astrid
 {
-    public abstract class GameBase : IApplicationListener, IScreenManager
+    public abstract class GameBase : IDisposable, IApplicationListener, IScreenManager
     {
         protected GameBase(ApplicationBase application)
         {
@@ -22,18 +23,12 @@ namespace Astrid
         public void SetScreen(Screen newScreen)
         {
             if (_currentScreen != null)
-            {
                 _currentScreen.Hide();
-                _currentScreen.Unload();
-            }
 
             _currentScreen = newScreen;
 
             if (_currentScreen != null)
-            {
-                _currentScreen.Load();
                 _currentScreen.Show();
-            }
         }
 
         public abstract void Create();
@@ -67,6 +62,12 @@ namespace Astrid
         {
             if (_currentScreen != null)
                 _currentScreen.Render(deltaTime);
+        }
+
+        public void Dispose()
+        {
+            if (_currentScreen != null)
+                _currentScreen.Hide();
         }
     }
 }
