@@ -18,7 +18,8 @@ namespace Astrid
             {
                 {typeof(Texture), new TextureLoader()},
                 {typeof(TextureAtlas), new TextureAtlasLoader()},
-                {typeof(SoundEffect), new SoundEffectLoader()}
+                {typeof(SoundEffect), new SoundEffectLoader()},
+                {typeof(Music), new MusicLoader()}
             };
         }
 
@@ -29,6 +30,7 @@ namespace Astrid
         public abstract Stream OpenStream(string path);
         public abstract Texture LoadTexture(string assetPath);
         public abstract SoundEffect LoadSoundEffect(string assetPath);
+        public abstract Music LoadMusic(string assetPath);
 
         public void RegisterLoader<T>(AssetLoader<T> loader)
             where T : IAsset

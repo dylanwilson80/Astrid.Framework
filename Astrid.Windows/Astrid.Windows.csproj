@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WindowsAssetManager.cs" />
+    <Compile Include="WindowsMusic.cs" />
     <Compile Include="WindowsSoundEffect.cs" />
     <Compile Include="WindowsSoundEffectInstance.cs" />
     <Compile Include="ColorExtensions.cs" />

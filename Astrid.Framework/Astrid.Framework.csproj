@@ -97,6 +97,7 @@
     <Compile Include="Gui\SpriteLayer.cs" />
     <Compile Include="Gui\StretchViewport.cs" />
     <Compile Include="Gui\Viewport.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="Particles\Modifiers\DragParticleModifier.cs" />
     <Compile Include="Particles\Modifiers\GravityParticleModifer.cs" />
     <Compile Include="Particles\Modifiers\ParticleModifier.cs" />

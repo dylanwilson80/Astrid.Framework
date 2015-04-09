@@ -71,7 +71,13 @@ namespace Astrid.Windows
         public override SoundEffect LoadSoundEffect(string assetPath)
         {
             var filePath = Path.Combine(_contentPath, assetPath);
-            return new WindowsSoundEffect(DeviceManager.AudioDevice, filePath, Path.GetFileNameWithoutExtension(filePath));
+            return new WindowsSoundEffect(DeviceManager.AudioDevice, filePath, assetPath);
+        }
+
+        public override Music LoadMusic(string assetPath)
+        {
+            var filePath = Path.Combine(_contentPath, assetPath);
+            return new WindowsMusic(DeviceManager.AudioDevice, filePath, assetPath);
         }
 
         public string[] GetFiles(string searchPattern)

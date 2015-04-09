@@ -31,20 +31,28 @@ namespace AstridDemo
             SetScreen(_screens[_currentScreenIndex]);
             InputDevice.Processors.Add(new TouchInputProcessor(this));
 
-            _clickSoundEffect = AssetManager.Load<SoundEffect>("click.wav");
+            _soundEffect = AssetManager.Load<SoundEffect>("click.wav");
+            _music = AssetManager.Load<Music>("song.mp3");
+            _music.Volume = 0.1f;
         }
 
-        private SoundEffect _clickSoundEffect;
-        private SoundEffectInstance _soundEffectInstance;
+        private Music _music;
+        private SoundEffect _soundEffect;
 
         public override void Destroy()
         {
-            _clickSoundEffect.Dispose();
+            _soundEffect.Dispose();
+            _music.Dispose();
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            _soundEffectInstance = _clickSoundEffect.Play();
+            if (_music.IsPlaying)
+                _music.Pause();
+            else
+                _music.Play();
+
+            _soundEffect.Play();
             return true;
         }
 
