@@ -1,7 +1,7 @@
 using System;
 using OpenTK.Graphics.ES20;
 
-namespace Astrid.Windows.Graphics.GLPrograms
+namespace Astrid.Windows
 {
     public class GLPrimitiveBatchProgram : GLBatchProgram
     {

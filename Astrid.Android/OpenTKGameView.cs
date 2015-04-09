@@ -2,7 +2,7 @@ using System;
 using Android.Content;
 using Android.Graphics;
 using Android.Views;
-using Astrid.Windows.Graphics;
+using Astrid.Windows;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Platform.Android;

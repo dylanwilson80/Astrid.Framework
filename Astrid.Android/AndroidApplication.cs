@@ -1,4 +1,4 @@
-using Astrid.Windows.Graphics;
+using Astrid.Windows;
 using OpenTK.Platform.Android;
 
 namespace Astrid.Android

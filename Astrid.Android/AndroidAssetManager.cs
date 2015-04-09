@@ -1,8 +1,9 @@
-using System.IO;
 using Android.Content;
 using Android.Graphics;
-using Astrid.Windows.Graphics;
+using Android.Media;
+using Astrid.Windows;
 using OpenTK.Graphics.ES20;
+using Stream = System.IO.Stream;
 
 namespace Astrid.Android
 {
@@ -51,9 +52,19 @@ namespace Astrid.Android
             }
         }
 
+        private SoundPool _soundPool;
+
         public override SoundEffect LoadSoundEffect(string assetPath)
         {
-            throw new System.NotImplementedException();
+            if (_soundPool == null)
+            {
+                _soundPool = new SoundPool(10, global::Android.Media.Stream.Music, 0);
+            }
+
+            var assetFileDescriptor = _context.Assets.OpenFd(assetPath);
+            var soundId = _soundPool.Load(assetFileDescriptor, 1);
+            var name = assetPath;
+            return new AndroidSoundEffect(assetPath, name, _soundPool, soundId);
         }
     }
 }

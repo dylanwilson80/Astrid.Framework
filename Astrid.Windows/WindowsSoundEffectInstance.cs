@@ -1,13 +1,13 @@
 using CSCore.SoundOut;
 
-namespace Astrid.Windows.Audio
+namespace Astrid.Windows
 {
-    public class CSCoreSoundEffectInstance : SoundEffectInstance
+    public class WindowsSoundEffectInstance : SoundEffectInstance
     {
         private readonly AudioDevice _audioDevice;
         private readonly ISoundOut _soundOut;
 
-        public CSCoreSoundEffectInstance(AudioDevice audioDevice, ISoundOut soundOut)
+        public WindowsSoundEffectInstance(AudioDevice audioDevice, ISoundOut soundOut)
         {
             _audioDevice = audioDevice;
             _soundOut = soundOut;

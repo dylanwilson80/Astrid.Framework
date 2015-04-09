@@ -50,20 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\WindowsAssetManager.cs" />
-    <Compile Include="Audio\CSCoreSoundEffect.cs" />
-    <Compile Include="Audio\CSCoreSoundEffectInstance.cs" />
-    <Compile Include="Graphics\ColorExtensions.cs" />
-    <Compile Include="Graphics\GLPrograms\GLSpriteBatchProgram.cs" />
-    <Compile Include="Graphics\GLPrograms\GLBatchProgram.cs" />
-    <Compile Include="Graphics\GLError.cs" />
-    <Compile Include="Graphics\GLGraphicsDevice.cs" />
-    <Compile Include="Graphics\GLPrograms\GLPrimitiveBatchProgram.cs" />
-    <Compile Include="Graphics\GLShader.cs" />
-    <Compile Include="Graphics\GLTexture.cs" />
+    <Compile Include="WindowsAssetManager.cs" />
+    <Compile Include="WindowsSoundEffect.cs" />
+    <Compile Include="WindowsSoundEffectInstance.cs" />
+    <Compile Include="ColorExtensions.cs" />
+    <Compile Include="GLSpriteBatchProgram.cs" />
+    <Compile Include="GLBatchProgram.cs" />
+    <Compile Include="GLError.cs" />
+    <Compile Include="GLGraphicsDevice.cs" />
+    <Compile Include="GLPrimitiveBatchProgram.cs" />
+    <Compile Include="GLShader.cs" />
+    <Compile Include="GLTexture.cs" />
     <Compile Include="WindowsGameWindow.cs" />
-    <Compile Include="Input\TKInputDevice.cs" />
-    <Compile Include="Audio\CSCoreAudioDevice.cs" />
+    <Compile Include="WindowsInputDevice.cs" />
+    <Compile Include="WindowsAudioDevice.cs" />
     <Compile Include="WindowsApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowsApplicationConfig.cs" />

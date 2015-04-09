@@ -1,9 +1,4 @@
-﻿using Astrid.Windows.Assets;
-using Astrid.Windows.Audio;
-using Astrid.Windows.Graphics;
-using Astrid.Windows.Input;
-
-namespace Astrid.Windows
+﻿namespace Astrid.Windows
 {
     public class WindowsApplication : ApplicationBase
     {
@@ -26,17 +21,17 @@ namespace Astrid.Windows
             return _graphicsDevice;
         }
 
-        private TKInputDevice _inputDevice;
+        private WindowsInputDevice _inputDevice;
         public override InputDevice CreateInputDevice()
         {
-            _inputDevice = new TKInputDevice();
+            _inputDevice = new WindowsInputDevice();
             return _inputDevice;
         }
 
-        private CSCoreAudioDevice _audioDevice;
+        private WindowsAudioDevice _audioDevice;
         public override AudioDevice CreateAudioDevice()
         {
-            _audioDevice = new CSCoreAudioDevice();
+            _audioDevice = new WindowsAudioDevice();
             return _audioDevice;
         }
 

@@ -1,12 +1,11 @@
 ﻿using Astrid.Core;
 using OpenTK.Input;
 
-
-namespace Astrid.Windows.Input
+namespace Astrid.Windows
 {
-    public class TKInputDevice : InputDevice
+    public class WindowsInputDevice : InputDevice
     {
-        public TKInputDevice()
+        public WindowsInputDevice()
         {
         }
 

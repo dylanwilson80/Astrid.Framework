@@ -1,12 +1,10 @@
 #if ANDROID
 using Android.Graphics;
 #else
-using System.Drawing.Imaging;
 #endif
-using OpenTK.Graphics.ES20;
 
 
-namespace Astrid.Windows.Graphics
+namespace Astrid.Windows
 {
     public class GLTexture : Texture
     {

@@ -3,11 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using Astrid.Windows.Audio;
-using Astrid.Windows.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace Astrid.Windows.Assets
+namespace Astrid.Windows
 {
     public class WindowsAssetManager : AssetManager
     {
@@ -73,7 +71,7 @@ namespace Astrid.Windows.Assets
         public override SoundEffect LoadSoundEffect(string assetPath)
         {
             var filePath = Path.Combine(_contentPath, assetPath);
-            return new CSCoreSoundEffect(DeviceManager.AudioDevice, filePath, Path.GetFileNameWithoutExtension(filePath));
+            return new WindowsSoundEffect(DeviceManager.AudioDevice, filePath, Path.GetFileNameWithoutExtension(filePath));
         }
 
         public string[] GetFiles(string searchPattern)

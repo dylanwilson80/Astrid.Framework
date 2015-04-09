@@ -15,13 +15,13 @@ namespace AstridDemo.Screens
             Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }
 
-        private SoundEffectInstance _musicInstance;
+        //private SoundEffectInstance _musicInstance;
 
         public override void Show()
         {
-            _musicInstance = AssetManager
-                .Load<SoundEffect>("song.mp3")
-                .Play();
+            //_musicInstance = AssetManager
+            //    .Load<SoundEffect>("song.mp3")
+            //    .Play();
 
             var guiLayer = new GuiLayer(Viewport);
 
@@ -81,17 +81,17 @@ namespace AstridDemo.Screens
 
         public override void Hide()
         {
-            _musicInstance.Dispose();
+            //_musicInstance.Dispose();
             base.Hide();
         }
 
 
         private void PlayButtonOnClick(object sender, EventArgs eventArgs)
         {
-            if (!_musicInstance.IsPlaying)
-                _musicInstance.Play();
-            else
-                _musicInstance.Stop();
+            //if (!_musicInstance.IsPlaying)
+            //    _musicInstance.Play();
+            //else
+            //    _musicInstance.Stop();
             //SetScreen(new AnimationDemo(ScreenManager));
         }
     }

@@ -30,15 +30,22 @@ namespace AstridDemo
 
             SetScreen(_screens[_currentScreenIndex]);
             InputDevice.Processors.Add(new TouchInputProcessor(this));
+
+            _clickSoundEffect = AssetManager.Load<SoundEffect>("click.wav");
         }
+
+        private SoundEffect _clickSoundEffect;
+        private SoundEffectInstance _soundEffectInstance;
 
         public override void Destroy()
         {
+            _clickSoundEffect.Dispose();
         }
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            return false;
+            _soundEffectInstance = _clickSoundEffect.Play();
+            return true;
         }
 
         public bool OnTouchUp(Vector2 position, int pointerIndex)

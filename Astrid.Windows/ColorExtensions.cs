@@ -1,7 +1,7 @@
 ﻿using Astrid.Core;
 using OpenTK.Graphics;
 
-namespace Astrid.Windows.Graphics
+namespace Astrid.Windows
 {
     public static class ColorExtensions
     {

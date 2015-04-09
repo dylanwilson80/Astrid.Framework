@@ -105,6 +105,9 @@
     <AndroidAsset Include="..\AstridDemo.Windows\Content\song.mp3">
       <Link>Assets\song.mp3</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\click.wav">
+      <Link>Assets\click.wav</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -50,28 +50,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Astrid.Windows\Graphics\ColorExtensions.cs">
+    <Compile Include="..\Astrid.Windows\ColorExtensions.cs">
       <Link>ColorExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLError.cs">
-      <Link>GLError.cs</Link>
-    </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLGraphicsDevice.cs">
-      <Link>GLGraphicsDevice.cs</Link>
-    </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLBatchProgram.cs">
+    <Compile Include="..\Astrid.Windows\GLBatchProgram.cs">
       <Link>GLBatchProgram.cs</Link>
     </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLPrimitiveBatchProgram.cs">
+    <Compile Include="..\Astrid.Windows\GLError.cs">
+      <Link>GLError.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\GLGraphicsDevice.cs">
+      <Link>GLGraphicsDevice.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\GLPrimitiveBatchProgram.cs">
       <Link>GLPrimitiveBatchProgram.cs</Link>
     </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLPrograms\GLSpriteBatchProgram.cs">
-      <Link>GLSpriteBatchProgram.cs</Link>
-    </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLShader.cs">
+    <Compile Include="..\Astrid.Windows\GLShader.cs">
       <Link>GLShader.cs</Link>
     </Compile>
-    <Compile Include="..\Astrid.Windows\Graphics\GLTexture.cs">
+    <Compile Include="..\Astrid.Windows\GLSpriteBatchProgram.cs">
+      <Link>GLSpriteBatchProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\Astrid.Windows\GLTexture.cs">
       <Link>GLTexture.cs</Link>
     </Compile>
     <Compile Include="AndroidApplication.cs" />
@@ -80,6 +80,8 @@
     <Compile Include="AndroidAudioDevice.cs" />
     <Compile Include="AndroidGraphicsDevice.cs" />
     <Compile Include="AndroidInputDevice.cs" />
+    <Compile Include="AndroidSoundEffect.cs" />
+    <Compile Include="AndroidSoundEffectInstance.cs" />
     <Compile Include="OpenTKGameView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

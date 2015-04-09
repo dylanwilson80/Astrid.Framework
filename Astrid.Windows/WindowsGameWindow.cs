@@ -1,5 +1,4 @@
 ﻿using System;
-using Astrid.Windows.Graphics;
 using OpenTK;
 
 namespace Astrid.Windows

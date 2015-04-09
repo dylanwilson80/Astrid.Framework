@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK.Graphics.ES20;
 
-namespace Astrid.Windows.Graphics
+namespace Astrid.Windows
 {
     public static class GLError
     {

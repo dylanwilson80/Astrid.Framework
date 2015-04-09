@@ -2,11 +2,11 @@
 using CSCore.Codecs;
 using CSCore.SoundOut;
 
-namespace Astrid.Windows.Audio
+namespace Astrid.Windows
 {
-    public class CSCoreSoundEffect : SoundEffect
+    public class WindowsSoundEffect : SoundEffect
     {
-        public CSCoreSoundEffect(AudioDevice audioDevice, string filePath, string name)
+        public WindowsSoundEffect(AudioDevice audioDevice, string filePath, string name)
             : base(filePath, name)
         {
             _audioDevice = audioDevice;
@@ -33,7 +33,7 @@ namespace Astrid.Windows.Audio
         {
             var soundOut = CreateSoundOut();
             soundOut.Initialize(_waveSource);
-            return new CSCoreSoundEffectInstance(_audioDevice, soundOut);
+            return new WindowsSoundEffectInstance(_audioDevice, soundOut);
         }
     }
 }
