@@ -33,7 +33,8 @@ namespace AstridDemo
 
             _soundEffect = AssetManager.Load<SoundEffect>("click.wav");
             _music = AssetManager.Load<Music>("song.mp3");
-            _music.Volume = 0.1f;
+            _music.Play();
+            _music.Volume = 0.10f;
         }
 
         private Music _music;
@@ -47,10 +48,10 @@ namespace AstridDemo
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            if (_music.IsPlaying)
-                _music.Pause();
-            else
-                _music.Play();
+            //if (_music.IsPlaying)
+            //    _music.Pause();
+            //else
+            //    _music.Play();
 
             _soundEffect.Play();
             return true;

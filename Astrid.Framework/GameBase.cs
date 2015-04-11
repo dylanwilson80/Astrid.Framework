@@ -68,6 +68,8 @@ namespace Astrid
         {
             if (_currentScreen != null)
                 _currentScreen.Hide();
+
+            AudioDevice.Dispose();
         }
     }
 }

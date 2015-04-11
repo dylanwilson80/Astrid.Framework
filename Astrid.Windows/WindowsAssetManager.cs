@@ -77,7 +77,8 @@ namespace Astrid.Windows
         public override Music LoadMusic(string assetPath)
         {
             var filePath = Path.Combine(_contentPath, assetPath);
-            return new WindowsMusic(DeviceManager.AudioDevice, filePath, assetPath);
+            var audioDevice = (WindowsAudioDevice) DeviceManager.AudioDevice;
+            return new WindowsMusic(audioDevice, filePath, assetPath);
         }
 
         public string[] GetFiles(string searchPattern)

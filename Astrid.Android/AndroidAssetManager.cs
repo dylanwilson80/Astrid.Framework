@@ -66,5 +66,10 @@ namespace Astrid.Android
             var name = assetPath;
             return new AndroidSoundEffect(assetPath, name, _soundPool, soundId);
         }
+
+        public override Music LoadMusic(string assetPath)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
