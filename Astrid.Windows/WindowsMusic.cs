@@ -2,7 +2,7 @@
 
 namespace Astrid.Windows
 {
-    public class WindowsMusic : Music
+    public class WindowsMusic : Music, ISampleProvider
     {
         public WindowsMusic(WindowsAudioDevice audioDevice, string filePath, string name) 
             : base(filePath, name)
@@ -25,39 +25,73 @@ namespace Astrid.Windows
             }
         }
 
-        public override bool IsPlaying { get { return false; } }
+        private bool _isPlaying;
+        public override bool IsPlaying 
+        { 
+            get { return _isPlaying; } 
+        }
 
+        private bool _isMixing;
         public override void Play()
         {
             if (_audioDevice.IsMusicEnabled)
-                _audioDevice.AddMixerInput(_audioFileReader);
+            {
+                if (!_isMixing)
+                {
+                    _audioDevice.AddMixerInput(this);
+                    _isMixing = true;
+                }
+
+                _isPlaying = true;
+            }
         }
 
         public override void Pause()
         {
-            //if (_soundOut != null)
-            //    _soundOut.Pause();
+            _isPlaying = false;
         }
 
         public override void Resume()
         {
-            //if (_soundOut != null)
-            //    _soundOut.Resume();
+            _isPlaying = true;
         }
 
         public override void Stop()
         {
-            //if (_soundOut != null)
-            //    _soundOut.Stop();
+            if (_isMixing)
+            {
+                _audioDevice.RemoveMixerInput(this);
+                _isMixing = false;
+            }
+
+            _audioFileReader.Position = 0;
+            _isPlaying = false;
         }
 
         public override void Dispose()
         {
-            //if (_soundOut != null)
-            //    _soundOut.Dispose();
-
-            //_waveSource.Dispose();
+            Stop();
             _audioFileReader.Dispose();
+        }
+
+        public int Read(float[] buffer, int offset, int count)
+        {
+            if (_isPlaying)
+            {
+                var bytes = _audioFileReader.Read(buffer, offset, count);
+
+                if (bytes == 0)
+                    Stop();
+
+                return bytes;
+            }
+
+            return 0;
+        }
+
+        public WaveFormat WaveFormat 
+        {
+            get { return _audioFileReader.WaveFormat; }
         }
     }
 }

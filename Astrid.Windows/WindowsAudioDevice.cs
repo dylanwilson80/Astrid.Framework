@@ -29,6 +29,11 @@ namespace Astrid.Windows
             _mixingSampleProvider.AddMixerInput(sampleProvider);
         }
 
+        public void RemoveMixerInput(ISampleProvider sampleProvider)
+        {
+            _mixingSampleProvider.RemoveMixerInput(sampleProvider);
+        }
+
         private ISampleProvider ConvertToRightChannelCount(ISampleProvider sampleProvider)
         {
             if (sampleProvider.WaveFormat.Channels == _mixingSampleProvider.WaveFormat.Channels)
