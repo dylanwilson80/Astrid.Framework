@@ -35,8 +35,8 @@ namespace AstridDemo.Android
 
         protected override void OnPause()
         {
-            base.OnPause();
             _application.Pause();
+            base.OnPause();
         }
 
         protected override void OnResume()

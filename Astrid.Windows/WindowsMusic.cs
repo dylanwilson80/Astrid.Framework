@@ -13,16 +13,6 @@ namespace Astrid.Windows
 
         private readonly AudioFileReader _audioFileReader;
         private readonly WindowsAudioDevice _audioDevice;
-        //private readonly IWaveSource _waveSource;
-        //private readonly ISoundOut _soundOut;
-
-        //private static ISoundOut CreateSoundOut()
-        //{
-        //    if (WasapiOut.IsSupportedOnCurrentPlatform)
-        //        return new WasapiOut();
-
-        //    return new DirectSoundOut();
-        //}
 
         private float _volume = 1.0f;
         public override float Volume 
@@ -32,15 +22,10 @@ namespace Astrid.Windows
             { 
                 _volume = value;
                 _audioFileReader.Volume = _volume;
-                //if (_soundOut != null)
-                //    _soundOut.Volume = _volume;
             }
         }
 
         public override bool IsPlaying { get { return false; } }
-        //{
-        //    get { return _soundOut != null && _soundOut.PlaybackState == PlaybackState.Playing; }
-        //}
 
         public override void Play()
         {

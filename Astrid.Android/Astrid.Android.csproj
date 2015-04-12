@@ -80,6 +80,7 @@
     <Compile Include="AndroidAudioDevice.cs" />
     <Compile Include="AndroidGraphicsDevice.cs" />
     <Compile Include="AndroidInputDevice.cs" />
+    <Compile Include="AndroidMusic.cs" />
     <Compile Include="AndroidSoundEffect.cs" />
     <Compile Include="AndroidSoundEffectInstance.cs" />
     <Compile Include="OpenTKGameView.cs" />

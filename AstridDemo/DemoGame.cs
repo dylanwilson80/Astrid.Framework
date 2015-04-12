@@ -37,6 +37,22 @@ namespace AstridDemo
             _music.Volume = 0.10f;
         }
 
+        public override void Pause()
+        {
+            if(_music != null)
+                _music.Pause();
+
+            base.Pause();
+        }
+
+        public override void Resume()
+        {
+            if(_music != null)
+                _music.Resume();
+
+            base.Resume();
+        }
+
         private Music _music;
         private SoundEffect _soundEffect;
 
@@ -48,10 +64,10 @@ namespace AstridDemo
 
         public bool OnTouchDown(Vector2 position, int pointerIndex)
         {
-            //if (_music.IsPlaying)
-            //    _music.Pause();
-            //else
-            //    _music.Play();
+            if (_music.IsPlaying)
+                _music.Pause();
+            else
+                _music.Resume();
 
             _soundEffect.Play();
             return true;

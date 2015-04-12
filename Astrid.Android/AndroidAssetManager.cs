@@ -1,7 +1,9 @@
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.Media;
 using Astrid.Windows;
+using Java.IO;
 using OpenTK.Graphics.ES20;
 using Stream = System.IO.Stream;
 
@@ -69,7 +71,8 @@ namespace Astrid.Android
 
         public override Music LoadMusic(string assetPath)
         {
-            throw new System.NotImplementedException();
+            var assetFileDescriptor = _context.Assets.OpenFd(assetPath);
+            return new AndroidMusic(assetFileDescriptor, assetPath);
         }
     }
 }
