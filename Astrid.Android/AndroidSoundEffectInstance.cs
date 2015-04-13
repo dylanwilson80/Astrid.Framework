@@ -12,10 +12,13 @@ namespace Astrid.Android
         {
             _soundPool = soundPool;
             _soundId = soundId;
+            _playbackState = PlaybackState.Stopped;
         }
-        public override bool IsPlaying
+
+        private PlaybackState _playbackState;
+        public override PlaybackState PlaybackState
         {
-            get { return false; }
+            get { return _playbackState; }
         }
 
         private float _volume = 1.0f;
@@ -32,20 +35,24 @@ namespace Astrid.Android
         public override void Play()
         {
             _streamId = _soundPool.Play(_soundId, _volume, _volume, 0, 0, 1.0f);
+            _playbackState = PlaybackState.Playing;
         }
 
         public override void Stop()
         {
             _soundPool.Stop(_streamId);
+            _playbackState = PlaybackState.Stopped;
         }
 
         public override void Pause()
         {
             _soundPool.Pause(_streamId);
+            _playbackState = PlaybackState.Paused;
         }
 
         public override void Dispose()
         {
+            _playbackState = PlaybackState.Stopped;
             _soundPool.Unload(_soundId);
         }
     }
