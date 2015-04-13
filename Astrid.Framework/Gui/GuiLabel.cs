@@ -16,6 +16,11 @@ namespace Astrid.Gui
 
     public class GuiLabel : GuiControl
     {
+        public GuiLabel(BitmapFont font)
+            : this(font, null, null)
+        {
+        }
+
         public GuiLabel(BitmapFont font, Sprite sprite) 
             : this(font, sprite, null)
         {
@@ -28,6 +33,7 @@ namespace Astrid.Gui
             TextColor = Color.White;
             HorizontalAlignment = HorizontalAlignment.Centre;
             VerticalAlignment = VerticalAlignment.Centre;
+            Text = string.Empty;
         }
         
         private readonly BitmapFont _font;
@@ -87,11 +93,14 @@ namespace Astrid.Gui
         {
             base.Draw(spriteBatch);
 
-            var rectangle = _font.MeasureText(Text, 0, 0);
-            var x = GetHorizontalPosition((int)Position.X, rectangle.Width);
-            var y = GetVerticalPosition((int)Position.Y, rectangle.Height);
+            if (Text != null)
+            {
+                var rectangle = _font.MeasureText(Text, 0, 0);
+                var x = GetHorizontalPosition((int) Position.X, rectangle.Width);
+                var y = GetVerticalPosition((int) Position.Y, rectangle.Height);
 
-            _font.Draw(spriteBatch, Text, x, y, TextColor);
+                _font.Draw(spriteBatch, Text, x, y, TextColor);
+            }
         }
     }
 }
