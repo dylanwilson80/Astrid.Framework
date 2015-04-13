@@ -8,11 +8,13 @@ namespace Astrid.Windows
             : base(filePath, name)
         {
             _audioDevice = audioDevice;
+            _filePath = filePath;
             _audioFileReader = new AudioFileReader(filePath);
         }
 
-        private readonly AudioFileReader _audioFileReader;
         private readonly WindowsAudioDevice _audioDevice;
+        private readonly string _filePath;
+        private AudioFileReader _audioFileReader;
 
         private float _volume = 1.0f;
         public override float Volume 
@@ -31,17 +33,11 @@ namespace Astrid.Windows
             get { return _isPlaying; } 
         }
 
-        private bool _isMixing;
         public override void Play()
         {
             if (_audioDevice.IsMusicEnabled)
             {
-                if (!_isMixing)
-                {
-                    _audioDevice.AddMixerInput(this);
-                    _isMixing = true;
-                }
-
+                _audioDevice.AddMixerInput(this);
                 _isPlaying = true;
             }
         }
@@ -58,12 +54,14 @@ namespace Astrid.Windows
 
         public override void Stop()
         {
-            if (_isMixing)
-            {
-                _audioDevice.RemoveMixerInput(this);
-                _isMixing = false;
-            }
+            //if (_isMixing)
+            //{
+            //    //_audioDevice.RemoveMixerInput(this);
+            //    //_isMixing = false;
+            //}
 
+            //_audioFileReader.Dispose();
+            //_audioFileReader = new AudioFileReader(_filePath);
             _audioFileReader.Position = 0;
             _isPlaying = false;
         }
@@ -78,12 +76,12 @@ namespace Astrid.Windows
         {
             if (_isPlaying)
             {
-                var bytes = _audioFileReader.Read(buffer, offset, count);
+                var sampleCount = _audioFileReader.Read(buffer, offset, count);
 
-                if (bytes == 0)
+                if (sampleCount == 0)
                     Stop();
 
-                return bytes;
+                return sampleCount;
             }
 
             return 0;
