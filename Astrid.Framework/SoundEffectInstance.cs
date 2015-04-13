@@ -4,7 +4,7 @@ namespace Astrid
 {
     public abstract class SoundEffectInstance : IDisposable
     {
-        public abstract bool IsPlaying { get; }
+        public abstract PlaybackState PlaybackState { get; }
         public abstract float Volume { get; set; }
 
         public abstract void Play();

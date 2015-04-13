@@ -16,10 +16,12 @@ namespace AstridDemo.Screens
         }
 
         private Music _music;
+        private SoundEffect _soundEffect;
 
         public override void Show()
         {
             _music = AssetManager.Load<Music>("song.mp3");
+            _soundEffect = AssetManager.Load<SoundEffect>("click.wav");
 
             var guiLayer = new GuiLayer(Viewport);
 
@@ -81,14 +83,17 @@ namespace AstridDemo.Screens
         {
             _music.Stop();
             _music.Dispose();
+            _soundEffect.Dispose();
             base.Hide();
         }
 
 
         private void PlayButtonOnClick(object sender, EventArgs eventArgs)
         {
-            if (_music.IsPlaying)
-                _music.Stop();
+            _soundEffect.Play();
+
+            if (_music.PlaybackState == PlaybackState.Playing)
+                _music.Pause();
             else
                 _music.Play();
         }

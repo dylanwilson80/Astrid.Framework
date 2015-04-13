@@ -108,6 +108,7 @@
     <Compile Include="Particles\ParticleSystem.cs" />
     <Compile Include="Particles\Range.cs" />
     <Compile Include="Particles\RangeRandom.cs" />
+    <Compile Include="PlaybackState.cs" />
     <Compile Include="SoundEffectInstance.cs" />
     <Compile Include="SoundEffectLoader.cs" />
     <Compile Include="Sprite.cs" />

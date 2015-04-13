@@ -22,7 +22,7 @@ namespace Astrid
         }
         
         public abstract float Volume { get; set; }
-        public abstract bool IsPlaying { get; }
+        public abstract PlaybackState PlaybackState { get; }
         public abstract void Play();
         public abstract void Pause();
         public abstract void Resume();

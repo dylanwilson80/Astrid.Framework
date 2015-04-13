@@ -1,4 +1,3 @@
-
 using System;
 using NAudio.Wave;
 
@@ -10,6 +9,7 @@ namespace Astrid.Windows
         {
             _audioDevice = audioDevice;
             _audioData = audioData;
+            _playbackState = PlaybackState.Stopped;
             WaveFormat = waveFormat;
         }
 
@@ -19,48 +19,68 @@ namespace Astrid.Windows
 
         public int Read(float[] buffer, int offset, int count)
         {
-            var availableSamples = _audioData.Length - _position;
-            var samplesToCopy = Math.Min(availableSamples, count);
-            Array.Copy(_audioData, _position, buffer, offset, samplesToCopy);
-            _position += samplesToCopy;
-            return (int)samplesToCopy;
+            if (_playbackState == PlaybackState.Playing)
+            {
+                var availableSamples = _audioData.Length - _position;
+                var samplesToCopy = Math.Min(availableSamples, count);
+                Array.Copy(_audioData, _position, buffer, offset, samplesToCopy);
+                _position += samplesToCopy;
+
+                if (samplesToCopy == 0)
+                    Stop();
+
+                return (int) samplesToCopy;
+            }
+            
+            if (_playbackState == PlaybackState.Paused)
+            {
+                var i = offset;
+
+                while (i < offset + count)
+                    buffer[i++] = 0.0f;
+
+                return count;
+            }
+
+            _playbackState = PlaybackState.Stopped;
+            return 0;
         }
 
         public WaveFormat WaveFormat { get; private set; }
-        
-        public override bool IsPlaying { get { throw new NotImplementedException(); } }
-        //{
-        //    get { return _soundOut.PlaybackState == PlaybackState.Playing; }
-        //}
+
+        private PlaybackState _playbackState;
+        public override PlaybackState PlaybackState
+        {
+            get { return _playbackState; }
+        }
 
         public override float Volume { get; set; }
-        //{
-        //    get { return _soundOut.Volume; }
-        //    set { _soundOut.Volume = value; }
-        //}
 
         public override void Play()
         {
             if (_audioDevice.IsSoundEnabled)
-                _audioDevice.AddMixerInput(this);
+            {
+                if(_playbackState == PlaybackState.Stopped)
+                    _audioDevice.AddMixerInput(this);
+
+                _playbackState = PlaybackState.Playing;
+            }
         }
 
         public override void Stop()
         {
-            //if(IsPlaying)
-            //    _soundOut.Stop();
+            _position = 0;
+            _playbackState = PlaybackState.Stopped;
         }
 
         public override void Pause()
         {
-            //if(_soundOut.PlaybackState == PlaybackState.Playing)
-            //    _soundOut.Pause();
+            _playbackState = PlaybackState.Paused;
         }
 
         public override void Dispose()
         {
             Stop();
-            //_soundOut.Dispose();
         }
     }
 }
