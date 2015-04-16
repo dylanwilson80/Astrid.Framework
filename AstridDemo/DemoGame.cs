@@ -32,16 +32,6 @@ namespace AstridDemo
             InputDevice.Processors.Add(new TouchInputProcessor(this));
         }
 
-        public override void Pause()
-        {
-            base.Pause();
-        }
-
-        public override void Resume()
-        {
-            base.Resume();
-        }
-
         public override void Destroy()
         {
         }
@@ -58,7 +48,7 @@ namespace AstridDemo
             if (_currentScreenIndex == _screens.Count)
                 _currentScreenIndex = 0;
 
-            //SetScreen(_screens[_currentScreenIndex]);
+            SetScreen(_screens[_currentScreenIndex]);
             return true;
         }
 

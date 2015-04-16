@@ -3,7 +3,7 @@ using Astrid.Core;
 
 namespace Astrid.Gui
 {
-    public abstract class GuiControl : Sprite
+    public abstract class GuiControl : Drawable
     {
         protected GuiControl()
             : this(null)
@@ -19,10 +19,6 @@ namespace Astrid.Gui
             Origin = new Vector2(0.5f, 0.5f);
         }
 
-        //public Color Color { get; set; }
-        //public TextureRegion TextureRegion { get; set; }
-        //public Vector2 Origin { get; set; }
-        //public bool IsVisible { get; set; }
         public bool IsEnabled { get; set; }
         public bool IsTouching { get; private set; }
 
@@ -56,22 +52,6 @@ namespace Astrid.Gui
             }
 
             return true;
-        }
-
-        protected abstract Sprite GetSpriteForState();
-
-        public Rectangle GetBoundingRectangle()
-        {
-            if (TextureRegion != null)
-                return new Rectangle((int)Position.X, (int)Position.Y, TextureRegion.Width, TextureRegion.Height);
-
-            return Rectangle.Empty;
-        }
-
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            if(TextureRegion != null)
-                spriteBatch.Draw(TextureRegion, Position, Color, Origin, Rotation, Scale);
         }
     }
 }

@@ -16,18 +16,7 @@ namespace Astrid.Gui
 
     public class GuiLabel : GuiControl
     {
-        public GuiLabel(BitmapFont font)
-            : this(font, null, null)
-        {
-        }
-
-        public GuiLabel(BitmapFont font, Sprite sprite) 
-            : this(font, sprite, null)
-        {
-        }
-
-        public GuiLabel(BitmapFont font, Sprite normalSprite, Sprite disabledSprite) 
-            //: base(normalSprite, disabledSprite)
+        public GuiLabel(BitmapFont font) 
         {
             _font = font;
             TextColor = Color.White;
@@ -45,17 +34,10 @@ namespace Astrid.Gui
 
         protected override void OnTouch(Rectangle shape, Vector2 touchPosition)
         {
-            
         }
 
         protected override void OnRelease(Rectangle shape, Vector2 touchPosition)
         {
-            
-        }
-
-        protected override Sprite GetSpriteForState()
-        {
-            return null;
         }
 
         private int GetHorizontalPosition(int x, int width)

@@ -177,12 +177,12 @@ namespace Astrid
             AddQuad(points, color, uv[0], uv[1], uv[2], uv[3]);
         }
 
-        public void Draw(Sprite sprite)
+        public void Draw(Drawable drawable)
         {
-            if (sprite.TextureRegion == null || !sprite.IsVisible)
+            if (drawable.TextureRegion == null || !drawable.IsVisible)
                 return;
 
-            Draw(sprite.TextureRegion, sprite.Position, sprite.Color, sprite.Origin, sprite.Rotation, sprite.Scale);
+            Draw(drawable.TextureRegion, drawable.Position, drawable.Color, drawable.Origin, drawable.Rotation, drawable.Scale);
         }
     }
 }

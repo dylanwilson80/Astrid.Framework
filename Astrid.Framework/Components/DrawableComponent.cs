@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace Astrid.Components.Components
+namespace Astrid.Components
 {
     public abstract class DrawableComponent : Component
     {

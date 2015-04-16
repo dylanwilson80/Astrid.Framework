@@ -64,9 +64,9 @@
     <Compile Include="AssetLoader.cs" />
     <Compile Include="AssetManager.cs" />
     <Compile Include="Components\ComponentSystemFactory.cs" />
-    <Compile Include="Components\Components\Component.cs" />
-    <Compile Include="Components\Components\Drawable.cs" />
-    <Compile Include="Components\Components\PhysicsComponent.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\DrawableComponent.cs" />
+    <Compile Include="Components\PhysicsComponent.cs" />
     <Compile Include="Components\Entity.cs" />
     <Compile Include="Components\EntityEngine.cs" />
     <Compile Include="Components\EntitySpace.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Components\Systems\DrawableSystem.cs" />
     <Compile Include="Components\Systems\GuiSystem.cs" />
     <Compile Include="Components\Systems\PhysicsSystem.cs" />
+    <Compile Include="Drawable.cs" />
     <Compile Include="GameBase.cs" />
     <Compile Include="Gui\Fonts\BitmapFont.cs" />
     <Compile Include="Gui\Fonts\BitmapFontLoader.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Gui\GuiImage.cs" />
     <Compile Include="Gui\GuiLabel.cs" />
     <Compile Include="Gui\GuiLayer.cs" />
-    <Compile Include="Gui\SceneNode.cs" />
     <Compile Include="Gui\Screen.cs" />
     <Compile Include="Gui\ScreenLayer.cs" />
     <Compile Include="Gui\ScreenViewport.cs" />

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Astrid.Components.Components
+namespace Astrid.Components
 {
     public abstract class Component
     {

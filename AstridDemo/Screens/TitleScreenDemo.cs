@@ -33,7 +33,7 @@ namespace AstridDemo.Screens
             var guiLayer = new GuiLayer(Viewport);
 
             var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
-            var label = new GuiLabel(font, null)
+            var label = new GuiLabel(font)
             {
                 Text = "Welcome to", 
                 TextColor = new Color(81, 32, 0),
@@ -44,20 +44,21 @@ namespace AstridDemo.Screens
             var logoTexture = AssetManager.Load<Texture>("AstridLogo.png");
             var image = new GuiImage(logoTexture)
             {
-                Position = new Vector2(400, -100),
+                Position = new Vector2(400, -150),
+                Origin = new Vector2(0.5f, 1.0f)
             };
             guiLayer.Controls.Add(image);
             
             var parameters = new TransitionParameters(1.0f, EasingFunctions.QuadraticEaseIn);
             Animations.CreateSequence(image)
-                .MoveTo(new Vector2(400, 100), parameters)
-                .ScaleTo(new Vector2(1.0f, 0.8f), new TransitionParameters(0.6f, EasingFunctions.CubicEaseInOut))
-                .ScaleTo(new Vector2(1.0f, 1.0f), new TransitionParameters(0.6f, EasingFunctions.CubicEaseInOut))
+                .MoveTo(new Vector2(400, 150), parameters)
+                .ScaleTo(new Vector2(1.2f, 0.6f), new TransitionParameters(0.2f, EasingFunctions.CubicEaseOut))
+                .ScaleTo(new Vector2(1.0f, 1.0f), new TransitionParameters(0.2f, EasingFunctions.CubicEaseIn))
+                .ScaleTo(new Vector2(0.8f, 1.2f), new TransitionParameters(0.2f, EasingFunctions.CubicEaseOut))
+                .ScaleTo(new Vector2(1.0f, 1.0f), new TransitionParameters(0.2f, EasingFunctions.CubicEaseIn))
                 .Play();
 
             var buttonTexture = AssetManager.Load<Texture>("PlayButton.png");
-            //var normalSprite = new Sprite(buttonTexture);
-            //var pressedSprite = new Sprite(buttonTexture) {Color = Color.Gray};
             var playButton = new GuiButton(buttonTexture.ToTextureRegion())
             {
                 Position = new Vector2(400, -260),
@@ -92,8 +93,7 @@ namespace AstridDemo.Screens
             _soundEffect.Dispose();
             base.Hide();
         }
-
-
+        
         private void PlayButtonOnClick(object sender, EventArgs eventArgs)
         {
             _soundEffect.Play();

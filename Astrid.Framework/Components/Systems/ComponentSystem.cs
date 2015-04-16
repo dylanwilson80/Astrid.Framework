@@ -1,5 +1,4 @@
 using System;
-using Astrid.Components.Components;
 
 namespace Astrid.Components.Systems
 {

@@ -36,11 +36,5 @@ namespace Astrid.Gui
 
             return true;
         }
-
-        protected override Sprite GetSpriteForState()
-        {
-            //return IsChecked ? CheckedSprite : NormalSprite;
-            throw new NotImplementedException();
-        }
     }
 }
