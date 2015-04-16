@@ -5,13 +5,9 @@ namespace Astrid.Gui
 {
     public class GuiCheckbox : GuiControl
     {
-        public GuiCheckbox(Sprite normalSprite, Sprite checkedSprite)
-            : base(normalSprite)
+        public GuiCheckbox()
         {
-            CheckedSprite = checkedSprite;
         }
-
-        public Sprite CheckedSprite { get; set; }
 
         public bool IsChecked { get; set; }
 
@@ -43,7 +39,8 @@ namespace Astrid.Gui
 
         protected override Sprite GetSpriteForState()
         {
-            return IsChecked ? CheckedSprite : NormalSprite;
+            //return IsChecked ? CheckedSprite : NormalSprite;
+            throw new NotImplementedException();
         }
     }
 }

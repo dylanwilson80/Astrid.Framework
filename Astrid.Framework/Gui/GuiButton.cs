@@ -5,20 +5,25 @@ namespace Astrid.Gui
 {
     public class GuiButton : GuiControl
     {
-        public GuiButton(Sprite sprite)
-            : base(sprite)
-        {
-        }
+        //public GuiButton(Sprite sprite)
+        //    : base(sprite)
+        //{
+        //}
 
-        public GuiButton(Sprite normalSprite, Sprite pressedSprite)
-            : this(normalSprite, pressedSprite, null)
-        {
-        }
+        //public GuiButton(Sprite normalSprite, Sprite pressedSprite)
+        //    : this(normalSprite, pressedSprite, null)
+        //{
+        //}
 
-        public GuiButton(Sprite normalSprite, Sprite pressedSprite, Sprite disabledSprite)
-            : base(normalSprite, disabledSprite)
+        //public GuiButton(Sprite normalSprite, Sprite pressedSprite, Sprite disabledSprite)
+        //    : base(normalSprite, disabledSprite)
+        //{
+        //    PressedSprite = pressedSprite;
+        //}
+
+        public GuiButton(TextureRegion textureRegion)
         {
-            PressedSprite = pressedSprite;
+            TextureRegion = textureRegion;
         }
 
         public bool IsPressed { get; set; }
@@ -34,10 +39,10 @@ namespace Astrid.Gui
             return null;
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0} {1}", GetCurrentSprite(), IsPressed);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format("{0} {1}", GetCurrentSprite(), IsPressed);
+        //}
 
         protected override void OnTouch(Rectangle shape, Vector2 touchPosition)
         {

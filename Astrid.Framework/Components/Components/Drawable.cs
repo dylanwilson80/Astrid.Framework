@@ -2,7 +2,7 @@
 
 namespace Astrid.Components.Components
 {
-    public abstract class Drawable : Component
+    public abstract class DrawableComponent : Component
     {
         public abstract Rectangle GetBoundingRectangle();
         public abstract void Draw(SpriteBatch spriteBatch);

@@ -3,25 +3,26 @@ using Astrid.Core;
 
 namespace Astrid.Gui
 {
-    public abstract class GuiControl : SceneNode, IColorable
+    public abstract class GuiControl : Sprite
     {
-        protected GuiControl(Sprite sprite)
-            : this(sprite, null)
+        protected GuiControl()
+            : this(null)
         {
         }
 
-        protected GuiControl(Sprite normalSprite, Sprite disabledSprite)
+        protected GuiControl(TextureRegion textureRegion)
+            : base(textureRegion)
         {
             IsEnabled = true;
-            NormalSprite = normalSprite;
-            DisabledSprite = disabledSprite;
-            Color = normalSprite != null ? normalSprite.Color : Color.White;
+            Color = Color.White;
+            IsVisible = true;
+            Origin = new Vector2(0.5f, 0.5f);
         }
 
-        public Color Color { get; set; }
-        public Sprite NormalSprite { get; set; }
-        public Sprite DisabledSprite { get; set; }
-
+        //public Color Color { get; set; }
+        //public TextureRegion TextureRegion { get; set; }
+        //public Vector2 Origin { get; set; }
+        //public bool IsVisible { get; set; }
         public bool IsEnabled { get; set; }
         public bool IsTouching { get; private set; }
 
@@ -59,33 +60,18 @@ namespace Astrid.Gui
 
         protected abstract Sprite GetSpriteForState();
 
-        protected Sprite GetCurrentSprite()
-        {
-            if (!IsEnabled && DisabledSprite != null)
-                return DisabledSprite;
-
-            return GetSpriteForState() ?? NormalSprite;
-        }
-
         public Rectangle GetBoundingRectangle()
         {
-            var sprite = GetCurrentSprite();
-
-            if (sprite != null)
-                return sprite.GetBoundingRectangle(Position, Scale);
+            if (TextureRegion != null)
+                return new Rectangle((int)Position.X, (int)Position.Y, TextureRegion.Width, TextureRegion.Height);
 
             return Rectangle.Empty;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            var sprite = GetCurrentSprite();
-
-            if (sprite != null)
-            {
-                sprite.Color = Color;
-                spriteBatch.Draw(sprite, Position, Rotation, Scale);
-            }
+            if(TextureRegion != null)
+                spriteBatch.Draw(TextureRegion, Position, Color, Origin, Rotation, Scale);
         }
     }
 }

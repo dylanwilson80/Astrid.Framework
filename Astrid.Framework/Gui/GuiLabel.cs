@@ -27,7 +27,7 @@ namespace Astrid.Gui
         }
 
         public GuiLabel(BitmapFont font, Sprite normalSprite, Sprite disabledSprite) 
-            : base(normalSprite, disabledSprite)
+            //: base(normalSprite, disabledSprite)
         {
             _font = font;
             TextColor = Color.White;

@@ -23,6 +23,13 @@ namespace AstridDemo.Screens
             _music = AssetManager.Load<Music>("song.mp3");
             _soundEffect = AssetManager.Load<SoundEffect>("click.wav");
 
+            var backgroundLayer = new SpriteLayer(Viewport);
+            Layers.Add(backgroundLayer);
+
+            var backgroundTexture = AssetManager.Load<Texture>("hills_800x480.png");
+            var backgroundSprite = Sprite.Create(backgroundTexture, 0, 0, 800, 480);
+            backgroundLayer.Sprites.Add(backgroundSprite);
+
             var guiLayer = new GuiLayer(Viewport);
 
             var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
@@ -40,8 +47,7 @@ namespace AstridDemo.Screens
                 Position = new Vector2(400, -100),
             };
             guiLayer.Controls.Add(image);
-
-
+            
             var parameters = new TransitionParameters(1.0f, EasingFunctions.QuadraticEaseIn);
             Animations.CreateSequence(image)
                 .MoveTo(new Vector2(400, 100), parameters)
@@ -50,9 +56,9 @@ namespace AstridDemo.Screens
                 .Play();
 
             var buttonTexture = AssetManager.Load<Texture>("PlayButton.png");
-            var normalSprite = new Sprite(buttonTexture);
-            var pressedSprite = new Sprite(buttonTexture) {Color = Color.Gray};
-            var playButton = new GuiButton(normalSprite, pressedSprite)
+            //var normalSprite = new Sprite(buttonTexture);
+            //var pressedSprite = new Sprite(buttonTexture) {Color = Color.Gray};
+            var playButton = new GuiButton(buttonTexture.ToTextureRegion())
             {
                 Position = new Vector2(400, -260),
                 Rotation = MathHelper.TwoPi

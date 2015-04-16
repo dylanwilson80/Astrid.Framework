@@ -3,13 +3,13 @@ using Astrid.Components.Components;
 
 namespace Astrid.Components.Systems
 {
-    public class DrawableSystem : ComponentSystem<Drawable>
+    public class DrawableSystem : ComponentSystem<DrawableComponent>
     {
         public DrawableSystem(GraphicsDevice graphicsDevice, Camera camera)
         {
             _camera = camera;
             _spriteBatch = new SpriteBatch(graphicsDevice);
-            _drawables = new List<Drawable>();
+            _drawables = new List<DrawableComponent>();
 
             ParallaxFactor = 1.0f;
         }
@@ -18,14 +18,14 @@ namespace Astrid.Components.Systems
 
         private readonly Camera _camera;
         private readonly SpriteBatch _spriteBatch;
-        private readonly List<Drawable> _drawables;
+        private readonly List<DrawableComponent> _drawables;
 
-        protected override void OnAttached(Drawable drawable)
+        protected override void OnAttached(DrawableComponent drawable)
         {
             _drawables.Add(drawable);
         }
 
-        protected override void OnDetached(Drawable drawable)
+        protected override void OnDetached(DrawableComponent drawable)
         {
             _drawables.Remove(drawable);
         }

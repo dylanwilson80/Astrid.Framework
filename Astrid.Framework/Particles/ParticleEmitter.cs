@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Astrid.Components.Components;
 using Astrid.Core;
 using Astrid.Particles.Modifiers;
 
@@ -14,6 +13,7 @@ namespace Astrid.Particles
         }
 
         public ParticleEmitter(TextureRegion textureRegion, ParticleEmitterParameters parameters)
+            : base(textureRegion)
         {
             _randomizer = new RangeRandom();
             _particles = new List<Particle>();
@@ -45,7 +45,7 @@ namespace Astrid.Particles
 
             while (particleCount > 0)
             {
-                var position = Entity.Position + Profile.GetOffset(_randomizer);
+                var position = Position + Profile.GetOffset(_randomizer);
                 var particle = new Particle() {Position = position};
                 var speed = _randomizer.GetFloat(Parameters.Speed);
 
@@ -95,7 +95,7 @@ namespace Astrid.Particles
             return Rectangle.Empty;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             foreach (var particle in _particles)
                  spriteBatch.Draw(TextureRegion, particle.Position, particle.Color, particle.Origin, particle.Rotation, particle.Scale);
