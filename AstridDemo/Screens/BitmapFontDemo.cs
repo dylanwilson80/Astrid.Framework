@@ -7,8 +7,8 @@ namespace AstridDemo.Screens
 {
     public class BitmapFontDemo : Screen
     {
-        public BitmapFontDemo(GameBase screenManager)
-            : base(screenManager)
+        public BitmapFontDemo(GameBase game)
+            : base(game)
         {
         }
 

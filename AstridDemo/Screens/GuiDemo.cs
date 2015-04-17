@@ -1,30 +1,47 @@
 using Astrid;
+using Astrid.Core;
 using Astrid.Gui;
+using Astrid.Gui.Fonts;
 
 namespace AstridDemo.Screens
 {
     public class GuiDemo : Screen
     {
-        public GuiDemo(GameBase screenManager) 
-            : base(screenManager)
+        public GuiDemo(GameBase game) 
+            : base(game)
         {
         }
 
         public override void Show()
         {
             base.Show();
-            
-            //var camera = new Camera();
-            //_engine = new EntityEngine(AssetManager, new ComponentSystemFactory(this, camera));
 
-            var playTexture = AssetManager.Load<Texture>("PlayButton.png");
-            var textureRegion = new TextureRegion(playTexture);
-            var spriteLayer = new SpriteLayer(Viewport);
-            var sprite0 = new Sprite(textureRegion);//, new Vector2(400, 240));
-            var sprite1 = new Sprite(textureRegion);//, new Vector2(500, 140));
-            spriteLayer.Sprites.Add(sprite0);
-            spriteLayer.Sprites.Add(sprite1);
-            Layers.Add(spriteLayer);
+            var guiLayer = new GuiLayer(Viewport);
+            Layers.Add(guiLayer);
+
+            var guiButtonRegion = AssetManager.Load<Texture>("PlayButton.png").ToTextureRegion();
+            var guiButton = new GuiButton(guiButtonRegion)
+            {
+                Position = new Vector2(400, 240)
+            };
+            guiLayer.Controls.Add(guiButton);
+
+            var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
+            var guiLabel = new GuiLabel(font)
+            {
+                Text = "This is a label",
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Position = new Vector2(100, 100),
+                TextColor = Color.Black
+            };
+            guiLayer.Controls.Add(guiLabel);
+
+            var guiImageTexture = AssetManager.Load<Texture>("AstridLogo.png");
+            var guiImage = new GuiImage(guiImageTexture)
+            {
+                Position = new Vector2(400, 300)
+            };
+            guiLayer.Controls.Add(guiImage);
         }
     }
 }

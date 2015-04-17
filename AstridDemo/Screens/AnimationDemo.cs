@@ -13,8 +13,8 @@ namespace AstridDemo.Screens
         private Vector2 _position;
         private Color _color;
 
-        public AnimationDemo(IScreenManager screenManager) 
-            : base(screenManager)
+        public AnimationDemo(IScreenManager game) 
+            : base(game)
         {
             Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }

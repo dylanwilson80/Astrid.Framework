@@ -33,8 +33,8 @@ namespace AstridDemo.Screens
         private readonly string[] _terrainNames = { "grass", "forest", "sand", "mud", "stone", "asphalt" };
         private Random _random;
         
-        public GdxTextureAtlasDemo(GameBase screenManager)
-            : base(screenManager)
+        public GdxTextureAtlasDemo(GameBase game)
+            : base(game)
         {
         }
 

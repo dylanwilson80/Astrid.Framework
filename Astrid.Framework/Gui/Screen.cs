@@ -12,17 +12,17 @@ namespace Astrid.Gui
 
     public abstract class Screen : IDeviceManager
     {
-        protected Screen(IScreenManager screenManager)
+        protected Screen(IScreenManager game)
         {
             _layers = new List<ScreenLayer>();
 
-            ScreenManager = screenManager;
+            Game = game;
             ClearColor = Color.CornflowerBlue;
             Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
             Animations = new AnimationSystem();
         }
 
-        protected IScreenManager ScreenManager { get; private set; }
+        protected IScreenManager Game { get; private set; }
         
         public Color ClearColor { get; set; }
         public Viewport Viewport { get; set; }
@@ -36,27 +36,27 @@ namespace Astrid.Gui
 
         public AssetManager AssetManager
         {
-            get { return ScreenManager.AssetManager; }
+            get { return Game.AssetManager; }
         }
 
         public GraphicsDevice GraphicsDevice
         {
-            get { return ScreenManager.GraphicsDevice; }
+            get { return Game.GraphicsDevice; }
         }
 
         public InputDevice InputDevice
         {
-            get { return ScreenManager.InputDevice; }
+            get { return Game.InputDevice; }
         }
 
         public AudioDevice AudioDevice
         {
-            get { return ScreenManager.AudioDevice; }
+            get { return Game.AudioDevice; }
         }
 
         public void SetScreen(Screen screen)
         {
-            ScreenManager.SetScreen(screen);
+            Game.SetScreen(screen);
         }
 
         public virtual void Show() { }

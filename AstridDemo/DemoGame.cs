@@ -20,9 +20,9 @@ namespace AstridDemo
         {
             _screens = new List<Screen>
             {
+                new GuiDemo(this),
                 new TitleScreenDemo(this),
                 new SplashDemo(this),
-                new GuiDemo(this),
                 new AnimationDemo(this),
                 new BitmapFontDemo(this),
                 new GdxTextureAtlasDemo(this)
