@@ -24,7 +24,7 @@ namespace AstridDemo.Screens
             _animationSystem = new AnimationSystem();
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _texture = AssetManager.Load<Texture>("AstridLogo.png");
+            _texture = AssetManager.Load<Texture>("astrid-logo.png");
 
             var x = Viewport.Width / 2;
             var y = Viewport.Height / 2;

@@ -5,7 +5,8 @@ namespace Astrid.Gui
 {
     public class GuiCheckbox : GuiControl
     {
-        public GuiCheckbox()
+        public GuiCheckbox(TextureRegion textureRegion)
+            : base(textureRegion)
         {
         }
 

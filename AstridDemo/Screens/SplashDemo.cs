@@ -22,7 +22,7 @@ namespace AstridDemo.Screens
             ClearColor = Color.Black;
 
             var sprite = AssetManager
-                .Load<Texture>("AstridLogo.png")
+                .Load<Texture>("astrid-logo.png")
                 .ToSprite();
             sprite.Color = new Color(Color.White, 0.0f);
             sprite.Position = new Vector2(400, 240);

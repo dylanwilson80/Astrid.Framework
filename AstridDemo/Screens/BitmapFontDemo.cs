@@ -18,7 +18,7 @@ namespace AstridDemo.Screens
         public override void Show()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _bitmapFont = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
+            _bitmapFont = AssetManager.Load("courier-new-32.fnt", new BitmapFontLoader());
         }
 
         private Vector2 _position;

@@ -32,7 +32,7 @@ namespace AstridDemo.Screens
 
             var guiLayer = new GuiLayer(Viewport);
 
-            var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
+            var font = AssetManager.Load("courier-new-32.fnt", new BitmapFontLoader());
             var label = new GuiLabel(font)
             {
                 Text = "Welcome to", 
@@ -41,7 +41,7 @@ namespace AstridDemo.Screens
             };
             guiLayer.Controls.Add(label);
 
-            var logoTexture = AssetManager.Load<Texture>("AstridLogo.png");
+            var logoTexture = AssetManager.Load<Texture>("astrid-logo.png");
             var image = new GuiImage(logoTexture)
             {
                 Position = new Vector2(400, -150),
@@ -58,7 +58,7 @@ namespace AstridDemo.Screens
                 .ScaleTo(new Vector2(1.0f, 1.0f), new TransitionParameters(0.2f, EasingFunctions.CubicEaseIn))
                 .Play();
 
-            var buttonTexture = AssetManager.Load<Texture>("PlayButton.png");
+            var buttonTexture = AssetManager.Load<Texture>("play-button.png");
             var playButton = new GuiButton(buttonTexture.ToTextureRegion())
             {
                 Position = new Vector2(400, -260),

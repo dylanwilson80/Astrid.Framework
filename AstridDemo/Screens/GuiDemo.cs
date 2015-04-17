@@ -19,14 +19,14 @@ namespace AstridDemo.Screens
             var guiLayer = new GuiLayer(Viewport);
             Layers.Add(guiLayer);
 
-            var guiButtonRegion = AssetManager.Load<Texture>("PlayButton.png").ToTextureRegion();
+            var guiButtonRegion = AssetManager.Load<Texture>("play-button.png").ToTextureRegion();
             var guiButton = new GuiButton(guiButtonRegion)
             {
                 Position = new Vector2(400, 240)
             };
             guiLayer.Controls.Add(guiButton);
 
-            var font = AssetManager.Load("CourierNew_32.fnt", new BitmapFontLoader());
+            var font = AssetManager.Load("courier-new-32.fnt", new BitmapFontLoader());
             var guiLabel = new GuiLabel(font)
             {
                 Text = "This is a label",
@@ -36,12 +36,20 @@ namespace AstridDemo.Screens
             };
             guiLayer.Controls.Add(guiLabel);
 
-            var guiImageTexture = AssetManager.Load<Texture>("AstridLogo.png");
+            var guiImageTexture = AssetManager.Load<Texture>("photo.png");
             var guiImage = new GuiImage(guiImageTexture)
             {
-                Position = new Vector2(400, 300)
+                Position = new Vector2(800, 0),
+                Origin = new Vector2(1.0f, 0.0f)
             };
             guiLayer.Controls.Add(guiImage);
+
+            var guiCheckboxTexture = AssetManager.Load<Texture>("play-button.png");
+            var guiCheckbox = new GuiCheckbox(guiCheckboxTexture.ToTextureRegion())
+            {
+                Position = new Vector2(500, 100),
+            };
+            guiLayer.Controls.Add(guiCheckbox);
         }
     }
 }
