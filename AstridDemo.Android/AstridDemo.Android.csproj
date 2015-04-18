@@ -56,8 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\CourierNew_32.fnt">
-      <Link>Assets\CourierNew_32.fnt</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\courier-new-32.fnt">
+      <Link>Assets\courier-new-32.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\AstridDemo.Windows\Content\pack.atlas">
       <Link>Assets\pack.atlas</Link>
@@ -72,14 +72,17 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\AboutContent.txt">
-      <Link>Assets\AboutContent.txt</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\about-content.txt">
+      <Link>Assets\about-content.txt</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\AstridLogo.png">
-      <Link>Assets\AstridLogo.png</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\astrid-logo.png">
+      <Link>Assets\astrid-logo.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\CourierNew_32_0.png">
-      <Link>Assets\CourierNew_32_0.png</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\click.wav">
+      <Link>Assets\click.wav</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\courier-new-32_0.png">
+      <Link>Assets\courier-new-32_0.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\AstridDemo.Windows\Content\hills_800x480.png">
       <Link>Assets\hills_800x480.png</Link>
@@ -99,14 +102,14 @@
     <AndroidAsset Include="..\AstridDemo.Windows\Content\pack5.png">
       <Link>Assets\pack5.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\PlayButton.png">
-      <Link>Assets\PlayButton.png</Link>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\photo.png">
+      <Link>Assets\photo.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\AstridDemo.Windows\Content\play-button.png">
+      <Link>Assets\play-button.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\AstridDemo.Windows\Content\song.mp3">
       <Link>Assets\song.mp3</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\AstridDemo.Windows\Content\click.wav">
-      <Link>Assets\click.wav</Link>
     </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
