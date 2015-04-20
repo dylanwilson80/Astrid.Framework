@@ -9,7 +9,7 @@ namespace Astrid.Windows
         public WindowsAudioDevice()
         {
             var waveFormat = WaveFormat.CreateIeeeFloatWaveFormat(_sampleRate, _channelCount);
-            _wavePlayer = new WaveOutEvent();
+            _wavePlayer = new DirectSoundOut();
             _mixingSampleProvider = new MixingSampleProvider(waveFormat)
             {
                 ReadFully = true
