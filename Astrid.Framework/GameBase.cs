@@ -4,7 +4,7 @@ using Astrid.Gui;
 namespace Astrid
 {
     public abstract class GameBase 
-        : IDisposable, IApplicationListener, IScreenManager, IInputDeviceContext
+        : IDisposable, IApplicationListener, IScreenContext, IInputDeviceContext
     {
         protected GameBase(ApplicationBase application)
         {
@@ -15,7 +15,18 @@ namespace Astrid
             Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
         }
 
-        public Viewport Viewport { get; set; }
+        private Viewport _viewport;
+        public Viewport Viewport
+        {
+            get { return _viewport; }
+            set
+            {
+                _viewport = value;
+                Camera = new Camera(_viewport);
+            }
+        }
+        
+        public Camera Camera { get; private set; }
         public AssetManager AssetManager { get; private set; }
         public GraphicsDevice GraphicsDevice { get; private set; }
         public InputDevice InputDevice { get; private set; }

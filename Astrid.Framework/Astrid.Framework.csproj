@@ -93,10 +93,10 @@
     <Compile Include="Gui\GuiLayer.cs" />
     <Compile Include="Gui\Screen.cs" />
     <Compile Include="Gui\ScreenLayer.cs" />
-    <Compile Include="Gui\ScreenViewport.cs" />
+    <Compile Include="ScreenViewport.cs" />
     <Compile Include="Gui\SpriteLayer.cs" />
-    <Compile Include="Gui\StretchViewport.cs" />
-    <Compile Include="Gui\Viewport.cs" />
+    <Compile Include="StretchViewport.cs" />
+    <Compile Include="Viewport.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Particles\Modifiers\DragParticleModifier.cs" />
     <Compile Include="Particles\Modifiers\GravityParticleModifer.cs" />

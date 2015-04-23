@@ -4,11 +4,11 @@ namespace Astrid.Gui
 {
     public class GuiLayer : ScreenLayer
     {
-        public GuiLayer(Viewport viewport)
-            : base(viewport)
+        public GuiLayer(GraphicsDevice graphicsDevice, Camera camera)
+            : base(camera)
         {
             Controls = new List<GuiControl>();
-            _spriteBatch = new SpriteBatch(viewport.GraphicsDevice);
+            _spriteBatch = new SpriteBatch(graphicsDevice);
         }
 
         private readonly SpriteBatch _spriteBatch;
@@ -25,7 +25,7 @@ namespace Astrid.Gui
 
         public override void Render(float deltaTime)
         {
-            var viewMatrix = Viewport.Camera.GetViewMatrix();
+            var viewMatrix = Camera.GetViewMatrix();
             _spriteBatch.Begin(viewMatrix);
 
             foreach (var control in Controls)

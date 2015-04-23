@@ -18,7 +18,7 @@ namespace AstridDemo.Screens
         {
             base.Show();
 
-            var guiLayer = new GuiLayer(Game.Viewport);
+            var guiLayer = new GuiLayer(GraphicsDevice, Game.Camera);
             Layers.Add(guiLayer);
 
             var guiButtonRegion = AssetManager.Load<Texture>("play-button.png").ToTextureRegion();

@@ -13,7 +13,7 @@ namespace Astrid.Android
 
         private Vector2 _position;
 
-        protected override Vector2 GetCurrentPosition()
+        protected override Vector2 GetCurrentScreenCoordinates()
         {
             return _position;
         }

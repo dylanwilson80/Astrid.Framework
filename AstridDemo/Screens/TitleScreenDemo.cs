@@ -22,14 +22,14 @@ namespace AstridDemo.Screens
             _music = AssetManager.Load<Music>("song.mp3");
             _soundEffect = AssetManager.Load<SoundEffect>("click.wav");
 
-            var backgroundLayer = new SpriteLayer(Game.Viewport);
+            var backgroundLayer = new SpriteLayer(GraphicsDevice, Game.Camera);
             Layers.Add(backgroundLayer);
 
             var backgroundTexture = AssetManager.Load<Texture>("hills_800x480.png");
             var backgroundSprite = Sprite.Create(backgroundTexture, 0, 0, 800, 480);
             backgroundLayer.Sprites.Add(backgroundSprite);
 
-            var guiLayer = new GuiLayer(Game.Viewport);
+            var guiLayer = new GuiLayer(GraphicsDevice, Game.Camera);
 
             var font = AssetManager.Load("courier-new-32.fnt", new BitmapFontLoader());
             var label = new GuiLabel(font)

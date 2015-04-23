@@ -4,8 +4,9 @@ using Astrid.Core;
 
 namespace Astrid.Gui
 {
-    public interface IScreenManager : IDeviceManager
+    public interface IScreenContext : IDeviceManager
     {
+        Camera Camera { get; }
         Viewport Viewport { get; }
         AssetManager AssetManager { get; }
         void SetScreen(Screen screen);
@@ -13,7 +14,7 @@ namespace Astrid.Gui
 
     public abstract class Screen : IDeviceManager
     {
-        protected Screen(IScreenManager game)
+        protected Screen(IScreenContext game)
         {
             _layers = new List<ScreenLayer>();
 
@@ -22,7 +23,7 @@ namespace Astrid.Gui
             Animations = new AnimationSystem();
         }
 
-        protected IScreenManager Game { get; private set; }
+        protected IScreenContext Game { get; private set; }
         
         public Color ClearColor { get; set; }
         public AnimationSystem Animations { get; private set; }

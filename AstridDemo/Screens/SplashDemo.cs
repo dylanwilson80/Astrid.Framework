@@ -17,7 +17,7 @@ namespace AstridDemo.Screens
 
         public override void Show()
         {
-            var spriteLayer = new SpriteLayer(Game.Viewport);
+            var spriteLayer = new SpriteLayer(GraphicsDevice, Game.Camera);
 
             ClearColor = Color.Black;
 

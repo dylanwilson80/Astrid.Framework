@@ -13,7 +13,7 @@ namespace AstridDemo.Screens
         private Vector2 _position;
         private Color _color;
 
-        public AnimationDemo(IScreenManager game) 
+        public AnimationDemo(IScreenContext game) 
             : base(game)
         {
         }
@@ -50,7 +50,7 @@ namespace AstridDemo.Screens
         {
             base.Render(deltaTime);
 
-            _spriteBatch.Begin(Game.Viewport.Camera.GetViewMatrix());
+            _spriteBatch.Begin(Game.Camera.GetViewMatrix());
             _spriteBatch.Draw(_texture, _position, _color, new Vector2(0.5f, 0.5f), 0, Vector2.One);
             _spriteBatch.End();
         }

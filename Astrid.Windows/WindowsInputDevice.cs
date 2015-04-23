@@ -15,7 +15,7 @@ namespace Astrid.Windows
 
         private Vector2 _mousePosition;
 
-        protected override Vector2 GetCurrentPosition()
+        protected override Vector2 GetCurrentScreenCoordinates()
         {
             return _mousePosition;
         }

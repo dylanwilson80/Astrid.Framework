@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace Astrid.Gui
+namespace Astrid
 {
     public class StretchViewport : Viewport
     {
@@ -24,7 +24,7 @@ namespace Astrid.Gui
             get { return _virtualHeight; }
         }
 
-        protected override Vector2 GetCameraScale()
+        protected override Vector2 CalculateScale()
         {
             return new Vector2((float) GraphicsDevice.Width / _virtualWidth, (float) GraphicsDevice.Height / _virtualHeight);
         }

@@ -1,6 +1,6 @@
 ﻿using Astrid.Core;
 
-namespace Astrid.Gui
+namespace Astrid
 {
     public class ScreenViewport : Viewport
     {
@@ -19,7 +19,7 @@ namespace Astrid.Gui
             get { return GraphicsDevice.Height; }
         }
 
-        protected override Vector2 GetCameraScale()
+        protected override Vector2 CalculateScale()
         {
             return Vector2.One;
         }

@@ -2,12 +2,12 @@ namespace Astrid.Gui
 {
     public abstract class ScreenLayer
     {
-        protected ScreenLayer(Viewport viewport)
+        protected ScreenLayer(Camera camera)
         {
-            Viewport = viewport;
+            Camera = camera;
         }
 
-        public Viewport Viewport { get; private set; }
+        public Camera Camera { get; private set; }
         public virtual void Update(float deltaTime, InputDevice inputDevice) { }
         public abstract void Render(float deltaTime);
     }

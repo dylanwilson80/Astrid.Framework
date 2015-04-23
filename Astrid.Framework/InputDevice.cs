@@ -6,7 +6,7 @@ namespace Astrid
 {
     public interface IInputDeviceContext
     {
-        Viewport Viewport { get; }
+        Camera Camera { get; }
     }
 
     public abstract class InputDevice
@@ -19,14 +19,14 @@ namespace Astrid
             Processors = new List<InputProcessor>();
         }
 
-        protected abstract Vector2 GetCurrentPosition();
+        protected abstract Vector2 GetCurrentScreenCoordinates();
 
         public Vector2 Position 
         {
             get
             {
-                var position = GetCurrentPosition();
-                return _context.Viewport.Camera.ToWorldSpace(position); 
+                var position = GetCurrentScreenCoordinates();
+                return _context.Camera.ToWorldSpace(position); 
             }
         }
 

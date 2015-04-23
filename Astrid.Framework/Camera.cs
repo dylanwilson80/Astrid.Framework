@@ -1,22 +1,24 @@
 ﻿using Astrid.Core;
+using Astrid.Gui;
 
 namespace Astrid
 {
-    public class Camera
+    public class Camera : IMovable, IRotatable
     {
-        public Camera()
+        private readonly Viewport _viewport;
+
+        public Camera(Viewport viewport)
         {
+            _viewport = viewport;
             Position = Vector2.Zero;
             Rotation = 0;
             Zoom = 1;
             Origin = Vector2.Zero;
-            Scale = Vector2.One;
         }
 
         public Vector2 Position { get; set; }
         public float Rotation { get; set; }
         public float Zoom { get; set; }
-        public Vector2 Scale { get; set; }
         public Vector2 Origin { get; set; }
 
         public Vector2 ToWorldSpace(Vector2 position)
@@ -65,7 +67,7 @@ namespace Astrid
             return
                 Matrix.CreateTranslation(new Vector3(-cx, -cy, 0)) *
                 Matrix.CreateRotationZ(Rotation) *
-                Matrix.CreateScale(Scale.X, Scale.Y, 1.0f) *
+                Matrix.CreateScale(_viewport.Scale.X, _viewport.Scale.Y, 1.0f) *
                 Matrix.CreateScale(Zoom) *
                 Matrix.CreateTranslation(Origin.X, Origin.Y, 0);
         }
