@@ -16,7 +16,6 @@ namespace AstridDemo.Screens
         public AnimationDemo(IScreenManager game) 
             : base(game)
         {
-            Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }
 
         public override void Show()
@@ -26,8 +25,8 @@ namespace AstridDemo.Screens
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _texture = AssetManager.Load<Texture>("astrid-logo.png");
 
-            var x = Viewport.Width / 2;
-            var y = Viewport.Height / 2;
+            var x = Game.Viewport.Width / 2;
+            var y = Game.Viewport.Height / 2;
             _position = new Vector2(x, y);
             _color = Color.White;
             
@@ -51,7 +50,7 @@ namespace AstridDemo.Screens
         {
             base.Render(deltaTime);
 
-            _spriteBatch.Begin(Viewport.Camera.GetViewMatrix());
+            _spriteBatch.Begin(Game.Viewport.Camera.GetViewMatrix());
             _spriteBatch.Draw(_texture, _position, _color, new Vector2(0.5f, 0.5f), 0, Vector2.One);
             _spriteBatch.End();
         }

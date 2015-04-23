@@ -17,14 +17,14 @@
         private GLGraphicsDevice _graphicsDevice;
         public override GraphicsDevice CreateGraphicsDevice()
         {
-            _graphicsDevice = new GLGraphicsDevice(_config.Width, _config.Height);
+            _graphicsDevice = new GLGraphicsDevice(_config.WindowWidth, _config.WindowHeight);
             return _graphicsDevice;
         }
 
         private WindowsInputDevice _inputDevice;
-        public override InputDevice CreateInputDevice()
+        public override InputDevice CreateInputDevice(IInputDeviceContext context)
         {
-            _inputDevice = new WindowsInputDevice();
+            _inputDevice = new WindowsInputDevice(context);
             return _inputDevice;
         }
 

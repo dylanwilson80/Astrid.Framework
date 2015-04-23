@@ -32,7 +32,7 @@ namespace AstridDemo.Screens
         {
             base.Render(deltaTime);
 
-            _spriteBatch.Begin(Viewport.Camera.GetViewMatrix());
+            _spriteBatch.Begin(Game.Viewport.Camera.GetViewMatrix());
             _bitmapFont.Draw(_spriteBatch, string.Format("Position: {0:0.0}, {1:0.0}", _position.X, _position.Y), 2, 2, Color.White);
             _bitmapFont.Draw(_spriteBatch, "This is\nMultiline text", 100, 100, Color.Red);
             _bitmapFont.Draw(_spriteBatch, "This text is wrapped to a fixed width of two hundred and fifty pixels.", 200, 300, 250, Color.Green);

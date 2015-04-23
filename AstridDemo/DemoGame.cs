@@ -14,6 +14,7 @@ namespace AstridDemo
         public DemoGame(ApplicationBase application)
             : base(application)
         {
+            Viewport = new StretchViewport(GraphicsDevice, 800, 480);
         }
 
         public override void Create()

@@ -102,7 +102,7 @@ namespace AstridDemo.Screens
         {
             base.Render(deltaTime);
 
-            _spriteBatch.Begin(Viewport.Camera.GetViewMatrix());
+            _spriteBatch.Begin(Game.Viewport.Camera.GetViewMatrix());
             foreach (var sprite in _orderedTerrain)
             {
                 _spriteBatch.Draw(sprite.Visual, sprite.Position);

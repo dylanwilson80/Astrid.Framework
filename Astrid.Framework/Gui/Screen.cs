@@ -6,6 +6,7 @@ namespace Astrid.Gui
 {
     public interface IScreenManager : IDeviceManager
     {
+        Viewport Viewport { get; }
         AssetManager AssetManager { get; }
         void SetScreen(Screen screen);
     }
@@ -18,14 +19,12 @@ namespace Astrid.Gui
 
             Game = game;
             ClearColor = Color.CornflowerBlue;
-            Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
             Animations = new AnimationSystem();
         }
 
         protected IScreenManager Game { get; private set; }
         
         public Color ClearColor { get; set; }
-        public Viewport Viewport { get; set; }
         public AnimationSystem Animations { get; private set; }
 
         private readonly List<ScreenLayer> _layers;

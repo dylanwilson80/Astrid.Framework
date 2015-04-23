@@ -3,16 +3,19 @@ using Astrid.Gui;
 
 namespace Astrid
 {
-    public abstract class GameBase : IDisposable, IApplicationListener, IScreenManager
+    public abstract class GameBase 
+        : IDisposable, IApplicationListener, IScreenManager, IInputDeviceContext
     {
         protected GameBase(ApplicationBase application)
         {
             GraphicsDevice = application.CreateGraphicsDevice();
-            InputDevice = application.CreateInputDevice();
+            InputDevice = application.CreateInputDevice(this);
             AudioDevice = application.CreateAudioDevice();
             AssetManager = application.CreateAssetManager(this);
+            Viewport = new StretchViewport(GraphicsDevice, GraphicsDevice.Width, GraphicsDevice.Height);
         }
 
+        public Viewport Viewport { get; set; }
         public AssetManager AssetManager { get; private set; }
         public GraphicsDevice GraphicsDevice { get; private set; }
         public InputDevice InputDevice { get; private set; }

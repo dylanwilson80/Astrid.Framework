@@ -5,17 +5,19 @@ namespace Astrid.Windows
 {
     public class WindowsInputDevice : InputDevice
     {
-        public WindowsInputDevice()
+        public WindowsInputDevice(IInputDeviceContext context) 
+            : base(context)
         {
         }
 
         private MouseState _mouseState;
         private KeyboardState _keyboardState;
 
-        private Vector2 _position;
-        public override Vector2 Position
+        private Vector2 _mousePosition;
+
+        protected override Vector2 GetCurrentPosition()
         {
-            get { return _position; }
+            return _mousePosition;
         }
 
         public override void UpdateState()
@@ -46,7 +48,7 @@ namespace Astrid.Windows
 
         internal void OnMouseMove(object sender, MouseMoveEventArgs e)
         {
-            _position = new Vector2(e.X, e.Y);
+            _mousePosition = new Vector2(e.X, e.Y);
         }
     }
 }

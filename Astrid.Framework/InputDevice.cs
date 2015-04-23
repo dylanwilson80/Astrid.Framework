@@ -1,16 +1,35 @@
 ﻿using System.Collections.Generic;
 using Astrid.Core;
+using Astrid.Gui;
 
 namespace Astrid
 {
+    public interface IInputDeviceContext
+    {
+        Viewport Viewport { get; }
+    }
+
     public abstract class InputDevice
     {
-        protected InputDevice()
+        private readonly IInputDeviceContext _context;
+
+        protected InputDevice(IInputDeviceContext context)
         {
+            _context = context;
             Processors = new List<InputProcessor>();
         }
 
-        public abstract Vector2 Position { get; }
+        protected abstract Vector2 GetCurrentPosition();
+
+        public Vector2 Position 
+        {
+            get
+            {
+                var position = GetCurrentPosition();
+                return _context.Viewport.Camera.ToWorldSpace(position); 
+            }
+        }
+
         public abstract bool IsTouching { get; }
 
         public abstract void UpdateState();

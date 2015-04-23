@@ -12,11 +12,13 @@ namespace AstridDemo.Screens
         {
         }
 
+        private IMovable _mouseCursor;
+
         public override void Show()
         {
             base.Show();
 
-            var guiLayer = new GuiLayer(Viewport);
+            var guiLayer = new GuiLayer(Game.Viewport);
             Layers.Add(guiLayer);
 
             var guiButtonRegion = AssetManager.Load<Texture>("play-button.png").ToTextureRegion();
@@ -25,6 +27,7 @@ namespace AstridDemo.Screens
                 Position = new Vector2(400, 240)
             };
             guiLayer.Controls.Add(guiButton);
+            _mouseCursor = guiButton;
 
             var font = AssetManager.Load("courier-new-32.fnt", new BitmapFontLoader());
             var guiLabel = new GuiLabel(font)
@@ -50,6 +53,12 @@ namespace AstridDemo.Screens
                 Position = new Vector2(500, 100),
             };
             guiLayer.Controls.Add(guiCheckbox);
+        }
+
+        public override void Update(float deltaTime)
+        {
+            _mouseCursor.Position = InputDevice.Position;
+            base.Update(deltaTime);
         }
     }
 }

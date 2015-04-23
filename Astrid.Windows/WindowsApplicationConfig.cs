@@ -7,9 +7,9 @@
             ContentPath = "Content";
         }
 
-        public string Title { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public string WindowTitle { get; set; }
+        public int WindowWidth { get; set; }
+        public int WindowHeight { get; set; }
         public string ContentPath { get; set; }
     }
 }

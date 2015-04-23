@@ -10,7 +10,7 @@ namespace Astrid
 
         public abstract AssetManager CreateAssetManager(IDeviceManager deviceManager);
         public abstract GraphicsDevice CreateGraphicsDevice();
-        public abstract InputDevice CreateInputDevice();
+        public abstract InputDevice CreateInputDevice(IInputDeviceContext context);
         public abstract AudioDevice CreateAudioDevice();
         public abstract void Run(IApplicationListener game);
 

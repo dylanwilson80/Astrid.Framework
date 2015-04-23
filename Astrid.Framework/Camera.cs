@@ -24,9 +24,19 @@ namespace Astrid
             return Vector2.Transform(position, Matrix.Invert(GetViewMatrix()));
         }
 
+        public Vector2 ToWorldSpace(float x, float y)
+        {
+            return ToWorldSpace(new Vector2(x, y));
+        }
+
         public Vector2 ToScreenSpace(Vector2 position)
         {
             return Vector2.Transform(position, GetViewMatrix());
+        }
+
+        public Vector2 ToScreenSpace(float x, float y)
+        {
+            return ToScreenSpace(new Vector2(x, y));
         }
 
         public Rectangle GetVisibileRectangle(int screenWidth, int screenHeight)
