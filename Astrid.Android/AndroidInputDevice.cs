@@ -5,15 +5,17 @@ namespace Astrid.Android
 {
     public class AndroidInputDevice : InputDevice
     {
-        public AndroidInputDevice()
+        public AndroidInputDevice(IInputDeviceContext context) 
+            : base(context)
         {
             _listener = new InputListener(this);
         }
 
-        private Vector2 _position = Vector2.Zero;
-        public override Vector2 Position
+        private Vector2 _position;
+
+        protected override Vector2 GetCurrentPosition()
         {
-            get { return _position; }
+            return _position;
         }
 
         private bool _isTouching;

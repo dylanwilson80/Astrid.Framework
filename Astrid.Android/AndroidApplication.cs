@@ -34,9 +34,9 @@ namespace Astrid.Android
         }
 
         private AndroidInputDevice _inputDevice;
-        public override InputDevice CreateInputDevice()
+        public override InputDevice CreateInputDevice(IInputDeviceContext context)
         {
-            _inputDevice = new AndroidInputDevice();
+            _inputDevice = new AndroidInputDevice(context);
             return _inputDevice;
         }
 

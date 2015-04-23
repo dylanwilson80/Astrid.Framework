@@ -130,10 +130,6 @@
       <Project>{2b3b1640-5b1f-425f-aebc-a24260524ad8}</Project>
       <Name>Astrid.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Astrid.Gui\Astrid.Gui.csproj">
-      <Project>{1C0D86F9-BD6C-4A8B-B3EC-CFD54EF500BF}</Project>
-      <Name>Astrid.Gui</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AstridDemo\AstridDemo.csproj">
       <Project>{BD917293-2600-422D-9882-80C33A13B303}</Project>
       <Name>AstridDemo</Name>

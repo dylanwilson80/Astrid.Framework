@@ -29,7 +29,6 @@ namespace Astrid.Particles
         private readonly RangeRandom _randomizer;
         private readonly List<Particle> _particles;
 
-        public TextureRegion TextureRegion { get; set; }
         public ParticleEmitterParameters Parameters { get; private set; }
         public ParticleEmitterProfile Profile { get; set; }
         public List<ParticleModifier> Modifiers { get; private set; }
@@ -95,10 +94,12 @@ namespace Astrid.Particles
             return Rectangle.Empty;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             foreach (var particle in _particles)
                  spriteBatch.Draw(TextureRegion, particle.Position, particle.Color, particle.Origin, particle.Rotation, particle.Scale);
+
+            //base.Draw(spriteBatch);
         }
     }
 }
