@@ -1,0 +1,40 @@
+{ 
+ "height":7,
+ "layers":[
+        {
+         "data":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+         "height":7,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }],
+ "orientation":"orthogonal",
+ "properties":
+    {
+      "someKey":"some-value"
+    },
+ "tileheight":90,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "image":"floor-tile.png",
+         "imageheight":90,
+         "imagewidth":90,
+         "margin":0,
+         "name":"floor-tile",
+         "properties":
+            {
+              "someKey":"some-other-value"
+            },
+         "spacing":2,
+         "tileheight":90,
+         "tilewidth":90
+        }],
+ "tilewidth":90,
+ "version":1,
+ "width":5
+}

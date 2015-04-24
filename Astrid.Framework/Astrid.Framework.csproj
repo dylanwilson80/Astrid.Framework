@@ -93,6 +93,10 @@
     <Compile Include="Gui\GuiLayer.cs" />
     <Compile Include="Gui\Screen.cs" />
     <Compile Include="Gui\ScreenLayer.cs" />
+    <Compile Include="Maps\TiledMapJsonLoader.cs" />
+    <Compile Include="Maps\TiledMap.cs" />
+    <Compile Include="Maps\TiledMapLayer.cs" />
+    <Compile Include="Maps\TiledMapTileSet.cs" />
     <Compile Include="ScreenViewport.cs" />
     <Compile Include="Gui\SpriteLayer.cs" />
     <Compile Include="StretchViewport.cs" />
