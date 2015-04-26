@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Astrid.Gui.Fonts;
+using Astrid.Maps;
 
 namespace Astrid
 {
@@ -19,7 +21,9 @@ namespace Astrid
                 {typeof(Texture), new TextureLoader()},
                 {typeof(TextureAtlas), new TextureAtlasLoader()},
                 {typeof(SoundEffect), new SoundEffectLoader()},
-                {typeof(Music), new MusicLoader()}
+                {typeof(Music), new MusicLoader()},
+                {typeof(BitmapFont), new BitmapFontLoader()},
+                {typeof(TiledMap), new TiledMapJsonLoader()}            
             };
         }
 

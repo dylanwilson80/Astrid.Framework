@@ -21,6 +21,7 @@ namespace AstridDemo
         {
             _screens = new List<Screen>
             {
+                new TiledMapDemo(this),
                 new GuiDemo(this),
                 new SplashDemo(this),
                 new TitleScreenDemo(this),
