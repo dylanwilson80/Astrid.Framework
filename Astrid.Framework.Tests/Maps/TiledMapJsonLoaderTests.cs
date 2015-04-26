@@ -25,6 +25,7 @@ namespace Astrid.Framework.Tests.Maps
             Assert.AreEqual(1, tiledMap.TileSets.Count);
             Assert.AreEqual(7, tiledMap.Height);
             Assert.AreEqual(5, tiledMap.Width);
+            Assert.AreEqual("#545454", tiledMap.BackgroundColor);
             Assert.AreEqual(35, tiledMap.Layers[0].Data.Length);
         }
     }

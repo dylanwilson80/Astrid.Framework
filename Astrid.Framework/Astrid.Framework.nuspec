@@ -8,7 +8,7 @@
     <owners>Craftwork Games</owners>
     <licenseUrl>https://github.com/craftworkgames/Astrid.Framework/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>http://astrid.craftworkgames.com/</projectUrl>
-    <iconUrl>http://astrid.craftworkgames.com/Images/Astrid_32x32.png</iconUrl>
+    <iconUrl>http://www.craftworkgames.com/Images/Astrid_32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Cross-platform open source C# game-development framework</description>
     <releaseNotes></releaseNotes>

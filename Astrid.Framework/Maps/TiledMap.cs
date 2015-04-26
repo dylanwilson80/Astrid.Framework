@@ -13,6 +13,7 @@ namespace Astrid.Maps
         }
 
         public string Name { get; set; }
+        public string BackgroundColor { get; set; }
         public string Orientation { get; set; }
         public int Version { get; set; }
         public int Width { get; set; }
