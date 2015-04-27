@@ -31,7 +31,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"D:\/Dropbox\/CraftworkGames\/Games\/VikingMatch\/tile-set-1.png",
+         "image":"tile-set-1.png",
          "imageheight":360,
          "imagewidth":360,
          "margin":0,

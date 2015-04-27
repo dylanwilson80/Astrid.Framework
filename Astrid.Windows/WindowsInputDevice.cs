@@ -38,12 +38,7 @@ namespace Astrid.Windows
 
         public override bool IsKeyUp(Keys key)
         {
-            return _keyboardState.IsKeyDown((Key) key);
-        }
-
-        public bool IsKeyDown(Key key)
-        {
-            return _keyboardState.IsKeyDown(key);
+            return _keyboardState.IsKeyUp((Key) key);
         }
 
         internal void OnMouseMove(object sender, MouseMoveEventArgs e)

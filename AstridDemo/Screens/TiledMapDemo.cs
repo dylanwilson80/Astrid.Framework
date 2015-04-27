@@ -1,11 +1,12 @@
 ﻿using Astrid;
+using Astrid.Animations;
 using Astrid.Core;
 using Astrid.Gui;
 using Astrid.Maps;
 
 namespace AstridDemo.Screens
 {
-    public class TiledMapDemo : Screen
+    public class TiledMapDemo : Screen, IKeyInputListener
     {
         public TiledMapDemo(IScreenContext game) 
             : base(game)
@@ -15,13 +16,12 @@ namespace AstridDemo.Screens
         private TiledMapRenderer _tiledMapRenderer;
         private Sprite _blob;
         private SpriteBatch _spriteBatch;
-
+        private TiledMap _tiledMap;
+        
         public override void Show()
         {
-            var tiledMap = AssetManager.Load<TiledMap>("tiled-map.json");
-
-            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, AssetManager, tiledMap, Game.Camera);
-
+            _tiledMap = AssetManager.Load<TiledMap>("tiled-map.json");
+            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, AssetManager, _tiledMap, Game.Camera);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             var texture = AssetManager.Load<Texture>("blob.png");
@@ -30,24 +30,21 @@ namespace AstridDemo.Screens
                 Position = new Vector2(45, 135)
             };
 
+            RegisterInputProcessors();
+
             base.Show();
         }
 
-        public override void Update(float deltaTime)
+        private void RegisterInputProcessors()
         {
-            base.Update(deltaTime);
-
-            if (InputDevice.IsKeyDown(Keys.Right))
-                _blob.Position += new Vector2(deltaTime * 90, 0);
-
-            if (InputDevice.IsKeyDown(Keys.Left))
-                _blob.Position += new Vector2(deltaTime * -90, 0);
-
-            if (InputDevice.IsKeyDown(Keys.Up))
-                _blob.Position += new Vector2(0, deltaTime * -90);
-
-            if (InputDevice.IsKeyDown(Keys.Down))
-                _blob.Position += new Vector2(0, deltaTime * 90);
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.Left));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.Right));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.Up));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.Down));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.W));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.A));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.S));
+            InputDevice.Processors.Add(new KeyInputProcessor(this, Keys.D));
         }
 
         public override void Render(float deltaTime)
@@ -59,6 +56,59 @@ namespace AstridDemo.Screens
             _spriteBatch.Begin(Game.Camera.GetViewMatrix());
             _blob.Draw(_spriteBatch);
             _spriteBatch.End();
+        }
+
+        private Vector2 GetKeyDirection(Keys key)
+        {
+            if (key == Keys.Left || key == Keys.A)
+                return new Vector2(-1, 0);
+
+            if (key == Keys.Right || key == Keys.D)
+                return new Vector2(1, 0);
+
+            if (key == Keys.Up || key == Keys.W)
+                return new Vector2(0, -1);
+
+            if (key == Keys.Down || key == Keys.S)
+                return new Vector2(0, 1);
+
+            return Vector2.Zero;
+        }
+
+        private bool _lockMovement;
+
+        public bool OnKeyDown(Keys key)
+        {
+            var direction = GetKeyDirection(key);
+
+            if (direction != Vector2.Zero)
+            {
+                if (_lockMovement)
+                    return false;
+
+                _lockMovement = true;
+                var tileSpaces = GetTileSpaces(direction);
+                var distance = new Vector2(_tiledMap.TileWidth, _tiledMap.TileHeight) * tileSpaces;
+                var newPosition = _blob.Position + direction * distance;
+                
+                Animations.CreateSequence(_blob)
+                    .MoveTo(newPosition, new TransitionParameters(0.1f * tileSpaces, EasingFunctions.CubicEaseIn))
+                    .Execute(() => _lockMovement = false)
+                    .Play();
+                return true;
+            }
+
+            return false;
+        }
+
+        private int GetTileSpaces(Vector2 direction)
+        {
+            return 1;
+        }
+
+        public bool OnKeyUp(Keys key)
+        {
+            return false;
         }
     }
 }

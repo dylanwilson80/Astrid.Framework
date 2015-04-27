@@ -93,6 +93,7 @@
     <Compile Include="Gui\GuiLayer.cs" />
     <Compile Include="Gui\Screen.cs" />
     <Compile Include="Gui\ScreenLayer.cs" />
+    <Compile Include="KeyInputProcessor.cs" />
     <Compile Include="Maps\TiledMapJsonLoader.cs" />
     <Compile Include="Maps\TiledMap.cs" />
     <Compile Include="Maps\TiledMapLayer.cs" />
