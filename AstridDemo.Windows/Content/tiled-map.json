@@ -1,9 +1,20 @@
 { "height":7,
  "layers":[
         {
-         "data":[1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+         "data":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          "height":7,
-         "name":"Tile Layer 1",
+         "name":"floors",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 4, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2],
+         "height":7,
+         "name":"objects",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -20,9 +31,9 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"tile-set-1.png",
-         "imageheight":90,
-         "imagewidth":180,
+         "image":"D:\/Dropbox\/CraftworkGames\/Games\/VikingMatch\/tile-set-1.png",
+         "imageheight":360,
+         "imagewidth":360,
          "margin":0,
          "name":"tile-set-1",
          "properties":

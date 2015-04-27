@@ -10,8 +10,8 @@ namespace AstridDemo.Windows
             var config = new WindowsApplicationConfig
             {
                 WindowTitle = "Astrid Demo",
-                WindowWidth = 640,
-                WindowHeight = 384,
+                WindowWidth = 480,
+                WindowHeight = 800,
             };
 
             using (var application = new WindowsApplication(config))

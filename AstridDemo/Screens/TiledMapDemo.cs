@@ -1,68 +1,10 @@
-﻿using System.Collections.Generic;
-using Astrid;
+﻿using Astrid;
 using Astrid.Core;
 using Astrid.Gui;
 using Astrid.Maps;
 
 namespace AstridDemo.Screens
 {
-    public class TiledMapRenderer
-    {
-        private readonly TiledMap _map;
-        private readonly Camera _camera;
-        private readonly SpriteBatch _spriteBatch;
-        private readonly Dictionary<int, TextureRegion> _textureRegions;
-
-        public TiledMapRenderer(GraphicsDevice graphicsDevice, AssetManager assetManager, TiledMap map, Camera camera)
-        {
-            _map = map;
-            _camera = camera;
-            _spriteBatch = new SpriteBatch(graphicsDevice);
-            _textureRegions = new Dictionary<int, TextureRegion>();
-
-            foreach (var tileSet in _map.TileSets)
-            {
-                var tileId = tileSet.FirstGid;
-                var texture = assetManager.Load<Texture>(tileSet.Image);
-
-                for(var x = 0; x < tileSet.ImageWidth; x += tileSet.TileWidth)
-                {
-                    for(var y = 0; y < tileSet.ImageHeight; y += tileSet.TileHeight)
-                    {
-                        var regionName = tileId.ToString();
-                        var tileRegion = new TextureRegion(regionName, texture, x, y, tileSet.TileWidth, tileSet.TileHeight);
-                        _textureRegions.Add(tileId, tileRegion);
-                        tileId++;
-                    }
-                }
-            }
-        }
-
-        public void Draw()
-        {
-            _spriteBatch.Begin(_camera.GetViewMatrix());
-
-            foreach (var layer in _map.Layers)
-            {
-                var tileIndex = 0;
-
-                for(var x = 0; x < layer.Width; x++)
-                {
-                    for(var y = 0; y < layer.Height; y++)
-                    {
-                        var tileId = layer.Data[tileIndex];
-                        var region = _textureRegions[tileId];
-                        var position = new Vector2(x*_map.TileWidth, y*_map.TileHeight);
-                        _spriteBatch.Draw(region, position);
-                        tileIndex++;
-                    }
-                }
-            }
-
-            _spriteBatch.End();
-        }
-    }
-
     public class TiledMapDemo : Screen
     {
         public TiledMapDemo(IScreenContext game) 
@@ -71,6 +13,8 @@ namespace AstridDemo.Screens
         }
 
         private TiledMapRenderer _tiledMapRenderer;
+        private Sprite _blob;
+        private SpriteBatch _spriteBatch;
 
         public override void Show()
         {
@@ -78,7 +22,32 @@ namespace AstridDemo.Screens
 
             _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, AssetManager, tiledMap, Game.Camera);
 
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            var texture = AssetManager.Load<Texture>("blob.png");
+            _blob = new Sprite(texture)
+            {
+                Position = new Vector2(45, 135)
+            };
+
             base.Show();
+        }
+
+        public override void Update(float deltaTime)
+        {
+            base.Update(deltaTime);
+
+            if (InputDevice.IsKeyDown(Keys.Right))
+                _blob.Position += new Vector2(deltaTime * 90, 0);
+
+            if (InputDevice.IsKeyDown(Keys.Left))
+                _blob.Position += new Vector2(deltaTime * -90, 0);
+
+            if (InputDevice.IsKeyDown(Keys.Up))
+                _blob.Position += new Vector2(0, deltaTime * -90);
+
+            if (InputDevice.IsKeyDown(Keys.Down))
+                _blob.Position += new Vector2(0, deltaTime * 90);
         }
 
         public override void Render(float deltaTime)
@@ -86,6 +55,10 @@ namespace AstridDemo.Screens
             base.Render(deltaTime);
 
             _tiledMapRenderer.Draw();
+
+            _spriteBatch.Begin(Game.Camera.GetViewMatrix());
+            _blob.Draw(_spriteBatch);
+            _spriteBatch.End();
         }
     }
 }
