@@ -23,7 +23,7 @@ namespace Astrid
                 {typeof(SoundEffect), new SoundEffectLoader()},
                 {typeof(Music), new MusicLoader()},
                 {typeof(BitmapFont), new BitmapFontLoader()},
-                {typeof(TiledMap), new TiledMapJsonLoader()}            
+                {typeof(TiledMap), new TiledMapJsonLoader(deviceManager.GraphicsDevice)}            
             };
         }
 

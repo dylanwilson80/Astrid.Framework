@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Astrid.Windows;
+﻿using Astrid.Windows;
 
 namespace AstridDemo.Windows
 {

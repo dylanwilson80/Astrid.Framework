@@ -2,6 +2,7 @@
 using Astrid.Animations;
 using Astrid.Core;
 using Astrid.Gui;
+using Astrid.Gui.Fonts;
 using Astrid.Maps;
 
 namespace AstridDemo.Screens
@@ -13,15 +14,14 @@ namespace AstridDemo.Screens
         {
         }
 
-        private TiledMapRenderer _tiledMapRenderer;
         private Sprite _blob;
         private SpriteBatch _spriteBatch;
         private TiledMap _tiledMap;
-        
+        private BitmapFont _font;
+
         public override void Show()
         {
             _tiledMap = AssetManager.Load<TiledMap>("tiled-map.json");
-            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, AssetManager, _tiledMap, Game.Camera);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             var texture = AssetManager.Load<Texture>("blob.png");
@@ -31,6 +31,8 @@ namespace AstridDemo.Screens
             };
 
             RegisterInputProcessors();
+
+            _font = AssetManager.Load<BitmapFont>("courier-new-32.fnt");
 
             base.Show();
         }
@@ -51,10 +53,21 @@ namespace AstridDemo.Screens
         {
             base.Render(deltaTime);
 
-            _tiledMapRenderer.Draw();
+            _tiledMap.Draw(Game.Camera);
 
             _spriteBatch.Begin(Game.Camera.GetViewMatrix());
             _blob.Draw(_spriteBatch);
+
+            for (int y = 0; y < _tiledMap.Height; y++)
+            {
+                for (int x = 0; x < _tiledMap.Width; x++)
+                {
+                    var tx = x*_tiledMap.TileWidth;
+                    var ty = y*_tiledMap.TileHeight;
+                    var text = _tiledMap.GetTileAt(1, x, y).ToString();
+                    _font.Draw(_spriteBatch, text, tx, ty);
+                }
+            }
             _spriteBatch.End();
         }
 
@@ -84,7 +97,7 @@ namespace AstridDemo.Screens
             if (direction != Vector2.Zero)
             {
                 if (_lockMovement)
-                    return false;
+                    return true;
 
                 _lockMovement = true;
                 var tileSpaces = GetTileSpaces(direction);
@@ -95,6 +108,7 @@ namespace AstridDemo.Screens
                     .MoveTo(newPosition, new TransitionParameters(0.1f * tileSpaces, EasingFunctions.CubicEaseIn))
                     .Execute(() => _lockMovement = false)
                     .Play();
+
                 return true;
             }
 
@@ -103,7 +117,7 @@ namespace AstridDemo.Screens
 
         private int GetTileSpaces(Vector2 direction)
         {
-            return 1;
+            return _tiledMap.GetTileAtPosition(1, _blob.Position);
         }
 
         public bool OnKeyUp(Keys key)
