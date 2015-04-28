@@ -64,7 +64,7 @@ namespace AstridDemo.Screens
                 {
                     var tx = x*_tiledMap.TileWidth;
                     var ty = y*_tiledMap.TileHeight;
-                    var text = _tiledMap.GetTileAt(1, x, y).ToString();
+                    var text = _tiledMap.GetTileAt(1, x, y).Id.ToString();
                     _font.Draw(_spriteBatch, text, tx, ty);
                 }
             }
@@ -117,7 +117,26 @@ namespace AstridDemo.Screens
 
         private int GetTileSpaces(Vector2 direction)
         {
-            return _tiledMap.GetTileAtPosition(1, _blob.Position);
+            var tileSpaces = 0;
+            var playerTile = _tiledMap.GetTileAtPosition(1, _blob.Position);
+            var tileId = 0;
+            var x = playerTile.X;
+            var y = playerTile.Y;
+
+            while (tileId == 0)
+            {
+                x += (int)direction.X;
+                y += (int)direction.Y;
+                var tile = _tiledMap.GetTileAt(1, x, y);
+                
+                if (tile == null)
+                    return tileSpaces;
+                
+                tileId = tile.Id;
+                tileSpaces++;
+            }
+
+            return tileSpaces - 1;
         }
 
         public bool OnKeyUp(Keys key)

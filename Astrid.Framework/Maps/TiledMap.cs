@@ -3,6 +3,22 @@ using Astrid.Core;
 
 namespace Astrid.Maps
 {
+    public class TileInfo
+    {
+        public TileInfo(int id, int x, int y, int layerIndex)
+        {
+            X = x;
+            Y = y;
+            Id = id;
+            LayerIndex = layerIndex;
+        }
+
+        public int Id { get; private set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
+        public int LayerIndex { get; private set; }
+    }
+
     public class TiledMap : IAsset
     {
         private readonly TiledMapData _data;
@@ -71,13 +87,23 @@ namespace Astrid.Maps
             _spriteBatch.End();
         }
 
-        public int GetTileAt(int layerIndex, int x, int y)
+        public TileInfo GetTileAt(int layerIndex, int x, int y)
         {
+            if (layerIndex >= _data.Layers.Count)
+                return null;
+
+            if (x < 0 || x >= _data.Width)
+                return null;
+
+            if (y < 0 || y >= _data.Height)
+                return null;
+
             var layer = _data.Layers[layerIndex];
-            return layer.Data[y * layer.Width + x];
+            var id = layer.Data[y * layer.Width + x];
+            return new TileInfo(id, x, y, layerIndex);
         }
 
-        public int GetTileAtPosition(int layerIndex, Vector2 position)
+        public TileInfo GetTileAtPosition(int layerIndex, Vector2 position)
         {
             var x = (int) (position.X / TileWidth);
             var y = (int) (position.Y / TileHeight);
