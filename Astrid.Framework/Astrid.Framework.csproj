@@ -99,6 +99,7 @@
     <Compile Include="Maps\TiledMap.cs" />
     <Compile Include="Maps\TiledMapLayer.cs" />
     <Compile Include="Maps\TiledMapTileSet.cs" />
+    <Compile Include="Maps\TileInfo.cs" />
     <Compile Include="ScreenViewport.cs" />
     <Compile Include="Gui\SpriteLayer.cs" />
     <Compile Include="StretchViewport.cs" />

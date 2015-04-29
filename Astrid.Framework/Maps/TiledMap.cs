@@ -3,23 +3,7 @@ using Astrid.Core;
 
 namespace Astrid.Maps
 {
-    public class TileInfo
-    {
-        public TileInfo(int id, int x, int y, int layerIndex)
-        {
-            X = x;
-            Y = y;
-            Id = id;
-            LayerIndex = layerIndex;
-        }
-
-        public int Id { get; private set; }
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public int LayerIndex { get; private set; }
-    }
-
-    public class TiledMap : IAsset
+    public class TiledMap : IMovable, IAsset
     {
         private readonly TiledMapData _data;
         private readonly SpriteBatch _spriteBatch;
@@ -57,6 +41,7 @@ namespace Astrid.Maps
         public int TileHeight { get { return _data.TileHeight; } }
         public int Width { get { return _data.Width; } }
         public int Height { get { return _data.Height; } }
+        public Vector2 Position { get; set; }
 
         public void Draw(Camera camera)
         {
@@ -75,8 +60,9 @@ namespace Astrid.Maps
                         if (tileId != 0)
                         {
                             var region = _textureRegions[tileId];
-                            var position = new Vector2(x * _data.TileWidth, y * _data.TileHeight);
-                            _spriteBatch.Draw(region, position);
+                            var tileOffset = new Vector2(x * _data.TileWidth, y * _data.TileHeight);
+                            var tilePosition = Position + tileOffset;
+                            _spriteBatch.Draw(region, tilePosition);
                         }
 
                         tileIndex++;
@@ -87,7 +73,7 @@ namespace Astrid.Maps
             _spriteBatch.End();
         }
 
-        public TileInfo GetTileAt(int layerIndex, int x, int y)
+        public ITileInfo GetTileAt(int layerIndex, int x, int y)
         {
             if (layerIndex >= _data.Layers.Count)
                 return null;
@@ -100,13 +86,14 @@ namespace Astrid.Maps
 
             var layer = _data.Layers[layerIndex];
             var id = layer.Data[y * layer.Width + x];
-            return new TileInfo(id, x, y, layerIndex);
+            return new TileInfo(this, id, x, y, layerIndex);
         }
 
-        public TileInfo GetTileAtPosition(int layerIndex, Vector2 position)
+        public ITileInfo GetTileAtPosition(int layerIndex, Vector2 position)
         {
-            var x = (int) (position.X / TileWidth);
-            var y = (int) (position.Y / TileHeight);
+            var offset = position - Position;
+            var x = (int)(offset.X / TileWidth);
+            var y = (int)(offset.Y / TileHeight);
             return GetTileAt(layerIndex, x, y);
         }
     }

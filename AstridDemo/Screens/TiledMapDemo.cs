@@ -22,12 +22,14 @@ namespace AstridDemo.Screens
         public override void Show()
         {
             _tiledMap = AssetManager.Load<TiledMap>("tiled-map.json");
+            _tiledMap.Position = new Vector2(15, 40);
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             var texture = AssetManager.Load<Texture>("blob.png");
             _blob = new Sprite(texture)
             {
-                Position = new Vector2(45, 135)
+                Position = _tiledMap.GetTileAt(1, 0, 0).Centre
             };
 
             RegisterInputProcessors();
@@ -56,18 +58,22 @@ namespace AstridDemo.Screens
             _tiledMap.Draw(Game.Camera);
 
             _spriteBatch.Begin(Game.Camera.GetViewMatrix());
-            _blob.Draw(_spriteBatch);
-
+            
             for (int y = 0; y < _tiledMap.Height; y++)
             {
                 for (int x = 0; x < _tiledMap.Width; x++)
                 {
-                    var tx = x*_tiledMap.TileWidth;
-                    var ty = y*_tiledMap.TileHeight;
-                    var text = _tiledMap.GetTileAt(1, x, y).Id.ToString();
-                    _font.Draw(_spriteBatch, text, tx, ty);
+                    var tileInfo = _tiledMap.GetTileAt(1, x, y);
+                    var text = tileInfo.Id.ToString();
+                    var tx = (int) tileInfo.Centre.X;
+                    var ty = (int) tileInfo.Centre.Y;
+                    var rectangle = _font.MeasureText(text, tx, ty);
+                    var color = new Color(Color.Black, 0.5f);
+                    _font.Draw(_spriteBatch, text, tx - rectangle.Width / 2, ty - rectangle.Height / 2, color);
                 }
             }
+
+            _blob.Draw(_spriteBatch);
             _spriteBatch.End();
         }
 
@@ -120,8 +126,8 @@ namespace AstridDemo.Screens
             var tileSpaces = 0;
             var playerTile = _tiledMap.GetTileAtPosition(1, _blob.Position);
             var tileId = 0;
-            var x = playerTile.X;
-            var y = playerTile.Y;
+            var x = playerTile.XIndex;
+            var y = playerTile.YIndex;
 
             while (tileId == 0)
             {
