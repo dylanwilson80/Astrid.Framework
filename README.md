@@ -2,7 +2,7 @@
 
 ## No longer under active development
 
-Astrid is an **experimental** C# game-development framework inspired by [LibGDX](https://libgdx.badlogicgames.com/). I wrote it from scratch between January and April 2015. Technically the project was a success, proving that a cross-platform game framework can be made with 90% of the code in [Portable Class Libararies](https://msdn.microsoft.com/en-us/library/vstudio/gg597391(v=vs.100).aspx). Unfortunately, after 5 months of active development I found it very difficult to traction and decided to focus my energy into [helping other game developers](http://dylanwilson.net/) instead.
+Astrid is an **experimental** C# game-development framework inspired by [LibGDX](https://libgdx.badlogicgames.com/). I wrote it from scratch between January and April 2015. Technically the project was a success, proving that a cross-platform game framework can be made with 90% of the code in [Portable Class Libararies](https://msdn.microsoft.com/en-us/library/vstudio/gg597391(v=vs.100).aspx). Unfortunately, after 5 months of active development I found it very difficult to get traction and decided to focus my energy into [helping other game developers](http://dylanwilson.net/) instead.
 
 ## How it works
 
